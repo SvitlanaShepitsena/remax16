@@ -1,0 +1,28 @@
+.card
+    a.display-block(ui-sref='app.brokers.broker.profile({id:agent.$id})' style="text-decoration:none")
+        div(layout='row')
+            div.m
+                sv-img-background.sv-img-thumb(sv-image="agent.pic" img-width="100" img-height="100" )
+            div.m
+                p.fs-title.tc-grey-900 {{agent.fName}} {{agent.lName}}
+                p.fs-title.tc-grey-700 {{agent.phone}}
+                div(layout='row')
+                    div.tc-amber-600.mr
+                        span
+                            i.fa.fa-star.fa-fw
+                        span
+                            i.fa.fa-star.fa-fw
+                        span
+                            i.fa.fa-star.fa-fw
+                        span
+                            i.fa.fa-star.fa-fw
+                        span
+                            i.fa.fa-star.fa-fw
+                    span
+                        .tc-blue-600 15 customer reviews
+                div(layout='row')
+                    p.tc-grey-700 15 Recent Sales
+                div
+                    p.tc-grey-700 {{agent.countSale}} Active Listings
+                div
+                    p.tc-grey-700 Phone: (847) 674-9797

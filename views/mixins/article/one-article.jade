@@ -1,0 +1,40 @@
+mixin one-article(article)
+    .card.sv-paper-elements-background(class='m pb+')
+        div
+            div(class='p+')
+                div(layout='row' layout-align="space-between center")
+                    div
+                        a.btn.btn--xs.btn--grey.btn--flat.mt(href='/' id="linkBack")
+                            i.fa.fa-arrow-left.mr
+                            | All Chicago News
+                    div.p(layout='row' layout-align='space-between center' flex='50')
+                        div
+                            span.fs-body-2.display-block.tc-blue-grey-500(style='font-weight:300;text-decoration:underline') !{article.topic}
+                        a.fs-body-1.label.label-default.bgc-blue-grey-500(href="/sections/#{article.section}" )
+                            i.fa.fa-folder.fa-fw &nbsp
+                            = article.section
+                div
+                    span.display-block.fs-display-1 !{article.title}
+                div.tc-grey-600
+                    span.fs-caption.tc-red-200 Svet Russian Media Group
+                div.tc-grey-600
+                    span.fs-body-1 Author: &nbsp
+                    span.fs-body-2.tc-blue-grey-500= article.author
+                div.tc-grey-600
+                    span.fs-caption.tc-grey-500= article.timestamp
+                div(class='mb+')
+                    p.fs-body-2  !{article.body}
+        if article.comments !== undefined
+            div
+                .bgc-grey-200(class='p+')
+                    span.toolbar__label.fs-title.tc-grey-700 Comments
+                div
+                    ul.list-unstyled
+                        for c in article.comments
+                            li
+                                div(layout="row")
+                                    .ml.mr(style="" )
+                                        img(src="#{c.avatar}" style="width:32px;height:32px")
+                                    .ml.mr= c.body
+
+

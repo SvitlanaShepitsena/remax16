@@ -1,0 +1,7 @@
+div
+    div(ng-if='mapCenter')
+        map(center='{{mapCenter}}' zoom='10')
+            marker(ng-repeat="pos in positions" position="{{pos.lat}}, {{pos.lng}}")
+    div(layout='row' layout-wrap)
+        //div(flex-sm='100' flex-gt-sm='50' flex-gt-md='50' ng-repeat='home in homes track by $index')
+        //    sv-listing-thumb(home="home")

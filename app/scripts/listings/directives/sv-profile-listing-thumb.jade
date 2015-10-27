@@ -1,0 +1,24 @@
+.card.m.pt.pb
+    div(layout='column')
+        div(layout='row')
+            .pl.pr(flex='')
+                p.fs-body-2.tc-grey-800 {{home.type}}
+            .pl.pr(flex='' class='text-right')
+                p.fs-subhead.tc-grey-700(style="font-weight:bold") {{home.price|currency:'$':0}}
+        a(ui-sref='.one({mls:home.mls})' )
+            div(layout='row')
+                .m(style="min-width:90px")
+                    sv-img-background.sv-img-thumb(sv-image="home.images[0]" img-width="{{90}}" img-height="{{60}}" style="margin:0px auto")
+                a.display-block.sv-link-visited-image(ui-sref='app.remax-listing({mls:home.mls})' style="text-decoration:none")
+                    p.tc-grey-800 MLS#: {{home.mls}}
+                    p.fs-body-2.tc-grey-600 {{home.address.street}}
+                    p.fs-body-2.tc-grey-600 {{home.address.city}}, {{home.address.state}}, {{home.address.zip}}
+        div(layout='row' layout-align-gt-sm="start" layout-align-sm="center")
+            div.p(flex )
+                a.btn.btn--xs.btn--white.btn--raised.tc-teal-500(lx-ripple='' style="width:100%" ui-sref='app.user.listings.one.edit({mls:home.mls})')
+                    i.fa.fa-pencil.fa-fw &nbsp
+                    | Edit
+            div.p(flex )
+                a.btn.btn--xs.btn--white.btn--raised.tc-blue-500(lx-ripple=''  style="width:100%" ui-sref='.one({mls:home.mls})')
+                    i.fa.fa-eye.fa-fw &nbsp
+                    | View

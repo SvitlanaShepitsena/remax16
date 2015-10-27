@@ -1,0 +1,10 @@
+div(ui-view="")
+    sv-profile-title(header-title='My Listings')
+    .ml.mr.tc-blue-500 You have &nbsp
+        span.fs-subhead {{brokerHomes.length || 'No Data Avaliable'}} &nbsp
+        | active listings
+    md-divider.m
+    div(layout='row' layout-wrap )
+        div(flex-sm='100' flex-gt-sm='50' flex-gt-md='33' ng-repeat='home in brokerHomes track by $index')
+            sv-profile-listing-thumb(home="home")
+

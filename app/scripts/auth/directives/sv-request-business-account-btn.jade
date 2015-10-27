@@ -1,0 +1,6 @@
+div
+	div()
+		div(ng-if='user.profile.requestCorporateSubmited').svet-corporate
+			button.btn.btn--xs.btn--raised.btn--white(lx-ripple ng-click='cancelRequest()') Cancel Business Account Request
+		div(ng-if='!user.profile.requestCorporateSubmited').svet-corporate
+			button.btn.btn--xs.btn--raised.btn--white(lx-ripple ng-click='submitRequest()' ) Request Business Account

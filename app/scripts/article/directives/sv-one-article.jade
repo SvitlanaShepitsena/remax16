@@ -1,0 +1,45 @@
+.card(class='m pb+')
+    div
+        sv-one-article-menu(news='news')
+        div(class='p+')
+            div.p(layout='row' layout-align='space-between center')
+                span.tc-red-300.fs-caption.display-block(style='font-weight:500'  ng-show="news.topic")
+                    i.fa.fa-tag.fa-fw(style="margin-right:4px")
+                    | {{news.topic|urlDecoderFr |uppercase}}
+                sv-svet-label(icon-type="fa"
+                fs="fs-caption"
+                tc="tc-blue-grey-600"
+                bgc="bgc-grey-200"
+                icon-name="fa-bookmark" ng-show="news.section"
+                section-title="{{news.section|uppercase}}" route-name='app.section' params="params"  text-decoration="underline"  cursor-type="pointer" )
+            div
+                span.display-block.fs-display-1 {{news.title|urlDecoderFr}}
+            div.tc-grey-600
+                span.mdc-display-inline-block.mb.fs-caption.tc-grey-500 {{article.timestamp|date}}
+            div.tc-grey-600
+                span.fs-body-1 {{'author'|translate}}: &nbsp
+                span.fs-body-2 {{news.author|authorNameFr}}
+            div.tc-grey-600.mb
+                span.fs-body-1 {{'date'|translate}}: &nbsp
+                span.fs-caption {{news.timestamp|date}}
+            div(layout='row')
+                .mr
+                    sv-fb-like
+                .mr
+                    sv-fb-share
+                .mr
+                    sv-google-share
+            div(class='mb+ ')
+                .article-body(ng-bind-html='news.body')
+            div.tc-grey-600(ng-if="news.imgsource")
+                span.fs-body-1 {{'image-source'|translate}}: &nbsp
+                a.tc-blue-grey-400(target="_blank" href="{{news.imgsource}}").fs-body-2 {{news.imgsource}}
+        sv-one-article-menu(news='news')
+    .bgc-grey-200(class='p+')
+        span.toolbar__label.fs-title.tc-grey-700 {{'comments'|translate}}
+    div
+        sv-add-comment(article-key='news.$id')
+        ul.list-unstyled
+            li.ml.mr(ng-repeat='(key,c) in comments|orderBy:"-timestamp"')
+                sv-one-comment(comment='c' remove-comment='removeComment(c.$id)' article-key='{{news.$id}}')
+

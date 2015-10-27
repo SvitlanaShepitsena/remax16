@@ -1,0 +1,100 @@
+div
+    form(name='listingForm' flow-init novalidate sv-form-val )
+        div(layout='row' layout-align='space-between center')
+            div
+                sv-profile-title(header-title='New Listing')
+            div
+                button.btn.btn--s.btn--blue.btn--raised.ml.mr(lx-ripple='' ng-disabled="listingForm.$pristine" ng-click='saveListing(listing)')
+                    i.fa.fa-save.fa-fw &nbsp
+                    | Save Listing
+                button.btn.btn--s.btn--white.btn--raised.ml.mr(lx-ripple=''  ng-disabled="listingForm.$pristine")
+                    i.fa.fa-close.fa-fw &nbsp
+                    | Cancel
+        md-tabs.card.bgc-grey-50(md-selected='listingTabIndex' md-dynamic-height="" md-stretch-tabs="never" style='min-height:230px' md-autoselect md-border-bottom)
+            md-tab(md-on-select="switchTab(1)" )
+                md-tab-label 1. Info
+                md-tab-body
+                    sv-form-info
+                    div(layout='row' layout-align="end center")
+                        button.btn.btn--s.btn--blue.btn--raised(lx-ripple='' class='ml mr mb+')
+                            | Next &nbsp
+                            i.fa.i.fa.fa-angle-right.fa-fw
+            md-tab(md-on-select="switchTab(2)")
+                md-tab-label 2. Description
+                md-tab-body.pb
+                    sv-form-description
+                    div.ml.mr(layout='row' layout-align="end center")
+                        button.btn.btn--s.btn--red.btn--raised(lx-ripple='' class='ml mr mb+')
+                            i.fa.i.fa.fa-angle-left.fa-fw
+                            | Previous &nbsp
+                        button.btn.btn--s.btn--blue.btn--raised(lx-ripple='' class='ml mr mb+')
+                            | Next &nbsp
+                            i.fa.i.fa.fa-angle-right.fa-fw
+            md-tab(md-on-select="switchTab(3)")
+                md-tab-label 3. Interior
+                md-tab-body
+                    sv-form-interior
+                    div.ml.mr(layout='row' layout-align="end center")
+                        button.btn.btn--s.btn--red.btn--raised(lx-ripple='' class='ml mr mb+')
+                            i.fa.i.fa.fa-angle-left.fa-fw
+                            | Previous &nbsp
+                        button.btn.btn--s.btn--blue.btn--raised(lx-ripple='' class='ml mr mb+')
+                            | Next &nbsp
+                            i.fa.i.fa.fa-angle-right.fa-fw
+            md-tab(md-on-select="switchTab(4)")
+                md-tab-label 4. Exterior
+                md-tab-body
+                    sv-form-exterior
+                    div.ml.mr(layout='row' layout-align="end center")
+                        button.btn.btn--s.btn--red.btn--raised(lx-ripple='' class='ml mr mb+')
+                            i.fa.i.fa.fa-angle-left.fa-fw
+                            | Previous &nbsp
+                        button.btn.btn--s.btn--blue.btn--raised(lx-ripple='' class='ml mr mb+')
+                            | Next &nbsp
+                            i.fa.i.fa.fa-angle-right.fa-fw
+            md-tab(md-on-select="switchTab(5)")
+                md-tab-label 5. Utilities
+                md-tab-body
+                    sv-form-utilities
+                    div.ml.mr(layout='row' layout-align="end center")
+                        button.btn.btn--s.btn--red.btn--raised(lx-ripple='' class='ml mr mb+')
+                            i.fa.i.fa.fa-angle-left.fa-fw
+                            | Previous &nbsp
+                        button.btn.btn--s.btn--blue.btn--raised(lx-ripple='' class='ml mr mb+')
+                            | Next &nbsp
+                            i.fa.i.fa.fa-angle-right.fa-fw
+            md-tab(md-on-select="switchTab(6)")
+                md-tab-label 6. Taxes
+                md-tab-body
+                    sv-form-taxes
+                    div.ml.mr(layout='row' layout-align="end center")
+                        button.btn.btn--s.btn--red.btn--raised(lx-ripple='' class='ml mr mb+')
+                            i.fa.i.fa.fa-angle-left.fa-fw
+                            | Previous &nbsp
+                        button.btn.btn--s.btn--blue.btn--raised(lx-ripple='' class='ml mr mb+')
+                            | Next &nbsp
+                            i.fa.i.fa.fa-angle-right.fa-fw
+            md-tab(md-on-select="switchTab(7)")
+                md-tab-label 7. Public Facts
+                md-tab-body
+                    sv-form-public-facts
+                    div.ml.mr(layout='row' layout-align="end center")
+                        button.btn.btn--s.btn--red.btn--raised(lx-ripple='' class='ml mr mb+')
+                            i.fa.i.fa.fa-angle-left.fa-fw
+                            | Previous &nbsp
+                        button.btn.btn--s.btn--blue.btn--raised(lx-ripple='' class='ml mr mb+')
+                            | Next &nbsp
+                            i.fa.i.fa.fa-angle-right.fa-fw
+            md-tab(md-on-select="switchTab(8)")
+                md-tab-label 8. Photos
+                md-tab-body
+                    sv-form-photos
+                    div.ml.mr(layout='row' layout-align="end center")
+                        button.btn.btn--s.btn--red.btn--raised(lx-ripple='' class='ml mr mb+')
+                            i.fa.i.fa.fa-angle-left.fa-fw
+                            | Previous &nbsp
+                        button.btn.btn--s.btn--blue.btn--raised(lx-ripple='' class='ml mr mb+')
+                            | Next &nbsp
+                            i.fa.i.fa.fa-angle-right.fa-fw
+
+

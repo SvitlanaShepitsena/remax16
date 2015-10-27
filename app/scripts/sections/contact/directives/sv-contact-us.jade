@@ -1,0 +1,17 @@
+.card(class='mb++')
+    .bgc-grey-200.p
+        span.display-block.fs-headline.m {{companyName}}
+    md-divider
+    .p.ml.mr
+        span.display-block.fs-body-1.mt {{companyStreet}}
+        span.display-block.fs-body-1 {{companyCity}}, {{companyState}}, {{companyZip}}
+        span.display-block.fs-body-1
+            i.mdi.mdi-phone
+            | &nbsp {{companyPhone}}
+        span.display-block.fs-body-1
+            i.mdi.mdi-deskphone
+            | &nbsp {{companyFax}}
+        span.display-block.fs-body-1
+            i.mdi.mdi-email
+            | &nbsp {{companyEmail}}
+

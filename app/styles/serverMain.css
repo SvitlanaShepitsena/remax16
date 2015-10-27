@@ -1,0 +1,27 @@
+.sepia-50 {
+  -webkit-filter: sepia(50%);
+}
+.brightness {
+  -webkit-filter: brightness(0.9);
+}
+.sv-margin-reset {
+  margin: 0px;
+}
+.sv-padding-reset {
+  padding: 0px;
+}
+.sv-divider-light {
+  border-top: 1px rgba(0,0,0,0.118) solid;
+}
+.sv-paper-main-background {
+  background: url("https://s3-us-west-2.amazonaws.com/svet.com/common/newspaper-100-transparent-80.jpg") 0 0 repeat;
+}
+.sv-paper-toolbar-background {
+  background: url("https://s3-us-west-2.amazonaws.com/svet.com/common/newspaper-100.jpg") 0 0 repeat;
+}
+.sv-paper-elements-background {
+  background: url("https://s3-us-west-2.amazonaws.com/svet.com/common/newspaper-100-transparent-60.jpg") 0 0 repeat;
+}
+.sv-news-vintage-background {
+  background: url("https://s3-us-west-2.amazonaws.com/svet.com/common/vintage-newspaper-pattern-transparent.jpg") 0 0 repeat;
+}

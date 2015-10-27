@@ -1,0 +1,38 @@
+div(class='pl+ pr+ pb++')
+    md-radio-group(layout='row', layout-sm='column' ng-model='listing.status')
+        md-radio-button(value='active') Active
+        md-radio-button(value='sold') Sold
+        md-radio-button(value='inactive') Inactive
+    div(layout='row', layout-sm='column' layout-align-gt-sm='space-between end')
+        md-input-container.md-input-container-article(flex-gt-sm="25")
+            label MLS #
+            input(ng-model='listing.mls' name='mls' )
+        md-input-container.md-input-container-checkbox(flex-gt-sm="25")
+            md-checkbox(ng-model='listing.shortSale' name='shortSale' )
+                | Short Sale
+        md-input-container.md-input-container-checkbox(flex-gt-sm="25")
+            md-checkbox(ng-model='listing.foreclosure' name='foreclosure' )
+                | Foreclosure
+        md-input-container.md-input-container-checkbox(flex-gt-sm="25")
+            md-checkbox(ng-model='listing.bankOwned' name='bankOwned' )
+                | Bank Owned
+    div(layout='row', layout-sm='column' layout-align-gt-sm='space-between center')
+        md-input-container.md-input-container-article(flex-gt-sm="25")
+            label Street
+            input(ng-model='listing.address.street' sv-url-decode name='street' )
+        md-input-container.md-input-container-article(flex-gt-sm="25")
+            label City
+            input(ng-model='listing.address.city' sv-url-decode name='city' )
+        md-input-container.md-input-container-article(flex-gt-sm="25")
+            label State
+            input(ng-model='listing.address.state' sv-url-decode name='state' )
+        md-input-container.md-input-container-article(flex-gt-sm="25")
+            label Zip
+            input(ng-model='listing.address.zip' sv-url-decode name='zip' )
+    div(layout='row', layout-sm='column' layout-align-gt-sm='start center')
+        md-input-container.md-input-container-article(flex-gt-sm="25" flex-sm="")
+            label Price
+            input(ng-model='listing.price' sv-url-decode name='price' )
+        md-input-container.md-input-container-article(flex-gt-sm="25" flex-sm="")
+            label Year Built
+            input(ng-model='listing.year' sv-url-decode name='year' )

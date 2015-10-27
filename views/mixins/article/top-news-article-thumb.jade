@@ -1,0 +1,21 @@
+include ../common/read-more
+
+mixin top-news-article-thumb(topNews)
+    .card.pb.sv-paper-elements-background
+        div.p.sv-paper-toolbar-background
+            span.display-block.fs-subhead.tc-red-800.sv-color-7(style='font-weight:600')= topNews.topic
+        md-divider.sv-divider-light
+        div(layout='row' layout-align='center')
+            a(href='/articles/#{topNews.fbkey}')
+                .card__img.card__img--top(style='padding:0px !important')
+                    div(style='border:1px #F5F5F5 solid;position:relative;overflow:hidden;width:390px;height:260px')
+                        img.sepia-50(src="#{topNews.img}" style='position:relative;width:100%;display:block')
+                    span.mdc-display-inline-block.fs-title.tc-white.bgc-white.sv-color-8(style='padding:4px 8px;margin: 0px -15px')= topNews.title
+                    span.mdc-display-inline-block.fs-title.tc-white.bgc-red-800.sv-color-7(style='padding:4px 8px;margin: 0px -15px')= topNews.title
+        .p
+            span.fs-caption.display-block.tc-grey-500= topNews.author
+            span.fs-body-1.display-block !{topNews.summary}
+        div(layout='row' layout-align='end start' class='pr')
+            +read-more(topNews.fbkey)
+
+

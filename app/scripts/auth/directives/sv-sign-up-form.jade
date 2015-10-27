@@ -1,0 +1,28 @@
+.card(class='mb pb++')
+    .bgc-grey-200(class='pl+ pr+ pt pb' layout-gt-sm='row' layout-sm="column" layout-align-gt-sm='space-between center' class='pt+ pb+ pl pr')
+        .fs-title.mb.tc-grey-700
+            i.mdi.mdi-airballoon &nbsp
+            | {{headerTitle|translate}}
+        sv-form-social-buttons
+    div(class='p+')
+        form.mt(name='signUpForm' novalidate sv-form-val)
+            md-input-container
+                label {{'name'|translate}}
+                input(type='text' name='userName'  ng-model='user.userName' sv-unique-username ng-minlength="3" ng-maxlength="200" required="error" )
+            md-input-container
+                label {{'email'|translate}}
+                input(type='email' ng-model='user.email' name='email' required)
+            md-input-container
+                label {{'password'|translate}}
+                input(type='password' ng-minlength="6" ng-maxlength="200" ng-model='user.password' name='password' required)
+        div(layout='row' layout-align='start center' )
+            md-checkbox(ng-model='user.acceptPolicy' aria-label='terms')
+            a.dispaly-block.fs-body-2(style='border-bottom: #393939 1px dotted; line-height:14px; cursor:pointer' ng-click="termsConditionsModal()") {{conditions|translate}}
+    div.bgc-white-1(class='p+')
+        div(layout='row' class="mb+")
+            button.btn.btn--s.btn--raised.btn--white(lx-ripple ng-click='createSvetUser()' ng-disabled='!user.acceptPolicy')
+                i.mdi.mdi-check &nbsp
+                | {{register|translate}}
+    div.text-center.mt
+        span.fs-subhead.tc-grey-700 Already have an account?
+        a.btn.btn--xs.btn--blue.btn--flat(lx-ripple ui-sref='app.svet-login') {{login|translate}}

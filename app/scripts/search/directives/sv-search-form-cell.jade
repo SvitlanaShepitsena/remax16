@@ -1,0 +1,70 @@
+form.mt(layout="column" name="searchForm" id="searchForm"  novalidate sv-form-val class='ml mr' ng-submit='runSearch(query)')
+    div(layout='row' layout-sm="column" class="ml mr" )
+        md-autocomplete(class="mb"
+        style="min-width:250px"
+        md-selected-item="selectedItem"
+        md-autofocus='true'
+        md-min-length='1'
+        md-autoselect='true'
+        md-search-text-change="searchTextChange(query.address)"
+        md-search-text="query.address"
+        md-selected-item-change="selectedItemChange(item)"
+        md-items="item in querySearch(query.address)"
+        md-item-text="item.display"
+        placeholder="Street, City, State")
+            md-item-template()
+                i.fa.fa-map-marker.tc-grey-500.fa-fw.mr
+                span(md-highlight-text="query.address" md-highlight-flags="^i") {{item.display}}
+        button.btn.btn--m.btn--red.btn--raised.bgc-red-700.mb(lx-ripple='' style="padding-left:26px;padding-right:26px" flex-sm="" flex-order-sm="1")
+            i.fa.fa-search.fa-fw &nbsp
+            | Search
+    div.bgc-grey-100(layout='row')
+        md-radio-group(ng-model='query.listType' class="md-primary")
+            md-radio-button(style="display:inline-block" ng-value="sale")
+                | For Sale
+            md-radio-button(style="display:inline-block" ng-value="rent" ng-disabled="true")
+                | For Rent
+    md-divider.mb
+    div(layout-gt-sm='row' layout-sm="column")
+        div
+            .fs-subhead.ml.mr Property Type:
+            md-radio-group(ng-model='query.type' class="md-primary")
+                md-radio-button(ng-value='t.$value', ng-repeat='t in types')
+                    | {{t.$value}}
+        div
+            .fs-subhead.ml.mr Bedrooms:
+            md-checkbox.md-warn.md-align-top-left(ng-model='query.bedrooms', aria-label='Checkbox 2', ng-true-value="'yup'", ng-false-value="'nope'")
+                | Studio
+                br
+            md-checkbox.md-warn.md-align-top-left(ng-model='query.bedrooms1', aria-label='Checkbox 3', ng-true-value="'yup'", ng-false-value="'nope'")
+                | 1 Bedroom
+                br
+            md-checkbox.md-warn.md-align-top-left(ng-model='query.bedrooms2', aria-label='Checkbox 4', ng-true-value="'yup'", ng-false-value="'nope'")
+                | 2 Bedrooms
+                br
+            md-checkbox.md-warn.md-align-top-left(ng-model='query.bedrooms3', aria-label='Checkbox 5', ng-true-value="'yup'", ng-false-value="'nope'")
+                | 3 Bedrooms
+                br
+            md-checkbox.md-warn.md-align-top-left(ng-model='query.bedrooms4', aria-label='Checkbox 6', ng-true-value="'yup'", ng-false-value="'nope'")
+                | 4 Bedrooms
+                br
+        div(layout='column')
+            .fs-subhead.ml.mr Price:
+            div(layout='row' )
+                md-input-container(class='ml sv-select-container' flex='' )
+                    label Min Price
+                    input(ng-model='query.maxPrice' name='maxPrice')
+                md-input-container(class='ml sv-select-container' flex='' )
+                    label Max Price
+                    input(ng-model='query.maxPrice' name='maxPrice')
+            br
+            div
+                .fs-subhead.ml.mr Pets:
+                div(layout='row')
+                    md-checkbox.md-warn.md-align-top-left(ng-model='query.cats', aria-label='Checkbox 2', ng-true-value="'yup'", ng-false-value="'nope'")
+                        | Cats
+                        br
+                    md-checkbox.md-warn.md-align-top-left(ng-model='query.dogs', aria-label='Checkbox 3', ng-true-value="'yup'", ng-false-value="'nope'")
+                        | Dogs
+                    br
+

@@ -1,0 +1,17 @@
+md-dialog(style='min-width:100%;min-height:100%' class='bgc-grey-900' aria-label='gallery modal')
+    div(layout="row" layout-align='space-between center' class='p+')
+        div(flex='')
+        div(flex='' layout="row" layout-align='end center')
+            button.btn.btn--m.btn--icon.btn--white.tc-grey-300(ng-click='hide()')
+                i.mdi.mdi-close &nbsp
+    md-dialog-content(style='padding:0px')
+        div(layout='row')
+            div(style='margin:0px auto;position:relative' sv-image-scale)
+                img.animate-show(ng-src="{{currentImage}}" sv-fade-in='imgIndex'  style='margin:0px auto')
+        div(layout="row" layout-align='center center' class='pb' flex)
+            div
+                button.btn.btn--l.tc-grey-200.btn--icon.btn--white(lx-ripple ng-click='prevSvImage()')
+                    i.fa.fa-angle-left.fa-fw
+            div
+                button.btn.btn--l.tc-grey-200.btn--icon.btn--white(lx-ripple ng-click='nextSvImage()')
+                    i.fa.fa-angle-right.fa-fw

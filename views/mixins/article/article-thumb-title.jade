@@ -1,0 +1,13 @@
+mixin article-thumb-title(titleNews,titleCaption,icon)
+    .card.sv-paper-elements-background
+        .p.bgc-svet-700
+            span.display-block.fs-subhead.text-center.tc-grey-50
+                i.mdi.mdi-icon(class='mdi-#{icon}') &nbsp #{titleCaption}
+        md-divider.sv-divider-light
+        .p
+            if titleNews!==undefined
+                for n in titleNews
+                    .mb.sv-article-thumb
+                        span.fs-caption.tc-grey-500= n.author
+                        a.tc-grey-700.display-block(href='/articles/#{n.fbkey}')
+                            span.display-block(style='font-weight:500')= n.title

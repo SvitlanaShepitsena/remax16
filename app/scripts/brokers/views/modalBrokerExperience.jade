@@ -1,0 +1,17 @@
+md-dialog()
+    md-dialog-content.mdc-no-padding
+        md-toolbar.bgc-blue-A200.mb(layout='row' layout-align="space-between center" class='pl+ pr+')
+            .fs-headline.tc-blue-50 Experience
+            button.btn.btn--m.btn--white.btn--icon(lx-ripple='' ng-click="cancel()")
+                i.fa.fa-close.fa-fw
+        div(class="ml+ mr+")
+            lx-text-field(label="Broker Experience")
+                textarea.sv-input-1-row(type='text' aria-label='text', ng-model='broker.experience' )
+        div(class='ml+ mr+ mb++ mt+')
+            button.btn.btn--s.btn--blue.btn--raised.mrg-5(lx-ripple='' ng-click="saveProfileModal()")
+                i.fa.fa-save.fa-fw.mr
+                | Save
+            button.btn.btn--s.btn--white.btn--raised(lx-ripple='' ng-click="cancel()")
+                i.fa.fa-close.fa-fw.mr
+                | Cancel
+

@@ -1,0 +1,26 @@
+lx-dropdown(position='right')
+    button.btn.btn--m.btn--white.btn--fab.btn-flat(lx-dropdown-toggle='' ng-class="{'mr+':gtSm}")
+        img.img-round(ng-src="{{user.avatar}}" style='width:100%;height:100%')
+    lx-dropdown-menu
+        ul
+            li
+                a.dropdown-link(ui-sref='app.manager.dashboard({uid:key})')
+                    i.mdi.mdi-view-dashboard &nbsp
+                    | Dashboard
+            li
+                a.dropdown-link(ui-sref='app.manager.users({uid:key})')
+                    i.mdi.mdi-emoticon &nbsp
+                    span Users
+            li
+                a.dropdown-link(ui-sref='app.manager.ad({uid:key})')
+                    i.fa.fa-bullhorn &nbsp
+                    span Advertisement
+            li
+                a.dropdown-link(ui-sref="app.user.account-settings({uid:user.userName})")
+                    i.mdi.mdi-settings.mr
+                    | Account Settings
+            li.dropdown-divider
+            li
+                a.dropdown-link(ng-click='logout()')
+                    i.mdi.mdi-logout &nbsp
+                    | Logout

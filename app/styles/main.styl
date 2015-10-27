@@ -1,0 +1,723 @@
+@import 'nib'
+@import '../scripts/brokers/styles/brokers'
+@import '../scripts/listings/styles/listings'
+@import '../scripts/search/styles/search'
+@import '../scripts/sections/testimonials/styles/testimonials'
+@import '../scripts/sections/styles/sections'
+@import '../scripts/ad/promotion/styles/promotion'
+@import '../scripts/ad/styles/ad'
+@import '../scripts/article/styles/article'
+@import '../scripts/auth/manager/styles/manager'
+@import '../scripts/auth/notifications/styles/notifications'
+@import '../scripts/auth/styles/auth'
+@import '../scripts/auth/user/styles/user'
+@import '../scripts/blogs/styles/blogs'
+@import '../scripts/common/styles/common'
+@import '../scripts/common/styles/photogallery'
+@import '../scripts/sections/header/styles/header'
+@import '../scripts/sections/about/styles/about'
+@import '../scripts/sections/archive/styles/archive'
+@import '../scripts/sections/contact/styles/contact'
+@import '../scripts/sections/home/styles/home'
+@import '../scripts/sections/widgets/styles/widgets'
+@import 'colors'
+@import 'animation/css-transitions'
+@import 'md'
+
+/**********************
+ background elements
+***********************/
+//.sv-margin-reset
+//  margin 0px
+//
+//.sv-padding-reset
+//  padding 0px
+//
+//.sv-divider-light
+//  border-top 1px rgba(0, 0, 0, 0.117647) solid
+//
+//.sv-paper-main-background
+//  background: url("https://s3-us-west-2.amazonaws.com/svet.com/common/newspaper-100.jpg") 0 0 repeat;
+//
+//.sv-paper-elements-background
+//  background: url("https://s3-us-west-2.amazonaws.com/svet.com/common/newspaper-100-transparent-60.jpg") 0 0 repeat;
+//
+//.sv-news-vintage-background
+//  background: url("https://s3-us-west-2.amazonaws.com/svet.com/common/vintage-newspaper-pattern-transparent.jpg") 0 0 repeat;
+
+/**********************
+***********************/
+iframe
+  overflow hidden
+  border: none
+
+/**********************
+ famo.us
+***********************/
+.sv-famous
+  margin 0px auto
+  min-height 280px
+  height 280px
+  display block
+  -webkit-transform-style preserve-3d
+  -o-transform preserve-3d
+  transform-style preserve-3d
+  -webkit-font-smoothing antialiased
+  -webkit-tap-highlight-color transparent
+  -webkit-perspective 0
+  -o-perspective 0
+  perspective none
+  backface-visibility visible
+  -webkit-backface-visibility visible
+  -moz-backface-visibility visible
+  -ms-backface-visibility visible
+  -o-backface-visibility visible
+  -ms-backface-visibility visible
+
+.sv-scrollable
+  overflow-y scroll !important
+  position relative !important
+  heigth auto
+
+.sv-g-analytics
+  table
+    tbody
+      tr
+        td
+          padding-bottom 12px
+
+//height 1000px
+
+/**********************
+ = Bootstrap active button fix
+***********************/
+p {
+  font-size 1.1em
+  font-weight 400
+  line-height 1.7em
+  @media screen and (max-width: 992px) {
+    font-size 1em
+  }
+}
+
+.ta-scroll-window > .ta-bind > p > img
+  max-width 100%
+
+.ta-scroll-window > .ta-bind
+  background-color whitesmoke !important
+
+.popover-content
+  margin-bottom 0px !important
+
+.ta-scroll-window
+  background-color #E0E0E0 !important
+  padding-top 10px !important
+  padding-bottom 40px !important
+
+.sv-popover
+  font-weight bold !important
+  font-size 12px
+  .btn-group
+    display inline-block
+    button
+      padding 4px 8px
+
+btn:active, .btn.active {
+  background-image: none;
+}
+
+btn-default:hover, .btn-default:focus {
+  background-color: #e0e0e0;
+  background-position: 0 -15px;
+}
+
+.btn-default:active, .btn-default.active {
+  background-color: #e0e0e0;
+  border-color: #dbdbdb;
+}
+
+.sv-paper-main-background
+  margin 0px !important
+  background: url("https://s3-us-west-2.amazonaws.com/remax1stclass/google-map-backdrop.jpg") 0 0 repeat;
+
+.sv-main-content
+  background-color #FAFAFA
+  max-width 1400px
+  margin 0px auto
+  @media screen and (min-width: 992px) {
+    min-height 1200px
+  }
+
+/*Bugs with Safari*/
+html, body
+  font-family 'Roboto', sans-serif
+  color #474341
+  font-size 90%
+  height 100%
+  margin 0px
+  padding 0px
+
+/*custom classes*/
+.bgc-svet-A100
+  background-color #474341
+
+.bgc-svet-700
+  background-color #5C5654 !important
+
+.fw-500
+  font-weight 500
+
+.mdc-no-margin
+  margin 0px
+
+.mdc-no-padding
+  padding 0px
+
+.mdc-no-margin-top
+  margin-top 0px !important
+
+.mdc-img-responsive
+  width 100%
+
+.mdc-subhead
+  font-size 16px !important
+
+.mdc-display-inline-block
+  display inline-block
+
+.mdc-link
+  cursor pointer !important
+  text-decoration none !important
+  display inline-block
+  &:hover
+  &:active
+  &:focus
+    text-decoration none !important
+    color #757575 !important
+
+.sv-color-9
+  opacity 0.9
+
+.sv-color-8
+  opacity 0.8
+
+.sv-color-7
+  opacity 0.7
+
+.sv-color-6
+  opacity 0.6
+
+.sv-hover-red
+  text-decoration none !important
+  &:hover
+  &:active
+  &:focus
+    text-decoration none !important
+    color #616161 !important
+
+.sv-hover-grey
+  text-decoration none !important
+  &:hover
+  &:active
+  &:focus
+    text-decoration none !important
+    color #757575 !important
+
+.sv-link
+  cursor pointer
+  text-decoration none !important
+  display inline-block
+  &:hover
+  &:active
+  &:focus
+    text-decoration none !important
+    color #757575 !important
+
+.sv-label
+  color rgba(0, 0, 0, 0.258824)
+  font-weight 500
+
+text-decoration none !important
+display inline-block
+.mdc-img-sepia
+  -webkit-filter sepia(1)
+  filter sepia(1)
+
+.sv-filter-grey
+  -webkit-filter grayscale(100%) !important
+  filter gray !important
+
+.sv-filter-sepia
+  -webkit-filter sepia(100%) !important
+  filter sepia !important
+
+.sv-img-bw
+  -ms-filter grayscale(1) !important
+  -webkit-filter grayscale(1) !important
+  filter grayscale(1) !important
+
+.sv-mr
+  margin-right 8px !important
+
+.fw-700
+  font-weight 700px !important
+
+.mdc-text-right
+  text-align right !important
+
+.mdc-text-left
+  text-align left !important
+
+.mdc-text-center
+  text-align center !important
+
+.mdc-overflow-hidden
+  overflow hidden
+
+.mdc-underline-red
+  border-bottom 2px #E57373 solid !important
+
+.mdc-underline-blue
+  border-bottom 2px #64B5F6 solid !important
+
+.mdc-label-default
+  padding 4px 5px
+  border-radius 3px
+
+.top-profile-nav
+  padding 4px 8px
+
+.sv-padding {
+  @media screen and (max-width: 992px) {
+    padding 0px 4px !important
+  }
+
+}
+
+.cursor-pointer
+  cursor pointer
+
+.bgc-dark-grey
+  background-color #555555 !important
+
+/**********************
+  =md-tabs
+***********************/
+
+.sv-tabs
+  font-size 14px !important
+  line-height 15px
+
+.sv-tab-span
+  padding 12px 24px !important
+
+  overflow hidden
+
+.sv-tabs-container
+  min-height 200px
+
+.sv-tabs-container
+  .md-tab
+    padding 0px !important
+
+md-tab-item
+  //padding 4px 4px 0px 4px !important
+  span
+    font-size 11px !important
+    font-weight 500 !important
+
+md-tab-content
+  margin-top 16px
+
+//height 100%
+
+/***************/
+/*=lumx custom typography*/
+
+.fs-subhead
+  font-weight 700
+
+.fs-10
+  font-size 10px
+
+.text-center
+  text-align center !important
+
+md-sidenav
+  min-width 270px !important
+  max-width 270px !important
+
+md-sidenav
+  &.md-locked-open
+    width 270px !important
+    min-width 270px !important
+    max-width 270px !important
+
+.svet-logo
+  width 270px
+
+.logo-link
+  height auto
+  max-width 80px
+
+.logo-img
+  width 100%
+  max-width 70px
+  height auto
+
+.logo-img-cell
+  width 100%
+  max-width 35px
+  height auto
+
+.sv-width {
+  @media screen and (max-width 992px) {
+    width 100px;
+  }
+
+}
+
+.toolbar-svet {
+  height: 80px !important
+
+  @media screen and (min-width 992px) {
+    height 72px
+  }
+
+}
+
+.toolbar-custom {
+  background-color #555555 !important
+
+  @media screen and (max-width: 350px) {
+    padding-left 4px !important
+  }
+
+}
+
+/**********************
+ =header
+***********************/
+.languages-container {
+  border-right-color rgb(97, 97, 97)
+  border-right-style solid
+  border-right-width 1px
+  padding-right 8px
+
+  @media screen and (max-width: 350px) {
+    padding-right 4px !important
+  }
+
+}
+
+.language-btn {
+  @media screen and (max-width: 350px) {
+    font-size 11px !important
+    margin 6px !important
+  }
+
+}
+
+.language
+  color #E57373 !important
+
+.weather-widget {
+  margin-left 16px
+
+  @media screen and (max-width: 350px) {
+    margin-left 2px !important
+  }
+
+  @media screen and (max-width: 450px) {
+    margin-left: 8px;
+  }
+}
+
+.weather-container {
+  margin-right 0px
+  border-right-color: #616161;
+  border-right-style: solid;
+  border-right-width: 1px;
+  padding-right: 16px;
+  padding-left: 4px;
+
+  @media screen and (max-width: 350px) {
+    padding-right: 0px;
+  }
+  @media screen and (max-width: 450px) {
+    padding-right: 8px
+  }
+}
+
+.main-weather-img {
+  max-width 28px
+  display inline-block
+  margin 0px 4px
+
+  @media screen and (max-width: 992px) {
+    max-width 22px
+  }
+
+}
+
+.main-weather-text {
+  font-size 14px
+
+  @media screen and (max-width: 350px) {
+    font-size 10px
+  }
+
+}
+
+.weather-dropdown-link
+  &:hover
+  &:active
+  &:focus
+    background-color #555555 !important
+
+/**********************
+ =social
+***********************/
+
+.btn-social-login
+  padding 0px
+
+/*background-color #555555 !important*/
+
+.btn-social-login-icon-blue
+  padding 0px 8px
+  display inline-block
+  border-right-color #82B1FF
+  border-right-style solid
+  border-right-width 1px
+  box-sizing border-box
+
+.btn-social-login-icon-red
+  padding 0px 8px
+  display inline-block
+  border-right-color #EF9A9A
+  border-right-style solid
+  border-right-width 1px
+  box-sizing border-box
+
+.header-social-link
+  border-left-color rgb(97, 97, 97)
+  border-left-style solid
+  border-left-width 1px
+  box-sizing border-box
+  color rgb(51, 122, 183)
+  cursor auto
+  font-family Arial, Tahoma, sans-serif
+  font-size 12px
+  list-style-type disc
+  margin-bottom 0px
+  text-align center
+  text-decoration none
+
+.header-social-link-right
+  border-right-color rgb(97, 97, 97)
+  border-right-style solid
+  border-right-width 1px
+
+.fb-page
+  width 280px
+  height 130px
+
+.fb-filter
+  overflow hidden
+  width 280px
+  height 200px
+  position absolute
+  top 0
+  left 0
+  background rgba(255, 255, 255, 0.2)
+
+/**********************
+  =magazine
+ ***********************/
+#magazine
+  /*width 1152px !important*/
+  height 752px !important
+
+/*position static !important*/
+
+#magazine .turn-page
+  background-color #ccc
+  background-size 100% 100%
+
+//.search-filter--is-focused
+//.search-filter__container
+//	width 140px !important;
+
+/**********************
+ =responsive typography
+***********************/
+.article-body
+  p {
+    font-size 14px !important
+    line-height 26px !important
+    padding 0px
+    @media screen and (max-width: 750px) {
+      font-size 15px !important
+      line-height 25px !important
+    }
+    @media screen and (max-width: 550px) {
+      font-size 16px !important
+      line-height 26px !important
+    }
+    img {
+      margin 0px !important
+      @media screen and (max-width: 550px) {
+        padding 0px !important
+        display block
+        width 100%
+      }
+    }
+  }
+
+.fs-caption {
+  @media screen and (max-width: 350px) {
+    font-size 10px
+  }
+}
+
+.fs-body-1 {
+  @media screen and (max-width: 350px) {
+    font-size 11px
+  }
+}
+
+.fs-display-1 {
+  @media screen and (max-width: 992px) {
+    font-size 21px
+    line-height 27px
+  }
+}
+
+.fs-headline {
+  @media screen and (max-width: 992px) {
+    font-size 18px
+    line-height 25px
+  }
+}
+
+.fs-title {
+  @media screen and (max-width: 992px) {
+    font-size 16px
+    line-height 20px
+  }
+}
+
+.fs-subhead {
+  @media screen and (max-width: 992px) {
+    font-size 15px
+    line-height 18px
+  }
+}
+
+.gridListdemoBasicUsage md-grid-list {
+  margin: 8px;
+}
+
+.gridListdemoBasicUsage .gray {
+  background: #f5f5f5;
+}
+
+.gridListdemoBasicUsage .green {
+  background: #b9f6ca;
+}
+
+.gridListdemoBasicUsage .yellow {
+  background: #ffff8d;
+}
+
+.gridListdemoBasicUsage .blue {
+  background: #84ffff;
+}
+
+.gridListdemoBasicUsage .purple {
+  background: #b388ff;
+}
+
+.gridListdemoBasicUsage .red {
+  background: #ff8a80;
+}
+
+.gridListdemoBasicUsage md-grid-tile {
+  transition: all 400ms ease-out 50ms;
+}
+
+/*modal*/
+.sv-modal-2-rows
+  @media screen and (min-width: 600px) {
+    min-width 600px
+  }
+
+.sv-input-2-rows
+  @media screen and (max-width: 400px) {
+    min-width 300px
+  }
+  @media screen and (min-width: 600px) {
+    min-width 280px
+  }
+
+.sv-input-1-row
+  @media screen and (min-width: 600px) {
+    min-width 600px
+  }
+
+/*search*/
+
+.sv-search-link
+  background-color #BBDEFB !important
+  color #393939 !important
+
+/*infinite scroll*/
+
+#vertical-container {
+  height: 292px;
+}
+
+.repeated-item {
+  border-bottom: 1px solid #ddd;
+  box-sizing: border-box;
+  height: 1000px;
+  padding-top: 10px;
+}
+
+md-content {
+  margin: 16px;
+}
+
+.md-virtual-repeat-container {
+  border none !important
+}
+
+.md-virtual-repeat-container .md-virtual-repeat-offsetter {
+  padding-left: 16px;
+}
+
+.md-virtual-repeat-container.md-autocomplete-suggestions-container {
+  height 300px
+  max-height auto
+  z-index 1300 !important;
+}
+
+.md-autocomplete-suggestions li {
+  font-size: 13px;
+  padding: 0 8px;
+  line-height: 36px;
+  height: 36px;
+}
+
+.md-virtual-repeat-container .md-virtual-repeat-scroller {
+  overflow: hidden;
+}
+
+.md-virtual-repeat-offsetter {
+  padding-left 10px !important
+}
+
+.dropdown-menu__content {
+  padding-top 0px
+}

@@ -1,0 +1,132 @@
+/**********************
+ =search
+***********************/
+/**********************
+  =Styles for Text Editor
+***********************/
+
+p {
+    width: 100%;
+}
+
+p img {
+    margin: 0px auto;
+    padding: 8px;
+}
+
+.md-input-container-article {
+    padding-bottom: 8px;
+}
+
+.secondNewsMargin:nth-child(odd) {
+    padding-right: 8px;
+}
+
+.secondNewsMargin:nth-child(even) {
+    padding-left: 8px !important;
+}
+
+.search-filter__cancel,
+.search-filter__label {
+    color: #757575 !important;
+}
+
+.sv-select-container {
+    margin-top: 8px;
+    padding-bottom: 0px !important;
+}
+
+.md-select-article {
+    padding: 0px !important;
+}
+
+.sv-label-counter {
+    margin-left: 4px;
+    font-weight: bold;
+    padding: 2px 4px;
+    color: #9e9e9e;
+    font-size: 11px;
+}
+
+.article-thumb-link {
+    text-decoration: none;
+    cursor: pointer;
+    line-height: 14px;
+}
+
+.article-thumb-link:hover,
+.article-thumb-link:active,
+.article-thumb-link:focus {
+    text-decoration: none !important;
+}
+
+.sv-article-thumb {
+    border-bottom: 1px rgba(0, 0, 0, 0.118) solid; padding-bottom: 8px;
+}
+
+.sv-article-thumb:nth-last-child(1) {
+    border-bottom: none !important;
+}
+
+.article-thumb-body {
+    line-height: 16px;
+}
+
+.article-thumb-title {
+    line-height: 20px;
+}
+
+.article-thumb-author {
+    line-height: 16px;
+}
+
+.radio-body {
+    line-height: 16px;
+    font-weight: 600;
+}
+
+.radio-subhead {
+    line-height: 20px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+@media screen and (max-width: 450px) {
+    .sv-responsive-button {
+        font-size: 9px !important;
+    }
+}
+
+.sv-img-thumb {
+    width: 90px !important;
+    height: 90px !important;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.sv-img-thumb-link {
+    display: block;
+    width: 85px;
+    heigth: 85px;
+    background-repeat: no-repeat;
+    background-position-x: 50%;
+    background-position-y: 50%;
+    -webkit-background-size: 85px 85px !important;
+    -moz-background-size: 85px 85px !important;
+    background-size: 85px 85px !important;
+    border: 0px solid #e5e5e5;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
+
+/*visited link*/
+.sv-link-visited-image {
+    opacity: 0.8 !important;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)" !important;
+    filter: alpha(opacity=80) !important;
+}
+
+.sv-link-visited:visited,
+.sv-link-visited.link:visited {
+    color: #757575 !important;
+}

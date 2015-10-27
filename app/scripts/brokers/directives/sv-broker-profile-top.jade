@@ -1,0 +1,59 @@
+div.card(layout='column')
+    div(layout-gt-sm='row' layout-sm="column")
+        .p.btn-wrapper.bgc-grey-300
+            button.btn.btn--xs.btn--black.btn--raised.btn-pos.bgc-grey-300.tc-grey-600(lx-ripple='' ng-if='hasEditAccess' ng-click="showBrokerUploadImgModal(broker)" )
+                i.fa.fa-pencil.fa-fw.mr
+                | Change Image
+            sv-img-background.sv-img-thumb(sv-image="broker.pic" img-width="170" img-height="170" )
+        div(flex="")
+            div(layout-gt-sm='row' layout-sm="column" layout-align-gt-sm="space-between center")
+                .fs-display-1.ml.lr {{broker.fName}} {{broker.lName}}
+                div
+                    a(href='{{broker.website}}' style="text-decoration:none" target='_blank') {{broker.website}}
+                div
+                    a.btn.btn--s.btn--indigo.bgc-indigo-400.btn--fab.mr(lx-ripple='' href="{{broker.facebook}}" target='_blank')
+                        i.fa.fa-facebook.fa-fw
+                    a.btn.btn--s.btn--blue.btn--fab.mr(lx-ripple='' href="{{broker.linkedin}}" target='_blank')
+                        i.fa.fa-linkedin.fa-fw
+            div(layout-gt-sm='row' layout-sm="column")
+                div(class='ml mr' flex="")
+                    .fs-title {{broker.title}}
+                    .fs-subhead {{broker.title2}}
+                    div(layout-gt-sm='row' layout-sm="column")
+                        div.tc-amber-600.mr
+                            span
+                                i.fa.fa-star.fa-fw
+                            span
+                                i.fa.fa-star.fa-fw
+                            span
+                                i.fa.fa-star.fa-fw
+                            span
+                                i.fa.fa-star.fa-fw
+                            span
+                                i.fa.fa-star.fa-fw
+                        span
+                            .tc-blue-600 15 customer reviews
+                    p.fw-500
+                        span.tc-red-800 {{broker.recentsales}} &nbsp
+                        span Recent Sales
+                    p.fw-500
+                        span.tc-blue-800 {{broker.countSale}} &nbsp
+                        span Active Listings
+                    div(ng-if='hasEditAccess')
+                        button.btn.btn--xs.btn--black.btn--raised.bgc-grey-300.tc-grey-600.mt(lx-ripple='' ng-click="showBrokerContactInfoModal(broker)" )
+                            i.fa.fa-pencil.fa-fw &nbsp
+                            | Edit Contact Info
+                div.tc-grey-600(class='ml mr' flex="")
+                    .fs-title.tc-grey-800 Contact Info:
+                    .fs-subhead
+                        span Direct: &nbsp
+                        span.tc-grey-800 {{broker.phoneDirect|tel}}
+                    .fs-subhead
+                        span Cell: &nbsp
+                        span.tc-grey-800 {{broker.phoneCell|tel}}
+                    .fs-subhead
+                        span Office: &nbsp
+                        span.tc-grey-800 {{broker.phoneOffice|tel}}
+                    .fs-subhead
+                        span Fax: &nbsp
+                        span.tc-grey-800 {{broker.fax|tel}}

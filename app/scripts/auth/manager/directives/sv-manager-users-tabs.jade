@@ -1,0 +1,18 @@
+md-content
+    md-tabs(md-selected='selectedIndex' md-dynamic-height="" md-stretch-tabs="never")
+        md-tab
+            md-tab-label {{'all-users'|translate}} ({{count.all || 0}})
+            md-tab-body
+                sv-profile-subheader(subhead-title="all users")
+                sv-users-list(group-filter='all')
+        md-tab
+            md-tab-label Brokers
+            md-tab-body
+                sv-profile-subheader(subhead-title="brokers")
+                sv-users-list(group-filter='customer')
+        md-tab
+            md-tab-label Buyers/Sellers
+            md-tab-body
+                sv-profile-subheader(subhead-title="authors")
+                sv-users-list(group-filter='author')
+

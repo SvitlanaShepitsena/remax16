@@ -1,0 +1,58 @@
+.sv-modal-sm {
+  max-width: 700px;
+}
+@media screen and (max-width: 500px) {
+  .sv-modal-sm {
+    min-width: 99%;
+    min-height: 100% !important;
+  }
+}
+.sv-gallery-thumb-dir,
+.sv-gallery-thumb {
+  margin: 0px auto;
+  width: 200px;
+  height: 200px;
+}
+@media screen and (min-width: 300px) {
+  .sv-gallery-thumb-dir,
+  .sv-gallery-thumb {
+    width: 120px;
+    height: 120px;
+  }
+}
+@media screen and (min-width: 350px) {
+  .sv-gallery-thumb-dir,
+  .sv-gallery-thumb {
+    width: 150px;
+    height: 150px;
+  }
+}
+@media screen and (min-width: 400px) {
+  .sv-gallery-thumb-dir,
+  .sv-gallery-thumb {
+    width: 180px;
+    height: 180px;
+  }
+}
+.animate-show.ng-hide-add,
+.animate-show.ng-hide-remove {
+  -webkit-transition: all linear 0.5s;
+  -webkit-transition: all linear 0.5s;
+  -moz-transition: all linear 0.5s;
+  -o-transition: all linear 0.5s;
+  -ms-transition: all linear 0.5s;
+  transition: all linear 0.5s;
+  display: block !important;
+}
+.animate-show.ng-hide-add.ng-hide-add-active,
+.animate-show.ng-hide-remove {
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+}
+.animate-show.ng-hide-add,
+.animate-show.ng-hide-remove.ng-hide-remove-active {
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
+}

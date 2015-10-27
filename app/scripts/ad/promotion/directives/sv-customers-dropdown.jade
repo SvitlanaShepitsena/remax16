@@ -1,0 +1,11 @@
+div
+    lx-dropdown(over-toggle='true')
+        button.btn.btn--m.btn--black.btn--flat(lx-ripple='', lx-dropdown-toggle='')
+            div(layout='row' layout-align="center center")
+                sv-customer-avatar(customer='selectedCustomer')
+                i.mdi.mdi-chevron-double-down
+        lx-dropdown-menu
+            ul
+                li(ng-repeat='customer in customers')
+                    a.dropdown-link(ng-click='setSelectedCustomer(customer)')
+                        sv-customer-avatar(customer='customer')

@@ -1,0 +1,18 @@
+.card.sv-paper-elements-background.mb
+    div.p.bgc-grey-100
+        a.sv-hover-grey(ui-sref='app.blogs')
+            span.display-block.fs-subhead.text-center.tc-red-800.sv-color-7.sv-hover-grey {{'from-the-editor'|translate|uppercase}}
+    md-divider
+    div
+        ul.list
+            li.list-row.list-row--has-separator(style='padding: 0px 8px')
+                .list-row__content
+                    a.mdc-link(ui-sref='app.blogs')
+                        strong.fs-headline.display-block.tc-grey-900.sv-hover-red(style="font-size:19px")
+                            i.mdi.mdi-blogger.fa-fw.tc-red-800.sv-color-7.sv-hover-grey(style='font-size:18px;margin-top:4px')
+                            | {{'alex-etman'|translate}}
+                .list-row__primary.mdc-text-right.img-editor-contner
+                    a.mdc-link(ui-sref='app.blogs')
+                        img.img-round.mdc-text-right.img-editor.sv-img-bw(ng-src='{{alex}}')
+    .sv-paper-elements-background(style='padding-top:6px;padding-bottom:4px')
+        sv-editor-article-home-thumb

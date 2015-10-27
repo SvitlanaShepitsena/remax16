@@ -1,0 +1,15 @@
+/*******************************
+     svet-corporate animation
+********************************/
+.svet-corporate.ng-enter,
+.svet-corporate.ng-hide-remove,
+.svet-corporate.ng-hide-add.ng-hide-add-active,
+.svet-corporate.ng-leave.ng-leave-active {
+  opacity: 0.1;
+}
+.svet-corporate.ng-enter.ng-enter-active,
+.svet-corporate.ng-hide-add,
+.svet-corporate.ng-hide-remove.ng-hide-remove-active,
+.svet-corporate.ng-leave {
+  opacity: 1;
+}

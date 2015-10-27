@@ -1,0 +1,57 @@
+.card.m
+    div.p.bgc-blue-100(layout='row' layout-align='space-between start')
+        div
+            p.fs-subhead.tc-grey-800(style="font-weight:bold") {{home.price|currency:'$':0}}
+        div.text-right
+            p.fs-body-2.tc-grey-800 {{home.type}}
+    div.bgc-grey-50(layout='row' layout-align="space-between center" ng-show='!home.isRent')
+        a.p.display-block.sv-link-visited-image.tc-grey-900(ui-sref='app.remax-listings.one-listing-sale({mls:home.mls})' style="text-decoration:none")
+            p.fs-body-2 {{home.address.street}}
+            p.fs-body-2 {{home.address.city}}, {{home.address.state}}, {{home.address.zip}}
+        a.btn.btn--s.btn--white.btn--raised.p.m(lx-ripple='' href="{{fullAddress}}" target='_blank' booltip="See on Google Map")
+            img.mdc-display-block(ng-src="{{googleMap}}" width="26" )
+    div.bgc-grey-50(layout='row' layout-align="space-between center" ng-show='home.isRent')
+        a.p.display-block.sv-link-visited-image.tc-grey-900(ui-sref='app.remax-listings.one-listing-rent({mls:home.mls})' style="text-decoration:none")
+            p.fs-body-2 {{home.address.street}}
+            p.fs-body-2 {{home.address.city}}, {{home.address.state}}, {{home.address.zip}}
+        a.btn.btn--s.btn--white.btn--raised.p.m(lx-ripple='' href="{{fullAddress}}" target='_blank' booltip="See on Google Map")
+            img.mdc-display-block(ng-src="{{googleMap}}" width="26" )
+    .p(style="min-width:200px" ng-show='!home.isRent')
+        a.display-block.text-center.sv-link-visited-image(ui-sref='app.remax-listings.one-listing-sale({mls:home.mls})' style="width=180px;margin:0px auto" )
+            sv-img-background.sv-img-thumb(sv-image="home.images[0]" img-width="180" img-height="120" style="margin:0px auto")
+    .p(style="min-width:200px" ng-show='home.isRent')
+        a.display-block.text-center.sv-link-visited-image(ui-sref='app.remax-listings.one-listing-rent({mls:home.mls})' style="width=180px;margin:0px auto" )
+            sv-img-background.sv-img-thumb(sv-image="home.images[0]" img-width="180" img-height="120" style="margin:0px auto")
+    div.bgc-grey-50(layout='row' layout-align='space-between')
+        div.m.tc-grey-600
+            span
+                i.fa.i.fa.fa-bed &nbsp
+            span.fs-body-1(style="text-align:right") {{home.beds}} beds &nbsp
+            span
+                i.mdi.mdi-water &nbsp
+            span.fs-body-1(style="text-align:right") {{home.bath}} baths
+        div.m.mdc-text-right.tc-grey-600
+            span.fs-body-1.mdc-text-right Year: {{home.year}}
+
+    div.bgc-grey-50(layout-gt-sm='row' layout-sm="column" layout-align-gt-sm="space-between center")
+        div.m(ng-show="home.shortSale")
+            p.fs-caption.tc-red-700
+                i.fa.fa-bell.fa-fw &nbsp
+                | Short Sale
+        div(flex="" style="text-align:right" ng-show='!home.isRent')
+            button.btn.btn--xs.btn--white.btn--raised.tc-grey-700.m.bgc-grey-200(lx-ripple='' ui-sref='app.remax-listings.one-listing-sale({mls:home.mls})' style="font-size:10px" ng-show='home.isRent')
+                i.fa.fa-info.fa-fw &nbsp
+                | More Info
+            button.btn.btn--xs.btn--white.btn--raised.tc-grey-700.m.mdc-text-right(lx-ripple='' style="font-size:10px")
+                i.fa.fa-star.fa-fw &nbsp
+                | Bookmark
+        div(flex="" style="text-align:right" ng-show='home.isRent')
+            button.btn.btn--xs.btn--white.btn--raised.tc-grey-700.m.bgc-grey-200(lx-ripple='' ui-sref='app.remax-listings.one-listing-rent({mls:home.mls})' style="font-size:10px" ng-show='home.isRent')
+                i.fa.fa-info.fa-fw &nbsp
+                | More Info
+            button.btn.btn--xs.btn--white.btn--raised.tc-grey-700.m.mdc-text-right(lx-ripple='' style="font-size:10px")
+                i.fa.fa-star.fa-fw &nbsp
+                | Bookmark
+    div.bgc-grey-200
+        sv-listing-broker
+

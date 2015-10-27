@@ -1,0 +1,14 @@
+include ../common/read-more
+
+mixin home-page-news-thumb(topNews)
+    .card.pb.bgc-grey-50.sv-paper-elements-background
+        div.p(layout='row' layout-align='space-between center')
+            a.label-default.tc-grey-600.fs-caption.bgc-grey-300(style="padding:0px 4px")= topNews.section
+            span.fs-caption.display-block(style='font-weight:300;text-decoration:underline')= topNews.topic
+        .pl.pr
+            a.article-thumb-link.tc-grey-800(href='/articles/#{topNews.fbkey}')
+                span.display-block.fs-subhead !{topNews.title}
+                span.fs-caption.tc-grey-500 !{topNews.author}
+                span.display-block.tc-grey-800.fs-body-1 !{topNews.summary}
+        div(layout='row' layout-align='end start' class='pr')
+            +read-more(topNews.fbkey)

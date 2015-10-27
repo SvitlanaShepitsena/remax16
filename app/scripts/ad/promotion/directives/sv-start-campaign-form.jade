@@ -1,0 +1,31 @@
+div(flow-init='')
+    div.bgc-grey-200(class='pl+ pr+ pt+ pb mb+')
+        sv-profile-subhead(subhead-title="my-ad-campaign")
+    form(name='adForm' novalidate ng-submit='addBusinessAd(ad,$flow.files[0],adForm.$valid)' sv-form-val)
+        md-input-container.pl.pr
+            label {{'campaign-name'|translate}}
+            input(type='text' ng-model='ad.name' name='name' required )
+        md-input-container.pl.pr
+            label {{'www'|translate}}
+            input(type='url' ng-model='ad.www' name='www' )
+        md-input-container.pl.pr
+            label {{'anchor'|translate}}
+            input(type='text' ng-model='ad.anchor' name='anchor' required )
+        md-input-container.pl.pr(ng-if='user.isManager()')
+            div(flex-item='')
+                sv-customers-dropdown(customers='customers' selected-customer='ad.customer')
+        div(class='mb+ pl pr')
+            sv-ad-banner-upload(sv-max-size='1' sv-min-width='960' sv-min-height='150' sv-max-width='1200' sv-max-height='270')
+        div(class='mb+' pl pr)
+            span.fs-subhead.display-block.pl.pr Current Campaign Banner:
+            img(ng-src="{{ad.banner}}")
+        div.bgc-grey-100(class='pl+ pr+ pt+ pb' layout="row")
+            button.btn.btn--s.btn--raised.btn--white.tc-teal-300.m( type='submit' lx-ripple value="Save" ng-if='id' )
+                i.fa.fa-save.mr
+                | {{'save changes'|translate}}
+            button.btn.btn--s.btn--raised.btn--grey.m( type='submit' lx-ripple value="Save" ng-if='!id')
+                i.mdi.mdi-send.mr
+                | {{'post'|translate}}
+            button.btn.btn--s.btn--raised.btn--white.m(type='button' lx-ripple ng-click='cancelAddition()' ui-sref="^")
+                i.mdi.mdi-close.mr
+                | {{'cancel'|translate}}

@@ -1,0 +1,62 @@
+.sv-notifications-txt {
+  font-weight: 500;
+  font-size: 14px;
+}
+.user-auth-name {
+  display: inline-block;
+  cursor: pointer;
+  text-decoration: none;
+  color: #393939;
+}
+.sv-active-menu {
+  border-bottom: thin #f00 solid !important;
+}
+.sv-active-user-menu {
+  background-color: #e0e0e0 !important;
+}
+.sv-active-notifications {
+  background-color: #f00 !important;
+}
+.btn--grey:hover,
+.btn--grey:active,
+.btn--grey:focus {
+  background-color: #e0e0e0 !important;
+}
+.sv-notifications-icon:hover,
+.sv-notifications-icon:active,
+.sv-notifications-icon:focus {
+  background-color: #e0e0e0 !important;
+}
+.md-paginator {
+  z-index: 99;
+  width: 56px !important;
+}
+md-icon {
+  fill: #393939;
+  margin: 0px;
+}
+/**********************
+  =lumx table
+  ***********************/
+.data-table--has-primary > tbody > tr > td:first-child,
+.data-table--has-primary > thead > tr > th:first-child {
+  padding: 8px 16px !important;
+}
+.data-table > tbody > tr > td:second-child,
+.data-table > thead > tr > th:second-child {
+  padding: 8px 16px 8px 8px !important;
+}
+.data-table > tbody > tr > td,
+.data-table > thead > tr > th {
+  padding: 8px 4px !important;
+  height: auto;
+}
+/**********************
+ = bootstrap checkbox
+***********************/
+.checkbox {
+  martin-top: 10px !important;
+}
+.sv-user-list {
+  min-height: 600px !important;
+}

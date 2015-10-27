@@ -1,0 +1,15 @@
+div(class='pl+ pr+ pb++')
+    div(layout='row', layout-sm='column' layout-align-gt-sm='space-between center')
+        md-input-container.md-input-container-article(flex-gt-sm="50")
+            label Cooling
+            input(ng-model='listing.utilities.cooling' sv-url-decode name='cooling' )
+        md-input-container.md-input-container-article(flex-gt-sm="50")
+            label Heating
+            input(ng-model='listing.utilities.heating' sv-url-decode name='heating' )
+    div(layout='row', layout-sm='column' layout-align-gt-sm='space-between center')
+        md-input-container.md-input-container-article(flex-gt-sm="50")
+            label Sewer
+            input(ng-model='listing.utilities.sewer' sv-url-decode name='sewer' )
+        md-input-container.md-input-container-article(flex-gt-sm="50")
+            label Water
+            input(ng-model='listing.utilities.water' sv-url-decode name='water' )

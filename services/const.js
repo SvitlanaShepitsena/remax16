@@ -1,0 +1,24 @@
+'use strict'
+
+var titleArray = new Array(5);
+titleArray['kohl2015'] = "SVET Annual Family Event at KOHL CHILDREN’S MUSEUM";
+
+module.exports = {
+    url: 'https://svet.firebaseio.com/',
+    companyWebsite: 'http://remax1stclass.com/',
+    defaultThumb: 'https://s3-us-west-2.amazonaws.com/svet.com/articles/picture-thumb.png',
+    titles: titleArray,
+    /*home.js*/
+    homePageTitle: 'Homes For Sale, Apartments For Rent Remax Skokie, Niles, Evanston, Morton Grove',
+    homePageDescription: 'Re/max 1st Class Realty is a Real Estate Company located in Skokie, IL. We offer a comprehensive service in real estate. We can help to buy, sell or manage residential property, assist in finding the best mortgage conditions as well as find professional attorneys to get all paper prepared. We have successful experience in short sales and always have a great investment opportunities. Our main price range is from 35k till 500k, though we also have experience and listings in luxury market.',
+    /*about.js*/
+    aboutPageTitle: 'Why Remax 1st Class Realty is worth to work with',
+    aboutPageDescription: 'Re/Max 1st Class Realty offers one stop service for home selling or purchase. We have long term partnerships with major banks and can negotiate the best possible deal. We can help you find the right specialist to get the lowest mortgage rate and move you to your new home as fast as possible. Our clients always have all papers signed on time with all details covered. Re/Max 1st Class Realty has no hidden fees and as a Remax Representative is very flexible in commissions. We always prioritize the client interest and trying to find the best possible deal for our client. Our main mission is client satisfaction and long term partnership. Re/Max 1st Class offers comprehensive service in real estate - we can help you avoid foreclosure without any influence on your credit score. We also can sell your residential property in the shortest time as we have a wide network of real estate partnerships in the area. We have a great experience in pre-sell preparation when small investments could bring the highest return. We always have the best options for investment opportunities in the area. in 2012 we sold more than 100 residential properties for middle-class families and 40 of them directly from banks..',
+    /*testimonials.js*/
+    testimonialsPageTitle: 'Our Testimonials',
+    testimonialsPageDescription: 'Testimonials Content',
+    /*contact.js*/
+    contactPageTitle: 'Contact us page title',
+    contactPageDescription: 'Company Address'
+}
+;

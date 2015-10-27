@@ -1,0 +1,13 @@
+md-content
+    md-tabs.tc-black-2( md-selected='selectedIndex'  md-border-bottom='' md-dynamic-height="" md-stretch-tabs="never")
+        md-tab(ng-if='!user.isCustomer() && !user.isAuthor()' ui-sref='app.user.ad.promotion' )
+            md-tab-label  {{"business-ad"|translate}}
+            md-tab-body
+                div(ui-view='')
+        md-tab(ui-sref='app.user.ad.classified')
+            md-tab-label {{"classified"|translate}}
+            md-tab-body
+                div(ui-view='')
+    //div(ng-show='!user.isStaff()')
+    //    sv-user-classified-section
+

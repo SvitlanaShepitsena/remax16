@@ -1,0 +1,7 @@
+extends layout
+include mixins/article/one-article
+
+block content
+    if vm !== undefined
+        +one-article(vm.article,moment)
+

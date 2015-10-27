@@ -11,7 +11,8 @@
                 link: function ($scope, el, attrs) {
                     var brokerId = $stateParams.id ? $stateParams.id : userAuth.profile.brokerId;
                     FbGenServ.getAssync(url + 'blogs', function (blogs) {
-                        return _.where(blogs, {brokerId: brokerId});
+                        $scope.blogs = _.where(blogs, {brokerId: brokerId});
+
                     }).then(function (brokerBlogs) {
                         $scope.loaded = true;
                     })

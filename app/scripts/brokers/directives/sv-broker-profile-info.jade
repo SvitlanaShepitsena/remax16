@@ -1,46 +1,46 @@
 div
-    div(ng-if='!editState')
+    div
         div(ng-if='hasEditAccess')
             button.btn.btn--xs.btn--black.btn--raised.bgc-grey-300.tc-grey-600.mt(lx-ripple='' ng-click="showBrokerAccreditationModal(broker)" )
                 i.fa.fa-pencil.fa-fw &nbsp
                 | Edit
-        div
-            .fs-subhead {{broker.accreditation}}
-        md-divider.bgc-blue-100.mt.mb
+        div(ng-if='broker.accreditation')
+            .fs-subhead  Accreditation:
+            span {{broker.accreditation}}
+            md-divider.bgc-blue-100.mt.mb
         div(layout='row' layout-sm="column" layout-align="top center")
-            div(flex-gt-sm="50")
+            div(flex-gt-sm="50" ng-if='broker.highlight1')
                 div(ng-if='hasEditAccess')
                     button.btn.btn--xs.btn--black.btn--raised.bgc-grey-300.tc-grey-600.mt(lx-ripple='' ng-click="showBrokerProfileHighlightsModal(broker)" )
                         i.fa.fa-pencil.fa-fw &nbsp
                         | Edit
-                div(ng-if='!editState')
-                    .fs-body-2 {{broker.highlight1}}
-                    .fs-body-2 {{broker.highlight2}}
-                    .fs-body-2 {{broker.highlight3}}
-                    .fs-body-2 {{broker.highlight4}}
-                    .fs-body-2 {{broker.highlight5}}
-                    .fs-body-2 {{broker.highlight6}}
-                    .fs-body-2 {{broker.highlight7}}
+                div
+                    p {{broker.highlight1}}
+                    p {{broker.highlight2}}
+                    p {{broker.highlight3}}
+                    p {{broker.highlight4}}
+                    p {{broker.highlight5}}
+                    p {{broker.highlight6}}
+                    p {{broker.highlight7}}
             div(flex-gt-sm='50')
                 div(ng-if='hasEditAccess')
                     button.btn.btn--xs.btn--black.btn--raised.bgc-grey-300.tc-grey-600.mt(lx-ripple='' ng-click="showBrokerProfInfoModal(broker)" )
                         i.fa.fa-pencil.fa-fw &nbsp
                         | Edit
-                .fs-subhead(ng-if='!editState')
-                    span Languages: &nbsp
-                    span.fs-body-1  {{broker.languages}}
-                .fs-subhead(ng-if='!editState')
-                    span Years of Experience: &nbsp
-                    span.fs-body-1 {{broker.yearsexperience}}
-                .fs-subhead(ng-if='!editState')
-                    span Specialities: &nbsp
-                    span.fs-body-1 {{broker.specialities}}
-                .fs-subhead(ng-if='!editState')
-                    span Areas Served: &nbsp
-                    span.fs-body-1 {{broker.areasserved}}
-        div
+                p(ng-if='broker.yearsexperience')
+                    span.fs-subhead Years of Experience: &nbsp
+                    span {{broker.yearsexperience}}
+                p(ng-if='broker.specialities')
+                    span.fs-subhead Specialities: &nbsp
+                    span {{broker.specialities}}
+                p(ng-if='broker.areasserved')
+                    span.fs-subhead Areas Served: &nbsp
+                    span {{broker.areasserved}}
+        div(ng-if='broker.experience')
+            md-divider.mt.mb
             div(ng-if='hasEditAccess')
                 button.btn.btn--xs.btn--black.btn--raised.bgc-grey-300.tc-grey-600.mt(lx-ripple='' ng-click="showBrokerExperienceModal(broker)" )
                     i.fa.fa-pencil.fa-fw &nbsp
                     | Edit
-            div(ng-if='! editState') {{broker.experience}}
+            div
+                p {{broker.experience}}

@@ -1381,6 +1381,11 @@ md-sidenav.md-locked-open {
     min-width: 600px;
   }
 }
+@media screen and (min-width: 600px) {
+  .sv-modal-3-rows {
+    min-width: 680px;
+  }
+}
 @media screen and (max-width: 400px) {
   .sv-input-2-rows {
     min-width: 300px;

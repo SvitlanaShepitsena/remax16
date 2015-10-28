@@ -1,11 +1,14 @@
 (function () {
     'use strict';
     angular.module('brokers')
-        .directive('svBrokerProfileTop', function (FbGenServ, $timeout, homesUrl, userAuth, $mdDialog, toastr) {
+        .directive('svBrokerProfileTop', function (FbGenServ, $timeout, homesUrl, userAuth, $mdDialog, toastr, companyPhone, companyFax, defaultBrokerTitle) {
             return {
                 replace: true,
                 templateUrl: 'scripts/brokers/directives/sv-broker-profile-top.html',
                 link: function ($scope, el, attrs) {
+                    $scope.companyPhone = companyPhone;
+                    $scope.companyFax = companyFax;
+                    $scope.defaultBrokerTitle = defaultBrokerTitle;
 
                     $scope.saveProfile = function (img) {
                         if (img) {

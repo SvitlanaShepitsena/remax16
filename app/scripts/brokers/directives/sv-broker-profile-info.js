@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('brokers')
-        .directive('svBrokerProfileInfo', function (FbGenServ, homesUrl, userAuth, $mdDialog, toastr) {
+        .directive('svBrokerProfileInfo', function (FbGenServ, homesUrl, userAuth, $mdDialog, toastr, companyPhone, companyFax) {
             return {
                 replace: true,
                 templateUrl: 'scripts/brokers/directives/sv-broker-profile-info.html',

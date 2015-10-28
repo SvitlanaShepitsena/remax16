@@ -29,8 +29,8 @@
 						$http.post(url, fd, {
 							headers: {'Content-Type': undefined},
 							transformRequest: angular.identity
-						}).success(function () {
-							resolve();
+						}).success(function (avatar) {
+							resolve(avatar);
 						}).error(function (errc) {
 						})
 					});

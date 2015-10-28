@@ -999,7 +999,7 @@ body {
   color: rgba(0,0,0,0.259);
   font-weight: 500;
 }
-text-decoration none,
+text-decoration none !important,
 display inline-block,
 .mdc-img-sepia {
   -webkit-filter: sepia(1);
@@ -1121,7 +1121,7 @@ md-sidenav.md-locked-open {
   max-width: 35px;
   height: auto;
 }
-@media screen and (max-width 992px) {
+@media screen and (max-width: 992px) {
   .sv-width {
     width: 100px;
   }
@@ -1129,7 +1129,7 @@ md-sidenav.md-locked-open {
 .toolbar-svet {
   height: 80px !important;
 }
-@media screen and (min-width 992px) {
+@media screen and (min-width: 992px) {
   .toolbar-svet {
     height: 72px;
   }

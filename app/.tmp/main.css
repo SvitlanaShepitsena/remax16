@@ -602,6 +602,32 @@ md-icon {
   -webkit-filter: none;
           filter: none;
 }
+.logo-container {
+  display: block;
+  background: url("https://s3-us-west-2.amazonaws.com/remax1stclass/brokers/logos/company-logo.png") 0 0 no-repeat;
+  position: absolute;
+  width: 96px;
+  height: 96px;
+  background-size: 80px 80px;
+  background-position: center;
+  left: 16px;
+  top: 8px;
+  background-color: #fff;
+}
+.logo-link {
+  height: auto;
+  max-width: 80px;
+}
+.logo-img {
+  width: 100%;
+  max-width: 70px;
+  height: auto;
+}
+.logo-img-cell {
+  width: 100%;
+  max-width: 35px;
+  height: auto;
+}
 .head-ad:hover,
 .head-ad:active,
 .head-ad:focus {
@@ -1002,7 +1028,7 @@ body {
   color: rgba(0,0,0,0.259);
   font-weight: 500;
 }
-text-decoration none !important,
+text-decoration none,
 display inline-block,
 .mdc-img-sepia {
   -webkit-filter: sepia(1);
@@ -1107,24 +1133,7 @@ md-sidenav.md-locked-open {
   min-width: 270px !important;
   max-width: 270px !important;
 }
-.svet-logo {
-  width: 270px;
-}
-.logo-link {
-  height: auto;
-  max-width: 80px;
-}
-.logo-img {
-  width: 100%;
-  max-width: 70px;
-  height: auto;
-}
-.logo-img-cell {
-  width: 100%;
-  max-width: 35px;
-  height: auto;
-}
-@media screen and (max-width: 992px) {
+@media screen and (max-width 992px) {
   .sv-width {
     width: 100px;
   }
@@ -1132,7 +1141,7 @@ md-sidenav.md-locked-open {
 .toolbar-svet {
   height: 80px !important;
 }
-@media screen and (min-width: 992px) {
+@media screen and (min-width 992px) {
   .toolbar-svet {
     height: 72px;
   }

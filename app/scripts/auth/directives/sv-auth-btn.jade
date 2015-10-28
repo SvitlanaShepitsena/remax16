@@ -8,9 +8,9 @@ div(layout='row' layout-align="end center" )
     //        span.tc-blue-A200.sv-cell-13(style='margin-right:4px;font-weight:500;line-height:18px !important' ng-if='user.isStaff()')  My Broker Account
     //        span.tc-blue-A200.sv-cell-13(style='margin-right:4px;font-weight:500;line-height:18px !important' ng-if='user.isCustomer()')   Visitor
     div(ng-if='!user' )
-        a.btn.btn--m.btn--blue.btn--fab.tc-blue-50(lx-ripple="" ui-sref='app.svet-login' hide-gt-sm)
+        a.btn.btn--l.btn--blue.btn--fab.tc-blue-50(lx-ripple="" ui-sref='app.svet-login' hide-gt-sm)
             i.fa.fa-user.fa-fw
-        a.btn.btn--m.btn--blue.btn--raised.bgc-blue-A200(lx-ripple="" ui-sref='app.svet-login' hide-sm)
+        a.btn.btn--l.btn--white.btn--raised.tc-red-800.fw-500(lx-ripple="" ui-sref='app.svet-login' hide-sm)
             i.fa.fa-sign-in.fa-fw
             span.mdc-display-inline-block.ml Log In
     div.ml.mr(layout='row' ng-if='!!user' layout-align="center center")

@@ -78,6 +78,10 @@ md-select-menu md-content {
 .map-pointer-text-wrapper {
   display: inline-block;
 }
+.sv-sort .md-select-value {
+  border-bottom: 0px !important;
+  color: #b71c1c !important;
+}
 .sv-dropdown {
   top: 125px !important;
 }
@@ -677,7 +681,7 @@ md-icon {
   background-position: center;
 }
 .main-nav-link {
-  color: #393939 !important;
+  color: #f5f5f5 !important;
   font-weight: 500;
   line-height: 24px;
   padding-top: 4px;
@@ -685,7 +689,7 @@ md-icon {
   border-radius: 0px !important;
 }
 .nav-link-active {
-  background-color: #d3d3d3 !important;
+  background-color: #1976d2 !important;
 }
 .link-active-blue {
   color: #2196f3 !important;

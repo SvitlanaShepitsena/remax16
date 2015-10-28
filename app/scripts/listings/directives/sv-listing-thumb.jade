@@ -18,10 +18,10 @@
             img.mdc-display-block(ng-src="{{googleMap}}" width="26" )
     .p(style="min-width:200px" ng-show='!home.isRent')
         a.display-block.text-center.sv-link-visited-image(ui-sref='app.remax-listings.one-listing-sale({mls:home.mls})' style="width=180px;margin:0px auto" )
-            sv-img-background.sv-img-thumb(sv-image="home.images[0]" img-width="180" img-height="120" style="margin:0px auto")
+            sv-img-background.sv-img-thumb(sv-image="home.images[0]" img-width="300" img-height="200" style="margin:0px auto")
     .p(style="min-width:200px" ng-show='home.isRent')
         a.display-block.text-center.sv-link-visited-image(ui-sref='app.remax-listings.one-listing-rent({mls:home.mls})' style="width=180px;margin:0px auto" )
-            sv-img-background.sv-img-thumb(sv-image="home.images[0]" img-width="180" img-height="120" style="margin:0px auto")
+            sv-img-background.sv-img-thumb(sv-image="home.images[0]" img-width="300" img-height="200" style="margin:0px auto")
     div.bgc-grey-50(layout='row' layout-align='space-between')
         div.m.tc-grey-600
             span

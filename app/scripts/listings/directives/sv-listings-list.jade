@@ -1,12 +1,11 @@
 div
     sv-top-search-panel.ml.mr
-    div(layout='row' layout-align-sm="space-between center" layout-align-gt-sm="start start" ng-if="!mapView")
+    div(layout='row' layout-align-sm="space-between center" layout-align-gt-sm="start center" ng-if="!mapView")
         div.m
             sv-sort-listings(sort-by='sortBy')
-    md-divider.m
-    .ml.mr.tc-blue-500
-        span.fs-subhead {{homes.length || 'No Data Avaliable'}} &nbsp
-        | active listings
+        .ml.mr.tc-grey-700
+            span.fs-subhead {{homes.length || 'No Data Avaliable'}} &nbsp
+            | active listings
     map.sv-search-map(ng-if='mapView' ng-style='mapStyle'  max-zoom="13" min-zoom="5" on-zoom_changed="zoomChanged()")
         marker(ng-repeat="pos in shPoses track by $index" position="{{pos.position.lat()}}, {{pos.position.lng()}}")
     div.sv-main-content(layout='row' layout-wrap ng-if='!mapView')

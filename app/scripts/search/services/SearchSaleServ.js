@@ -73,16 +73,21 @@
 								var pMaxPrice = queryArr.indexOf('max-price');
 								var pBedrooms = queryArr.indexOf('bedrooms');
 								var pType = queryArr.indexOf('type');
+
 								if (pAddress > -1) {
 									var address = queryArr[pAddress + 1];
 									queryObj.address = address.replace(/\s+/g, ' ');
-									filteredHomes = SearchFilterServ.byAddress(filteredHomes, address);
+									queryObj.address = address.replace(/-+/g, ' ');
+
+									filteredHomes = SearchFilterServ.byAddress(filteredHomes, queryObj.address);
 								}
+
 								if (pMaxPrice > -1) {
 									var maxPrice = queryArr[pMaxPrice + 1];
 									queryObj.maxPrice = maxPrice;
 									filteredHomes = SearchFilterServ.byMaxPrice(filteredHomes, maxPrice);
 								}
+
 								if (pBedrooms > -1) {
 									var bedrooms = queryArr[pBedrooms + 1];
 									queryObj.bedrooms = bedrooms.split('-').map(function (bed) {
@@ -90,6 +95,7 @@
 									});
 									filteredHomes = SearchFilterServ.byBedrooms(filteredHomes, bedrooms);
 								}
+
 								if (pType > -1) {
 									var homeType = queryArr[pType + 1];
 									homeType = homeType.replace(/&+/g, '/');
@@ -98,6 +104,7 @@
 									queryObj.type = homeType;
 									filteredHomes = SearchFilterServ.byType(filteredHomes, homeType);
 								}
+
 								QueryServ.set(queryObj);
 								$rootScope.$broadcast('query:changed', queryObj);
 								GetAgentsInfoServ.get(filteredHomes).then(function (homesWithAgents) {

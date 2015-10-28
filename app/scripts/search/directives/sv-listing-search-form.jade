@@ -1,10 +1,10 @@
-.card.bgc-grey-50(class='pb++ pt+' sty)
-    .fs-display-1.text-center.tc-grey-800.mb Find your dream home
+.card.bgc-grey-50(class='pb++ pt+')
+    .fs-display-2.text-center.tc-grey-800(class='mb mt+') Find your dream home
     form.mt(layout="column" name="searchForm" id="searchForm"  novalidate sv-form-val class='ml mr' ng-submit='runSearch(query)')
-        div(layout='row' class='pl pr' layout-align="center center")
-            input.btn.btn--m.btn--white.bgc-grey-200.ml.mr(lx-ripple='' ng-class='{"btn--flat":query.saleRent=="sale","btn--raised":query.saleRent=="rent"}' name='sale' value='Sale'   flex="" type='button' ng-click='saleRent("sale")' )
-            input.btn.btn--m.btn--white.bgc-grey-200.ml.mr( type='button' ng-class='{"btn--flat":query.saleRent=="rent","btn--raised":query.saleRent=="sale"}'  lx-ripple='' value='Rent'  flex="" name='rent' ng-click='saleRent("rent")')
-        div(layout='row' layout-sm="column" class="pl pr")
+        div(layout='row' class='pl pr mb+ mt' layout-align="center center")
+            input.btn.btn--l.btn--blue.bgc-blue-400.ml.mr(lx-ripple='' ng-class='{"btn--flat":query.saleRent=="sale","btn--raised":query.saleRent=="rent"}' name='sale' value='Sale'   flex="" type='button' ng-click='saleRent("sale")' )
+            input.btn.btn--l.btn--blue.bgc-blue-400.ml.mr( type='button' ng-class='{"btn--flat":query.saleRent=="rent","btn--raised":query.saleRent=="sale"}'  lx-ripple='' value='Rent'  flex="" name='rent' ng-click='saleRent("rent")')
+        div(layout='row' layout-sm="column" class="pl+ pr+")
             md-autocomplete(flex="" class="mb"
             md-selected-item="selectedItem"
             md-autofocus='true'
@@ -23,27 +23,3 @@
             button.btn.btn--m.btn--red.btn--raised.bgc-red-700.mb(lx-ripple='' style="padding-left:26px;padding-right:26px" flex-sm="" flex-order-sm="1")
                 i.fa.fa-search.fa-fw &nbsp
                 | Search
-        .pl.pr.fs-subhead.tc-blue-400 More Search Options:
-        div(layout-gt-sm='row' layout-sm="column" layout-align-gt-sm="center" class='mb pl pr')
-            md-input-container.md-select-article(class='sv-select-container' flex='')
-                md-select(flex placeholder='Property type', ng-model='query.type', md-on-open='getTypes()')
-                    md-option(ng-value='t.$value', ng-repeat='t in types')
-                        .fs-body-2 {{t.$value}}
-            div(flex='' layout='row' )
-                md-input-container(class='ml sv-select-container' flex='' )
-                    label Min Price
-                    input(ng-model='query.maxPrice' name='maxPrice')
-                md-input-container(class='ml sv-select-container' flex='' )
-                    label Max Price
-                    input(ng-model='query.maxPrice' name='maxPrice')
-            div(flex='' layout='row' )
-                md-input-container(class='ml sv-select-container' flex='' )
-                    label Min Beds
-                    input(ng-model='query.minBeds' name='minBeds')
-                md-input-container(class='ml sv-select-container' flex='' )
-                    label Max Beds
-                    input(ng-model='query.maxBeds' name='maxBeds')
-
-
-
-

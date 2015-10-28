@@ -11,17 +11,19 @@
                 $rootScope.news = svetNews.public;
             });
             var currentRoute = $state.current;
+            console.log(currentRoute);
             if (currentRoute.url === '/') {
-                $rootScope.radioShow = true;
+                $rootScope.homeStyle = true;
             } else {
-                $rootScope.radioShow = false;
+                $rootScope.homeStyle = false;
             }
             $rootScope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams, error) {
                 var routeName = toState.name;
-                if (_.contains(routesRadioShow, routeName)) {
-                    $rootScope.radioShow = true;
+                console.log(routeName);
+                if (_.contains('app.home', routeName)) {
+                    $rootScope.homeStyle = true;
                 } else {
-                    $rootScope.radioShow = false;
+                    $rootScope.homeStyle = false;
                 }
             });
             $rootScope.$on('$stateChangeError', function (event, toState, toParams, fromState, fromParams, error) {

@@ -42,7 +42,6 @@
                     function BrokerUploadImgController($scope, $mdDialog, broker, $rootScope) {
                         $scope.broker = broker;
                         $scope.saveProfileModal = function (img) {
-                            console.log('run here sv-broker-profile-top.js');
                             $rootScope.$broadcast('broker:changed', {img: img});
                             $mdDialog.hide();
                         };

@@ -8,7 +8,6 @@
                     $scope.upload = function (dataUrl) {
                         if (dataUrl) {
                             ImgBase64Serv.postUrl('/broker-thumb', dataUrl, userAuth.profile.brokerId).then(function (fileName) {
-                                console.log(fileName);
                                 $scope.broker.pic = fileName;
                                 $scope.saveProfileModal($scope.broker.pic);
                                 $scope.hide();

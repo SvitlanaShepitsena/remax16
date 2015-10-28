@@ -1,140 +1,139 @@
 (function () {
-	'use strict';
-	function updateClusters($scope) {
-		var newValue = $scope.markerClusterer.clusters_;
-		if (newValue.length === 0) {
-			return;
-		} else {
-			var shortPos = [];
-			for (var i = 0; i < newValue.length; i++) {
-				var cluster = newValue[i];
-				if (cluster.markers_)
-					for (var j = 0; j < cluster.markers_.length; j++) {
-						var obj = cluster.markers_[j];
-						shortPos.push(obj);
-					}
-			}
-			$scope.shPoses = [];
-			for (var i = 0; i < $scope.positions.length; i++) {
-				var onePos = $scope.positions[i];
-				if (!onePos) {
-					continue;
-				}
-				var found = false;
-				for (var j = 0; j < shortPos.length; j++) {
-					var onePosShort = shortPos[j];
-					if (onePos.id == onePosShort.id) {
-						found = true;
-						break;
-					}
-				}
-				if (!found) {
-					$scope.shPoses.push(onePos);
-				}
-			}
-		}
-	}
+    'use strict';
+    function updateClusters($scope) {
+        var newValue = $scope.markerClusterer.clusters_;
+        if (newValue.length === 0) {
+            return;
+        } else {
+            var shortPos = [];
+            for (var i = 0; i < newValue.length; i++) {
+                var cluster = newValue[i];
+                if (cluster.markers_)
+                    for (var j = 0; j < cluster.markers_.length; j++) {
+                        var obj = cluster.markers_[j];
+                        shortPos.push(obj);
+                    }
+            }
+            $scope.shPoses = [];
+            for (var i = 0; i < $scope.positions.length; i++) {
+                var onePos = $scope.positions[i];
+                if (!onePos) {
+                    continue;
+                }
+                var found = false;
+                for (var j = 0; j < shortPos.length; j++) {
+                    var onePosShort = shortPos[j];
+                    if (onePos.id == onePosShort.id) {
+                        found = true;
+                        break;
+                    }
+                }
+                if (!found) {
+                    $scope.shPoses.push(onePos);
+                }
+            }
+        }
+    }
 
-	function removeMarkersInClusters($timeout, $scope) {
-		$timeout(function () {
-			updateClusters($scope);
-		}, 400);
-	}
+    function removeMarkersInClusters($timeout, $scope) {
+        $timeout(function () {
+            updateClusters($scope);
+        }, 400);
+    }
 
-	angular.module('listings')
-		.directive('svListingsList', function (avatarBroker, googleMap, QueryServ, $timeout, $stateParams, SearchSaleServ, GeoServ, $window, localStorageService, $filter, defaultImage, SortServ, $rootScope) {
-			function centerMapToBounds(newValue, $scope) {
-				var bounds = new google.maps.LatLngBounds();
-				newValue.forEach((place) => {
-					if (place && place.position) {
-						bounds.extend(place.position);
-					}
-				});
-				$scope.map.fitBounds(bounds);
-			}
+    angular.module('listings')
+        .directive('svListingsList', function (avatarBroker, googleMap, QueryServ, $timeout, $stateParams, SearchSaleServ, GeoServ, $window, localStorageService, $filter, defaultImage, SortServ, $rootScope) {
+            function centerMapToBounds(newValue, $scope) {
+                var bounds = new google.maps.LatLngBounds();
+                newValue.forEach((place) => {
+                    if (place && place.position) {
+                        bounds.extend(place.position);
+                    }
+                });
+                $scope.map.fitBounds(bounds);
+            }
 
-			return {
-				replace: true,
-				templateUrl: 'scripts/listings/directives/sv-listings-list.html',
-				controller: function ($scope) {
-					this.getHomes = function () {
-						return $scope.homes;
-					}
-				},
-				scope: {
-				},
-				link: function ($scope, el, attrs) {
-					$scope.isBroker = $stateParams.id;
-					$scope.avatarBroker = avatarBroker;
-					$scope.isRent = QueryServ.isRent();
-					$scope.sortBy = localStorageService.get('sortBy') || 'daysOnSite';
-					$scope.$on('sort:homes', function (evt, sortBy) {
-						$scope.homes = SortServ.sort($scope.homes, sortBy);
-					})
-					$scope.boundsChanged = function () {
-						console.log('changed');
-					};
-					$scope.mapStyle = {height: Math.floor($window.innerHeight * .8) + 'px'};
-					if (!$scope.isBroker) {
-						var viewType = localStorageService.get('mapView');
-						$scope.mapView = (!(!viewType || viewType == 'grid'));
-					} else {
-						$scope.mapView = 'grid';
-					}
-					$scope.googleMap = googleMap;
-					$scope.googleMapsUrl = "http://maps.google.com/maps/api/js?key=AIzaSyAoZAEJhhT8_oquhNjmpdNvLgbvlCbeSAc";
-					$scope.iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
-					function getLocation() {
-						var location;
-						var params = $stateParams.params;
-						if (!params || params === 'all-homes-for-sale') {
-							return 'Chicago';
-						}
-						var start = params.indexOf('address');
-						start = params.indexOf('/', start) + 1;
-						var finish = params.indexOf('/', start);
-						if (finish === -1) {
-							location = params.substring(start);
-						} else {
-							location = params.substring(start, finish);
-						}
-						location = location.replace(/-+/g, ' ');
-						return location;
-					}
+            return {
+                replace: true,
+                templateUrl: 'scripts/listings/directives/sv-listings-list.html',
+                controller: function ($scope) {
+                    this.getHomes = function () {
+                        return $scope.homes;
+                    }
+                },
+                scope: {},
+                link: function ($scope, el, attrs) {
+                    $scope.isBroker = $stateParams.id;
+                    $scope.avatarBroker = avatarBroker;
+                    $scope.isRent = QueryServ.isRent();
+                    $scope.sortBy = localStorageService.get('sortBy') || 'daysOnSite';
+                    $scope.$on('sort:homes', function (evt, sortBy) {
+                        $scope.homes = SortServ.sort($scope.homes, sortBy);
+                    })
+                    $scope.boundsChanged = function () {
+                        console.log('changed');
+                    };
+                    $scope.mapStyle = {height: Math.floor($window.innerHeight * .8) + 'px'};
+                    if (!$scope.isBroker) {
+                        var viewType = localStorageService.get('mapView');
+                        $scope.mapView = (!(!viewType || viewType == 'grid'));
+                    } else {
+                        $scope.mapView = 'grid';
+                    }
+                    $scope.googleMap = googleMap;
+                    $scope.googleMapsUrl = "http://maps.google.com/maps/api/js?key=AIzaSyAoZAEJhhT8_oquhNjmpdNvLgbvlCbeSAc";
+                    $scope.iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
+                    function getLocation() {
+                        var location;
+                        var params = $stateParams.params;
+                        if (!params || params === 'all-homes-for-sale') {
+                            return 'Chicago';
+                        }
+                        var start = params.indexOf('address');
+                        start = params.indexOf('/', start) + 1;
+                        var finish = params.indexOf('/', start);
+                        if (finish === -1) {
+                            location = params.substring(start);
+                        } else {
+                            location = params.substring(start, finish);
+                        }
+                        location = location.replace(/-+/g, ' ');
+                        return location;
+                    }
 
-					var chicago;
-					$scope.$on('mapInitialized', function (event, map) {
-						$scope.map = map;
-					});
-					$scope.$on('mapGrid:changed', function (event, isMap) {
-						$scope.mapView = isMap;
-					});
-					SearchSaleServ.getHomes($stateParams, $scope.isBroker).then(function (homes) {
-						$scope.avatarBroker = avatarBroker;
-						$rootScope.hmCnt = homes.length;
-						if (!homes || homes.length === 0) {
-							//$scope.$broadcast('homes:loaded', {numb:0});
-							$timeout(function () {
-								if ($scope.map) {
-									$scope.map.setCenter(new google.maps.LatLng(42.008871225891134, -87.93649894999999));
-									$scope.map.setZoom(9);
-								}
-							}, 700);
-						}
-						$scope.homes = SortServ.sort(homes, $scope.sortBy);
-						$scope.infoWindowMap = new Map();
-						$scope.positions = _.map($scope.homes, function (home) {
-							var pos = home.geo;
-							if (!pos) {
-								return;
-							}
-							var latLng = new google.maps.LatLng(pos.lat, pos.lng);
-							var marker = new google.maps.Marker({position: latLng});
-							marker.id = home.$id;
-							var url = home.images ? home.images[0] : defaultImage;
-							var href = "/remax-listings/" + (home.isRent ? 'rent/' : 'sale/') + home.mls + '/';
-							$scope.infoWindowMap.set(marker.id, new google.maps.InfoWindow({
-								content: `
+                    var chicago;
+                    $scope.$on('mapInitialized', function (event, map) {
+                        $scope.map = map;
+                    });
+                    $scope.$on('mapGrid:changed', function (event, isMap) {
+                        $scope.mapView = isMap;
+                    });
+                    SearchSaleServ.getHomes($stateParams, $scope.isBroker).then(function (homes) {
+                        $scope.avatarBroker = avatarBroker;
+                        $rootScope.hmCnt = homes.length;
+                        if (!homes || homes.length === 0) {
+                            //$scope.$broadcast('homes:loaded', {numb:0});
+                            $timeout(function () {
+                                if ($scope.map) {
+                                    $scope.map.setCenter(new google.maps.LatLng(42.008871225891134, -87.93649894999999));
+                                    $scope.map.setZoom(9);
+                                }
+                            }, 700);
+                        }
+                        $scope.homes = SortServ.sort(homes, $scope.sortBy);
+                        $scope.infoWindowMap = new Map();
+                        $scope.positions = _.map($scope.homes, function (home) {
+                            var pos = home.geo;
+                            if (!pos) {
+                                return;
+                            }
+                            var latLng = new google.maps.LatLng(pos.lat, pos.lng);
+                            var marker = new google.maps.Marker({position: latLng});
+                            marker.id = home.$id;
+                            var url = home.images ? home.images[0] : defaultImage;
+                            var href = "/remax-listings/" + (home.isRent ? 'rent/' : 'sale/') + home.mls + '/';
+                            $scope.infoWindowMap.set(marker.id, new google.maps.InfoWindow({
+                                content: `
                                 <div style="margin-bottom:4px">
                                     <div class="map-pointer-text-wrapper" style="padding-top: 5px;">
                                         <a href="${href}" target="_blank">
@@ -144,7 +143,7 @@
                                         </a>
                                     </div>
                                     <div class="map-pointer-text-wrapper" style="vertical-align: top;">
-                                        <a href="${href}" style="text-decoration:none" target="_blank">
+                                        <a href="${href}" style="text-decoration:none">
                                             <div style="font-size:15px;font-weight:600;color:#1e88e5">${$filter("currency")(home.price, "$", 0)} </div>
                                             <div style="font-weight:500;color:#393939">${home.address.city},${home.address.zip}</div>
                                             <div style="font-weight:500;color:#393939">${home.address.street}</div>
@@ -173,9 +172,11 @@
                                     </div>
                                 </div>
                                 <hr/>
-                                <img style="display:inline-block; vertical-align: middle;width:28px;margin-top:8px" src="${home.agent.pic || avatarBroker} " alt="">
+
+                                <a href="/brokers/${home.agent}/profile" style="text-decoration:none">
+                                <img style="display:inline-block; vertical-align: middle;width:28px;margin-top:8px" src="${home.agentObj.pic || avatarBroker} " alt="">
                                 <div style="display:inline-block;vertical-align: middle;font-weight:500">
-                                   ${home.agent.fName} ${home.agent.lName}
+                                   ${home.agentObj.fName} ${home.agentObj.lName}
                                 </div>
                                 <div style="display:inline-block;float: right">
                                   <div style="margin-top:8px;">
@@ -183,46 +184,46 @@
                                       (847) 674-9797
                                   </div>
                                 </div>
-
+                                </a>
 
 
 							 `
-							}));
-							marker.addListener('click', function () {
-								$scope.infoWindowMap.forEach(function (infoWin) {
-									infoWin.close();
-								});
-								$scope.infoWindowMap.get(marker.id).open($scope.map, marker);
-							});
-							return marker;
-						});
-					});
-					$scope.$watch('positions', function (newValue, oldValue) {
-						if (!newValue) {
-							return;
-						}
-						if ($scope.map) {
-							$scope.markerClusterer = new MarkerClusterer($scope.map, _.compact($scope.positions), {maxZoom: 12});
-							centerMapToBounds(newValue, $scope);
-							removeMarkersInClusters($timeout, $scope);
-						} else {
-							$scope.$on('mapInitialized', function (event, map) {
-								$scope.map = $scope.map || map;
-								$scope.markerClusterer = new MarkerClusterer($scope.map, _.compact($scope.positions), {maxZoom: 12});
-								centerMapToBounds(newValue, $scope);
-								removeMarkersInClusters($timeout, $scope);
-							});
-						}
-					});
-					$scope.zoomChanged = function () {
-						if (!$scope.clustersBuilt) {
-							return;
-						}
-						$timeout(function () {
-							updateClusters($scope);
-						}, 400);
-					};
-				}
-			};
-		});
+                            }));
+                            marker.addListener('click', function () {
+                                $scope.infoWindowMap.forEach(function (infoWin) {
+                                    infoWin.close();
+                                });
+                                $scope.infoWindowMap.get(marker.id).open($scope.map, marker);
+                            });
+                            return marker;
+                        });
+                    });
+                    $scope.$watch('positions', function (newValue, oldValue) {
+                        if (!newValue) {
+                            return;
+                        }
+                        if ($scope.map) {
+                            $scope.markerClusterer = new MarkerClusterer($scope.map, _.compact($scope.positions), {maxZoom: 12});
+                            centerMapToBounds(newValue, $scope);
+                            removeMarkersInClusters($timeout, $scope);
+                        } else {
+                            $scope.$on('mapInitialized', function (event, map) {
+                                $scope.map = $scope.map || map;
+                                $scope.markerClusterer = new MarkerClusterer($scope.map, _.compact($scope.positions), {maxZoom: 12});
+                                centerMapToBounds(newValue, $scope);
+                                removeMarkersInClusters($timeout, $scope);
+                            });
+                        }
+                    });
+                    $scope.zoomChanged = function () {
+                        if (!$scope.clustersBuilt) {
+                            return;
+                        }
+                        $timeout(function () {
+                            updateClusters($scope);
+                        }, 400);
+                    };
+                }
+            };
+        });
 })();

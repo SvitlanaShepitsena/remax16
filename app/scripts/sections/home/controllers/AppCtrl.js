@@ -11,7 +11,6 @@
                 $rootScope.news = svetNews.public;
             });
             var currentRoute = $state.current;
-            console.log(currentRoute);
             if (currentRoute.url === '/') {
                 $rootScope.homeStyle = true;
             } else {
@@ -19,7 +18,6 @@
             }
             $rootScope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams, error) {
                 var routeName = toState.name;
-                console.log(routeName);
                 if (_.contains('app.home', routeName)) {
                     $rootScope.homeStyle = true;
                 } else {

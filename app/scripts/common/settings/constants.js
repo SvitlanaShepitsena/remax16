@@ -22,6 +22,15 @@
         .constant('companyFax', '(847) 674-0411')
         .constant('companyEmail', 'remax1stclass@gmail.com')
 
+        .constant('icon', {
+            sHome: "img/icons/house.png",
+            mHome: "img/icons/office-building.png",
+            condo: "img/icons/condominimum.png",
+            townhouse: "img/icons/townhouse.png",
+            duplex: "img/icons/house.png",
+            land: "img/icons/landmark.png"
+        })
+
         .constant('defaultImage', '../img/common/image-empty.png')
 
         .constant('userAuth', {})

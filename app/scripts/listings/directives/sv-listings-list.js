@@ -41,8 +41,35 @@
         }, 400);
     }
 
+    function generateIcon(home, icon) {
+        var iconLink;
+        switch (home.type) {
+            case "Single Family Home":
+                iconLink = icon.sHome;
+                break;
+            case "Multi-Family Home":
+                iconLink = icon.mHome;
+                break;
+            case "Townhouse":
+                iconLink = icon.townhouse;
+                break;
+            case "Duplex":
+                iconLink = icon.sHome;
+                break;
+            case "Condominium Unit":
+                iconLink = icon.condo;
+                break;
+            case "Raw Land":
+                iconLink = icon.land;
+                break;
+            default:
+                iconLink = icon.sHome;
+        }
+        return iconLink;
+    }
+
     angular.module('listings')
-        .directive('svListingsList', function (avatarBroker, $rootScope, googleMap, QueryServ, $timeout, $stateParams, SearchSaleServ, GeoServ, $window, localStorageService, $filter, defaultImage, SortServ) {
+        .directive('svListingsList', function (avatarBroker, icon, $rootScope, googleMap, QueryServ, $timeout, $stateParams, SearchSaleServ, GeoServ, $window, localStorageService, $filter, defaultImage, SortServ) {
             function centerMapToBounds(newValue, $scope) {
                 var bounds = new google.maps.LatLngBounds();
                 newValue.forEach((place) => {
@@ -63,7 +90,7 @@
                 },
                 scope: {},
                 link: function ($scope, el, attrs) {
-                    $scope.underBrokers=$rootScope.underBrokers;
+                    $scope.underBrokers = $rootScope.underBrokers;
                     $scope.isBroker = $stateParams.id;
                     $scope.avatarBroker = avatarBroker;
                     $scope.isRent = QueryServ.isRent();
@@ -129,7 +156,10 @@
                                 return;
                             }
                             var latLng = new google.maps.LatLng(pos.lat, pos.lng);
-                            var marker = new google.maps.Marker({position: latLng});
+                            var marker = new google.maps.Marker({
+                                position: latLng,
+                                icon: generateIcon(home, icon)
+                            });
                             marker.id = home.$id;
                             var url = home.images ? home.images[0] : defaultImage;
                             var href = "/remax-listings/" + (home.isRent ? 'rent/' : 'sale/') + home.mls + '/';

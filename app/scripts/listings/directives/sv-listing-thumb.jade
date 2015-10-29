@@ -1,12 +1,12 @@
 .card.m
     div.p.bgc-blue-500.tc-blue-50(layout='row' layout-align='space-between start')
         div(layout='row')
-            .fs-subhead.tc-grey-50(style="font-weight:bold") {{home.price|currency:'$':0}} &nbsp
+            .fs-subhead.tc-blue-50(style="font-weight:bold") {{home.price|currency:'$':0}} &nbsp
             .fs-body-1.tc-blue-100(ng-show="home.shortSale" style="padding:2px")
                 i.fa.fa-bell.fa-fw &nbsp
                 | Short Sale
         div.text-right
-            p.fs-body-2.tc-grey-50 {{home.type}}
+            p.fs-body-1.tc-blue-50 {{home.type}}
     div.bgc-blue-100(layout='row' layout-align="space-between center" ng-show='!home.isRent')
         a.p.display-block.sv-link-visited-image.tc-grey-900(ui-sref='app.remax-listings.one-listing-sale({mls:home.mls})' style="text-decoration:none")
             p {{home.address.street}}
@@ -37,17 +37,17 @@
             span.fs-body-1.mdc-text-right Year: {{home.year}}
     div.bgc-grey-100(layout='row')
         div(flex="" style="text-align:right" ng-show='!home.isRent')
-            button.btn.btn--xs.btn--white.btn--raised.tc-grey-700.m.bgc-grey-200(lx-ripple='' ui-sref='app.remax-listings.one-listing-sale({mls:home.mls})' style="font-size:10px" )
+            button.btn.btn--xs.btn--white.btn--raised.tc-blue-600.m(lx-ripple='' ui-sref='app.remax-listings.one-listing-sale({mls:home.mls})' style="font-size:10px" )
                 i.fa.fa-info.fa-fw &nbsp
                 | More Info
-            button.btn.btn--xs.btn--white.btn--raised.tc-blue-600.m.mdc-text-right(lx-ripple='' style="font-size:10px")
+            button.btn.btn--xs.btn--white.btn--raised.tc-blue-100.m.bgc-blue-500.m.mdc-text-right(lx-ripple='' style="font-size:10px")
                 i.fa.fa-star.fa-fw &nbsp
                 | Bookmark
         div(flex="" style="text-align:right" ng-show='home.isRent')
             button.btn.btn--xs.btn--white.btn--raised.tc-grey-700.m.bgc-grey-200(lx-ripple='' ui-sref='app.remax-listings.one-listing-rent({mls:home.mls})' style="font-size:10px")
                 i.fa.fa-info.fa-fw &nbsp
                 | More Info
-            button.btn.btn--xs.btn--white.btn--raised.tc-blue-600.m.mdc-text-right(lx-ripple='' style="font-size:10px")
+            button.btn.btn--xs.btn--white.btn--raised.tc-blue-500.m.mdc-text-right(lx-ripple='' style="font-size:10px")
                 i.fa.fa-star.fa-fw &nbsp
                 | Bookmark
     div.bgc-grey-200

@@ -1,5 +1,5 @@
 .card.bgc-grey-50(class='pb++ pt+')
-    .fs-display-2.text-center.tc-grey-800(class='mb mt+') Find your dream home
+    .fs-display-2.text-center.tc-grey-800(class='mb mt+' show-gt-md) Find your dream home
     form.mt(layout="column" name="searchForm" id="searchForm"  novalidate sv-form-val class='ml mr' ng-submit='runSearch(query)')
         div(layout='row' class='pl pr mb+ mt' layout-align="center center")
             input.btn.btn--l.btn--raised.ml.mr(ng-class='{"bgc-red-700 tc-red-50":query.saleRent=="sale", "btn--red":query.saleRent=="sale", "btn--blue":query.saleRent=="rent","btn--raised":query.saleRent=="rent"}'  value='Sale'   flex="" ng-click='saleRent("sale")'  lx-ripple="" type='button' name='sale')

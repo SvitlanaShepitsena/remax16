@@ -1,12 +1,12 @@
 div(layout='row' layout-align="space-between center")
     div.m(flex='')
-        p.tc-red-800
+        p.tc-red-A400
             i.fa.fa-phone.fa-fw &nbsp
-            | (847) 674-9797
+            | {{companyPhone}}
     div.m(style="text-align:right")
         a.display-block.text-center.tc-grey-800.fw-500(ui-sref='app.brokers.broker.profile({id:home.agent})' style='text-decoration:none')
             div(layout='row' layout-align="center center")
-                h3.mr
+                h4.mr
                     span {{home.agentObj.fName}} &nbsp
                     span {{home.agentObj.lName}}
                 div

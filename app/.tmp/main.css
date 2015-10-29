@@ -80,7 +80,6 @@ md-select-menu md-content {
 }
 .sv-sort .md-select-value {
   border-bottom: 0px !important;
-  color: #b71c1c !important;
 }
 .sv-dropdown {
   top: 125px !important;
@@ -878,13 +877,13 @@ iframe {
  = Bootstrap active button fix
 ***********************/
 p {
-  font-size: 1.1em;
+  font-size: 14px;
   font-weight: 400;
-  line-height: 1.7em;
+  line-height: 20px;
 }
 @media screen and (max-width: 992px) {
   p {
-    font-size: 1em;
+    font-size: 13px;
   }
 }
 .ta-scroll-window > .ta-bind > p > img {

@@ -25,12 +25,14 @@
         .constant('icon', {
             sHome: "img/icons/house.png",
             mHome: "img/icons/office-building.png",
-            condo: "img/icons/condominimum.png",
+            condo: "img/icons/condo.png",
             townhouse: "img/icons/townhouse.png",
             duplex: "img/icons/house.png",
             land: "img/icons/landmark.png"
         })
 
+
+        .constant('distanceToNearest', 20000)
         .constant('defaultImage', '../img/common/image-empty.png')
 
         .constant('userAuth', {})

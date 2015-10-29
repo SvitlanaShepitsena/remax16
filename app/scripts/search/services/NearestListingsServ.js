@@ -1,7 +1,7 @@
 (function () {
     'use strict';
     angular.module('search')
-        .factory('NearestListingsServ', function ($q, url, users, $firebaseObject, $firebaseArray) {
+        .factory('NearestListingsServ', function ($q, distanceToNearest, url, users, $firebaseObject, $firebaseArray) {
             function geoToLatLng(placeToSearch) {
                 if (placeToSearch.lat) {
                     return new google.maps.LatLng(placeToSearch.lat, placeToSearch.lng);
@@ -15,6 +15,7 @@
                 find: function (address, allHomes) {
                     return $q(function (resolve, reject) {
                         var geoCoder = new google.maps.Geocoder();
+                        var nearest = [];
                         geoCoder.geocode({address}, function (results, status) {
                             if (status == 'OK') {
                                 var placeToSearch = results[0];
@@ -27,10 +28,18 @@
                                         homeLatLng
                                     );
                                     home.distance = distance;
+                                    if (distance <= distanceToNearest) {
+                                        nearest.push(home);
+                                    }
                                 }
-                                var nearestHomes = _.sortBy(allHomes, 'distance');
+                                if (nearest.length) {
+                                    resolve(_.sortBy(nearest,distance));
+                                } else{
 
-                                resolve(nearestHomes);
+                                var nearestHomes = _.sortBy(allHomes, 'distance');
+                                    resolve(_.take(nearestHomes,1));
+                                }
+
                             }
 
 

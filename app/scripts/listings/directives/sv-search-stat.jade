@@ -1,3 +1,4 @@
 span.tc-grey-700
     span(hide-sm) Found: &nbsp
-    span.fw-500 {{cnt||0}} listings for {{isRent?'rent':'sale'}}
+    span.fw-500(ng-if='cnt') {{cnt||0}} homes for {{isRent?'rent':'sale'}}
+    span.fw-500(ng-if='cntNearBy') {{cntNearBy||0}} Nearby homes for {{isRent?'rent':'sale'}}

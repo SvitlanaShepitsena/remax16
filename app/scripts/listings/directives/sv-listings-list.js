@@ -138,7 +138,7 @@
                     });
                     SearchSaleServ.getHomes($stateParams, $scope.isBroker).then(function (homes) {
                         $scope.avatarBroker = avatarBroker;
-                        $rootScope.hmCnt = homes.length;
+                        $rootScope.hmCnt = homes;
                         if (!homes || homes.length === 0) {
                             //$scope.$broadcast('homes:loaded', {numb:0});
                             $timeout(function () {
@@ -203,9 +203,11 @@
                                     </div>
                                 </div>
                                 <hr/>
-                                <img style="display:inline-block; vertical-align: middle;width:28px;margin-top:8px" src="${home.agent.pic || avatarBroker} " alt="">
+
+                                <a href="/brokers/${home.agent}/profile" style="text-decoration:none">
+                                <img style="display:inline-block; vertical-align: middle;width:28px;margin-top:8px" src="${home.agentObj.pic || avatarBroker} " alt="">
                                 <div style="display:inline-block;vertical-align: middle;font-weight:500">
-                                   ${home.agent.fName} ${home.agent.lName}
+                                   ${home.agentObj.fName} ${home.agentObj.lName}
                                 </div>
                                 <div style="display:inline-block;float: right">
                                   <div style="margin-top:8px;">
@@ -213,7 +215,7 @@
                                       (847) 674-9797
                                   </div>
                                 </div>
-
+                                </a>
 
 
 							 `

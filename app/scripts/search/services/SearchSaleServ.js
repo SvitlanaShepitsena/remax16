@@ -117,7 +117,9 @@
 
                                     });
                                 } else {
-
+                                    filteredHomes = _.map(filteredHomes, function (home) {
+                                        return _.omit(home, 'distance');
+                                    });
                                     GetAgentsInfoServ.get(filteredHomes).then(function (homesWithAgents) {
                                         resolve(homesWithAgents);
                                     })

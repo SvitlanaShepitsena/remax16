@@ -1,1 +1,1 @@
-<span class="tc-grey-700"><span hide-sm="hide-sm">Found: &nbsp</span><span class="fw-500">{{cnt||0}} listings for {{isRent?'rent':'sale'}}</span></span>
+<span class="tc-grey-700"><span hide-sm="hide-sm">Found: &nbsp</span><span ng-if="cnt" class="fw-500">{{cnt||0}} homes for {{isRent?'rent':'sale'}}</span><span ng-if="cntNearBy" class="fw-500">{{cntNearBy||0}} Nearby homes for {{isRent?'rent':'sale'}}</span></span>

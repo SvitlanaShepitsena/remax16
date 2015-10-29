@@ -1,7 +1,7 @@
 (function () {
 	'use strict';
 	angular.module('search')
-		.factory('SearchSaleServ', function (GetAgentsInfoServ, QueryServ, SearchFilterServ, $rootScope, userAuth, $q, url, users, $firebaseObject, $firebaseArray) {
+		.factory('SearchSaleServ', function (NearestListingsServ, GetAgentsInfoServ, QueryServ, SearchFilterServ, $rootScope, userAuth, $q, url, users, $firebaseObject, $firebaseArray) {
 			var saleUrl = url + 'homes/sale/';
 			var refSale = $firebaseArray(new Firebase(saleUrl));
 			//-----------

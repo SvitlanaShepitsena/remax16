@@ -42,7 +42,7 @@
     }
 
     angular.module('listings')
-        .directive('svListingsList', function (avatarBroker, googleMap, QueryServ, $timeout, $stateParams, SearchSaleServ, GeoServ, $window, localStorageService, $filter, defaultImage, SortServ, $rootScope) {
+        .directive('svListingsList', function (avatarBroker, $rootScope, googleMap, QueryServ, $timeout, $stateParams, SearchSaleServ, GeoServ, $window, localStorageService, $filter, defaultImage, SortServ) {
             function centerMapToBounds(newValue, $scope) {
                 var bounds = new google.maps.LatLngBounds();
                 newValue.forEach((place) => {
@@ -63,6 +63,7 @@
                 },
                 scope: {},
                 link: function ($scope, el, attrs) {
+                    $scope.underBrokers=$rootScope.underBrokers;
                     $scope.isBroker = $stateParams.id;
                     $scope.avatarBroker = avatarBroker;
                     $scope.isRent = QueryServ.isRent();
@@ -143,7 +144,7 @@
                                         </a>
                                     </div>
                                     <div class="map-pointer-text-wrapper" style="vertical-align: top;">
-                                        <a href="${href}" style="text-decoration:none">
+                                        <a href="${href}" style="text-decoration:none" target="_blank">
                                             <div style="font-size:15px;font-weight:600;color:#1e88e5">${$filter("currency")(home.price, "$", 0)} </div>
                                             <div style="font-weight:500;color:#393939">${home.address.city},${home.address.zip}</div>
                                             <div style="font-weight:500;color:#393939">${home.address.street}</div>
@@ -172,11 +173,9 @@
                                     </div>
                                 </div>
                                 <hr/>
-
-                                <a href="/brokers/${home.agent}/profile" style="text-decoration:none">
-                                <img style="display:inline-block; vertical-align: middle;width:28px;margin-top:8px" src="${home.agentObj.pic || avatarBroker} " alt="">
+                                <img style="display:inline-block; vertical-align: middle;width:28px;margin-top:8px" src="${home.agent.pic || avatarBroker} " alt="">
                                 <div style="display:inline-block;vertical-align: middle;font-weight:500">
-                                   ${home.agentObj.fName} ${home.agentObj.lName}
+                                   ${home.agent.fName} ${home.agent.lName}
                                 </div>
                                 <div style="display:inline-block;float: right">
                                   <div style="margin-top:8px;">
@@ -184,7 +183,7 @@
                                       (847) 674-9797
                                   </div>
                                 </div>
-                                </a>
+
 
 
 							 `

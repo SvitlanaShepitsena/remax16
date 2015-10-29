@@ -7,12 +7,20 @@
 
                 .state("app.brokers", {
                     url: "/brokers",
+                    onEnter: function ($rootScope) {
+                        $rootScope.underBrokers = true;
+
+                    },
+                    onExit: function ($rootScope) {
+                        $rootScope.underBrokers = false;
+
+                    },
                     controller: "BrokersCtrl",
                     templateUrl: "scripts/brokers/views/brokersCtrl.html"
                 })
                 .state("app.brokers.broker", {
                     url: "/:id",
-	                abstract:true,
+                    abstract: true,
                     controller: "OneBrokerCtrl",
                     templateUrl: "scripts/brokers/views/one-brokerCtrl.html"
                 })

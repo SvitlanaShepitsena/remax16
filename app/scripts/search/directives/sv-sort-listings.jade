@@ -1,10 +1,12 @@
-md-select.md-select-listing.bgc-grey-100.tc-grey-800(name="sortListings" placeholder="Sort by" aria-label='sortListing' ng-model='sortBy')
-    md-option.fs-body-2(style='height:38px' aria-label='sort' value='daysOnSite')
-        i.fa.fa.fa-clock-o.mr.mb(style='max-width:22px')
-        span.fs-body-2 Recent
-    md-option.fs-body-2(style='height:38px' aria-label='sort' value='priceLow')
-        i.fa.fa-arrow-down.mr.mb(style='max-width:22px' )
-        span.fs-body-2 Price Low
-    md-option.fs-body-2(style='height:38px' aria-label='sort' value='priceHigh')
-        i.fa.fa-arrow-up.mr.mb(style='max-width:22px')
-        span.fs-body-2 Price High
+.sv-sort.card(layout="row" layout-align="center center")
+    i.mdi.mdi-sort.fa-fw.fs-subhead.ml.tc-blue-600
+    md-select.md-select-listing.bgc-white-1(name="sortListings" placeholder="Sort by" aria-label='sortListing' ng-model='sortBy')
+        md-option.fs-body-2(style='height:38px' aria-label='sort' value='daysOnSite')
+            i.fa.fa.fa-clock-o.mr.mb(style='max-width:22px')
+            span.fs-body-2 Recent
+        md-option.fs-body-2(style='height:38px' aria-label='sort' value='priceLow')
+            i.fa.fa-arrow-down.mr.mb(style='max-width:22px' )
+            span.fs-body-2 Price Low
+        md-option.fs-body-2(style='height:38px' aria-label='sort' value='priceHigh')
+            i.fa.fa-arrow-up.mr.mb(style='max-width:22px')
+            span.fs-body-2 Price High

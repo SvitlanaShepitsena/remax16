@@ -78,6 +78,38 @@ md-select-menu md-content {
 .map-pointer-text-wrapper {
   display: inline-block;
 }
+.home-search-header {
+  font-size: 36px;
+  font-weight: 500;
+}
+@media screen and (max-width: 340px) {
+  .home-search-header {
+    font-size: 22px;
+  }
+}
+@media screen and (min-width: 350px) {
+  .home-search-header {
+    font-size: 24px;
+  }
+}
+@media screen and (min-width: 500px) {
+  .home-search-header {
+    font-size: 26px;
+  }
+}
+@media screen and (min-width: 750px) {
+  .home-search-header {
+    font-size: 34px;
+  }
+}
+@media screen and (min-width: 1100px) {
+  .home-search-header {
+    font-size: 40px;
+  }
+}
+.sv-sort .md-select-value {
+  border-bottom: 0px !important;
+}
 .sv-dropdown {
   top: 125px !important;
 }
@@ -614,14 +646,73 @@ md-icon {
   top: 0px;
   background-color: #fff;
 }
+@media screen and (max-width: 350px) {
+  .logo {
+    width: 50px;
+    height: 50px;
+    background-size: 40px 40px;
+  }
+}
+@media screen and (min-width: 350px) {
+  .logo {
+    width: 48px;
+    height: 48px;
+    background-size: 40px 40px;
+  }
+}
+@media screen and (min-width: 500px) {
+  .logo {
+    width: 60px;
+    height: 60px;
+    background-size: 54px 54px;
+  }
+}
+@media screen and (min-width: 800px) {
+  .logo {
+    width: 76px;
+    height: 76px;
+    background-size: 68px 68px;
+  }
+}
 .logo-home {
-  width: 96px !important;
-  height: 96px !important;
-  background-size: 80px 80px !important;
-  left: 16px !important;
-  top: 8px !important;
   -webkit-transition: all 0.5;
   transition: all 0.5;
+}
+@media screen and (max-width: 350px) {
+  .logo-home {
+    left: 4px !important;
+    top: 4px !important;
+    width: 50px !important;
+    height: 50px !important;
+    background-size: 40px 40px !important;
+  }
+}
+@media screen and (min-width: 350px) {
+  .logo-home {
+    left: 8px !important;
+    top: 8px !important;
+    width: 48px !important;
+    height: 48px !important;
+    background-size: 40px 40px !important;
+  }
+}
+@media screen and (min-width: 500px) {
+  .logo-home {
+    left: 8px !important;
+    top: 8px !important;
+    width: 60px !important;
+    height: 60px !important;
+    background-size: 54px 54px !important;
+  }
+}
+@media screen and (min-width: 800px) {
+  .logo-home {
+    left: 16px !important;
+    top: 8px !important;
+    width: 96px !important;
+    height: 96px !important;
+    background-size: 80px 80px !important;
+  }
 }
 .logo-link {
   height: auto;
@@ -677,7 +768,7 @@ md-icon {
   background-position: center;
 }
 .main-nav-link {
-  color: #393939 !important;
+  color: #f5f5f5 !important;
   font-weight: 500;
   line-height: 24px;
   padding-top: 4px;
@@ -685,7 +776,7 @@ md-icon {
   border-radius: 0px !important;
 }
 .nav-link-active {
-  background-color: #d3d3d3 !important;
+  background-color: #1976d2 !important;
 }
 .link-active-blue {
   color: #2196f3 !important;
@@ -874,13 +965,13 @@ iframe {
  = Bootstrap active button fix
 ***********************/
 p {
-  font-size: 1.1em;
+  font-size: 14px;
   font-weight: 400;
-  line-height: 1.7em;
+  line-height: 20px;
 }
 @media screen and (max-width: 992px) {
   p {
-    font-size: 1em;
+    font-size: 13px;
   }
 }
 .ta-scroll-window > .ta-bind > p > img {

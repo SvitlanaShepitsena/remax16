@@ -33,16 +33,16 @@
     <!-- build:css vendors.css -->
 
     <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/angular-bootstrap-calendar/dist/css/angular-bootstrap-calendar.css" />
-    <link rel="stylesheet" href="bower_components/angular-bootstrap-lightbox/dist/angular-bootstrap-lightbox.css" />
-    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
-    <link rel="stylesheet" href="bower_components/angular-toastr/dist/angular-toastr.css" />
-    <link rel="stylesheet" href="bower_components/mdi/css/materialdesignicons.css" />
-    <link rel="stylesheet" href="bower_components/mdi/css/materialdesignicons.min.css" />
-    <link rel="stylesheet" href="bower_components/lumx/dist/lumx.css" />
-    <link rel="stylesheet" href="bower_components/angular-carousel/dist/angular-carousel.css" />
-    <link rel="stylesheet" href="bower_components/flexslider/flexslider.css" />
-    <link rel="stylesheet" href="bower_components/ng-img-crop/compile/minified/ng-img-crop.css" />
+    <link rel="stylesheet" href="bower_components/angular-bootstrap-calendar/dist/css/angular-bootstrap-calendar.css"/>
+    <link rel="stylesheet" href="bower_components/angular-bootstrap-lightbox/dist/angular-bootstrap-lightbox.css"/>
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css"/>
+    <link rel="stylesheet" href="bower_components/angular-toastr/dist/angular-toastr.css"/>
+    <link rel="stylesheet" href="bower_components/mdi/css/materialdesignicons.css"/>
+    <link rel="stylesheet" href="bower_components/mdi/css/materialdesignicons.min.css"/>
+    <link rel="stylesheet" href="bower_components/lumx/dist/lumx.css"/>
+    <link rel="stylesheet" href="bower_components/angular-carousel/dist/angular-carousel.css"/>
+    <link rel="stylesheet" href="bower_components/flexslider/flexslider.css"/>
+    <link rel="stylesheet" href="bower_components/ng-img-crop/compile/minified/ng-img-crop.css"/>
     <!-- endbower -->
     <link rel="stylesheet" href="./bower_components/textAngular/src/textAngular.css" type="text/css"/>
     <link rel="stylesheet" href="./bower_components/lumx/dist/lumx.css">
@@ -103,15 +103,15 @@
                 <!--hide-gt-md sv-left-click-handler="" aria-label="Show User List">-->
                 <!--<md-icon md-svg-icon="sv-menu"></md-icon>-->
                 <!--</button>-->
-
-                <div>
-                    <div hide-gt-md="">
-                        <a ui-sref="app.home" style="display:block"> <img src="img/logo/company-logo-35.png"
-                                                                          class=" mt mb logo-img-cell"
-                                                                          alt="Re/Max 1st Class">
-                        </a>
-                    </div>
-                </div>
+                <!--==mobilelogo-->
+                <!--<div>-->
+                    <!--<div hide-gt-md="">-->
+                        <!--<a ui-sref="app.home" style="display:block">-->
+                            <!--<img src="img/logo/company-logo-35.png" class=" mt mb logo-img-cell"-->
+                                 <!--alt="Re/Max 1st Class">-->
+                        <!--</a>-->
+                    <!--</div>-->
+                <!--</div>-->
                 <!--<span flex ng-if="main.showShifter"></span>-->
                 <!--<sv-header-subscription-btn hide-sm></sv-header-subscription-btn>-->
                 <!--<div flex></div>-->
@@ -206,7 +206,8 @@
             </md-content>
             <!--=home.logo-->
             <a ui-sref="app.home" style="display:block;margin-right:16px;margin-left:8px">
-                <md-toolbar hide-sm="" class='pt pb  md-whiteframe-2dp logo bgc-grey-100' hide-md="" ng-class="{'logo-home':homeStyle}">
+                <md-toolbar class='pt pb  md-whiteframe-2dp logo bgc-grey-100'
+                            ng-class="{'logo-home':homeStyle}">
                     <!--<img src="img/logo/company-logo.png" class="logo-img" alt="Re/Max 1st Class">-->
                 </md-toolbar>
             </a>

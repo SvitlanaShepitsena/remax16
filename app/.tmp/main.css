@@ -646,14 +646,73 @@ md-icon {
   top: 0px;
   background-color: #fff;
 }
+@media screen and (max-width: 350px) {
+  .logo {
+    width: 50px;
+    height: 50px;
+    background-size: 40px 40px;
+  }
+}
+@media screen and (min-width: 350px) {
+  .logo {
+    width: 48px;
+    height: 48px;
+    background-size: 40px 40px;
+  }
+}
+@media screen and (min-width: 500px) {
+  .logo {
+    width: 60px;
+    height: 60px;
+    background-size: 54px 54px;
+  }
+}
+@media screen and (min-width: 800px) {
+  .logo {
+    width: 76px;
+    height: 76px;
+    background-size: 68px 68px;
+  }
+}
 .logo-home {
-  width: 96px !important;
-  height: 96px !important;
-  background-size: 80px 80px !important;
-  left: 16px !important;
-  top: 8px !important;
   -webkit-transition: all 0.5;
   transition: all 0.5;
+}
+@media screen and (max-width: 350px) {
+  .logo-home {
+    left: 4px !important;
+    top: 4px !important;
+    width: 50px !important;
+    height: 50px !important;
+    background-size: 40px 40px !important;
+  }
+}
+@media screen and (min-width: 350px) {
+  .logo-home {
+    left: 8px !important;
+    top: 8px !important;
+    width: 48px !important;
+    height: 48px !important;
+    background-size: 40px 40px !important;
+  }
+}
+@media screen and (min-width: 500px) {
+  .logo-home {
+    left: 8px !important;
+    top: 8px !important;
+    width: 60px !important;
+    height: 60px !important;
+    background-size: 54px 54px !important;
+  }
+}
+@media screen and (min-width: 800px) {
+  .logo-home {
+    left: 16px !important;
+    top: 8px !important;
+    width: 96px !important;
+    height: 96px !important;
+    background-size: 80px 80px !important;
+  }
 }
 .logo-link {
   height: auto;

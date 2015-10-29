@@ -9,7 +9,8 @@
 				'email',
 				'userName',
 				'role',
-				'brokerId'
+				'brokerId',
+				'brokerPic'
 			];
 
 			function pickUserProps(user) {
@@ -38,6 +39,7 @@
 								GetAgentsInfoServ.getByEmail(profile.email).then(function (broker) {
 									if (broker) {
 										profile.brokerId = broker.$id;
+										profile.brokerPic = broker.pic;
 									}
 									resolveProfile();
 								})

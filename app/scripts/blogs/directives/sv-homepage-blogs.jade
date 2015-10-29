@@ -1,1 +1,15 @@
-div sv-homepage-blogs Template
+div(layout='row' style='width:100%;background-color:white')
+    div(class="mb" ng-repeat='blog in blogs' flex='{{Math.floor(100/blogs.length)}}')
+        .card(class='pt pb' layout-sm='column')
+            h3 {{blog.title}}
+            div(layout='row')
+                div.p(style='min-width: 100px' flex='50')
+                    a.display-block.text-center.sv-link-visited-image()
+                        img.img-thumb(ng-src="{{blog.img}}")
+                div(class='ml mr' flex='50')
+                    a(ui-sref='app.brokers.broker.profile({id:blog.brokerId})').article-thumb-link
+                        img(ng-src='{{blog.brokerPic}}' style="width:30px").thumb
+                        span.fs-caption.tc-grey-500(ng-bind-html='safeParsing((blog.author|authorNameFr))')
+                    span.display-block.fs-body-1.tc-black-2(ng-bind-html='safeParsing(blog.summary)')
+                    div(layout='row' layout-align='end start' class='pr')
+                        button.btn.btn--xs.btn--grey.btn--flat() {{'read-more'|translate}} >>

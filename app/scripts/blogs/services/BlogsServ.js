@@ -3,7 +3,7 @@
     angular.module('blogs')
         .factory('BlogsServ', function ($q, url, users, $firebaseObject, $firebaseArray,svetBlogsConst) {
 
-            var ref = new Firebase(url + 'articles');
+            var ref = new Firebase(url + 'blogs');
             var blogsArr = $firebaseArray(ref);
 
 
@@ -24,6 +24,14 @@
                         })
                     });
                 },
+                getRandomBlogs: function () {
+                    return $q(function (resolve, reject) {
+                        blogsArr.$loaded(function () {
+
+                            resolve(_.take(_.shuffle(blogsArr),4));
+                        })
+                    });
+                }
             };
         });
 })();

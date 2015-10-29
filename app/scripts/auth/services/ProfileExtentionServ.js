@@ -8,7 +8,7 @@
                         return this.role === 'manager';
                     };
                     profile.isStaff = function () {
-                        return this.role === 'broker';
+                        return this.role === 'broker' || this.role === 'manager';
                     };
                     profile.isCustomer = function () {
                         return this.role === 'customer';

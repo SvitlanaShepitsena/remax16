@@ -10,6 +10,7 @@
   "license": "MIT",
   "devDependencies": {
     "browser-sync": "^2.8.2",
+    "cloudinary": "^1.2.5",
     "connect-form": "^0.2.1",
     "connect-multiparty": "^2.0.0",
     "del": "^1.1.1",

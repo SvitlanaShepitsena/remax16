@@ -4,7 +4,7 @@
         .config(function ($stateProvider, $urlRouterProvider) {
             $stateProvider
             /*=article*/
-                .state("app.article", {
+                .state("app.blog", {
                     url: "/blogs/:id",
                     controller: "ArticleCtrl as article",
                     templateUrl: "scripts/article/views/articleCtrl.html"

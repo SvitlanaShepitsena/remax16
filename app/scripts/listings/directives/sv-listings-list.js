@@ -69,7 +69,7 @@
     }
 
     angular.module('listings')
-        .directive('svListingsList', function (avatarBroker, icon, $rootScope, googleMap, QueryServ, $timeout, $stateParams, SearchSaleServ, GeoServ, $window, localStorageService, $filter, defaultImage, SortServ) {
+        .directive('svListingsList', function (avatarBroker, mapStyler, icon, $rootScope, googleMap, QueryServ, $timeout, $stateParams, SearchSaleServ, GeoServ, $window, localStorageService, $filter, defaultImage, SortServ) {
             function centerMapToBounds(newValue, $scope) {
                 var bounds = new google.maps.LatLngBounds();
                 newValue.forEach((place) => {
@@ -84,6 +84,8 @@
                 replace: true,
                 templateUrl: 'scripts/listings/directives/sv-listings-list.html',
                 controller: function ($scope) {
+                    $scope.mapStyler = mapStyler;
+
                     this.getHomes = function () {
                         return $scope.homes;
                     }

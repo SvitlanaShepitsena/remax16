@@ -2,7 +2,6 @@
     angular.module('app', [
             // modules
             'brokers',
-            'customers',
             'ui.router',
             'ui.mask',
             'ngMap',
@@ -19,6 +18,7 @@
             'blogs',
             'auth.user',
             'auth.manager',
+            'customers',
             'auth.notifications',
             'ad.promotion',
             'article',

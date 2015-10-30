@@ -2,10 +2,10 @@
     'use strict';
 
     angular.module('customers')
-        .directive('svCustomerProfileThumb', function () {
+        .directive('svCustomerProfile', function () {
             return {
                 replace: true,
-                templateUrl: 'scripts/customers/directives/sv-customer-profile-thumb.html',
+                templateUrl: 'scripts/customers/directives/sv-customer-profile.html',
                 scope: {
                     customer: '='
                 },

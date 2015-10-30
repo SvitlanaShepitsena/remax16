@@ -16,8 +16,8 @@
                     controller: "CustomersCtrl",
                     templateUrl: "scripts/customers/views/customersCtrl.html"
                 })
-                .state("app.one-customer", {
-                    url: "/:id",
+                .state("app.customers.one-customer", {
+                    url: "/customer",
                     controller: "OneCustomerCtrl",
                     templateUrl: "scripts/customers/views/one-customerCtrl.html"
                 })

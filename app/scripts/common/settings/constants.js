@@ -23,10 +23,10 @@
         .constant('companyEmail', 'remax1stclass@gmail.com')
 
         .constant('icon', {
-            sHome: "img/icons/house-red.png",
+            sHome: "img/icons/house-green.png",
             mHome: "img/icons/office-building-purple.png",
             condo: "img/icons/condo-blue.png",
-            townhouse: "img/icons/townhouse-green.png",
+            townhouse: "img/icons/townhouse-cyan.png",
             duplex: "img/icons/house-green.png",
             land: "img/icons/landmark.png"
         })

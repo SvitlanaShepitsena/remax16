@@ -54,7 +54,7 @@
                 iconLink = icon.townhouse;
                 break;
             case "Duplex":
-                iconLink = icon.sHome;
+                iconLink = icon.duplex;
                 break;
             case "Condominium Unit":
                 iconLink = icon.condo;

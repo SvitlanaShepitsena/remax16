@@ -36,11 +36,10 @@ div
                 p(ng-if='broker.areasserved')
                     span.fs-subhead Areas Served: &nbsp
                     span {{broker.areasserved}}
-        div(ng-if='broker.experience')
+        div(ng-if='hasEditAccess')
             md-divider.mt.mb
-            div(ng-if='hasEditAccess')
-                button.btn.btn--xs.btn--black.btn--raised.bgc-grey-300.tc-grey-600.mt(lx-ripple='' ng-click="showBrokerExperienceModal(broker)" )
-                    i.fa.fa-pencil.fa-fw &nbsp
-                    | Edit
-            div
+            button.btn.btn--xs.btn--black.btn--raised.bgc-grey-300.tc-grey-600.mt(lx-ripple='' ng-click="showBrokerExperienceModal(broker)" )
+                i.fa.fa-pencil.fa-fw &nbsp
+                | Edit
+            div(ng-if='broker.experience')
                 p {{broker.experience}}

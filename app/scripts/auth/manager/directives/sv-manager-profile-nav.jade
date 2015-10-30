@@ -1,14 +1,14 @@
 .card.bgc-grey-100.top-profile-nav
-    ul.list-unstyled(layout='row' layout-align="space-between center")
-        li(ui-sref-active='sv-active-user-menu')
+    div(layout='row' layout-align="space-between center")
+        div(ui-sref-active='sv-active-user-menu')
             a.btn.btn--m.btn--grey.tc-grey-700.btn--flat(ui-sref='app.manager.dashboard' lx-ripple='' style='padding:0px 10px')
                 i.mdi.mdi-view-dashboard &nbsp
                 span(hide-sm) Dashboard
-        li(ui-sref-active='sv-active-user-menu')
+        div(ui-sref-active='sv-active-user-menu')
             a.btn.btn--m.btn--grey.tc-grey-700.btn--flat(ui-sref='app.manager.users' lx-ripple='' style='padding:0px 10px')
                 i.fa.fa-child &nbsp
                 span(hide-sm) Users
-        li(ui-sref-active='sv-active-user-menu')
+        div(ui-sref-active='sv-active-user-menu')
             a.btn.btn--m.btn--grey.tc-grey-700.btn--flat(ui-sref='app.manager.ad' lx-ripple='' style='padding:0px 10px')
                 i.fa.fa-bullhorn &nbsp
                 span(hide-sm) Ad

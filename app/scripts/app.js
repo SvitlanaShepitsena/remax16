@@ -1,6 +1,7 @@
 (function () {
 	angular.module('app', [
 			// modules
+		'customers',
 			'brokers',
 			'ui.router',
 			'ui.mask',

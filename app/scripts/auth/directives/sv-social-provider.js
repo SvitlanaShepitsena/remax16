@@ -16,7 +16,7 @@
                     $scope.icon = $scope.icon || $scope.provider;
                     $scope.loginProvider = function (provider) {
                         provider = provider.toLowerCase().replace('+', '');
-
+                        //
                         AuthenticationServ.authWithProvider(provider).then(function () {
 
                             var user = userAuth.profile;

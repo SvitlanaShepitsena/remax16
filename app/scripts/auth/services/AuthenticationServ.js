@@ -47,6 +47,8 @@
 
                                         resolve(profile);
                                     });
+                                } else {
+                                    resolve(profile);
                                 }
                             }).catch(function (error) {
                                 reject(error);

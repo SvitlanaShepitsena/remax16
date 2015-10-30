@@ -5,8 +5,11 @@
             return {
                 templateUrl: 'scripts/auth/user/directives/sv-user-dropdown-menu.html',
                 link: function ($scope, el, attrs) {
-                    $scope.brokerId = userAuth.profile.brokerId;
-                    $scope.user = userAuth.profile;
+                    if (userAuth && userAuth.profile) {
+                        $scope.brokerId = userAuth.profile.brokerId;
+                        $scope.user = userAuth.profile;
+                    }
+
                     $scope.defaultAvatar = avatar;
                     $scope.alexAvatar = alex;
                 }

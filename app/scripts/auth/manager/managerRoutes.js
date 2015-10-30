@@ -3,7 +3,7 @@
     angular.module('auth.manager', ['ui.router', 'flow'])
         .config(function ($stateProvider, $urlRouterProvider) {
             $stateProvider
-                // =Manager Profile
+            // =Manager Profile
                 .state("app.manager", {
                     url: "/manager/:uid",
                     abstract: true,
@@ -11,10 +11,10 @@
                         rights: function ($q, $stateParams, userAuth, userPromise) {
                             var routeUid = $stateParams.uid;
                             return $q(function (resolve, reject) {
-                                if (userAuth.profile && userAuth.profile.role && userAuth.profile.role === 'manager' && userAuth.key === routeUid) {
+                                if (userAuth.profile && userAuth.profile.role && userAuth.profile.role === 'manager' && userAuth.profile.userName === routeUid) {
                                     resolve();
                                 } else {
-                                    reject('You do not have enough priviliges to view that page!');
+                                    reject('You do not have enough privileges to view that page!');
                                 }
                             })
                         }

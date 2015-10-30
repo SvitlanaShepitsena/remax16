@@ -1,4 +1,3 @@
-span.tc-grey-700
-    span(hide-sm) Found: &nbsp
+.card.tc-red-600.fw-500(style="padding: 8px 16px;font-size:16px" layout="row")
     span.fw-500(ng-if='cnt') {{cnt||0}} homes for {{isRent?'rent':'sale'}}
-    span.fw-500(ng-if='cntNearBy') {{cntNearBy||0}} Nearby homes for {{isRent?'rent':'sale'}}
+    span.fw-500(ng-if='cntNearBy') {{cntNearBy||0}} listings for {{isRent?'rent':'sale'}} found nearby

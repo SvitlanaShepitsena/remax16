@@ -77,7 +77,14 @@
                         bounds.extend(place.position);
                     }
                 });
-                $scope.map.fitBounds(bounds);
+                if (newValue.length === 3) {
+
+                    $scope.map.fitBounds(bounds);
+                    $scope.map.setZoom(10);
+                } else {
+
+                    $scope.map.fitBounds(bounds);
+                }
             }
 
             return {
@@ -249,12 +256,16 @@
                         }
                     });
                     $scope.zoomChanged = function () {
+
+
                         if (!$scope.clustersBuilt) {
                             return;
                         }
+
                         $timeout(function () {
                             updateClusters($scope);
                         }, 400);
+
                     };
                 }
             };

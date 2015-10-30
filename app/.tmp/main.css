@@ -159,6 +159,7 @@ md-toolbar {
   }
 }
 .sv-search-button {
+  text-align: left;
   width: 100%;
 }
 @media screen and (min-width: 335px) {

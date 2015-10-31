@@ -1,0 +1,16 @@
+.card
+    a.display-block(ui-sref='app.customers.one-customer' style="text-decoration:none")
+        div(layout='column')
+            div.m
+                sv-img-background.sv-img-thumb(sv-image="customer.profile.avatar" img-width="120" img-height="120"  wrapper-class="img-round" style="margin:0px auto")
+            div.text-center(flex="")
+                p.fs-title.tc-grey-900 {{customer.profile.userName | capitalize}}
+                span(ng-if='customer.profile.city') {{customer.profile.city}}
+                span(ng-if='customer.profile.city && customer.profile.state') , &nbsp
+                span(ng-if='customer.profile.state') {{customer.profile.state}}
+                md-divider
+                p.tc-grey-600.mb
+                button.btn.btn--m.btn--blue.btn--flat(lx-ripple='')
+                    i.fa.fa-star.mr
+                    span Reviews: 7
+                p.tc-grey-800.fs-body-1.mb Member since: August 2015

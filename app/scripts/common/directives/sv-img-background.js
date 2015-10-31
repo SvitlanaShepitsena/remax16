@@ -6,6 +6,7 @@
                 replace: true,
                 templateUrl: 'scripts/common/directives/sv-img-background.html',
                 scope: {
+                    wrapperClass: '@',
                     svImage: '=',
                     imgWidth: '@', imgHeight: '@',
                     linkRoute: '@',

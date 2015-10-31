@@ -1,6 +1,8 @@
-div(layout='row' layout-align="space-between start" )
+div(layout='row' layout-align="space-between center" )
     div.pt(ng-if='!isBroker')
         sv-search-dropdown
+    div
+        sv-search-stat
     div.pt.pr(layout='row' layout-align='space-between')
         button.btn.btn--m.btn--white.btn--raised.mr(lx-ripple='' ng-click='changeMapGridView(true)')
             i.fa.fa-map-o.fa-fw

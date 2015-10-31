@@ -4,6 +4,7 @@ div(layout-gt-sm='row' layout-sm='column')
             div.bgc-grey-100(class='pl+ pr+ pt pb' layout='column' )
                 span.fs-subhead.mb.mr(ng-if='user') {{'account-status'|translate}}:
                     span.fs-title.ml(ng-if='user && user.isStaff()') Broker Account
+                    span.fs-title.ml(ng-if='user && user.isManager()') Manager Account
                     span.fs-title.ml(ng-if='user && user.isCustomer()') Buyer/Seller Account
                 sv-request-business-account-btn(ng-if='user && user.isCustomer()')
             div.mt.mb

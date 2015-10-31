@@ -24,11 +24,11 @@
 
         .constant('icon', {
             sHome: "img/icons/house-red.png",
-            mHome: "img/icons/office-building-purple.png",
-            condo: "img/icons/condo-blue.png",
-            townhouse: "img/icons/townhouse-green.png",
-            duplex: "img/icons/house-green.png",
-            land: "img/icons/landmark.png"
+            condo: "img/icons/bighouse-red.png",
+            mHome: "img/icons/office-building-orange.png",
+            townhouse: "img/icons/townhouse-yellow.png",
+            duplex: "img/icons/apartment-orange.png",
+            land: "img/icons/landmark-green.png"
         })
 
 
@@ -62,9 +62,14 @@
         .value('alex', '/img/auth/alex-sepia.jpg')
         .value('mapStyler',
 
-            [{"featureType":"all","stylers":[{"saturation":0},{"hue":"#e7ecf0"}]},{"featureType":"road","stylers":[{"saturation":-70}]},{"featureType":"transit","stylers":[{"visibility":"off"}]},{"featureType":"poi","stylers":[{"visibility":"off"}]},{"featureType":"water","stylers":[{"visibility":"simplified"},{"saturation":-60}]}]
-
-                )
+            [{"featureType": "all", "stylers": [{"saturation": 0}, {"hue": "#e7ecf0"}]}, {
+                "featureType": "road",
+                "stylers": [{"saturation": -70}]
+            }, {"featureType": "transit", "stylers": [{"visibility": "off"}]}, {
+                "featureType": "poi",
+                "stylers": [{"visibility": "off"}]
+            }, {"featureType": "water", "stylers": [{"visibility": "simplified"}, {"saturation": -60}]}]
+        )
 
 
 })();

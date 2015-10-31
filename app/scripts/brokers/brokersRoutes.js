@@ -38,7 +38,7 @@
                 })
                 .state("app.brokers.broker.reviews", {
                     url: "/reviews",
-                    template: "no reviews"
+                    template: "<div>You have no reviews yet</div>"
                 })
 
 

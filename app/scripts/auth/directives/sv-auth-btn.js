@@ -41,6 +41,7 @@
                     };
                     $scope.logout = function () {
                         AuthenticationServ.logout();
+                        $scope.user = null;
                         $state.go('app.home');
                     };
                     $scope.$watch(function () {

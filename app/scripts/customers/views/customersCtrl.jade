@@ -1,0 +1,5 @@
+div.sv-main-content
+    div(ui-view='')
+        div(layout='row' layout-wrap style="max-width:1400px;margin: 0px auto")
+            div(flex-sm='100' flex-gt-sm='50' flex-gt-md='33' flex-gt-lg='25' ng-repeat='customer in customers')
+                sv-customer-profile-thumb(customer='customer').m

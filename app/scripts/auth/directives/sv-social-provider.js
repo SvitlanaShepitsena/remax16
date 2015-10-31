@@ -16,14 +16,29 @@
                     $scope.icon = $scope.icon || $scope.provider;
                     $scope.loginProvider = function (provider) {
                         provider = provider.toLowerCase().replace('+', '');
-
+                        //
                         AuthenticationServ.authWithProvider(provider).then(function () {
-                            if (userAuth.profile && userAuth.profile.isStaff()) {
-                                $state.go('app.brokers.broker.profile', {id: userAuth.profile.brokerId})
-                            } else {
-                                $state.go('app.user.dashboard', {uid: userAuth.profile.userName})
+
+                            var user = userAuth.profile;
+                            if (user) {
+                                if (user.isStaff()) {
+                                    $state.go('app.user.listings', {uid: userAuth.profile.userName})
+                                    return;
+
+                                }
+                                if (user.isManager()) {
+                                    $state.go('app.manager.dashboard', {uid: userAuth.profile.userName})
+                                    return;
+
+                                }
+                                if (user.isCustomer()) {
+                                    $state.go('app.user.account-settings', {uid: userAuth.profile.userName})
+                                    return;
+                                }
                             }
-                        });
+                        }).catch(function (err) {
+                            console.log(err);
+                        })
                     };
                 }
             };

@@ -1,0 +1,6 @@
+span.tc-grey-700
+    span.fw-500(ng-if='cnt')
+        | {{cnt||0}} homes for {{isRent?'rent':'sale'}}
+    span.fw-500(ng-if='emptyNotice')
+        | {{emptyNoticeInput}} for {{isRent?'rent':'sale'}}
+

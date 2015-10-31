@@ -12,9 +12,13 @@ div.card(layout='column')
                 div(ng-if='broker.website')
                     a(href='{{broker.website}}' style="text-decoration:none" target='_blank') {{broker.website}}
                 div
+                    a.btn.btn--s.btn--red.bgc-red-700.btn--fab.mr(lx-ripple='' ng-if='broker.youtube' href="{{broker.youtube}}" target='_blank')
+                        i.fa.fa-youtube.fa-fw
+                    a.btn.btn--s.btn--blue.btn--fab.bgc-blue-400.mr(ng-if='broker.twitter' lx-ripple='' href="{{broker.twitter}}" target='_blank')
+                        i.fa.fa-twitter.fa-fw
                     a.btn.btn--s.btn--indigo.bgc-indigo-400.btn--fab.mr(lx-ripple='' ng-if='broker.facebook' href="{{broker.facebook}}" target='_blank')
                         i.fa.fa-facebook.fa-fw
-                    a.btn.btn--s.btn--blue.btn--fab.mr(ng-if='broker.linkedin' lx-ripple='' href="{{broker.linkedin}}" target='_blank')
+                    a.btn.btn--s.btn--blue.bgc-blue-600.btn--fab.mr(ng-if='broker.linkedin' lx-ripple='' href="{{broker.linkedin}}" target='_blank')
                         i.fa.fa-linkedin.fa-fw
             div(layout-gt-sm='row' layout-sm="column")
                 div(class='ml mr' flex="")

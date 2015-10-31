@@ -1,7 +1,7 @@
 (function () {
     'use strict';
     angular.module('listings')
-        .directive('svSearchStat', function ($rootScope, $location) {
+        .directive('svSearchStat', function ($rootScope, $location, QueryServ) {
             return {
                 templateUrl: 'scripts/listings/directives/sv-search-stat.html',
                 link: function ($scope, el, attrs) {
@@ -21,6 +21,11 @@
                             }
                             $scope.cnt = foundHomes;
                             $scope.cntNearBy = nearByHomes;
+                            if (foundHomes === 0 && nearByHomes === 0) {
+                                var query=QueryServ.getString();
+
+                                $scope.emptyNotice = "No results found for " + query;
+                            }
                         }
                     });
                 }

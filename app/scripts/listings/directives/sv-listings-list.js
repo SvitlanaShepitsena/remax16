@@ -240,17 +240,54 @@
                                 var panorama = new google.maps.StreetViewPanorama(
                                     document.getElementById('pano'), {
                                         position: latLng,
-                                        pov: {
-                                            heading: 90,
-                                            pitch: 0
-                                        }
+                                        fullScreenControl:false,
+                                        addressControl:false
                                     });
-                                $scope.map.setStreetView(panorama);
+
+
+                                    google.maps.event.addListenerOnce(panorama, 'status_changed', function () {
+
+                                        var loc = panorama.getLocation();
+                                        if (loc) {
+                                        var heading = google.maps.geometry.spherical.computeHeading(loc.latLng, latLng);
+                                        panorama.setPov({
+                                            heading: heading,
+                                            pitch: 0
+                                        });
+
+                                        } else{
+                                            panorama.setVisible(false);
+                                        }
+
+
+
+                                    });
+
+
 
                             });
                             return marker;
                         });
                     });
+
+                    function getAngle(from, to) {
+                        function wrapAngle(angle) {
+                            if (angle >= 360) {
+                                angle -= 360;
+                            } else if (angle < 0) {
+                                angle += 360;
+                            }
+                            return angle;
+                        }
+
+                        var DEGREE_PER_RADIAN = 57.2957795, RADIAN_PER_DEGREE = 0.017453;
+                        var dLat = to.lat() - from.lat(), dLng = to.lng() - from.lng();
+                        var yaw = Math.atan2(dLng * Math.cos(to.lat() * RADIAN_PER_DEGREE),
+                                dLat) * DEGREE_PER_RADIAN;
+                        return wrapAngle(yaw);
+                    }
+
+
                     $scope.$watch('positions', function (newValue, oldValue) {
                         if (!newValue) {
                             return;

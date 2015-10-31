@@ -69,7 +69,7 @@
     }
 
     angular.module('listings')
-        .directive('svListingsList', function (avatarBroker, mapStyler, icon, $rootScope, googleMap, QueryServ, $timeout, $stateParams, SearchSaleServ, GeoServ, $window, localStorageService, $filter, defaultImage, SortServ) {
+        .directive('svListingsList', function (BoundariesServ, avatarBroker, mapStyler, icon, $rootScope, googleMap, QueryServ, $timeout, $stateParams, SearchSaleServ, GeoServ, $window, localStorageService, $filter, defaultImage, SortServ) {
             function centerMapToBounds(newValue, $scope) {
                 var bounds = new google.maps.LatLngBounds();
                 newValue.forEach((place) => {
@@ -229,8 +229,7 @@
                                   </div>
                                 </div>
                                 </a>
-
-
+                                    <div id="pano" style='width:400px;height:200px'></div>
 							 `
                             }));
                             marker.addListener('click', function () {
@@ -238,6 +237,16 @@
                                     infoWin.close();
                                 });
                                 $scope.infoWindowMap.get(marker.id).open($scope.map, marker);
+                                var panorama = new google.maps.StreetViewPanorama(
+                                    document.getElementById('pano'), {
+                                        position: latLng,
+                                        pov: {
+                                            heading: 90,
+                                            pitch: 0
+                                        }
+                                    });
+                                $scope.map.setStreetView(panorama);
+
                             });
                             return marker;
                         });

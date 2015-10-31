@@ -6,7 +6,6 @@
             return {
                 replace: true,
                 templateUrl: 'scripts/customers/directives/sv-customer-profile-thumb.html',
-
                 scope: {
                     customer: '='
                 },

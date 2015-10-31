@@ -1,7 +1,8 @@
 div(ui-view="")
     sv-profile-title(header-title='My Listings')
-    .ml.mr.tc-blue-500 You have &nbsp
-        span.fs-subhead {{brokerHomes.length || 'No Data Avaliable'}} &nbsp
+    .ml.mr.tc-grey-700.fs-subhead
+        i.fa.fa-check.fa-fw.mr
+        | {{brokerHomes.length || 'No Data Avaliable'}} &nbsp
         | active listings
     md-divider.m
     div(layout='row' layout-wrap )

@@ -185,10 +185,14 @@
                                     <div class="map-pointer-text-wrapper" style="vertical-align: top;">
                                         <a href="${href}" style="text-decoration:none" target="_blank">
                                             <div style="font-size:15px;font-weight:600;color:#1e88e5">${$filter("currency")(home.price, "$", 0)} </div>
+                                            <div >
+                                                <span ng-if="home.isRent">For Rent</span>
+                                                <span ng-if="!home.isRent">For Sale</span>
+                                                <span ng-if="!home.isRent" style="font-size:12px;color:#393939"> ${home.type}</span>
+
+                                            </div>
                                             <div style="font-weight:500;color:#393939">${home.address.city},${home.address.zip}</div>
                                             <div style="font-weight:500;color:#393939">${home.address.street}</div>
-                                            <div style="font-size:12px;color:#393939">${home.type}
-                                            </div>
                                             <div style="font-size:12px;color:#696969;font-weight:500">
                                                 <span style="font-weight:500" ng-if="home.beds">
                                                     <i class='fa fa-circle' style="font-size: 8px"></i>

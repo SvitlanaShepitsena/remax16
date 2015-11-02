@@ -24,6 +24,10 @@
                                 if (!fbObj[key]) {
                                     fbObj[key] = value;
                                 }
+                                if (!_.isObject(fbObj[key]) && fbObj[key] !== value) {
+                                    fbObj[key] = value;
+
+                                }
 
                             })
                             fbObj.$save().then(function (ref) {

@@ -1,31 +1,22 @@
-div.card(layout='column')
-    div(layout-gt-sm='row' layout-sm="column")
-        .bgc-grey-300
-            .p.btn-wrapper
-                button.btn.btn--xs.btn--black.btn--raised.btn-pos.bgc-grey-300.tc-grey-600(lx-ripple='' ng-if='hasEditAccess' ng-click="showBrokerUploadImgModal(broker)" )
-                    i.fa.fa-pencil.fa-fw.mr
-                    | Change Image
-                sv-img-background.sv-img-thumb(sv-image="broker.pic" img-width="170" img-height="220" )
-        div(flex="")
-            div(layout-gt-sm='row' layout-sm="column" layout-align-gt-sm="space-between center")
-                .fs-display-1.ml.lr {{broker.fName}} {{broker.lName}}
-                div(ng-if='broker.website')
-                    a(href='{{broker.website}}' style="text-decoration:none" target='_blank') {{broker.website}}
-                div
-                    a.btn.btn--s.btn--red.bgc-red-700.btn--fab.mr(lx-ripple='' ng-if='broker.youtube' href="{{broker.youtube}}" target='_blank')
-                        i.fa.fa-youtube.fa-fw
-                    a.btn.btn--s.btn--blue.btn--fab.bgc-blue-400.mr(ng-if='broker.twitter' lx-ripple='' href="{{broker.twitter}}" target='_blank')
-                        i.fa.fa-twitter.fa-fw
-                    a.btn.btn--s.btn--indigo.bgc-indigo-400.btn--fab.mr(lx-ripple='' ng-if='broker.facebook' href="{{broker.facebook}}" target='_blank')
-                        i.fa.fa-facebook.fa-fw
-                    a.btn.btn--s.btn--blue.bgc-blue-600.btn--fab.mr(ng-if='broker.linkedin' lx-ripple='' href="{{broker.linkedin}}" target='_blank')
-                        i.fa.fa-linkedin.fa-fw
-            div(layout-gt-sm='row' layout-sm="column")
-                div(class='ml mr' flex="")
-                    .fs-title {{broker.title || defaultBrokerTitle}}
-                    .fs-subhead(ng-if='broker.title2') {{broker.title2}}
-                    div(layout-gt-sm='row' layout-sm="column")
-                        div.tc-amber-600.mr
+.card(layout='column')
+    div(layout-gt-sm='row' layout-sm="column" layout-align-sm="center center")
+        div(layout-gt-sm="row" layout-sm="column" layout-align-sm="center center" flex-gt-sm="60")
+            .bgc-grey-300
+                .p.btn-wrapper
+                    button.btn.btn--xs.btn--black.btn--raised.btn-pos.bgc-grey-300.tc-grey-600(lx-ripple='' ng-if='hasEditAccess' ng-click="showBrokerUploadImgModal(broker)" )
+                        i.fa.fa-pencil.fa-fw.mr
+                        | Change Image
+                    sv-img-background.sv-img-thumb(sv-image="broker.pic" img-width="170" img-height="220" )
+            div(layout='column' layout-align-sm="center center")
+                h1.tc-grey-800.ml.lr {{broker.fName}} {{broker.lName}}
+                span.fs-title.ml.mr {{broker.title || defaultBrokerTitle}}
+                span.fs-subhead(ng-if='broker.title2') {{broker.title2}}
+                span.tc-grey-600(class='ml mr')
+                    span.fs-subhead.mr(ng-if='broker.languages') Languages:
+                    span {{broker.languages}}
+                div(layout-gt-sm='row' layout-sm="column")
+                    div(class='ml mr' flex="")
+                        .tc-amber-600.mr(layout='row' layout-align-sm="center")
                             span
                                 i.fa.fa-star.fa-fw
                             span
@@ -36,35 +27,51 @@ div.card(layout='column')
                                 i.fa.fa-star.fa-fw
                             span
                                 i.fa.fa-star.fa-fw
-                        span
-                            .tc-blue-600 15 customer reviews
-                    p.fw-500(ng-if='broker.recentsales')
+                        .mr(layout='row' layout-align-sm="center")
+                            span.tc-blue-600 15 customer reviews
+                div(layout-sm='row' layout-gt-sm="column")
+                    .mr.ml.fw-500(ng-if='broker.recentsales')
                         span.tc-red-800 {{broker.recentsales}} &nbsp
                         span Recent Sales
-                    p.fw-500
-                        span.tc-blue-800 {{broker.countSale}} &nbsp
+                    .mr.ml.fw-500
+                        span.tc-blue-800 {{broker.countSale||15}} &nbsp
                         span Active Listings
-                    div(ng-if='hasEditAccess')
-                        button.btn.btn--xs.btn--black.btn--raised.bgc-grey-300.tc-grey-600.mt(lx-ripple='' ng-click="showBrokerContactInfoModal(broker)" )
-                            i.fa.fa-pencil.fa-fw &nbsp
-                            | Edit Contact Info
-                div.tc-grey-600(class='ml mr' flex="")
-                    .fs-title.tc-grey-800 Contact Info:
-                    .fs-subhead(ng-if='broker.phoneDirect')
-                        span Direct: &nbsp
-                        span.tc-grey-800 {{broker.phoneDirect|tel}}
-                    .fs-subhead(ng-if='broker.phoneCell')
-                        span Cell: &nbsp
-                        span.tc-grey-800 {{broker.phoneCell|tel}}
-                    .fs-subhead
-                        span Office: &nbsp
-                        span.tc-grey-800 {{companyPhone}}
-                    .fs-subhead
-                        span Fax: &nbsp
-                        span.tc-grey-800 {{companyFax}}
-            div(layout='row')
-                div.tc-grey-600(class='ml mr mt' flex="")
-                    .fs-subhead(ng-if='broker.languages') Languages:
-                    p {{broker.languages}}
+        .tc-grey-600(layout='column' layout-align-sm="center center" class='ml mr' flex="")
+            .fs-headline.tc-grey-800 Contact Info:
+            span(ng-if='broker.phoneDirect')
+                p.fs-subhead(style="margin-bottom:4px")
+                    span Direct: &nbsp
+                    span.tc-grey-800 {{broker.phoneDirect|tel}}
+            span.fs-subhead(ng-if='broker.phoneCell')
+                p.fs-subhead(style="margin-bottom:4px")
+                    span Cell: &nbsp
+                    span.tc-grey-800 {{broker.phoneCell|tel}}
+            span.fs-subhead
+                p.fs-subhead(style="margin-bottom:4px")
+                    span Office: &nbsp
+                    span.tc-grey-800 {{companyPhone}}
+            span.fs-subhead
+                p.fs-subhead(style="margin-bottom:4px")
+                    span Fax: &nbsp
+                    span.tc-grey-800 {{companyFax}}
     div(layout-gt-sm='row' layout-sm="column")
+        md-divider.mt.mb
         h3.m.tc-grey-700.fw-500(ng-if='broker.moto' style="font-style:italic") {{broker.moto}}
+    md-divider.mt.mb
+    div(layout='row' layout-align="space-between center" class='mb')
+        div(flex='' ng-if='broker.website')
+            a(href='{{broker.website}}' style="text-decoration:none" target='_blank') {{broker.website}}
+        div(ng-if='hasEditAccess' flex="")
+            button.btn.btn--s.btn--green.btn--raised.bgc-green-500.tc-white-1.mt(lx-ripple=''  ng-click="showBrokerContactInfoModal(broker)" )
+                i.fa.fa-pencil.fa-fw
+                span.ml(hide-sm="") Edit Contact Info
+        div
+            a.btn.btn--s.btn--red.bgc-red-700.btn--fab.mr(lx-ripple='' ng-if='broker.youtube' href="{{broker.youtube}}" target='_blank')
+                i.fa.fa-youtube.fa-fw
+            a.btn.btn--s.btn--blue.btn--fab.bgc-blue-400.mr(ng-if='broker.twitter' lx-ripple='' href="{{broker.twitter}}" target='_blank')
+                i.fa.fa-twitter.fa-fw
+            a.btn.btn--s.btn--indigo.bgc-indigo-400.btn--fab.mr(lx-ripple='' ng-if='broker.facebook' href="{{broker.facebook}}" target='_blank')
+                i.fa.fa-facebook.fa-fw
+            a.btn.btn--s.btn--blue.bgc-blue-600.btn--fab.mr(ng-if='broker.linkedin' lx-ripple='' href="{{broker.linkedin}}" target='_blank')
+                i.fa.fa-linkedin.fa-fw
+

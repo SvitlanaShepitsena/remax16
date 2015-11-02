@@ -4,7 +4,7 @@
         .directive('svBrokerProfileContactInfo', function (FbGenServ, $timeout, homesUrl, userAuth, $mdDialog, toastr, companyPhone, companyFax, defaultBrokerTitle) {
             return {
                 replace: true,
-                templateUrl: 'scripts/brokers/directives/sv-broker-profile-contact-ifo.html',
+                templateUrl: 'scripts/brokers/directives/sv-broker-profile-contact-info.html',
                 link: function ($scope, el, attrs) {
                     $scope.companyPhone = companyPhone;
                     $scope.companyFax = companyFax;

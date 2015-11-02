@@ -1,10 +1,10 @@
 (function () {
     'use strict';
     angular.module('brokers')
-        .directive('svBrokerProfileTop', function (FbGenServ, $timeout, homesUrl, userAuth, $mdDialog, toastr, companyPhone, companyFax, defaultBrokerTitle) {
+        .directive('svBrokerProfileContactInfo', function (FbGenServ, $timeout, homesUrl, userAuth, $mdDialog, toastr, companyPhone, companyFax, defaultBrokerTitle) {
             return {
                 replace: true,
-                templateUrl: 'scripts/brokers/directives/sv-broker-profile-top.html',
+                templateUrl: 'scripts/brokers/directives/sv-broker-profile-contact-info.html',
                 link: function ($scope, el, attrs) {
                     $scope.companyPhone = companyPhone;
                     $scope.companyFax = companyFax;

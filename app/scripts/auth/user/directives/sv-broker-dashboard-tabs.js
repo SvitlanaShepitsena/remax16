@@ -1,7 +1,7 @@
 (function () {
     'use strict';
     angular.module('auth.user')
-        .directive('svBrokerDashboardTabs', function ($state, $location, $stateParams, $timeout, $q, SearchSaleServ, userAuth, GetAgentsInfoServ, avatarBroker) {
+        .directive('svBrokerDashboardTabs', function (FbGenServ, toastr, homesUrl, $state, $location, $stateParams, $timeout, $q, SearchSaleServ, userAuth, GetAgentsInfoServ, avatarBroker) {
             return {
                 replace: true,
                 templateUrl: 'scripts/auth/user/directives/sv-broker-dashboard-tabs.html',
@@ -26,10 +26,18 @@
                             $scope.editState = true;
                         }, 10)
                     };
-                    $scope.saveProfile = function () {
-                        $timeout(function () {
-                            $scope.editState = false;
-                        }, 10)
+
+                    $scope.$on('broker:changed', function (evt, editedBroker) {
+                        $scope.saveBrokerProfile(editedBroker);
+                    });
+
+                    $scope.saveBrokerProfile = function (editedBroker) {
+                        $scope.editState = false;
+                        FbGenServ.saveObject(homesUrl + 'agents/' + userAuth.profile.brokerId, editedBroker).then(function (ref) {
+                            toastr.success('Changes have been saved');
+
+                            $scope.broker = editedBroker;
+                        });
                     };
                     $scope.avatarBroker = avatarBroker;
                     GetAgentsInfoServ.getByKey($scope.brokerId).then(function (broker) {

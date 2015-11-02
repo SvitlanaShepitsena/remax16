@@ -6,12 +6,13 @@
                 replace: true,
                 templateUrl: 'scripts/brokers/directives/sv-broker-profile-contact-info.html',
                 link: function ($scope, el, attrs) {
+                    BrokerProfileServ.set($scope.broker);
 
                     $scope.companyPhone = companyPhone;
                     $scope.companyFax = companyFax;
                     $scope.defaultBrokerTitle = defaultBrokerTitle;
 
-                    FbGenServ.getAssync(homesUrl+'sale', function (homes) {
+                    FbGenServ.getAssync(homesUrl + 'sale', function (homes) {
                         var bHomes = (_.filter(homes, function (home) {
                             return home.agent === $stateParams.id;
                         }));
@@ -21,89 +22,73 @@
                     })
 
 
-                    $scope.saveProfile = function (img) {
-                        if (img) {
-                            $scope.broker.pic = img.img;
-                        }
-                        FbGenServ.saveObject(homesUrl + 'agents/' + userAuth.profile.brokerId, $scope.broker).then(function (ref) {
-                            toastr.success('Changes have been saved');
-                            if ($scope.newImg) {
-                                $scope.broker.pic = '';
-                                $timeout(function () {
-                                    $scope.broker.pic = $scope.newImg.img + '?' + Math.random();
-                                }, 300);
-                            }
-                        });
-                        $scope.editState = false;
-                    };
-                    $scope.$on('broker:changed', function (evt, img) {
-                        $scope.saveProfile(img);
-                        $scope.newImg = img;
-                    });
                     /*Upload Image*/
-                    $scope.showBrokerUploadImgModal = function (broker) {
+                    $scope.showBrokerUploadImgModal = function () {
                         $mdDialog.show(
                             {
-                                broker: broker,
                                 controller: BrokerUploadImgController,
                                 templateUrl: 'scripts/brokers/views/modalBrokerUploadImg.html',
                             }
                         );
                     };
-                    function BrokerUploadImgController($scope, $mdDialog, broker, $rootScope) {
-                        $scope.broker = broker;
-                        $scope.saveProfileModal = function (img) {
-                            $rootScope.$broadcast('broker:changed', {img: img});
+                    function BrokerUploadImgController($scope, $mdDialog, $rootScope, BrokerProfileServ) {
+                        $scope.brokerModal = BrokerProfileServ.get();
+                        $scope.saveProfileModalImg = function (img) {
+                            $rootScope.$broadcast('broker:changed', $scope.brokerModal);
                             $mdDialog.hide();
                         };
                         $scope.hide = function () {
+                            $scope.brokerModal = BrokerProfileServ.getPrevious();
                             $mdDialog.hide();
                         };
                         $scope.cancel = function () {
+                            $scope.brokerModal = BrokerProfileServ.getPrevious();
                             $mdDialog.cancel();
                         };
                     }
 
                     /*Contact Info*/
-                    $scope.showBrokerContactInfoModal = function (broker) {
+                    $scope.showBrokerContactInfoModal = function () {
+                        BrokerProfileServ.set(BrokerProfileServ.get());
                         $mdDialog.show(
                             {
-                                //broker: broker,
                                 controller: BrokerContactInfoController,
                                 templateUrl: 'scripts/brokers/views/modalBrokerContactInfo.html',
                             }
                         );
                     };
 
-                    function BrokerContactInfoController($scope, $mdDialog, broker, $rootScope) {
-                        $scope.broker = broker;
+                    function BrokerContactInfoController($scope, $mdDialog, $rootScope, BrokerProfileServ) {
+                        $scope.brokerModal = BrokerProfileServ.get();
                         $scope.saveProfileModal = function () {
-                            $rootScope.$broadcast('broker:changed');
+                            $rootScope.$broadcast('broker:changed', $scope.brokerModal);
                             $mdDialog.hide();
 
 
                         };
                         $scope.hide = function () {
+                            $scope.brokerModal = BrokerProfileServ.getPrevious();
                             $mdDialog.hide();
                         };
-                        $scope.cancel = function () {
+                        $scope.cancelModal = function () {
+                            $scope.brokerModal = BrokerProfileServ.getPrevious();
                             $mdDialog.cancel();
                         };
                     }
 
                     /*Highlights*/
-                    $scope.showBrokerProfileHighlightsModal = function (broker) {
+                    $scope.showBrokerProfileHighlightsModal = function () {
+                        BrokerProfileServ.set(BrokerProfileServ.get());
                         $mdDialog.show(
                             {
-                                broker: broker,
                                 controller: BrokerProfileHighlightsController,
                                 templateUrl: 'scripts/brokers/views/modalBrokerProfileHighlights.html',
                             }
                         );
                     };
 
-                    function BrokerProfileHighlightsController($scope, $mdDialog, broker, $rootScope) {
-                        $scope.broker = broker;
+                    function BrokerProfileHighlightsController($scope, $mdDialog,  $rootScope,BrokerProfileServ) {
+                        $scope.brokerModal = BrokerProfileServ.get();
                         $scope.saveProfileModal = function () {
                             $rootScope.$broadcast('broker:changed');
                             $mdDialog.hide();
@@ -112,8 +97,10 @@
                         };
                         $scope.hide = function () {
                             $mdDialog.hide();
+                            $scope.brokerModal = BrokerProfileServ.getPrevious();
                         };
                         $scope.cancel = function () {
+                            $scope.brokerModal = BrokerProfileServ.getPrevious();
                             $mdDialog.cancel();
                         };
                     }

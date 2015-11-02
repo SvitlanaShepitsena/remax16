@@ -1,14 +1,25 @@
 (function () {
     'use strict';
     angular.module('brokers')
-        .directive('svBrokerProfileContactInfo', function (FbGenServ, $timeout, homesUrl, userAuth, $mdDialog, toastr, companyPhone, companyFax, defaultBrokerTitle) {
+        .directive('svBrokerProfileContactInfo', function (BrokerProfileServ, $stateParams, FbGenServ, $timeout, homesUrl, userAuth, $mdDialog, toastr, companyPhone, companyFax, defaultBrokerTitle) {
             return {
                 replace: true,
                 templateUrl: 'scripts/brokers/directives/sv-broker-profile-contact-info.html',
                 link: function ($scope, el, attrs) {
+
                     $scope.companyPhone = companyPhone;
                     $scope.companyFax = companyFax;
                     $scope.defaultBrokerTitle = defaultBrokerTitle;
+
+                    FbGenServ.getAssync(homesUrl+'sale', function (homes) {
+                        var bHomes = (_.filter(homes, function (home) {
+                            return home.agent === $stateParams.id;
+                        }));
+                        return bHomes.length;
+                    }).then(function (brokerHomesCount) {
+                        $scope.brokerHomesCount = brokerHomesCount;
+                    })
+
 
                     $scope.saveProfile = function (img) {
                         if (img) {
@@ -57,7 +68,7 @@
                     $scope.showBrokerContactInfoModal = function (broker) {
                         $mdDialog.show(
                             {
-                                broker: broker,
+                                //broker: broker,
                                 controller: BrokerContactInfoController,
                                 templateUrl: 'scripts/brokers/views/modalBrokerContactInfo.html',
                             }

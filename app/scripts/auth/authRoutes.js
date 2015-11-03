@@ -1,8 +1,9 @@
-				.state("app.user-bookmarks", {
-					url: "/user-bookmarks", 
-					controller:"UserBookmarksCtrl",
-					templateUrl: "scripts/auth/views/user-bookmarksCtrl.html"
+				.state("app.user-subscriptions", {
+					url: "/user-subscriptions", 
+					controller:"UserSubscriptionsCtrl",
+					templateUrl: "scripts/auth/views/user-subscriptionsCtrl.html"
 				})
+
 
 (function () {
     'use strict'

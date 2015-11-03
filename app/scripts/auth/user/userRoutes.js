@@ -53,6 +53,11 @@
                     controller: "AccountSettingsCtrl",
                     templateUrl: "scripts/auth/user/views/account-settingsCtrl.html"
                 })
+                .state("app.user.user-bookmarks", {
+                    url: "/user-bookmarks",
+                    controller: "UserBookmarksCtrl",
+                    templateUrl: "scripts/auth/views/user-bookmarksCtrl.html"
+                })
 //#state'
         });
 })();

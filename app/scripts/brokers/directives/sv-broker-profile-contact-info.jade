@@ -11,19 +11,23 @@
                 h1.tc-grey-800.ml.lr {{broker.fName}} {{broker.lName}}
                 span.fs-title.ml.mr {{broker.title || defaultBrokerTitle}}
                 span.fs-subhead(ng-if='broker.title2') {{broker.title2}}
-                span.tc-grey-600(class='ml mr')
+                span(class='ml mr')
                     p.fw-500
-                        span.fs-subhead.mr(ng-if='broker.languages') Languages:
-                        span {{broker.languages}}
+                        span.mr(ng-if='broker.languages')
+                            i.fa.fa-globe
+                            span.ml Languages:
+                        span.tc-blue-600 {{broker.languages}}
                 div(layout-sm='row' layout-gt-sm="column")
-                    .mr.ml(ng-if='broker.recentsales')
-                        p.fw-500
-                            span.tc-blue-600 {{broker.recentsales}} &nbsp
-                            span Recent Sales
-                    .mr.ml.fw-500
-                        p.fw-500
-                            span.tc-blue-600 {{brokerHomesCount}} &nbsp
-                            span Active Listings
+                    p.fw-500.mr.ml(ng-if='broker.recentsales')
+                        span
+                            i.mdi.mdi-checkbox-marked-circle-outline
+                            span.ml Recent Sales:
+                        span.tc-blue-600.ml {{broker.recentsales}} &nbsp
+                    p.fw-500.mr.ml
+                        span
+                            i.fa.fa-bell-o
+                            span.ml Active Listings:
+                        span.tc-blue-600.ml {{brokerHomesCount}} &nbsp
                 div.fw-500.mb.fs-subhead(layout-gt-sm='row' layout-sm="column" ng-if='broker.truliaReview || broker.zillowReview')
                     //.tc-amber-600.mr.ml(layout='row' layout-align-sm="center")
                     //    span
@@ -36,7 +40,9 @@
                     //        i.fa.fa-star.fa-fw
                     //    span
                     //        i.fa.fa-star.fa-fw
-                    p.ml.mr.tc-blue-500.fw-600 Ratings and Reviews:
+                    p.ml.mr.tc-blue-600.fw-500
+                        i.mdi.mdi-account-star.mr
+                        | Ratings and Reviews:
                 div(layout='row' layout-align="start center" ng-if='broker.truliaReview || broker.zillowReview')
                     span.ml.mb
                         a.btn.btn--s.btn--white.btn--raised(target='_blank' lx-ripple='' href='{{broker.zillowReview}}' style="text-decoration:none")

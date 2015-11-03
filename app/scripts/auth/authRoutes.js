@@ -1,7 +1,7 @@
-				.state("app.user-subscriptions", {
-					url: "/user-subscriptions", 
-					controller:"UserSubscriptionsCtrl",
-					templateUrl: "scripts/auth/views/user-subscriptionsCtrl.html"
+				.state("app.user-reviews", {
+					url: "/user-reviews", 
+					controller:"UserReviewsCtrl",
+					templateUrl: "scripts/auth/views/user-reviewsCtrl.html"
 				})
 
 

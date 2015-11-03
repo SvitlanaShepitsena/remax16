@@ -58,6 +58,11 @@
                     controller: "UserBookmarksCtrl",
                     templateUrl: "scripts/auth/views/user-bookmarksCtrl.html"
                 })
+                .state("app.user.user-subscriptions", {
+                    url: "/user-subscriptions",
+                    controller: "UserSubscriptionsCtrl",
+                    templateUrl: "scripts/auth/views/user-subscriptionsCtrl.html"
+                })
 //#state'
         });
 })();

@@ -1,3 +1,8 @@
+				.state("app.user-bookmarks", {
+					url: "/user-bookmarks", 
+					controller:"UserBookmarksCtrl",
+					templateUrl: "scripts/auth/views/user-bookmarksCtrl.html"
+				})
 
 (function () {
     'use strict'

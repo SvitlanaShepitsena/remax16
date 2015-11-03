@@ -34,7 +34,7 @@
                         span.tc-red-800 {{broker.recentsales}} &nbsp
                         span Recent Sales
                     .mr.ml.fw-500
-                        span.tc-blue-800 {{broker.countSale||15}} &nbsp
+                        span.tc-blue-800 {{brokerHomesCount}} &nbsp
                         span Active Listings
         .tc-grey-600(layout='column' layout-align-sm="center center" class='ml mr' flex="")
             .fs-headline.tc-grey-800 Contact Info:
@@ -62,7 +62,7 @@
         div(flex='' ng-if='broker.website')
             a(href='{{broker.website}}' style="text-decoration:none" target='_blank') {{broker.website}}
         div(ng-if='hasEditAccess' flex="")
-            button.btn.btn--s.btn--green.btn--raised.bgc-green-500.tc-white-1.mt(lx-ripple=''  ng-click="showBrokerContactInfoModal(broker)" )
+            button.btn.btn--s.btn--blue.btn--raised.bgc-blue-500.tc-white-1.mt(lx-ripple=''  ng-click="showBrokerContactInfoModal(broker)" )
                 i.fa.fa-pencil.fa-fw
                 span.ml(hide-sm="") Edit Contact Info
         div

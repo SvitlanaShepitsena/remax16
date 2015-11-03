@@ -4,6 +4,8 @@
         .controller('UserCtrl', function ($scope, userAuth) {
             $scope.brokerId = userAuth.profile.brokerId;
             $scope.user = userAuth.profile;
+
+            $scope.cid=$scope.user.userName;
             /*broker*/
             var res = $scope.user.isStaff();
             $scope.isBroker = res;

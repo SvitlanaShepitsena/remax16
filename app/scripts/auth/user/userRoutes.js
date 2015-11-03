@@ -63,6 +63,11 @@
                     controller: "UserSubscriptionsCtrl",
                     templateUrl: "scripts/auth/views/user-subscriptionsCtrl.html"
                 })
+                .state("app.user.user-reviews", {
+                    url: "/user-reviews",
+                    controller: "UserReviewsCtrl",
+                    templateUrl: "scripts/auth/views/user-reviewsCtrl.html"
+                })
 //#state'
         });
 })();

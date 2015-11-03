@@ -48,7 +48,10 @@
                         }
                     })
                 },
-                getHomes: function (query, isBroker) {
+                getHomes: function (query, isBroker, bookmarks) {
+                    if (bookmarks) {
+                        return this.getHomesByBookMarks(bookmarks);
+                    }
                     var that = this;
                     return $q(function (resolve, reject) {
                         if (isBroker) {
@@ -129,6 +132,29 @@
                             })
                         }
                     });
+                },
+                getHomesByBookMarks: function (bookmarks) {
+                    var that = this;
+                    return $q(function (resolve, reject) {
+                        that.getSaleAndRent().then(function (saleRentArr) {
+                            var filteredSale = _.filter(saleRentArr[0], function (oneSale) {
+                                return bookmarks.indexOf(oneSale.$id) > -1;
+
+                            });
+                            var filteredRent = _.filter(saleRentArr[1], function (oneRent) {
+                                return bookmarks.indexOf(oneRent.$id) > -1;
+                            });
+                            var filteredHomes = _.union(filteredSale, filteredRent)
+                            GetAgentsInfoServ.get(filteredHomes).then(function (homesWithAgents) {
+                                resolve(homesWithAgents);
+                            })
+                        })
+                    });
+                },
+                getSaleAndRent: function () {
+                    var that = this;
+
+                    return $q.all([refSale.$loaded(), refRent.$loaded()]);
                 },
                 getHome: function (mls) {
                     var homeUrlSale = saleUrl + mls;

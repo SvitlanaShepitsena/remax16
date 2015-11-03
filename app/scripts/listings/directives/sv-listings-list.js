@@ -97,7 +97,9 @@
                         return $scope.homes;
                     }
                 },
-                scope: {},
+                scope: {
+                    bookmarks:'='
+                },
                 link: function ($scope, el, attrs) {
                     $scope.underBrokers = $rootScope.underBrokers;
                     $scope.isBroker = $stateParams.id;
@@ -145,7 +147,7 @@
                     $scope.$on('mapGrid:changed', function (event, isMap) {
                         $scope.mapView = isMap;
                     });
-                    SearchSaleServ.getHomes($stateParams, $scope.isBroker).then(function (homes) {
+                    SearchSaleServ.getHomes($stateParams, $scope.isBroker, $scope.bookmarks).then(function (homes) {
                         $scope.avatarBroker = avatarBroker;
                         $rootScope.hmCnt = homes;
                         if (!homes || homes.length === 0) {

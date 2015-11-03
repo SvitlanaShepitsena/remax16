@@ -1,19 +1,19 @@
 div
     div
         div(ng-if='hasEditAccess')
-            button.btn.btn--xs.btn--black.btn--raised.bgc-grey-300.tc-grey-600.mt(lx-ripple='' ng-click="showBrokerAccreditationModal(broker)" )
-                i.fa.fa-pencil.fa-fw &nbsp
-                | Edit
+            button.btn.btn--xs.btn--black.btn--raised.bgc-blue-400.tc-white-1.mt(lx-ripple='' ng-click="showBrokerAccreditationModal(broker)" )
+                i.fa.fa-pencil.fa-fw
+                span.ml(hide-sm="") Edit
         div(ng-if='broker.accreditation')
             .fs-subhead  Accreditation:
             span {{broker.accreditation}}
-            md-divider.bgc-blue-100.mt.mb
+            md-divider.bgc-white-1.mt.mb
         div(layout='row' layout-sm="column" layout-align="top center")
             div(flex-gt-sm="50" ng-if='broker.highlight1')
                 div(ng-if='hasEditAccess')
-                    button.btn.btn--xs.btn--black.btn--raised.bgc-grey-300.tc-grey-600.mt(lx-ripple='' ng-click="showBrokerProfileHighlightsModal(broker)" )
-                        i.fa.fa-pencil.fa-fw &nbsp
-                        | Edit
+                    button.btn.btn--xs.btn--black.btn--raised.bgc-blue-400.tc-white-1.mt(lx-ripple='' ng-click="showBrokerProfileHighlightsModal(broker)" )
+                        i.fa.fa-pencil.fa-fw
+                        span.ml(hide-sm="") Edit
                 div
                     p {{broker.highlight1}}
                     p {{broker.highlight2}}
@@ -24,9 +24,9 @@ div
                     p {{broker.highlight7}}
             div(flex-gt-sm='50')
                 div(ng-if='hasEditAccess')
-                    button.btn.btn--xs.btn--black.btn--raised.bgc-grey-300.tc-grey-600.mt(lx-ripple='' ng-click="showBrokerProfInfoModal(broker)" )
-                        i.fa.fa-pencil.fa-fw &nbsp
-                        | Edit
+                    button.btn.btn--xs.btn--black.btn--raised.bgc-blue-400.tc-white-1.mt(lx-ripple='' ng-click="showBrokerProfInfoModal(broker)" )
+                        i.fa.fa-pencil.fa-fw
+                        span.ml(hide-sm="") Edit
                 p(ng-if='broker.yearsexperience')
                     span.fs-subhead Years of Experience: &nbsp
                     span {{broker.yearsexperience}}
@@ -38,8 +38,8 @@ div
                     span {{broker.areasserved}}
         div(ng-if='hasEditAccess')
             md-divider.mt.mb
-            button.btn.btn--xs.btn--black.btn--raised.bgc-grey-300.tc-grey-600.mt(lx-ripple='' ng-click="showBrokerExperienceModal(broker)" )
-                i.fa.fa-pencil.fa-fw &nbsp
-                | Edit
+            button.btn.btn--xs.btn--black.btn--raised.bgc-blue-400.tc-white-1.mt(lx-ripple='' ng-click="showBrokerExperienceModal(broker)" )
+                i.fa.fa-pencil.fa-fw
+                span.ml(hide-sm="") Edit
             div(ng-if='broker.experience')
                 p {{broker.experience}}

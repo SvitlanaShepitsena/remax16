@@ -11,31 +11,45 @@
                 h1.tc-grey-800.ml.lr {{broker.fName}} {{broker.lName}}
                 span.fs-title.ml.mr {{broker.title || defaultBrokerTitle}}
                 span.fs-subhead(ng-if='broker.title2') {{broker.title2}}
-                span.tc-grey-600(class='ml mr')
-                    span.fs-subhead.mr(ng-if='broker.languages') Languages:
-                    span {{broker.languages}}
-                div(layout-gt-sm='row' layout-sm="column")
-                    div(class='ml mr' flex="")
-                        .tc-amber-600.mr(layout='row' layout-align-sm="center")
-                            span
-                                i.fa.fa-star.fa-fw
-                            span
-                                i.fa.fa-star.fa-fw
-                            span
-                                i.fa.fa-star.fa-fw
-                            span
-                                i.fa.fa-star.fa-fw
-                            span
-                                i.fa.fa-star.fa-fw
-                        .mr(layout='row' layout-align-sm="center")
-                            span.tc-blue-600 15 customer reviews
+                span(class='ml mr')
+                    p.fw-500
+                        span.mr(ng-if='broker.languages')
+                            i.fa.fa-globe
+                            span.ml Languages:
+                        span.tc-blue-600 {{broker.languages}}
                 div(layout-sm='row' layout-gt-sm="column")
-                    .mr.ml.fw-500(ng-if='broker.recentsales')
-                        span.tc-red-800 {{broker.recentsales}} &nbsp
-                        span Recent Sales
-                    .mr.ml.fw-500
-                        span.tc-blue-800 {{brokerHomesCount}} &nbsp
-                        span Active Listings
+                    p.fw-500.mr.ml(ng-if='broker.recentsales')
+                        span
+                            i.mdi.mdi-checkbox-marked-circle-outline
+                            span.ml Recent Sales:
+                        span.tc-blue-600.ml {{broker.recentsales}} &nbsp
+                    p.fw-500.mr.ml
+                        span
+                            i.fa.fa-bell-o
+                            span.ml Active Listings:
+                        span.tc-blue-600.ml {{brokerHomesCount}} &nbsp
+                div.fw-500.mb.fs-subhead(layout-gt-sm='row' layout-sm="column" ng-if='broker.truliaReview || broker.zillowReview')
+                    //.tc-amber-600.mr.ml(layout='row' layout-align-sm="center")
+                    //    span
+                    //        i.fa.fa-star.fa-fw
+                    //    span
+                    //        i.fa.fa-star.fa-fw
+                    //    span
+                    //        i.fa.fa-star.fa-fw
+                    //    span
+                    //        i.fa.fa-star.fa-fw
+                    //    span
+                    //        i.fa.fa-star.fa-fw
+                    p.ml.mr.tc-blue-600.fw-500
+                        i.mdi.mdi-account-star.mr
+                        | Ratings and Reviews:
+                div(layout='row' layout-align="start center" ng-if='broker.truliaReview || broker.zillowReview')
+                    span.ml.mb
+                        a.btn.btn--s.btn--white.btn--raised(target='_blank' lx-ripple='' href='{{broker.zillowReview}}' style="text-decoration:none")
+                            img.m(src="https://s3-us-west-2.amazonaws.com/remax1stclass/brokers/logos/zillow-logo.png" style="width:70px;height:auto")
+                    span.ml.mb
+                        a.btn.btn--s.btn--white.btn--raised(target='_blank' lx-ripple='' href='{{broker.truliaReview}}' style="text-decoration:none")
+                            img.m(src="https://s3-us-west-2.amazonaws.com/remax1stclass/brokers/logos/trulia-logo.png" style="width:45px;height:auto")
         .tc-grey-600(layout='column' layout-align-sm="center center" class='ml mr' flex="")
             .fs-headline.tc-grey-800 Contact Info:
             span(ng-if='broker.phoneDirect')
@@ -62,7 +76,7 @@
         div(flex='' ng-if='broker.website')
             a(href='{{broker.website}}' style="text-decoration:none" target='_blank') {{broker.website}}
         div(ng-if='hasEditAccess' flex="")
-            button.btn.btn--s.btn--blue.btn--raised.bgc-blue-500.tc-white-1.mt(lx-ripple=''  ng-click="showBrokerContactInfoModal(broker)" )
+            button.btn.btn--s.btn--blue.btn--raised.bgc-blue-400.tc-white-1.mt(lx-ripple=''  ng-click="showBrokerContactInfoModal(broker)" )
                 i.fa.fa-pencil.fa-fw
                 span.ml(hide-sm="") Edit Contact Info
         div

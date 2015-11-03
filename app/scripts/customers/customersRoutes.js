@@ -8,7 +8,6 @@
                     url: "/customers",
                     onEnter: function ($rootScope) {
                         $rootScope.underCustomers = true;
-
                     },
                     onExit: function ($rootScope) {
                         $rootScope.underCustomers = false;
@@ -21,6 +20,11 @@
                     controller: "OneCustomerCtrl",
                     templateUrl: "scripts/customers/views/one-customerCtrl.html"
                 })
+				.state("app.customer-bookmarks", {
+					url: "/customer-bookmarks", 
+					controller:"CustomerBookmarksCtrl",
+					templateUrl: "scripts/customers/views/customer-bookmarksCtrl.html"
+				})
 //#state'
 
         });

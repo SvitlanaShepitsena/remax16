@@ -54,19 +54,27 @@
             .fs-headline.tc-grey-800 Contact Info:
             span(ng-if='broker.phoneDirect')
                 p.fs-subhead(style="margin-bottom:4px")
-                    span Direct: &nbsp
+                    span
+                        i.mdi.mdi-cellphone &nbsp
+                        span Direct: &nbsp
                     span.tc-grey-800 {{broker.phoneDirect|tel}}
             span.fs-subhead(ng-if='broker.phoneCell')
                 p.fs-subhead(style="margin-bottom:4px")
-                    span Cell: &nbsp
+                    span
+                        i.mdi.mdi-cellphone-iphone &nbsp
+                        span Cell: &nbsp
                     span.tc-grey-800 {{broker.phoneCell|tel}}
             span.fs-subhead
                 p.fs-subhead(style="margin-bottom:4px")
-                    span Office: &nbsp
+                    span
+                        i.mdi.mdi-phone &nbsp
+                        span Office: &nbsp
                     span.tc-grey-800 {{companyPhone}}
             span.fs-subhead
                 p.fs-subhead(style="margin-bottom:4px")
-                    span Fax: &nbsp
+                    span
+                        i.mdi.mdi-deskphone &nbsp
+                        span Fax: &nbsp
                     span.tc-grey-800 {{companyFax}}
     div(layout-gt-sm='row' layout-sm="column")
         md-divider.mt.mb

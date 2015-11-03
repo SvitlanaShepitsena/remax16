@@ -186,9 +186,9 @@
                                         <a href="${href}" style="text-decoration:none" target="_blank">
                                             <div style="font-size:15px;font-weight:600;color:#1e88e5">${$filter("currency")(home.price, "$", 0)} </div>
                                             <div >
-                                                <span ng-if="home.isRent">For Rent</span>
-                                                <span ng-if="!home.isRent">For Sale</span>
-                                                <span ng-if="!home.isRent" style="font-size:12px;color:#393939"> ${home.type}</span>
+                                                <span>For ${home.isRent ? 'Rent' : 'Sale'}</span>
+
+                                                <span style="font-size:12px;color:#393939"> ${home.type}</span>
 
                                             </div>
                                             <div style="font-weight:500;color:#393939">${home.address.city},${home.address.zip}</div>
@@ -240,29 +240,27 @@
                                 var panorama = new google.maps.StreetViewPanorama(
                                     document.getElementById('pano'), {
                                         position: latLng,
-                                        fullScreenControl:false,
-                                        addressControl:false
+                                        fullScreenControl: false,
+                                        addressControl: false
                                     });
 
 
-                                    google.maps.event.addListenerOnce(panorama, 'status_changed', function () {
+                                google.maps.event.addListenerOnce(panorama, 'status_changed', function () {
 
-                                        var loc = panorama.getLocation();
-                                        if (loc) {
+                                    var loc = panorama.getLocation();
+                                    if (loc) {
                                         var heading = google.maps.geometry.spherical.computeHeading(loc.latLng, latLng);
                                         panorama.setPov({
                                             heading: heading,
                                             pitch: 0
                                         });
 
-                                        } else{
-                                            panorama.setVisible(false);
-                                        }
+                                    } else {
+                                        panorama.setVisible(false);
+                                    }
 
 
-
-                                    });
-
+                                });
 
 
                             });

@@ -1,14 +1,12 @@
 div
     div.sv-main-content(layout='row' layout-wrap ng-if='!mapView')
-        div(flex-sm='100' flex-gt-sm='50' flex-gt-md='50' flex-gt-lg='33' ng-repeat='n in blogs|orderBy:"-timestamp"')
+        .card.m(ng-repeat='n in blogs|orderBy:"-timestamp"' flex="")
             a.tc-grey-800.sv-link-visited(ui-sref='app.article({id:n.fbkey})' style='text-decoration:none')
-                .card.m(layout="row" class='pt pb' layout-sm='column')
-                    div.p(style='min-width: 100px')
-                        sv-img-background.sv-img-thumb(sv-image="n.img" style='width:180px;height:120px;margin:0px auto')
-                    div(class='ml mr')
-                        span.display-block.fs-subhead(ng-bind-html='safeParsing(n.title)')
-                        span.fs-caption.tc-grey-500(ng-bind-html='safeParsing((n.author|authorNameFr))')
-                        span.display-block.fs-body-1.tc-black-2(ng-bind-html='safeParsing(n.summary)')
-                        div(layout='row' layout-align='end start' class='pr')
-                            button.btn.btn--xs.btn--grey.btn--flat(ui-sref='app.blogs({id:n.fbkey})' ) {{'read-more'|translate}} >>
+                sv-img-background.sv-img-thumb(sv-image="n.img" style='width:180px;height:120px;margin:0px auto')
+                div(class='m')
+                    h3(ng-bind-html='safeParsing(n.title)')
+                    span.fs-caption.tc-grey-500(ng-bind-html='safeParsing((n.author|authorNameFr))')
+                    span.display-block.fs-body-1.tc-black-2(ng-bind-html='safeParsing(n.summary)')
+                div(layout='row' layout-align='end start' class='pr mb')
+                    button.btn.btn--xs.btn--grey.btn--flat {{'read-more'|translate}} >>
 

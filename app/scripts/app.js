@@ -3,6 +3,7 @@
             // modules
             'ui.router',
             'ui.mask',
+            'ngRateIt',
             'ngMap',
             'brokers',
             'LocalStorageModule',

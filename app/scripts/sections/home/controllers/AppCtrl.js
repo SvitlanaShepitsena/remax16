@@ -40,6 +40,9 @@
             $rootScope.toggleRight = function () {
                 $mdSidenav('right').toggle();
             };
+            $rootScope.toggleLeft = function () {
+                $mdSidenav('left').toggle();
+            };
             $rootScope.$watch('appLoaded', function (newValue) {
                 $scope.appLoaded = newValue;
             });

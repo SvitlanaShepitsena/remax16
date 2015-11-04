@@ -37,6 +37,14 @@
                             reject(error);
                         });
                     });
+                },
+                removeObj: function (fbUrl) {
+                    return $q(function (resolve, reject) {
+                        var fbObj = $firebaseObject(new Firebase(fbUrl));
+                        fbObj.$remove().then(function () {
+                            resolve();
+                        })
+                    });
                 }
             };
         });

@@ -69,7 +69,7 @@
     }
 
     angular.module('listings')
-        .directive('svListingsList', function (BoundariesServ, avatarBroker, mapStyler, icon, $rootScope, googleMap, QueryServ, $timeout, $stateParams, SearchSaleServ, GeoServ, $window, localStorageService, $filter, defaultImage, SortServ) {
+        .directive('svListingsList', function (BoundariesServ, avatarBroker, userAuth,url, FbGenServ, mapStyler, icon, $rootScope, googleMap, QueryServ, $timeout, $stateParams, SearchSaleServ, GeoServ, $window, localStorageService, $filter, defaultImage, SortServ) {
             function centerMapToBounds(newValue, $scope) {
                 var bounds = new google.maps.LatLngBounds();
                 newValue.forEach((place) => {
@@ -98,7 +98,7 @@
                     }
                 },
                 scope: {
-                    bookmarks:'='
+                    bookmarks: '='
                 },
                 link: function ($scope, el, attrs) {
                     $scope.underBrokers = $rootScope.underBrokers;
@@ -148,6 +148,17 @@
                         $scope.mapView = isMap;
                     });
                     SearchSaleServ.getHomes($stateParams, $scope.isBroker, $scope.bookmarks).then(function (homes) {
+
+                        if (userAuth) {
+                            var bkmPath = url + 'bookmarks/' + userAuth.profile.userName;
+                            FbGenServ.getAssync(bkmPath).then(function (bookmarks) {
+                                $scope.bookmarks = bookmarks;
+                            })
+
+
+                        }
+
+
                         $scope.avatarBroker = avatarBroker;
                         $rootScope.hmCnt = homes;
                         if (!homes || homes.length === 0) {

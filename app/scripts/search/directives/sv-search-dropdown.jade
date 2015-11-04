@@ -1,4 +1,4 @@
-form(layout="row" name="searchForm" id="searchForm"  novalidate)
+form(layout="row" name="searchForm" id="searchForm"  novalidate ng-show='!isBookMarkState')
     lx-dropdown(position='left' over-toggle="true" )
         .card.sv-search-input(layout="row" layout-align="space-between center")
             button.btn.btn--m.btn--flat.btn--grey.sv-search-button(lx-ripple sv-lx-dropdown)

@@ -43,7 +43,25 @@
                     GetAgentsInfoServ.getByKey($scope.brokerId).then(function (broker) {
                         $scope.broker = broker;
                     });
-                    $scope.selectedIndex = 0;
+
+                    var stName = _.last($state.current.name.split('.'));
+                    switch (stName) {
+                        case 'profile':
+                            $scope.selectedIndex = 0;
+                            break;
+                        case 'listings':
+                            $scope.selectedIndex = 1;
+                            break;
+                        case 'blogs':
+                            $scope.selectedIndex = 2;
+                            break;
+                        case 'reviews':
+                            $scope.selectedIndex = 3;
+                            break;
+                        default:
+                            $scope.selectedIndex = 0;
+                    }
+
                     $scope.key = userAuth.key;
                     $scope.user = userAuth.profile;
                     $scope.$watch('selectedIndex', function (current, old) {

@@ -7,7 +7,8 @@
                 replace: true,
                 templateUrl: 'scripts/search/directives/sv-sort-listings.html',
                 scope: {
-					sortBy:'='
+					sortBy:'=',
+                    homes:'='
                 },
                 link: function ($scope, el, attrs) {
 	                $scope.$watch('sortBy', function (newValue, oldValue) {
@@ -17,6 +18,7 @@
 		                localStorageService.set('sortBy',newValue);
 		                $scope.$emit('sort:homes',newValue);
 	                });
+
 
                 }
             };

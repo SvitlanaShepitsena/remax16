@@ -152,11 +152,20 @@
                         if (userAuth) {
                             var bkmPath = url + 'bookmarks/' + userAuth.profile.userName;
                             FbGenServ.getAssync(bkmPath).then(function (bookmarks) {
-                                $scope.bookmarks = bookmarks;
+                                $scope.bookmarks = _.pluck(bookmarks,'$id');
                             })
-
-
                         }
+                        $scope.$on('bookmark:deleted', function (evt, bkmId) {
+                            for (var n = 0; n < $scope.homes.length; n++) {
+                                var home = $scope.homes[n];
+                                if (home.$id===bkmId) {
+                                    $scope.homes.splice(n,1);
+                                    break;
+
+                                }
+
+                            }
+                        });
 
 
                         $scope.avatarBroker = avatarBroker;

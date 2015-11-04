@@ -1,4 +1,4 @@
-.card.fw-500(style="padding: 8px 16px;font-size:16px" layout="row")
+.card.fw-500(style="padding: 8px 16px;font-size:16px" layout="row" ng-show='!isBookMarkState')
     .fw-500.tc-blue-700(ng-if='cnt')
         i.fa.fa-bullhorn.fa-fw &nbsp
         | {{cnt||0}} homes for {{isRent?'rent':'sale'}}

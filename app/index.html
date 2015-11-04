@@ -30,6 +30,8 @@
 
     <script src="https://cdn.rawgit.com/jakearchibald/es6-promise/master/dist/es6-promise.min.js"
             type="text/javascript"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+
     <!-- build:css vendors.css -->
 
     <!-- bower:css -->
@@ -117,6 +119,7 @@
                 <!--<div flex></div>-->
                 <div flex=""></div>
                 <sv-main-sections-nav></sv-main-sections-nav>
+                <!--<g:hangout render="createhangout"></g:hangout>-->
                 <sv-auth-btn class='ml'></sv-auth-btn>
                 <sv-notifications-list style='max-height:30px'></sv-notifications-list>
                 <div show-gt-lg class="ml"></div>
@@ -336,6 +339,7 @@
 
 <!-- brokers -->
 <script src="scripts/brokers/brokersRoutes.js"></script>
+<script src="scripts/brokers/directives/sv-review-form.js"></script>
 <script src="scripts/brokers/directives/sv-reviews-public-info.js"></script>
 <script src="scripts/brokers/services/BrokerProfileServ.js"></script>
 <script src="scripts/brokers/filters/tel.js"></script>

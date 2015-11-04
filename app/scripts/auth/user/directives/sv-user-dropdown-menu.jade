@@ -3,6 +3,18 @@ lx-dropdown(position='right')
         img.img-round(ng-src="{{user.isEditor()?alexAvatar:(user.avatar || defaultAvatar)}}" style='width:100%;height:100%' )
     lx-dropdown-menu
         ul
+            li(ng-show='user.isCustomer()')
+                a.dropdown-link(ui-sref="app.user.user-bookmarks({uid:user.userName})")
+                    i.mdi.mdi-star.mr
+                    | Bookmarks
+            li(ng-if='user.isCustomer()')
+                a.dropdown-link(ui-sref="app.user.user-reviews({uid:user.userName})")
+                    i.mdi.mdi-pen.mr
+                    | My Reviews
+            li(ng-if='user.isCustomer()')
+                a.dropdown-link(ui-sref="app.customers.one-customer({cid:cid})")
+                    i.mdi.mdi-account-circle.mr
+                    | My Public Page
             li(ng-if='user.isStaff()')
                 a.dropdown-link(ui-sref="app.user.listings({uid:user.userName})")
                     i.mdi.mdi-view-dashboard.mr

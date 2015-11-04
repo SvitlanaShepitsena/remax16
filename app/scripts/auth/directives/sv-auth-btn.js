@@ -8,9 +8,9 @@
                 link: function ($scope) {
                     $scope.goToDashboard = function () {
                         if (userAuth.profile.role === 'manager') {
-                            $state.go('app.manager.dashboard', {uid: userAuth.key});
+                            $state.go('app.manager.users', {uid: userAuth.key});
                         } else {
-                            $state.go('app.user.dashboard', {uid: userAuth.profile.userName});
+                            $state.go('app.user.account-settings', {uid: userAuth.profile.userName});
                         }
                     };
                     $scope.isIe = AgentServ.isIe();
@@ -31,10 +31,10 @@
                             }
 
                             if (userAuth.profile && userAuth.profile.isStaff()) {
-                                $state.go('app.user.ad.promotion', {uid: userAuth.profile.userName})
+                                $state.go('app.user.listings', {uid: userAuth.profile.userName})
                             }
                             if (userAuth.profile && userAuth.profile.isCustomer()) {
-                                $state.go('app.user.dashboard', {uid: userAuth.profile.userName})
+                                $state.go('app.user.user-bookmarks', {uid: userAuth.profile.userName})
                             }
 
                         });

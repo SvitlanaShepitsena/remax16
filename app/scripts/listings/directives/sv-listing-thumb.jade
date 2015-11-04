@@ -1,12 +1,13 @@
 .card.m
     div.p.bgc-blue-500.tc-blue-50(layout='row' layout-align='space-between start')
-        div(layout='row')
-            .fs-subhead.tc-blue-50(style="font-weight:bold") {{home.price|currency:'$':0}} &nbsp
-            .fs-body-1.tc-blue-100(ng-show="home.shortSale" style="padding:2px")
+        div
+            p.tc-blue-50(style="font-weight:bold") {{home.price|currency:'$':0}} &nbsp
+            .fs-body-1.tc-blue-100(ng-show="home.shortSale" )
                 i.fa.fa-bell.fa-fw &nbsp
                 | Short Sale
         div.text-right
-            p.fs-body-1.tc-blue-50 {{home.type}}
+            p.tc-blue-50 {{home.type}}
+            p.fs-body-1.tc-blue-100 MLS#: {{home.mls}}
     div.bgc-blue-100(layout='row' layout-align="space-between center" ng-show='!home.isRent')
         a.p.display-block.sv-link-visited-image.tc-grey-900(ui-sref='app.remax-listings.one-listing-sale({mls:home.mls})' style="text-decoration:none")
             p {{home.address.street}}

@@ -2,16 +2,16 @@
     'use strict';
 
     angular.module('brokers')
-        .directive('svReviewsPublicInfo', function (FbGenServ, $stateParams, agentsUrl, userAuth) {
+        .directive('svReviewsPublicInfo', function (FbGenServ, $stateParams, agentsUrl, userAuth, avatar) {
             return {
                 replace: true,
                 scope: {},
                 templateUrl: 'scripts/brokers/directives/sv-reviews-public-info.html',
                 link: function ($scope, el, attrs) {
+
                     $scope.userName = userAuth.profile.userName;
                     var reviewsUrl = agentsUrl + $stateParams.id + '/reviews/';
-
-
+                    $scope.avatar = avatar;
                     var reviews = FbGenServ.getArrayLive(reviewsUrl);
 
                     reviews.$loaded().then(function () {

@@ -5,16 +5,14 @@
         .directive('svReviewsPublicInfo', function () {
             return {
                 replace: true,
-                scope:{
-
-                },
+                scope: {},
                 templateUrl: 'scripts/brokers/directives/sv-reviews-public-info.html',
                 link: function ($scope, el, attrs) {
-                    $scope.reviewForm=false;
+                    $scope.reviewForm = true;
 
                     $scope.addReview = function () {
 
-                    $scope.reviewForm=true;
+                        $scope.reviewForm = true;
                     };
 
                 }

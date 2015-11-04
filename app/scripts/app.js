@@ -1,10 +1,11 @@
 (function () {
     angular.module('app', [
             // modules
-            'brokers',
             'ui.router',
             'ui.mask',
+            'ui.bootstrap.rating',
             'ngMap',
+            'brokers',
             'LocalStorageModule',
             'ngFileUpload',
             'pascalprecht.translate',
@@ -103,7 +104,7 @@
                 .hashPrefix('!');
         })
         .run(($rootScope) => {
-        	$rootScope.$on("$stateChangeError", console.log.bind(console));
+            $rootScope.$on("$stateChangeError", console.log.bind(console));
         })
         .factory('$exceptionHandler', function ($injector) {
             return function (exception, cause) {

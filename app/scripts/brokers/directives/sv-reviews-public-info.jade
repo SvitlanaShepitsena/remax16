@@ -1,6 +1,7 @@
 div
     div
-        button(ng-click='addReview()') Rate Agent
+        button(ng-click='addReview()' ng-show='!reviewForm') Rate Agent
+        sv-review-form(ng-show='reviewForm')
     span.ml.mr.tc-grey-800.fw-500.fs-title
         i.mdi.mdi-account-star.mr
         | Ratings and Reviews:

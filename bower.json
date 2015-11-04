@@ -9,7 +9,7 @@
     "angular": "1.5.0-build.4318+sha.8226ff8",
     "angular-animate": "1.5.0-build.4318+sha.8226ff8",
     "angular-aria": "1.5.0-build.4318+sha.8226ff8",
-    "angular-bootstrap": "~0.13.0",
+    "angular-bootstrap": "~0.14.3",
     "angular-bootstrap-calendar": "0.11.2",
     "angular-bootstrap-lightbox": "~0.6.1",
     "angular-capitalize-filter": "2.1.0",

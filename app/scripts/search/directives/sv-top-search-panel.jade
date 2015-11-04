@@ -2,9 +2,9 @@ div(layout='row' layout-align="space-between center" )
     div.pt(ng-if='!isBroker && !isBookMarkState')
         sv-search-dropdown
     sv-profile-title.ml(header-title='My Bookmarks' ng-if='isBookMarkState')
-    div
+    div(hide-sm)
         sv-search-stat
-    div.pt.pr(layout='row' layout-align='space-between')
+    div.pr(layout='row' layout-align='space-between')
         button.btn.btn--m.btn--white.btn--raised.mr(lx-ripple='' ng-click='changeMapGridView(true)')
             i.fa.fa-map-o.fa-fw
             span.mdc-display-inline-block.ml(hide-sm) Map

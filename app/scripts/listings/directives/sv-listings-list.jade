@@ -1,13 +1,14 @@
-div.sv-main-content
+div
     sv-top-search-panel.ml.mr
     div(layout='row' layout-align-sm="space-between center" layout-align-gt-sm="start center" ng-if="!mapView")
         div.m
             sv-sort-listings(sort-by='sortBy' homes='homes')
     map.sv-search-map.mt(ng-if='mapView' ng-style='mapStyle' styles='{{mapStyler}}'  max-zoom="13" min-zoom="5" on-zoom_changed="zoomChanged()")
         marker(ng-repeat="pos in shPoses track by $index" position="{{pos.position.lat()}}, {{pos.position.lng()}}")
-    div.sv-main-content(layout='row' layout-wrap ng-if='!mapView && !underBrokers  && bookmarks')
-        div(flex-sm='100' flex-gt-sm='50' flex-gt-md='33' flex-gt-lg='25' ng-repeat='home in homes')
-            sv-listing-thumb(home="home" bookmarks='bookmarks')
-    div(layout='row' layout-wrap ng-if='!mapView && underBrokers'  layout-align="start center")
-        div(flex-sm='100' flex-gt-sm='50' ng-repeat='home in homes' bookmarks='bookmarks')
-            sv-listing-thumb(home="home")
+    div
+        div(layout='row' layout-wrap ng-if='!mapView && !underBrokers  && bookmarks' layout-align="start start")
+            div(flex-sm='100' flex-gt-sm='50' flex-gt-md='33' flex-gt-lg='25' ng-repeat='home in homes')
+                sv-listing-thumb(home="home" bookmarks='bookmarks')
+        div(layout='row' layout-wrap ng-if='!mapView && underBrokers' layout-align="start start" )
+            div(flex-sm='100' flex-gt-sm='50' ng-repeat='home in homes' bookmarks='bookmarks')
+                sv-listing-thumb(home="home")

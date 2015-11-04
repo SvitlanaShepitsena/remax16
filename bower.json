@@ -44,7 +44,8 @@
     "angular-flexslider": "~1.3.2",
     "js-marker-clusterer": "*",
     "angular-ui-mask": "~1.4.7",
-    "ng-img-crop": "ngImgCrop#~0.3.2"
+    "ng-img-crop": "ngImgCrop#~0.3.2",
+    "angular-rateit": "~2.0.3"
   },
   "resolutions": {
     "angular": "1.5.0-build.4318+sha.8226ff8"

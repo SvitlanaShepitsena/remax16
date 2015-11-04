@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('listings')
-        .directive('svListingThumb', function ($rootScope,avatarBroker, maps, googleMap, userAuth, toastr, FbGenServ, url) {
+        .directive('svListingThumb', function ($rootScope, $state, avatarBroker, maps, googleMap, userAuth, toastr, FbGenServ, url) {
             function concatenate(address) {
                 var final = '';
                 for (var p in address) {
@@ -24,7 +24,7 @@
                     $scope.googleMap = googleMap;
                     $scope.fullAddress = maps + concatenate($scope.home.address);
 
-                    $scope.bookmarked = $scope.bookmarks ? $scope.bookmarks.indexOf($scope.home.$id)>-1 : false;
+                    $scope.bookmarked = $scope.bookmarks ? $scope.bookmarks.indexOf($scope.home.$id) > -1 : false;
 
 
                     $scope.addToBookmarks = function (home) {
@@ -48,11 +48,14 @@
                             toastr.warning('Please login to save home to bookmarks');
                             return;
                         }
-                        var pathRemove = url + 'bookmarks/' + userAuth.profile.userName + '/'+home;
+                        var pathRemove = url + 'bookmarks/' + userAuth.profile.userName + '/' + home;
 
                         FbGenServ.removeObj(pathRemove).then(function (ref) {
                             $scope.bookmarked = false;
-                            $rootScope.$broadcast('bookmark:deleted', home);
+                            if ($state.current.name.indexOf('bookmarks') > -1) {
+
+                                $rootScope.$broadcast('bookmark:deleted', home);
+                            }
 
                         });
 

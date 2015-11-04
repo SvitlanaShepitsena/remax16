@@ -780,7 +780,11 @@ md-icon {
   background-color: #1976d2 !important;
 }
 .link-active-blue {
-  color: #2196f3 !important;
+  color: #1976d2 !important;
+}
+.link-active-red {
+  color: #1976d2 !important;
+  border-bottom: #f44336 2px solid !important;
 }
 .ie {
   position: relative;

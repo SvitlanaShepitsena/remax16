@@ -1,14 +1,14 @@
 div(class='sv-main-content' class="sv-main-content")
-    div.card.mb.mt(layout='row' layout-align='space-around' ng-show='isBroker')
-        a.btn.btn--m.btn--white.btn--flat.tc-grey-700.fw-500(ui-sref='app.user.listings' ui-sref-active="link-active-blue" ) Listings
-        a.btn.btn--m.btn--white.btn--flat.tc-grey-700.fw-500(ui-sref='app.user.blogs' ui-sref-active="link-active-blue" ) Blog
-        a.btn.btn--m.btn--white.btn--flat.tc-grey-700.fw-500(ui-sref='app.user.account-settings' ui-sref-active="link-active-blue" ) Account Settings
-        a.btn.btn--m.btn--white.btn--flat.tc-grey-700.fw-500(ui-sref='app.brokers.broker.profile({id:brokerId})' ui-sref-active="link-active-blue" ) My Public Page
+    .card.mb(layout='row' layout-align='space-around' ng-show='isBroker')
+        a.btn.btn--l.btn--red.btn--flat.tc-grey-800.fw-500(lx-ripple="" ui-sref='app.user.listings' ui-sref-active="link-active-red" ) Listings
+        a.btn.btn--l.btn--red.btn--flat.tc-grey-800.fw-500(lx-ripple="" ui-sref='app.user.blogs' ui-sref-active="link-active-red" ) Blog
+        a.btn.btn--l.btn--red.btn--flat.tc-grey-800.fw-500(lx-ripple="" ui-sref='app.user.account-settings' ui-sref-active="link-active-red" ) Account Settings
+        a.btn.btn--l.btn--red.btn--flat.tc-grey-800.fw-500(lx-ripple="" ui-sref='app.brokers.broker.profile({id:brokerId})' ui-sref-active="link-active-red" ) My Public Page
         sv-create-listing-btn.mr
         sv-create-article-btn.mr
-    div.card.mb.mt(layout='row' layout-align='space-around' ng-show='isCustomer')
-        a.btn.btn--m.btn--white.btn--flat.tc-grey-700.fw-500(ui-sref='app.user.user-bookmarks' ui-sref-active="link-active-blue" ) Bookmarks
-        a.btn.btn--m.btn--white.btn--flat.tc-grey-700.fw-500(ui-sref='app.user.user-reviews' ui-sref-active="link-active-blue" ) My Reviews
-        a.btn.btn--m.btn--white.btn--flat.tc-grey-700.fw-500(ui-sref='app.user.account-settings' ui-sref-active="link-active-blue" ) Account Settings
-        a.btn.btn--m.btn--white.btn--flat.tc-grey-700.fw-500(ui-sref='app.customers.one-customer({cid:cid})' ui-sref-active="link-active-blue" ) My Public Page
+    .card.mb(layout='row' layout-align='space-around' ng-show='isCustomer')
+        a.btn.btn--l.btn--red.btn--flat.tc-grey-800.fw-500(lx-ripple="" ui-sref='app.user.user-bookmarks' ui-sref-active="link-active-red" ) Bookmarks
+        a.btn.btn--l.btn--red.btn--flat.tc-grey-800.fw-500(lx-ripple="" ui-sref='app.user.user-reviews' ui-sref-active="link-active-red" ) My Reviews
+        a.btn.btn--l.btn--red.btn--flat.tc-grey-800.fw-500(lx-ripple="" ui-sref='app.user.account-settings' ui-sref-active="link-active-red" ) Account Settings
+        a.btn.btn--l.btn--red.btn--flat.tc-grey-800.fw-500(lx-ripple="" ui-sref='app.customers.one-customer({cid:cid})' ui-sref-active="link-active-red" ) My Public Page
     div(ui-view='')

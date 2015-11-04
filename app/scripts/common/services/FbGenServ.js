@@ -3,6 +3,9 @@
     angular.module('common')
         .factory('FbGenServ', function ($q, url, users, $firebaseObject, $firebaseArray) {
             return {
+                getArrayLive: function (fbUrl) {
+                    return $firebaseArray(new Firebase(fbUrl));
+                },
                 getAssync: function (fbUrl, filter) {
                     return $q(function (resolve, reject) {
                         var arr = $firebaseArray(new Firebase(fbUrl));

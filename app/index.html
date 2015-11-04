@@ -95,19 +95,18 @@
     <!--<div flex=""></div>-->
     <!--<sv-auth-btn class="mt mr+"></sv-auth-btn>-->
     <!--</md-toolbar>-->
-    <md-content layout=" row
-        " layout-fill flex style="margin:0px">
+    <md-content layout="row" layout-fill flex style="margin:0px">
         <!--layout fill in this case stretches main content horizontally not to get gap on the left-->
         <md-content layout="column" layout-fill style="margin:0px">
             <!--Top Toolbar-->
-            <md-toolbar layout="row" class="bgc-blue-700 card" sv-nav-bar-media
+            <md-toolbar class='main-nav-toolbar' layout="row" class="bgc-blue-700 card" sv-nav-bar-media
                         style='padding:0px;border-radius:0px'
                         layout-align="space-between center">
-                <!--<button class='btn btn&#45;&#45;xl btn&#45;&#45;icon'-->
-                <!--style="width:36px"-->
-                <!--hide-gt-md sv-left-click-handler="" aria-label="Show User List">-->
-                <!--<md-icon md-svg-icon="sv-menu"></md-icon>-->
-                <!--</button>-->
+                <button class='btn btn--xl btn--icon'
+                        style="width:36px"
+                        hide-gt-md sv-left-click-handler="" aria-label="Show User List">
+                    <md-icon md-svg-icon="sv-menu"></md-icon>
+                </button>
                 <!--==mobilelogo-->
                 <!--<div>-->
                 <!--<div hide-gt-md="">-->
@@ -126,33 +125,18 @@
                 <sv-auth-btn class='ml'></sv-auth-btn>
                 <sv-notifications-list style='max-height:30px'></sv-notifications-list>
                 <div show-gt-lg class="ml"></div>
-                <button class='btn btn--xl btn--icon'
-                        style="width:36px" lx-ripple=""
-                        sv-right-click-handler="" hide-gt-lg
-                        aria-label="Show Panel">
-                    <md-icon md-svg-icon="img/svg/dots-vertical.svg"></md-icon>
-                </button>
+                <!--<button class='btn btn&#45;&#45;xl btn&#45;&#45;icon'-->
+                        <!--style="width:36px" lx-ripple=""-->
+                        <!--sv-right-click-handler="" hide-gt-lg-->
+                        <!--aria-label="Show Panel">-->
+                    <!--<md-icon md-svg-icon="img/svg/dots-vertical.svg"></md-icon>-->
+                <!--</button>-->
             </md-toolbar>
             <!--flex in this case stretches right sidenav vertically-->
             <md-content layout="row" flex class='sv-paper-main-background'>
                 <md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2" hide-gt-sm=""
                             md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
                     <md-content layout-padding flex class='sv-paper-main-background'>
-                        <div class='fs-title'>Homes by Cities</div>
-                        <sv-city-tabs home="home"></sv-city-tabs>
-                        <div class='mt+'></div>
-                    </md-content>
-                </md-sidenav>
-                <!--=VIEWS CONTENT-->
-                <!--layout-fill prevents horizontal jumping on page load-->
-                <md-content layout-fill class='sv-paper-main-background'>
-                    <div ui-view="" flex></div>
-                </md-content>
-                <!-- =VIEWS CONTENT ENDS-->
-                <md-sidenav layout="column" class="md-sidenav-right md-whiteframe-z4" md-component-id="right"
-                            md-is-locked-open="false">
-                    <!--if your sidenav background has color, add flex to fill sidenav vertically-->
-                    <md-content class="pt" flex>
                         <div class="mr ml">
                             <sv-nav-btn url="app.about.about-tab-content"
                                         icon-type="fa"
@@ -188,6 +172,21 @@
                             <div class='mb+++'></div>
                             <sv-contact-us class="mb"></sv-contact-us>
                         </div>
+                    </md-content>
+                </md-sidenav>
+                <!--=VIEWS CONTENT-->
+                <!--layout-fill prevents horizontal jumping on page load-->
+                <md-content layout-fill class='sv-paper-main-background'>
+                    <div ui-view="" flex></div>
+                </md-content>
+                <!-- =VIEWS CONTENT ENDS-->
+                <md-sidenav layout="column" class="md-sidenav-right md-whiteframe-z4" md-component-id="right"
+                            md-is-locked-open="false">
+                    <!--if your sidenav background has color, add flex to fill sidenav vertically-->
+                    <md-content class="pt" flex>
+                        <div class='fs-title'>Homes by Cities</div>
+                        <sv-city-tabs home="home"></sv-city-tabs>
+                        <div class='mt+'></div>
 
                         <div class='text-center'>
                             <!--<div class="fb-page" data-href="https://www.facebook.com/svetmedia"-->

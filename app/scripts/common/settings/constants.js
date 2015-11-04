@@ -7,6 +7,7 @@
         .constant('domain', fbDomain === 'svet' ? 'production' : 'test')
         .constant('url', 'https://' + fbDomain + '.firebaseio.com/')
         .constant('homesUrl', 'https://' + fbDomain + '.firebaseio.com/homes/')
+        .constant('agentsUrl', 'https://' + fbDomain + '.firebaseio.com/homes/agents/')
         .constant('maps', 'http://maps.google.com/?q=')
         .constant('users', 'https://' + fbDomain + '.firebaseio.com/user-management/users/')
         .constant('corporate', 'https://' + fbDomain + '.firebaseio.com/events/corporate/')

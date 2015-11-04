@@ -1,2 +1,9 @@
 div
-    ng-rate-it(ng-model='rate')
+    div
+        input-stars(max='5', icon-base='fa fa-fw', icon-empty='fa-star-o', icon-hover='hover', icon-full='fa-star', ng-model='evaluation.rating')
+    div
+        textarea(ng-model='evaluation.comment')
+    div
+        button(ng-click='saveRating(evaluation)') Save
+
+

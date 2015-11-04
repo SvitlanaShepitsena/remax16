@@ -1,11 +1,23 @@
 div
-    div
+    div(ng-if='addReviewBtn')
         button(ng-click='addReview()' ng-show='!reviewForm') Rate Agent
-        sv-review-form(ng-show='reviewForm')
+        sv-review-form(ng-show='reviewForm' review-form='reviewForm')
     span.ml.mr.tc-grey-800.fw-500.fs-title
         i.mdi.mdi-account-star.mr
         | Ratings and Reviews:
     .mt.mb
+    div
+        div(ng-repeat='rev in reviews')
+            div(ng-if='rev.customer===userName')
+                button(ng-show='!editState' ng-click='setEditState()') Edit
+                button(ng-show='!editState' ng-click='removeReview(rev)') delete
+                sv-review-form(ng-show='editState' evaluation='rev' remove-edit-state='removeEditState()')
+            div
+                i.fa.fa-star(ng-repeat='s in range(rev.rating)')
+            div {{rev.comment}}
+            div
+                span {{rev.customer}}
+                img(ng-src='{{rev.avatar}}' width='50px')
     div(layout='row' layout-align="start center" ng-if='broker.truliaReview || broker.zillowReview')
         span.ml.mb
             a.btn.btn--s.btn--white.btn--raised(target='_blank' lx-ripple='' href='{{broker.zillowReview}}' style="text-decoration:none")

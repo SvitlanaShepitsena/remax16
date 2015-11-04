@@ -1,4 +1,4 @@
-div(class='sv-main-content' class="sv-main-content")
+div
     .card.mb(layout='row' layout-align='space-around' ng-show='isBroker')
         a.btn.btn--l.btn--red.btn--flat.tc-grey-800.fw-500(lx-ripple="" ui-sref='app.user.listings' ui-sref-active="link-active-red" ) Listings
         a.btn.btn--l.btn--red.btn--flat.tc-grey-800.fw-500(lx-ripple="" ui-sref='app.user.blogs' ui-sref-active="link-active-red" ) Blog
@@ -7,8 +7,17 @@ div(class='sv-main-content' class="sv-main-content")
         sv-create-listing-btn.mr
         sv-create-article-btn.mr
     .card.mb(layout='row' layout-align='space-around' ng-show='isCustomer')
-        a.btn.btn--l.btn--red.btn--flat.tc-grey-800.fw-500(lx-ripple="" ui-sref='app.user.user-bookmarks' ui-sref-active="link-active-red" ) Bookmarks
-        a.btn.btn--l.btn--red.btn--flat.tc-grey-800.fw-500(lx-ripple="" ui-sref='app.user.user-reviews' ui-sref-active="link-active-red" ) My Reviews
-        a.btn.btn--l.btn--red.btn--flat.tc-grey-800.fw-500(lx-ripple="" ui-sref='app.user.account-settings' ui-sref-active="link-active-red" ) Account Settings
-        a.btn.btn--l.btn--red.btn--flat.tc-grey-800.fw-500(lx-ripple="" ui-sref='app.customers.one-customer({cid:cid})' ui-sref-active="link-active-red" ) My Public Page
-    div(ui-view='')
+        a.btn.btn--l.btn--red.btn--flat.tc-grey-800.fw-500(lx-ripple="" ui-sref='app.user.user-bookmarks' ui-sref-active="link-active-red" )
+            i.mdi.mdi-star
+            span.ml(hide-sm="") Bookmarks
+        a.btn.btn--l.btn--red.btn--flat.tc-grey-800.fw-500(lx-ripple="" ui-sref='app.user.user-reviews' ui-sref-active="link-active-red" )
+            i.mdi.mdi-pen
+            span.ml(hide-sm="") My Reviews
+        a.btn.btn--l.btn--red.btn--flat.tc-grey-800.fw-500(lx-ripple="" ui-sref='app.user.account-settings' ui-sref-active="link-active-red" )
+            i.mdi.mdi-settings
+            span.ml(hide-sm="") Account Settings
+        a.btn.btn--l.btn--red.btn--flat.tc-grey-800.fw-500(lx-ripple="" ui-sref='app.customers.one-customer({cid:cid})' ui-sref-active="link-active-red" )
+            i.mdi.mdi-account-circle
+            span.ml(hide-sm="") My Public Page
+    md-content(class='sv-main-content')
+        div(ui-view='')

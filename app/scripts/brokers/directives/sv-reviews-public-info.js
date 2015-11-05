@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('brokers')
-        .directive('svReviewsPublicInfo', function (VMServ, FbGenServ, $stateParams, agentsUrl, userAuth, avatar) {
+        .directive('svReviewsPublicInfo', function (VMServ, FbGenServ, $mdDialog, $stateParams, agentsUrl, userAuth, avatar) {
             return {
                 replace: true,
                 scope: {},
@@ -38,11 +38,39 @@
                         $scope.reviewForm = false;
                     };
 
-
-                    $scope.setEditState = function () {
-
+                    $scope.setEditState = function (review) {
+                        $scope.showReviewModal(review);
                         $scope.editState = true;
                     };
+
+                    /*Edit Review Modal*/
+                    $scope.showReviewModal = function (review) {
+                        VMServ.set(review);
+                        $mdDialog.show(
+                            {
+                                controller: ReviewController,
+                                templateUrl: 'scripts/customers/templates/modalCustomerReview.html',
+                            }
+                        );
+                    };
+
+                    function ReviewController($scope, $mdDialog, $rootScope, VMServ) {
+                        $scope.reviewModal = VMServ.get();
+                        $scope.saveReviewModal = function (UpdatedReview) {
+                            $mdDialog.hide();
+
+
+                        };
+                        $scope.hide = function () {
+                            $mdDialog.hide();
+                            $scope.reviewModal = VMServ.getPrevious();
+                        };
+                        $scope.cancel = function () {
+                            $scope.reviewModal = VMServ.getPrevious();
+                            $mdDialog.cancel();
+                        };
+                    }
+
                     $scope.removeEditState = function () {
                         $scope.editState = false;
                     };

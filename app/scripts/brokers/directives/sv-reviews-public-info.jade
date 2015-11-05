@@ -15,7 +15,7 @@ div
                 div.ml.mr
                     i.fa.fa-star.tc-amber-500.fs-subhead(ng-repeat='s in range(rev.rating)' style="margin:2px")
                 div.ml.mr(ng-if='rev.customer===userName')
-                    button.btn.btn--s.btn--green.btn--raised.ml.mr(lx-ripple='' ng-show='!editState' ng-click='setEditState()')
+                    button.btn.btn--s.btn--green.btn--raised.ml.mr(lx-ripple='' ng-show='!editState' ng-click='setEditState(rev)')
                         i.fa.fa-edit.fa-fw
                         span.ml(hide-sm) Edit
                     button.btn.btn--s.btn--red.btn--raised.ml.mr(lx-ripple='' ng-show='!editState' ng-click='removeReview(rev)')

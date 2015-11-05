@@ -18,11 +18,12 @@
                             span.ml Languages:
                         span.tc-blue-600 {{broker.languages}}
                 div(layout-sm='row' layout-gt-sm="column")
-                    p.fw-500.mr.ml(ng-if='broker.recentsales')
+                    p.fw-500.mr.ml(ng-show='broker.recentsales')
                         span
                             i.mdi.mdi-checkbox-marked-circle-outline
                             span.ml Recent Sales:
-                        span.tc-blue-600.ml {{broker.recentsales}} &nbsp
+                        a(target='_blank' lx-ripple='' href='{{broker.recentsales}}' style="text-decoration:none")
+                            span.tc-blue-600.ml Zillow Sales &nbsp
                     p.fw-500.mr.ml
                         span
                             i.fa.fa-bell-o

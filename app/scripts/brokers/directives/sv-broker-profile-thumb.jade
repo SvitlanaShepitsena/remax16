@@ -6,23 +6,18 @@
             div.m
                 p.fs-title.tc-grey-900 {{agent.fName}} {{agent.lName}}
                 p.fs-title.tc-grey-700 {{agent.phone}}
-                div(layout='row')
-                    div.tc-amber-600.mr
-                        span
-                            i.fa.fa-star.fa-fw
-                        span
-                            i.fa.fa-star.fa-fw
-                        span
-                            i.fa.fa-star.fa-fw
-                        span
-                            i.fa.fa-star.fa-fw
-                        span
-                            i.fa.fa-star.fa-fw
-                    span
-                        .tc-blue-600 15 customer reviews
-                div(layout='row')
-                    p.tc-grey-700 15 Recent Sales
+                div(layout='row' layout-align="start center" ng-if='agent.truliaReview || agent.zillowReview')
+                    span.mb(ng-if='agent.zillowReview')
+                        a.btn.btn--xs.btn--white.btn--raised(target='_blank' lx-ripple='' href='{{agent.zillowReview}}' style="text-decoration:none")
+                            img.m(src="https://s3-us-west-2.amazonaws.com/remax1stclass/brokers/logos/zillow-logo.png" style="width:58px;height:auto")
+                    span.ml.mb(ng-if='agent.truliaReview')
+                        a.btn.btn--xs.btn--white.btn--raised(target='_blank' lx-ripple='' href='{{agent.truliaReview}}' style="text-decoration:none")
+                            img.m(src="https://s3-us-west-2.amazonaws.com/remax1stclass/brokers/logos/trulia-logo.png" style="width:45px;height:auto")
+                div(layout='row' ng-show='agent.recentsales')
+                    a(target='_blank' lx-ripple='' href='{{agent.recentsales}}' style="text-decoration:none")
+                        span.tc-grey-600 Recent Sales: &nbsp
+                        span.tc-blue-600 Zillow
                 div
                     p.tc-grey-700 {{agent.countSale}} Active Listings
                 div
-                    p.tc-grey-700 Phone: (847) 674-9797
+                    p.tc-grey-700 Phone: {{companyPhone}}

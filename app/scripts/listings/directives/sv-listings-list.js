@@ -149,7 +149,7 @@
                     });
                     SearchSaleServ.getHomes($stateParams, $scope.isBroker, $scope.bookmarks).then(function (homes) {
 
-                        if (userAuth) {
+                        if (userAuth.profile) {
                             var bkmPath = url + 'bookmarks/' + userAuth.profile.userName;
                             FbGenServ.getAssync(bkmPath).then(function (bookmarks) {
                                 $scope.bookmarks = _.pluck(bookmarks,'$id');

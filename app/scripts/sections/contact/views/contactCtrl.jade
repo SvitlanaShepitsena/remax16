@@ -1,14 +1,11 @@
-.sv-main-content
-    div.text-center.pl.pr
-        sv-profile-title(header-title="Contact Us")
-    md-divider.mt.mb
+.sv-main-content(class='pt+')
     div(layout-gt-sm='row' layout-sm="column")
-        div(flex='')
-            div(layout='column' layout-align='center center' class='mb+ ml mr' hide-sm )
+        div(flex='' flex-order-sm="2" layout="column" layout-align="center center")
+            .card
+                .bgc-grey-200.p(flex="")
+                    span.fs-headline.m.display-block {{companyName}}
                 .sv-iframe-responsive-wrap
                     iframe.sv-iframe-responsive(src="https://www.google.com/maps/d/embed?mid=zdTHzl0THQeM.kIf77Vwre964" width="640" height="680")
-            div(layout='column' layout-align='center center' class='mb+ ml mr' hide-gt-sm)
-                sv-open-dialog-btn(link-name="Contact Us Map" modal-method="showContactMapModal()" btn-img-icon="img/common/google-map.png" img-width="24px")
         div(flex-gt-sm='40' flex-sm="100")
             sv-contact-us-form
             sv-contact-us

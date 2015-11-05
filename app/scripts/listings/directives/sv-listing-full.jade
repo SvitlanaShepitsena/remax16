@@ -14,53 +14,49 @@
     div(layout-gt-sm='row' layout-sm="column")
         div(flex-gt-sm='60' flex-sm="100" flex-order-sm="1")
             .card.card-flex-slider.bgc-grey-50.m
-                flex-slider(slide='s in home.images', animation='slide')
+                sv-img-background.sv-img-thumb(ng-if='!home.images' sv-image="defaultImage" img-width="200" img-height="200" style="margin:0px auto")
+                flex-slider(slide='s in home.images', animation='slide' ng-if="home.images")
                     li()
                         img.img-flex-slider(ng-src='{{s}}' )
-            //div(layout="row" layout-wrap=""  layout-align="center center")
-            //    a.card(style='cursor-pointer;float:left;display:inline-block' class="m" ng-repeat='img in home.images' ng-click='showListingGalleryModal()')
-            //        sv-image-thumb.sv-gallery-thumb-dir(sv-image="{{img}}" )
         div(flex-gt-sm='40' flex-sm="100" flex-order-sm="2")
             div.p
-                div
-                    div(layout='row' layout-align="start end")
-                        div.pt.fs-display-1.tc-grey-700.mr {{home.price|currency:'$':0}}
-                        div.fs-title.tc-red-600.mr(ng-if="home.shortSale" style="line-height:32px")
-                            i.fa.fa-bell.fa-fw &nbsp
-                            | Short Sale
-                    p.tc-grey-700 {{home.type}}
-                    div(layout='row')
-                        span.mdc-display-inline-block
-                            a.btn.btn--s.btn--white.btn--raised.mr.mt(style="padding:4px" lx-ripple='' href="{{fullAddress}}" target='_blank' booltip="See on Google Map")
-                                img.mdc-display-block(ng-src="{{googleMap}}" width="26" )
-                        div.pt.fs-title.tc-blue-grey-600
-                            span {{home.address.street}}
-                            span.display-block {{home.address.city}}, {{home.address.state}}, {{home.address.zip}}
-                    md-divider.mt.mb
-                    div.fs-subhead.tc-grey-700
-                        p
-                            span.fw-500.mr Beds: &nbsp
-                            span {{home.beds}}
-                        p
-                            span.fw-500.mr Baths: &nbsp
-                            span {{home.bath}}
-                        p(ng-if="home.exteriorDetails['Home Size']")
-                            span.fw-500.mr Lot Size:
-                            span {{home.exteriorDetails['Home Size']}}
-                        p(ng-if="home.exteriorDetails['Lot Size']")
-                            span.fw-500.mr Lot Size:
-                            span {{home.exteriorDetails['Lot Size']}}
-                        p
-                            span.fw-500.mr Year Built: &nbsp
-                            span {{home.year}}
-                        p
-                            span.fw-500.mr MLS #: &nbsp
-                            span {{home.mls}}
-                    md-divider.mt.mb
-                    div.bgc-grey-200(layout='row' layout-align="space-between center")
-                        div.m(flex='')
-                            sv-listing-broker(agent='home.agentObj' agent-font="fs-bo")
-
+                div(layout='row' layout-align="start end")
+                    div.pt.fs-display-1.tc-grey-700.mr {{home.price|currency:'$':0}}
+                    div.fs-title.tc-red-600.mr(ng-if="home.shortSale" style="line-height:32px")
+                        i.fa.fa-bell.fa-fw &nbsp
+                        | Short Sale
+                p.tc-grey-700 {{home.type}}
+                div(layout='row')
+                    span.mdc-display-inline-block
+                        a.btn.btn--s.btn--white.btn--raised.mr.mt(style="padding:4px" lx-ripple='' href="{{fullAddress}}" target='_blank' booltip="See on Google Map")
+                            img.mdc-display-block(ng-src="{{googleMap}}" width="26" )
+                    div.pt.fs-title.tc-blue-grey-600
+                        span {{home.address.street}}
+                        span.display-block {{home.address.city}}, {{home.address.state}}, {{home.address.zip}}
+                md-divider.mt.mb
+                div.fs-subhead.tc-grey-700
+                    p
+                        span.fw-500.mr Beds: &nbsp
+                        span {{home.beds}}
+                    p
+                        span.fw-500.mr Baths: &nbsp
+                        span {{home.bath}}
+                    p(ng-if="home.exteriorDetails['Home Size']")
+                        span.fw-500.mr Lot Size:
+                        span {{home.exteriorDetails['Home Size']}}
+                    p(ng-if="home.exteriorDetails['Lot Size']")
+                        span.fw-500.mr Lot Size:
+                        span {{home.exteriorDetails['Lot Size']}}
+                    p
+                        span.fw-500.mr Year Built: &nbsp
+                        span {{home.year}}
+                    p
+                        span.fw-500.mr MLS #: &nbsp
+                        span {{home.mls}}
+                md-divider.mt.mb
+                div.bgc-grey-200(layout='row' layout-align="space-between center")
+                    div.m(flex='')
+                        sv-listing-broker(agent='home.agentObj' agent-font="fs-bo")
     div.pb.pt(ng-if='home.description')
         div.p.bgc-grey-200(layout='column' layiiiout-align="left ")
             .fs-headline Description

@@ -1,6 +1,4 @@
 div
-    div(ng-if='addReviewBtn')
-        sv-review-form(ng-show='reviewForm' review-form='reviewForm')
     div(layout='row' layout-align-gt-sm="space-between center")
         span.ml.mr.tc-grey-800.fw-500.fs-title
             | Share your thoughts with other customers
@@ -22,11 +20,16 @@ div
                         i.fa.fa-remove.fa-fw
                         span.ml(hide-sm) Delete
                     sv-review-form(ng-show='editState' evaluation='rev' remove-edit-state='removeEditState()')
-            div.ml.mr
+            div.ml.mr(ng-if='!rev.agent')
                 a(ui-sref='app.customers.one-customer({cid:rev.customer})' style='text-decoration:none' layout='row' layout-align="start center")
                     span
                         sv-img-background.sv-img-thumb(wrapper-class="img-round" sv-image="rev.avatar || avatar" style='width:32px;height:32px;margin:0px auto')
                     span.ml.tc-blue-A200.fw-500 {{rev.customer|capitalize}} &nbsp
+            div.ml.mr(ng-if='rev.agent')
+                a(ui-sref='app.brokers.broker.profile({id:rev.agent.id})' style='text-decoration:none' layout='row' layout-align="start center")
+                    span
+                        sv-img-background.sv-img-thumb(wrapper-class="img-round" sv-image="rev.agent.pic || avatar" style='width:32px;height:32px;margin:0px auto')
+                    span.ml.tc-blue-A200.fw-500 {{rev.agent.fullName|capitalize}} &nbsp
             div.m {{rev.comment}}
     div(layout='row' layout-align="start center" ng-if='broker.truliaReview || broker.zillowReview')
         span.ml.mb

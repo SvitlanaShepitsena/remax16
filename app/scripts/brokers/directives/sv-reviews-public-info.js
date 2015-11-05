@@ -3,17 +3,57 @@
 
     angular.module('brokers')
         .directive('svReviewsPublicInfo', function (VMServ, FbGenServ, $mdDialog, $stateParams, agentsUrl, userAuth, avatar) {
+
+            function extractCustomerReviews(agents, customer) {
+
+                var reviewedAgents = _.filter(agents, function (agent) {
+                    return agent.reviews ? agent.reviews[customer] : false;
+                });
+                var reviews = _.map(reviewedAgents, function (agent) {
+                    var extReview = agent.reviews[customer];
+                    extReview.agent={id:agent.$id,fullname:agent.fName+' '+agent.lName,pic:agent.pic}
+                    return extReview
+                });
+                return reviews;
+            }
+
             return {
                 replace: true,
-                scope: {},
+                scope: {
+                    customerPage: '='
+                },
                 templateUrl: 'scripts/brokers/directives/sv-reviews-public-info.html',
                 link: function ($scope, el, attrs) {
-                    $scope.userName = userAuth.profile.userName;
-                    var reviewsUrl = agentsUrl + $stateParams.id + '/reviews/';
+                    var reviewsUrl;
+                    if (userAuth.profile) {
+
+                        $scope.userName = userAuth.profile.userName;
+                    }
+
+                    if ($scope.customerPage) {
+                        reviewsUrl = agentsUrl;
+                    } else {
+
+                        reviewsUrl = agentsUrl + $stateParams.id + '/reviews/';
+                    }
                     $scope.avatar = avatar;
                     var reviews = FbGenServ.getArrayLive(reviewsUrl);
                     reviews.$loaded().then(function () {
-                        $scope.reviews = reviews;
+                        if ($scope.customerPage) {
+                            var customerId;
+                            if ($stateParams.uid) {
+                                customerId = $stateParams.uid;
+                            }
+                            if ($stateParams.cid) {
+                                customerId = $stateParams.cid;
+                            }
+                            $scope.reviews = extractCustomerReviews(reviews, customerId);
+                            var i = 1;
+
+                        } else {
+                            $scope.reviews = reviews;
+
+                        }
                         if (userAuth) {
                             var reviewers = _.pluck(reviews, 'customer');
 
@@ -40,7 +80,7 @@
 
                     $scope.setEditState = function (review) {
                         $scope.showReviewModal(review);
-                        $scope.editState = true;
+                        //$scope.editState = true;
                     };
 
                     /*Edit Review Modal*/
@@ -49,7 +89,7 @@
                         $mdDialog.show(
                             {
                                 controller: ReviewController,
-                                templateUrl: 'scripts/customers/templates/modalCustomerReview.html',
+                                templateUrl: 'scripts/customers/templates/modalCustomerReview.html'
                             }
                         );
                     };

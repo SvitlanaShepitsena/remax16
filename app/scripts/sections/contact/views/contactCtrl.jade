@@ -2,15 +2,13 @@
     div(layout-gt-sm='row' layout-sm="column")
         div(flex='' flex-order-sm="2" layout="column" layout-align="center center")
             .card
-                .bgc-grey-100.p(flex="")
-                    span.fs-headline.m.display-block
+                .bgc-grey-100.p(flex="" layout-align="space-between center" layout="row")
+                    span.fs-headline.m
                         span.tc-red-700
                             i.fa.i.fa.fa-map-marker.fa-fw
-                        span.tc-blue-700
-                            |{{companyName}}
-                        span.tc-grey-800.ml , {{companyStreet}} {{companyCity}}, {{companyState}}, {{companyZip}}
+                        span.tc-blue-700 {{companyName}}
+                    span.tc-grey-800.fs-18  {{companyStreet}} {{companyCity}}, {{companyState}}, {{companyZip}}
                 .sv-iframe-responsive-wrap
                     iframe.sv-iframe-responsive(src="https://www.google.com/maps/d/embed?mid=zdTHzl0THQeM.kIf77Vwre964" width="640" height="680")
         div(flex-gt-sm='40' flex-sm="100")
             sv-contact-us-form
-            sv-contact-us

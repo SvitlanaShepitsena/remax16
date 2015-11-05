@@ -9,7 +9,7 @@ div
         div(ng-if="!userName" layout="column" layout-align="start")
             sv-auth-btn
         div(ng-if='addReviewBtn')
-            button.btn.btn--s.btn--blue.btn--raised(lx-ripple='' ng-click='addReview()' ng-if='!reviewForm')
+            button.btn.btn--s.btn--blue.btn--raised(lx-ripple='' ng-click='showReviewModal()' ng-if='!reviewForm')
                 i.fa.fa-pencil.fa-fw
                 span.ml(hide-sm) Write a customer review
         .mt.mb

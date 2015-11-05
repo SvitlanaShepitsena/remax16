@@ -255,27 +255,41 @@
                                     ${pos.pano ? '<div id="pano" style="width:400px;height:200px"></div>' : ''}
 							 `
                             }));
+                            $scope.deaf = false;
+                            function isInfoWindowOpen(infoWindow) {
+                                var map = infoWindow.getMap();
+                                return (map !== null && typeof map !== "undefined");
+                            }
 
                             marker.addListener('mouseover', function () {
-                                var bounceTimer;
-                                $scope.infoWindowMap.forEach(function (infoWin) {
-                                    infoWin.close();
-                                });
-
-                                if (this.getAnimation() == null || typeof this.getAnimation() === 'undefined') {
-
-                                    clearTimeout(bounceTimer);
-
-                                    var that = this;
-
-                                    bounceTimer = setTimeout(function () {
-                                            that.setAnimation(google.maps.Animation.BOUNCE);
-                                        },
-                                        500);
+                                if ($scope.deaf || $scope.activeMarkerId == marker.id) {
+                                    return;
                                 }
 
 
-                                $scope.infoWindowMap.get(marker.id).open($scope.map, marker);
+                                $scope.deaf = true;
+                                var infoWindow = $scope.infoWindowMap.get(marker.id);
+                                $scope.infoWindowMap.forEach(function (infoWin) {
+                                    if (infoWin != infoWindow) {
+                                        infoWin.close();
+                                    } else {
+
+                                        if (!isInfoWindowOpen(infoWin)) {
+
+                                            infoWin.open($scope.map, marker);
+                                            google.maps.event.addListener(infoWin, 'closeclick', function () {
+                                                $scope.activeMarkerId = 0;
+                                                // then, remove the infowindows name from the array
+                                            });
+                                            $scope.activeMarkerId = marker.id
+                                        }
+                                    }
+                                });
+                                $timeout(function () {
+                                    $scope.deaf = false;
+
+                                }, 800);
+
                                 if (pos.pano) {
 
                                     var panorama = new google.maps.StreetViewPanorama(
@@ -303,20 +317,6 @@
 
 
                                 }
-                                marker.addListener('mouseout', function () {
-                                    var that = this;
-                                    $timeout(function () {
-
-
-                                        if (that.getAnimation() != null) {
-                                            that.setAnimation(null);
-                                        }
-
-                                        // If we already left marker, no need to bounce when timer is ready
-                                        clearTimeout(bounceTimer);
-                                    },340)
-
-                                });
 
                             });
                             return marker;

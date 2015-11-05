@@ -31,6 +31,7 @@ div
                     span
                         sv-img-background.sv-img-thumb(wrapper-class="img-round" sv-image="rev.avatar || avatar" style='width:32px;height:32px;margin:0px auto')
                     span.ml.tc-blue-A200.fw-500 {{rev.customer|capitalize}} &nbsp
+                    div.ml.tc-grey-500.fs-10(ng-show='rev.timestamp') {{rev.timestamp|date:short}} &nbsp
             div.ml.mr(ng-if='rev.agent')
                 a(ui-sref='app.brokers.broker.profile({id:rev.agent.id})' style='text-decoration:none' layout='row' layout-align="start center")
                     span

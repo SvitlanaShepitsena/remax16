@@ -13,15 +13,17 @@
                 link: function ($scope, el, attrs) {
                     $scope.evaluation = $scope.evaluation || {rating: 0};
 
-                    $scope.saveRating = function (evaluation) {
+                    $scope.saveRating = function (review) {
 
                         var userName = userAuth.profile.userName;
-                        evaluation.customer = userName;
-                        evaluation.avatar = userAuth.profile.avatar;
-                        evaluation.email = userAuth.profile.email;
-
+                        review.customer = userName;
+                        review.avatar = userAuth.profile.avatar;
+                        review.email = userAuth.profile.email;
+                        review.timestamp=moment().format('x');
                         var reviewUrl = agentsUrl + $stateParams.id + '/reviews/' + userName;
-                        FbGenServ.saveObject(reviewUrl, evaluation).then(function (ref) {
+
+
+                        FbGenServ.saveObject(reviewUrl, review).then(function (ref) {
                             $scope.removeEditState();
                         })
 

@@ -252,13 +252,29 @@
                                 </div>
                                 </a>
 
-                                    ${pos.pano?'<div id="pano" style="width:400px;height:200px"></div>':''}
+                                    ${pos.pano ? '<div id="pano" style="width:400px;height:200px"></div>' : ''}
 							 `
                             }));
-                            marker.addListener('click', function () {
+
+                            marker.addListener('mouseover', function () {
+                                var bounceTimer;
                                 $scope.infoWindowMap.forEach(function (infoWin) {
                                     infoWin.close();
                                 });
+
+                                if (this.getAnimation() == null || typeof this.getAnimation() === 'undefined') {
+
+                                    clearTimeout(bounceTimer);
+
+                                    var that = this;
+
+                                    bounceTimer = setTimeout(function () {
+                                            that.setAnimation(google.maps.Animation.BOUNCE);
+                                        },
+                                        500);
+                                }
+
+
                                 $scope.infoWindowMap.get(marker.id).open($scope.map, marker);
                                 if (pos.pano) {
 
@@ -286,8 +302,21 @@
                                     });
 
 
-
                                 }
+                                marker.addListener('mouseout', function () {
+                                    var that = this;
+                                    $timeout(function () {
+
+
+                                        if (that.getAnimation() != null) {
+                                            that.setAnimation(null);
+                                        }
+
+                                        // If we already left marker, no need to bounce when timer is ready
+                                        clearTimeout(bounceTimer);
+                                    },340)
+
+                                });
 
                             });
                             return marker;

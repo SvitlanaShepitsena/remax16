@@ -15,6 +15,7 @@
                 link: function ($scope, el, attrs) {
                     $scope.avatarBroker = avatarBroker;
                     $scope.svImage = $scope.svImage || defaultImage;
+                    console.log($scope.svImage);
                     $scope.navigate = function () {
                         $state.go($scope.linkRoute, {id: $scope.params});
                     };

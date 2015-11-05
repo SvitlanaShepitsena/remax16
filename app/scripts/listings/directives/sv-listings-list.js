@@ -69,7 +69,7 @@
     }
 
     angular.module('listings')
-        .directive('svListingsList', function (BoundariesServ, avatarBroker, userAuth,url, FbGenServ, mapStyler, icon, $rootScope, googleMap, QueryServ, $timeout, $stateParams, SearchSaleServ, GeoServ, $window, localStorageService, $filter, defaultImage, SortServ) {
+        .directive('svListingsList', function (BoundariesServ, avatarBroker, userAuth, url, FbGenServ, mapStyler, icon, $rootScope, googleMap, QueryServ, $timeout, $stateParams, SearchSaleServ, GeoServ, $window, localStorageService, $filter, defaultImage, SortServ) {
             function centerMapToBounds(newValue, $scope) {
                 var bounds = new google.maps.LatLngBounds();
                 newValue.forEach((place) => {
@@ -152,14 +152,14 @@
                         if (userAuth.profile) {
                             var bkmPath = url + 'bookmarks/' + userAuth.profile.userName;
                             FbGenServ.getAssync(bkmPath).then(function (bookmarks) {
-                                $scope.bookmarks = _.pluck(bookmarks,'$id');
+                                $scope.bookmarks = _.pluck(bookmarks, '$id');
                             })
                         }
                         $scope.$on('bookmark:deleted', function (evt, bkmId) {
                             for (var n = 0; n < $scope.homes.length; n++) {
                                 var home = $scope.homes[n];
-                                if (home.$id===bkmId) {
-                                    $scope.homes.splice(n,1);
+                                if (home.$id === bkmId) {
+                                    $scope.homes.splice(n, 1);
                                     break;
 
                                 }
@@ -251,7 +251,8 @@
                                   </div>
                                 </div>
                                 </a>
-                                    <div id="pano" style='width:400px;height:200px'></div>
+
+                                    ${pos.pano?'<div id="pano" style="width:400px;height:200px"></div>':''}
 							 `
                             }));
                             marker.addListener('click', function () {
@@ -259,31 +260,34 @@
                                     infoWin.close();
                                 });
                                 $scope.infoWindowMap.get(marker.id).open($scope.map, marker);
-                                var panorama = new google.maps.StreetViewPanorama(
-                                    document.getElementById('pano'), {
-                                        position: latLng,
-                                        fullScreenControl: false,
-                                        addressControl: false
+                                if (pos.pano) {
+
+                                    var panorama = new google.maps.StreetViewPanorama(
+                                        document.getElementById('pano'), {
+                                            position: pos.pano,
+                                            fullScreenControl: false,
+                                            addressControl: false
+                                        });
+
+
+                                    google.maps.event.addListenerOnce(panorama, 'status_changed', function () {
+
+                                        var loc = panorama.getLocation();
+                                        if (loc) {
+                                            var heading = google.maps.geometry.spherical.computeHeading(loc.latLng, latLng);
+                                            panorama.setPov({
+                                                heading: heading,
+                                                pitch: 0
+                                            });
+
+                                        } else {
+                                            panorama.setVisible(false);
+                                        }
                                     });
 
 
-                                google.maps.event.addListenerOnce(panorama, 'status_changed', function () {
 
-                                    var loc = panorama.getLocation();
-                                    if (loc) {
-                                        var heading = google.maps.geometry.spherical.computeHeading(loc.latLng, latLng);
-                                        panorama.setPov({
-                                            heading: heading,
-                                            pitch: 0
-                                        });
-
-                                    } else {
-                                        panorama.setVisible(false);
-                                    }
-
-
-                                });
-
+                                }
 
                             });
                             return marker;

@@ -6,9 +6,7 @@
             return {
                 replace: true,
                 templateUrl: 'scripts/customers/directives/sv-customer-reviews-list.html',
-                scope: {
-
-                },
+                scope: {},
                 link: function ($scope, el, attrs) {
 
                 }

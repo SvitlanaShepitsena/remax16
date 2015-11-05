@@ -2,39 +2,31 @@
     'use strict';
 
     angular.module('brokers')
-        .directive('svReviewsPublicInfo', function (FbGenServ, $stateParams, agentsUrl, userAuth, avatar) {
+        .directive('svReviewsPublicInfo', function (VMServ, FbGenServ, $stateParams, agentsUrl, userAuth, avatar) {
             return {
                 replace: true,
                 scope: {},
                 templateUrl: 'scripts/brokers/directives/sv-reviews-public-info.html',
                 link: function ($scope, el, attrs) {
-
                     $scope.userName = userAuth.profile.userName;
                     var reviewsUrl = agentsUrl + $stateParams.id + '/reviews/';
                     $scope.avatar = avatar;
                     var reviews = FbGenServ.getArrayLive(reviewsUrl);
-
                     reviews.$loaded().then(function () {
-
                         $scope.reviews = reviews;
                         if (userAuth) {
                             var reviewers = _.pluck(reviews, 'customer');
 
                             $scope.addReviewBtn = reviewers.indexOf(userAuth.profile.userName) === -1;
-
                         }
                         reviews.$watch(function () {
-
                             if (userAuth) {
                                 var reviewers = _.pluck(reviews, 'customer');
 
                                 $scope.addReviewBtn = reviewers.indexOf(userAuth.profile.userName) === -1;
-
                             }
                             $scope.reviews = reviews;
-
                         })
-
                     });
 
                     $scope.removeReview = function (review) {
@@ -48,6 +40,7 @@
 
 
                     $scope.setEditState = function () {
+
                         $scope.editState = true;
                     };
                     $scope.removeEditState = function () {
@@ -69,6 +62,7 @@
 
                         return ratings;
                     }
+
                 }
             };
         });

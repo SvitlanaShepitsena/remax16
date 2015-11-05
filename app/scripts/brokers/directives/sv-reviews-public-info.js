@@ -11,7 +11,7 @@
                 });
                 var reviews = _.map(reviewedAgents, function (agent) {
                     var extReview = agent.reviews[customer];
-                    extReview.agent={id:agent.$id,fullname:agent.fName+' '+agent.lName,pic:agent.pic}
+                    extReview.agent = {id: agent.$id, fullname: agent.fName + ' ' + agent.lName, pic: agent.pic}
                     return extReview
                 });
                 return reviews;
@@ -54,13 +54,12 @@
                             $scope.reviews = reviews;
 
                         }
-                        if (userAuth) {
+                        if (userAuth.profile) {
                             var reviewers = _.pluck(reviews, 'customer');
-
                             $scope.addReviewBtn = reviewers.indexOf(userAuth.profile.userName) === -1;
                         }
                         reviews.$watch(function () {
-                            if (userAuth) {
+                            if (userAuth.profile) {
                                 var reviewers = _.pluck(reviews, 'customer');
 
                                 $scope.addReviewBtn = reviewers.indexOf(userAuth.profile.userName) === -1;

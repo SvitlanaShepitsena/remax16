@@ -1,12 +1,18 @@
 div
-    div(layout='row' layout-align-gt-sm="space-between center")
-        span.ml.mr.tc-grey-800.fw-500.fs-title
-            | Share your thoughts with other customers
-    div(ng-if='addReviewBtn')
-        button.btn.btn--s.btn--blue.btn--raised(lx-ripple='' ng-click='addReview()' ng-if='!reviewForm')
-            i.fa.fa-pencil.fa-fw
-            span.ml(hide-sm) Write a customer review
-    .mt.mb
+    div(ng-if="!customerPage" layout="column" layout-align="start start")
+        div(layout='row' layout-align-gt-sm="space-between center" ng-if="userName && addReviewBtn")
+            span.mb.tc-grey-800.fw-500.fs-title
+                | Share your thoughts with other customers
+        div(ng-if="!userName" layout="column" layout-align="start")
+            .ml.mr.tc-grey-800.fw-500.fs-title
+                | Please Log in to leave a review
+        div(ng-if="!userName" layout="column" layout-align="start")
+            sv-auth-btn
+        div(ng-if='addReviewBtn')
+            button.btn.btn--s.btn--blue.btn--raised(lx-ripple='' ng-click='addReview()' ng-if='!reviewForm')
+                i.fa.fa-pencil.fa-fw
+                span.ml(hide-sm) Write a customer review
+        .mt.mb
     div(ng-repeat='rev in reviews')
         .card.mb
             div(layout='row' layout-align="space-between center")

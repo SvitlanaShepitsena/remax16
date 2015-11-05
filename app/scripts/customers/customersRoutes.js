@@ -34,7 +34,6 @@
                     controller: "OneCustomerCtrl",
                     templateUrl: "scripts/customers/views/one-customerCtrl.html"
                 })
-
 //#state'
 
         });

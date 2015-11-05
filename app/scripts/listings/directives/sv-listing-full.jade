@@ -14,7 +14,8 @@
     div(layout-gt-sm='row' layout-sm="column")
         div(flex-gt-sm='60' flex-sm="100" flex-order-sm="1")
             .card.card-flex-slider.bgc-grey-50.m
-                flex-slider(slide='s in home.images', animation='slide')
+                sv-img-background.sv-img-thumb(ng-if='!home.images' sv-image="defaultImage" img-width="200" img-height="200" style="margin:0px auto")
+                flex-slider(slide='s in home.images', animation='slide' ng-if="home.images")
                     li()
                         img.img-flex-slider(ng-src='{{s}}' )
             //div(layout="row" layout-wrap=""  layout-align="center center")

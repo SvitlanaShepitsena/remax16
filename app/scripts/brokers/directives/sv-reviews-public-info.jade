@@ -1,32 +1,41 @@
 div
-    div(ng-if='addReviewBtn')
-        sv-review-form(ng-show='reviewForm' review-form='reviewForm')
-    div(layout='row' layout-align-gt-sm="space-between center")
-        span.ml.mr.tc-grey-800.fw-500.fs-title
-            | Share your thoughts with other customers
-    div(ng-if='addReviewBtn')
-        button.btn.btn--s.btn--blue.btn--raised(lx-ripple='' ng-click='addReview()' ng-if='!reviewForm')
-            i.fa.fa-pencil.fa-fw
-            span.ml(hide-sm) Write a customer review
-    .mt.mb
+    div(ng-if="!customerPage" layout="column" layout-align="start start")
+        div(layout='row' layout-align-gt-sm="space-between center" ng-if="userName && addReviewBtn")
+            span.mb.tc-grey-800.fw-500.fs-title
+                | Share your thoughts with other customers
+        div(ng-if="!userName" layout="column" layout-align="start")
+            .ml.mr.tc-grey-800.fw-500.fs-title
+                | Please Log in to leave a review
+        div(ng-if="!userName" layout="column" layout-align="start")
+            sv-auth-btn
+        div(ng-if='addReviewBtn')
+            button.btn.btn--s.btn--blue.btn--raised(lx-ripple='' ng-click='addReview()' ng-if='!reviewForm')
+                i.fa.fa-pencil.fa-fw
+                span.ml(hide-sm) Write a customer review
+        .mt.mb
     div(ng-repeat='rev in reviews')
         .card.mb
             div(layout='row' layout-align="space-between center")
                 div.ml.mr
                     i.fa.fa-star.tc-amber-500.fs-subhead(ng-repeat='s in range(rev.rating)' style="margin:2px")
                 div.ml.mr(ng-if='rev.customer===userName')
-                    button.btn.btn--s.btn--green.btn--raised.ml.mr(lx-ripple='' ng-show='!editState' ng-click='setEditState()')
+                    button.btn.btn--s.btn--green.btn--raised.ml.mr(lx-ripple='' ng-show='!editState' ng-click='setEditState(rev)')
                         i.fa.fa-edit.fa-fw
                         span.ml(hide-sm) Edit
                     button.btn.btn--s.btn--red.btn--raised.ml.mr(lx-ripple='' ng-show='!editState' ng-click='removeReview(rev)')
                         i.fa.fa-remove.fa-fw
                         span.ml(hide-sm) Delete
                     sv-review-form(ng-show='editState' evaluation='rev' remove-edit-state='removeEditState()')
-            div.ml.mr
+            div.ml.mr(ng-if='!rev.agent')
                 a(ui-sref='app.customers.one-customer({cid:rev.customer})' style='text-decoration:none' layout='row' layout-align="start center")
                     span
                         sv-img-background.sv-img-thumb(wrapper-class="img-round" sv-image="rev.avatar || avatar" style='width:32px;height:32px;margin:0px auto')
                     span.ml.tc-blue-A200.fw-500 {{rev.customer|capitalize}} &nbsp
+            div.ml.mr(ng-if='rev.agent')
+                a(ui-sref='app.brokers.broker.profile({id:rev.agent.id})' style='text-decoration:none' layout='row' layout-align="start center")
+                    span
+                        sv-img-background.sv-img-thumb(wrapper-class="img-round" sv-image="rev.agent.pic || avatar" style='width:32px;height:32px;margin:0px auto')
+                    span.ml.tc-blue-A200.fw-500 {{rev.agent.fullName|capitalize}} &nbsp
             div.m {{rev.comment}}
     div(layout='row' layout-align="start center" ng-if='broker.truliaReview || broker.zillowReview')
         span.ml.mb

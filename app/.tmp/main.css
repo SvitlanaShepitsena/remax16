@@ -79,7 +79,6 @@ md-select-menu md-content {
   display: inline-block;
 }
 .home-search-header {
-  font-size: 36px;
   font-weight: 500;
 }
 @media screen and (max-width: 340px) {
@@ -92,17 +91,22 @@ md-select-menu md-content {
     font-size: 24px;
   }
 }
-@media screen and (min-width: 500px) {
+@media screen and (min-width: 600px) {
   .home-search-header {
     font-size: 26px;
   }
 }
 @media screen and (min-width: 750px) {
   .home-search-header {
-    font-size: 34px;
+    font-size: 28px;
   }
 }
-@media screen and (min-width: 1100px) {
+@media screen and (min-width: 920px) {
+  .home-search-header {
+    font-size: 30px;
+  }
+}
+@media screen and (min-width: 1200px) {
   .home-search-header {
     font-size: 40px;
   }

@@ -690,6 +690,7 @@ md-icon {
 .logo-home {
   -webkit-transition: all 0.5;
   transition: all 0.5;
+  left: 60px !important;
 }
 @media screen and (max-width: 350px) {
   .logo-home {
@@ -1246,6 +1247,12 @@ md-tab-content {
 }
 .fs-10 {
   font-size: 10px;
+}
+.fs-12 {
+  font-size: 12px;
+}
+.fs-13 {
+  font-size: 13px;
 }
 .fs-18 {
   font-size: 18px;

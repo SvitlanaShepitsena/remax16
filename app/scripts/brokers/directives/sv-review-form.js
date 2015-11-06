@@ -19,7 +19,7 @@
                         review.customer = userName;
                         review.avatar = userAuth.profile.avatar;
                         review.email = userAuth.profile.email;
-                        review.timestamp=moment().format('x');
+                        review.timestamp = moment().format('x');
                         var reviewUrl = agentsUrl + $stateParams.id + '/reviews/' + userName;
 
 

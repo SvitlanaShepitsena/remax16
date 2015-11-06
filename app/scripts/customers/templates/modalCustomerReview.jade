@@ -1,11 +1,13 @@
 md-dialog()
     md-dialog-content.mdc-no-padding
-        sv-review-form(evaluation='reviewModal' remove-edit-state='hide()')
-        //md-toolbar.bgc-blue-A200.mb(layout='row' layout-align="space-between center" class='pl+ pr+')
-        //    .fs-headline.tc-blue-50 Professional Information
-        //    button.btn.btn--m.btn--white.btn--icon(lx-ripple='' ng-click="cancel()")
-        //        i.fa.fa-close.fa-fw
-        //div(layout='column' )
+        md-toolbar.bgc-blue-A200.mb(layout='row' layout-align="space-between center" class='pl+ pr+')
+            .fs-headline.tc-blue-50
+                i.mdi.mdi-pencil
+                span.ml Customer Review
+            button.btn.btn--m.btn--white.btn--icon(lx-ripple='' ng-click="cancel()")
+                i.fa.fa-close.fa-fw
+        div(layout='column' flex="" class='mb+' )
+            sv-review-form(evaluation='reviewModal' remove-edit-state='hide()')
         //    div(class="ml+ mr+")
         //        lx-text-field(label="Languages")
         //            input.sv-input-1-row(type='text' aria-label='text', ng-model='brokerModal.languages')

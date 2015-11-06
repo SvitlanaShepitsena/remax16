@@ -1,16 +1,17 @@
-div(layout='row' style='width:100%;background-color:white')
-    .card(class="m" ng-repeat='blog in blogs' flex='{{Math.floor(100/blogs.length)}}')
-        a.td-none.tc-grey-800(ui-sref='app.blog({id:blog.fbkey})')
-            sv-img-background.sv-img-thumb(sv-image="blog.img" img-width="180" img-height="120" style="margin:0px auto")
-            div.m
-                h3 {{blog.title}}
-            a(ui-sref='app.brokers.broker.profile({id:blog.brokerId})').article-thumb-link
-                div(layout='row' layout-align="start center")
-                    div.m
-                        sv-img-background.sv-img-thumb( sv-image="blog.brokerPic" style='width:30px;height:30px;margin:0px auto')
-                    .fs-caption.tc-grey-500(ng-bind-html='safeParsing((blog.author|authorNameFr))')
-        a.td-none(ui-sref='app.blog({id:blog.fbkey})' style="text-decoration:none")
-            div.ml.mr.mb
-                p.tc-grey-800(ng-bind-html='safeParsing(blog.summary)')
-                div(layout='row' layout-align='end start' class='pr')
-                    button.btn.btn--xs.btn--grey.btn--flat {{'read-more'|translate}} >>
+div(layout='row' layout-wrap="")
+    div(flex-sm='100' flex-gt-sm='50' flex-gt-md='33' flex-gt-lg="25" ng-repeat='blog in blogs|orderBy:"-timestamp"' )
+        .card.m.pb
+            a.td-none.tc-grey-800(ui-sref='app.blog({id:blog.fbkey})')
+                sv-img-background.sv-img-thumb(sv-image="blog.img" img-width="180" img-height="120" style="margin:0px auto")
+                div.m
+                    h3 {{blog.title}}
+                a(ui-sref='app.brokers.broker.profile({id:blog.brokerId})').article-thumb-link
+                    div(layout='row' layout-align="start center")
+                        div.m
+                            sv-img-background.sv-img-thumb( sv-image="blog.brokerPic" style='width:30px;height:30px;margin:0px auto')
+                        .fs-caption.tc-grey-500(ng-bind-html='safeParsing((blog.author|authorNameFr))')
+            a.td-none(ui-sref='app.blog({id:blog.fbkey})' style="text-decoration:none")
+                div.ml.mr.mb
+                    p.tc-grey-800(ng-bind-html='safeParsing(blog.summary)')
+                    div(layout='row' layout-align='end start' class='pr')
+                        button.btn.btn--xs.btn--grey.btn--flat {{'read-more'|translate}} >>

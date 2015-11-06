@@ -10,7 +10,7 @@
             div(layout='column' layout-align-sm="center center")
                 h1.tc-grey-800.ml.lr {{broker.fName}} {{broker.lName}}
                 span.fs-title.ml.mr {{broker.title || defaultBrokerTitle}}
-                span.fs-subhead(ng-if='broker.title2') {{broker.title2}}
+                span.fs-subhead.ml(ng-if='broker.title2') {{broker.title2}}
                 span(class='ml mr')
                     p.fw-500
                         span.mr(ng-if='broker.languages')

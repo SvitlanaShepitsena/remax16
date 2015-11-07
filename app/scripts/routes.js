@@ -36,10 +36,10 @@
                         }
                     }
                 })
-                .state("app.svet-login", {
-                    url: "/svet-login",
-                    controller: "SvetLoginCtrl as login",
-                    templateUrl: "scripts/auth/views/svet-loginCtrl.html",
+                .state("app.login", {
+                    url: "/login",
+                    controller: "LoginCtrl as login",
+                    templateUrl: "scripts/auth/views/loginCtrl.html",
                     resolve: {
                         currentUser: function (userAuth, $q) {
                             return $q(function (resolve, reject) {

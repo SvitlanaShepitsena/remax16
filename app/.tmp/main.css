@@ -642,14 +642,14 @@ md-icon {
 .main-nav-toolbar {
   padding: 0px;
   border-radius: 0px;
-  min-height: 54px;
+  height: 68px;
 }
 @media screen and (max-width: 599px) {
   .main-nav-toolbar {
-    max-height: 65px;
+    min-height: 54px !important;
   }
 }
-.main-nav-toolbar md-icon {
+md-icon {
   fill: #f5f5f5;
 }
 .logo {
@@ -686,6 +686,15 @@ md-icon {
   }
 }
 @media screen and (min-width: 651px) {
+  .logo-home {
+    left: 8px !important;
+    top: 8px !important;
+    width: 70px !important;
+    height: 70px !important;
+    background-size: 58px 58px !important;
+  }
+}
+@media screen and (min-width: 900px) {
   .logo-home {
     left: 8px !important;
     top: 8px !important;

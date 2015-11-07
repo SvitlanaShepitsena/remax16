@@ -110,7 +110,7 @@
                 <!--<a ui-sref="app.home" style="display:block">-->
                 <!--<img src="img/logo/company-logo-35.png" class=" mt mb logo-img-cell"-->
                 <!--alt="Re/Max 1st Class">-->
-                <!--</a>-->
+                <!--</a>--
                 <!--</div>-->
                 <!--</div>-->
                 <!--<span flex ng-if="main.showShifter"></span>-->
@@ -119,7 +119,7 @@
                 <div flex=""></div>
                 <sv-main-sections-nav></sv-main-sections-nav>
                 <!--<g:hangout render="createhangout"></g:hangout>-->
-                <sv-social-top-nav-cell hide-gt-md></sv-social-top-nav-cell>
+                <sv-social-top-nav-cell class='ml' hide-gt-md></sv-social-top-nav-cell>
                 <sv-auth-btn class='ml'></sv-auth-btn>
                 <sv-notifications-list style='max-height:30px'></sv-notifications-list>
                 <div show-gt-lg class="ml"></div>
@@ -174,7 +174,7 @@
                 </md-sidenav>
                 <!--=VIEWS CONTENT-->
                 <!--layout-fill prevents horizontal jumping on page load-->
-                <md-content layout-fill class='sv-paper-main-background' >
+                <md-content layout-fill class='sv-paper-main-background'>
                     <div ui-view="" flex></div>
                     <sv-footer hide-sm></sv-footer>
                 </md-content>
@@ -438,7 +438,7 @@
 <script src="scripts/auth/authRoutes.js"></script>
 <script src="scripts/auth/auth-translation.js"></script>
 <script src="scripts/auth/controllers/SignUpCtrl.js"></script>
-<script src="scripts/auth/controllers/SvetLoginCtrl.js"></script>
+<script src="scripts/auth/controllers/LoginCtrl.js"></script>
 <script src="scripts/auth/directives/sv-unique-username.js"></script>
 <script src="scripts/auth/directives/sv-request-business-account-btn.js"></script>
 <script src="scripts/auth/directives/sv-pdf-subscription.js"></script>

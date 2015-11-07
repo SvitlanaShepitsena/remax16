@@ -12,7 +12,7 @@
                     templateUrl: "scripts/sections/about/views/aboutCtrl.html"
                 })
                 .state("app.about.about-tab-content", {
-                    url: "/about-company-name",
+                    url: "/remax-1st-class",
                     templateUrl: "scripts/sections/about/views/about-tab-contentCtrl.html"
                 })
                 .state("app.about.about-company-tab-content", {

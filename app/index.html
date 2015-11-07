@@ -90,7 +90,6 @@
     <!--&lt;!&ndash;</div>&ndash;&gt;-->
     <!--<div>-->
     <!--<sv-social-top-nav hide-md hide-sm></sv-social-top-nav>-->
-    <!--<sv-social-top-nav-cell hide-gt-md></sv-social-top-nav-cell>-->
     <!--</div>-->
     <!--<div flex=""></div>-->
     <!--<sv-auth-btn class="mt mr+"></sv-auth-btn>-->
@@ -111,7 +110,7 @@
                 <!--<a ui-sref="app.home" style="display:block">-->
                 <!--<img src="img/logo/company-logo-35.png" class=" mt mb logo-img-cell"-->
                 <!--alt="Re/Max 1st Class">-->
-                <!--</a>-->
+                <!--</a>--
                 <!--</div>-->
                 <!--</div>-->
                 <!--<span flex ng-if="main.showShifter"></span>-->
@@ -120,6 +119,7 @@
                 <div flex=""></div>
                 <sv-main-sections-nav></sv-main-sections-nav>
                 <!--<g:hangout render="createhangout"></g:hangout>-->
+                <sv-social-top-nav-cell class='ml' hide-gt-md></sv-social-top-nav-cell>
                 <sv-auth-btn class='ml'></sv-auth-btn>
                 <sv-notifications-list style='max-height:30px'></sv-notifications-list>
                 <div show-gt-lg class="ml"></div>
@@ -176,7 +176,7 @@
                 <!--layout-fill prevents horizontal jumping on page load-->
                 <md-content layout-fill class='sv-paper-main-background'>
                     <div ui-view="" flex></div>
-                    <sv-footer></sv-footer>
+                    <sv-footer hide-sm></sv-footer>
                 </md-content>
                 <!-- =VIEWS CONTENT ENDS-->
                 <md-sidenav layout="column" class="md-sidenav-right md-whiteframe-z4" md-component-id="right"
@@ -322,7 +322,6 @@
 <script src="scripts/search/directives/sv-search-header-nav-link.js"></script>
 <script src="scripts/search/directives/sv-sort-listings.js"></script>
 <script src="scripts/search/directives/sv-search-form-cell.js"></script>
-<script src="scripts/search/directives/sv-search-cell.js"></script>
 <script src="scripts/search/directives/sv-lx-dropdown.js"></script>
 <script src="scripts/search/directives/sv-search-dropdown.js"></script>
 <script src="scripts/search/services/GeoServ.js"></script>
@@ -440,7 +439,7 @@
 <script src="scripts/auth/authRoutes.js"></script>
 <script src="scripts/auth/auth-translation.js"></script>
 <script src="scripts/auth/controllers/SignUpCtrl.js"></script>
-<script src="scripts/auth/controllers/SvetLoginCtrl.js"></script>
+<script src="scripts/auth/controllers/LoginCtrl.js"></script>
 <script src="scripts/auth/directives/sv-unique-username.js"></script>
 <script src="scripts/auth/directives/sv-request-business-account-btn.js"></script>
 <script src="scripts/auth/directives/sv-pdf-subscription.js"></script>

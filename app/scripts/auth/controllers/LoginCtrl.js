@@ -1,7 +1,7 @@
 (function () {
     'use strict';
     angular.module('auth')
-        .controller('SvetLoginCtrl', function ($scope) {
+        .controller('LoginCtrl', function ($scope) {
         });
 })();
 

@@ -4,8 +4,11 @@
             i.mdi.mdi-account &nbsp
             | Log In
         sv-form-social-buttons
-    div(class='pl pr' layout="row")
-        div(flex="")
+    div(class='pl pr' layout-gt-sm="row" layout-sm="column" )
+        div(flex="" flex-order-sm="2")
+            .fs-title.mt.tc-blue-600
+                i.fa.fa-key.fa-fw
+                span.ml Log in to your account:
             form.mt(name="loginForm"  novalidate sv-form-val)
                 md-input-container(class='')
                     label {{'email'|translate}}
@@ -21,12 +24,7 @@
                     div(class='m')
                         sv-forgot-pass
         div(flex="" class='pl+')
-            .fs-title.mt.tc-blue-600 Facebook or Google Plus will ask you for:
-            .fs-subhead 1. Access to your basic account information
-            p.p We only use your name and email address to create your account. We won’t use your list of friends unless you ask us to.
-            .fs-subhead 2. Email
-            p.p We will only send emails if you specifically sign up on our site.
-            p.p We will never post anything to your wall or timeline unless you share it yourself.
+            sv-fb-google-rules
     div.text-center.mt.bgc-grey-100.pb.pt(layout="row" layout-align="center center")
         span.fs-subhead.tc-grey-700 Don't have an account?
         a.btn.btn--s.btn--white.btn--raised.tc-red-600.m(lx-ripple='' ui-sref='app.sign-up') Please Sign Up

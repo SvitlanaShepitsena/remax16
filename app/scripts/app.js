@@ -1,10 +1,7 @@
 (function () {
     angular.module('app', [
             // modules
-		'sections.policy',
-		'sections.privacy',
 		'sections.terms',
-		'sections',
             'ui.router',
             'ui.mask',
             'angular-input-stars',

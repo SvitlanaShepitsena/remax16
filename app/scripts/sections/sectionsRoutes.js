@@ -2,21 +2,20 @@
     'use strict'
 
     angular.module('sections', [])
-    .config(function ($stateProvider, $urlRouterProvider) {
-        $stateProvider
+        .config(function ($stateProvider, $urlRouterProvider) {
+            $stateProvider
 
-				.state("app.terms-of-use", {
-					url: "/terms-of-use", 
-					controller:"TermsOfUseCtrl",
-					templateUrl: "scripts/sections/views/terms-of-useCtrl.html"
-				})
-				.state("app.privacy-policy", {
-					url: "/privacy-policy", 
-					controller:"PrivacyPolicyCtrl",
-					templateUrl: "scripts/sections/views/privacy-policyCtrl.html"
-				})
+                .state("app.terms-of-use", {
+                    url: "/terms-of-use",
+                    controller: "TermsOfUseCtrl",
+                    templateUrl: "scripts/sections/views/terms-of-useCtrl.html"
+                })
+                .state("app.privacy-policy", {
+                    url: "/privacy-policy",
+                    controller: "PrivacyPolicyCtrl",
+                    templateUrl: "scripts/sections/views/privacy-policyCtrl.html"
+                })
 //#state'
 
-    });
+        });
 })();
-

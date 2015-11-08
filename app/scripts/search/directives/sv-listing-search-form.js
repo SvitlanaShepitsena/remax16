@@ -63,9 +63,9 @@
 						var path = UrlSeoConvertorServ.parse(query);
 						if (path.length) {
 							QueryServ.set(query);
-							$state.go('app.remax-listings.search', {params: path});
+							$state.go('app.remax-listings.search', {params: path},{reload:true});
 						} else {
-							$state.go('app.remax-listings.search', {params: 'all-homes-for-sale'});
+							$state.go('app.remax-listings.search', {params: 'all-homes-for-sale'},{reload:true});
 						}
 					};
 				}

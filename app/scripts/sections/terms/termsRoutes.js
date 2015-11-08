@@ -5,8 +5,8 @@
     .config(function ($stateProvider, $urlRouterProvider) {
         $stateProvider
 
-				.state("app.terms-of-use", {
-					url: "/terms-of-use", 
+				.state("app.terms", {
+					url: "/terms-of-use",
 					controller:"TermsOfUseCtrl",
 					templateUrl: "scripts/sections/terms/views/terms-of-useCtrl.html"
 				})

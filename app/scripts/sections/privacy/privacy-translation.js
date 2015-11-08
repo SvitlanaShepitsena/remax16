@@ -1,7 +1,7 @@
 (function () {
     'use strict'
 
-    angular.module('sections.terms')
+    angular.module('sections.privacy')
         .config(['$translateProvider', function ($translateProvider) {
 
             $translateProvider.useCookieStorage();

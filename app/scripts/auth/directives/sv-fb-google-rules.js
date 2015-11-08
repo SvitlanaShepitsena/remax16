@@ -1,11 +1,11 @@
 (function () {
     'use strict';
 
-    angular.module('suth')
+    angular.module('auth')
         .directive('svFbGoogleRules', function () {
             return {
                 replace: true,
-                templateUrl: 'scripts/suth/directives/sv-fb-google-rules.html',
+                templateUrl: 'scripts/auth/directives/sv-fb-google-rules.html',
                 scope: {
 
                 },

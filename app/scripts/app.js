@@ -1,6 +1,7 @@
 (function () {
     angular.module('app', [
             // modules
+		'sections',
             'ui.router',
             'ui.mask',
             'angular-input-stars',

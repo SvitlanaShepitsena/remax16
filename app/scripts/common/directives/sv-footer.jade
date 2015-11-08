@@ -1,8 +1,12 @@
 md-toolbar(class='pt' style="background-color:#1976D2;position:relative;bottom:0px")
-    div.m
-        img.mdc-display-inline-block.mr(ng-src="/img/logo/company-logo-35.png")
-        span.fs-subhead.tc-blue-50.mb(style='margin-bottom:0px')
-            | Re/Max 1st Class
+    div(layout='row' layout-align="space-between center")
+        div.m
+            img.mdc-display-inline-block.mr(ng-src="/img/logo/company-logo-35.png")
+            span.fs-subhead.tc-blue-50.mb(style='margin-bottom:0px')
+                | Re/Max 1st Class
+        md-list(layout='row' style="margin: 0px")
+            sv-nav-link(hide-sm="" style="margin:0px 4px" url='app.terms', stitle='Terms Of Use')
+            sv-nav-link(hide-sm="" style="margin:0px 4px" url='app.privacy', stitle='Privacy Policy')
     md-divider(style='border-top-color:#82B1FF !important' class='mb ml mr')
     div(layout='column')
         div.mb.ml.mr(layout='row' layout-align='space-between start')

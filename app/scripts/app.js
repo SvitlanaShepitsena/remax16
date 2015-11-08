@@ -30,6 +30,8 @@
             'sections.home',
             'sections.contact',
             'sections.testimonials',
+            'sections.privacy',
+            'sections.terms',
             'ngImgCrop',
             'sections.widgets',
             // 3rd party modules

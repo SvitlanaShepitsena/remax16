@@ -1,6 +1,7 @@
 (function () {
     angular.module('app', [
             // modules
+		'sections.terms',
 		'sections',
             'ui.router',
             'ui.mask',

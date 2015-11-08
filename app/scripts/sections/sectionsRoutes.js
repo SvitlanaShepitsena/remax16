@@ -10,6 +10,11 @@
 					controller:"TermsOfUseCtrl",
 					templateUrl: "scripts/sections/views/terms-of-useCtrl.html"
 				})
+				.state("app.privacy-policy", {
+					url: "/privacy-policy", 
+					controller:"PrivacyPolicyCtrl",
+					templateUrl: "scripts/sections/views/privacy-policyCtrl.html"
+				})
 //#state'
 
     });

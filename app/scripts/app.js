@@ -1,6 +1,8 @@
 (function () {
     angular.module('app', [
             // modules
+		'sections.policy',
+		'sections.privacy',
 		'sections.terms',
 		'sections',
             'ui.router',

@@ -160,7 +160,7 @@
                 if (!authData.provider) {
                     getSvet(user, authData);
                 }
-                user.profile.role = 'reader';
+                user.profile.role = 'customer';
                 return user;
             }
         });

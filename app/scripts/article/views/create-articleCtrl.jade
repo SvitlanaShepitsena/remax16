@@ -1,11 +1,6 @@
-div(flex-container='column' flow-init)
-    div(class='mt ml')
-        sv-link-back
-    div
-        sv-profile-title.ml(header-title='New Article' ng-if='artType==="article"' )
-        sv-profile-title.ml(header-title='New article' ng-if='artType==="blog"')
-        //div.m
-        //    button.btn.btn--xs.btn--teal.btn--raised.bgc-teal-300(lx-ripple='' ng-click='generateFromRandomNews()') Random News Text
+div(flow-init)
+    sv-profile-title.ml(header-title='New Article' ng-if='artType==="article"' )
+    sv-profile-title.ml(header-title='New article' ng-if='artType==="blog"')
     .card(class='m')
         sv-new-article-form
     div(class='mb+ ml')

@@ -3,7 +3,7 @@ lx-dropdown(position='right')
         img.img-round(ng-src="{{user.isEditor()?alexAvatar:(user.avatar || defaultAvatar)}}" style='width:100%;height:100%' )
     lx-dropdown-menu
         ul
-            li(ng-show='user.isCustomer()')
+            li
                 a.dropdown-link(ui-sref="app.user.user-bookmarks({uid:user.userName})")
                     i.mdi.mdi-star.mr
                     | Bookmarks
@@ -35,7 +35,7 @@ lx-dropdown(position='right')
             li(ng-if='user.isStaff()')
                 a.dropdown-link.tc-red-300(ui-sref='app.user.create-listing' )
                     i.mdi.mdi-plus.mr
-                    | Create Listing
+                    | Add Listing
             li.dropdown-divider(ng-if='user.isStaff()')
             li(ng-if='user.isStaff()')
                 a.dropdown-link.tc-red-300(ui-sref='app.user.create-article({artType:"blog",uid:user.userName,artId:null})' ui-sref-opts="{reload: true}")

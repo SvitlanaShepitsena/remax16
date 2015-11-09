@@ -1,11 +1,23 @@
 div
     .card.mb.bgc-grey-100.pt(layout='row' layout-align='space-around' ng-show='isBroker')
-        a.btn.btn--l.btn--red.btn--flat.tc-grey-800.fw-500(lx-ripple="" ui-sref='app.user.listings' ui-sref-active="link-active-red" ) Listings
-        a.btn.btn--l.btn--red.btn--flat.tc-grey-800.fw-500(lx-ripple="" ui-sref='app.user.blogs' ui-sref-active="link-active-red" ) Blog
-        a.btn.btn--l.btn--red.btn--flat.tc-grey-800.fw-500(lx-ripple="" ui-sref='app.user.account-settings' ui-sref-active="link-active-red" ) Account Settings
-        a.btn.btn--l.btn--red.btn--flat.tc-grey-800.fw-500(lx-ripple="" ui-sref='app.brokers.broker.profile({id:brokerId})' ui-sref-active="link-active-red" ) My Public Page
-        sv-create-listing-btn.mr
-        sv-create-article-btn.mr
+        a.btn.btn--l.btn--red.btn--flat.tc-grey-800.fw-500(lx-ripple="" ui-sref='app.user.listings' ui-sref-active="link-active-red" )
+            i.mdi.mdi-view-dashboard
+            span.ml(hide-sm="") Listings
+        a.btn.btn--l.btn--red.btn--flat.tc-grey-800.fw-500(lx-ripple="" ui-sref='app.user.blogs' ui-sref-active="link-active-red" )
+            i.mdi.mdi-view-list
+            span.ml(hide-sm="") Blog
+        a.btn.btn--l.btn--red.btn--flat.tc-grey-800.fw-500(lx-ripple="" ui-sref='app.user.user-bookmarks' ui-sref-active="link-active-red" )
+            i.mdi.mdi-star
+            span.ml(hide-sm="") Bookmarks
+        a.btn.btn--l.btn--red.btn--flat.tc-grey-800.fw-500(lx-ripple="" ui-sref='app.user.account-settings' ui-sref-active="link-active-red" )
+            i.mdi.mdi-settings
+            span.ml(hide-sm="") Account Settings
+        a.btn.btn--l.btn--red.btn--flat.tc-grey-800.fw-500(lx-ripple="" ui-sref='app.brokers.broker.profile({id:brokerId})' ui-sref-active="link-active-red" )
+            i.mdi.mdi-account-circle
+            span.ml(hide-sm="") My Public Page
+    div(layout="row" ng-show='isBroker' layout-align="end center" layout-align-sm="space-between center")
+        sv-create-listing-btn.mr.ml(flex-sm="")
+        sv-create-article-btn.mr.ml(flex-sm="")
     .card.mb.bgc-grey-100(layout='row' layout-align='space-around' ng-show='isCustomer')
         a.btn.btn--l.btn--red.btn--flat.tc-grey-800.fw-500(lx-ripple="" ui-sref='app.user.user-bookmarks' ui-sref-active="link-active-red" )
             i.mdi.mdi-star

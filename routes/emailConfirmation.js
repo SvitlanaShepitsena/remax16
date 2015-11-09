@@ -4,9 +4,9 @@ module.exports = function emailConfirmation(express) {
 
     var emailConfirmationRoute = express.Router();
 
-    emailConfirmationRoute.post('/:uid', function (req, res, next) {
+    emailConfirmationRoute.post('/:email', function (req, res, next) {
 
-        var uid = req.params.get('uid');
+        var uid = req.params.get('email');
         console.log(uid);
 
 

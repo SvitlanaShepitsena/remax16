@@ -1,7 +1,7 @@
 md-bottom-sheet.bgc-blue-600(class='pt md-hue-2')
-    div
-        img.mdc-display-inline-block.mr(ng-src="/img/logo/company-logo-35.png")
-        span.fs-subhead.tc-blue-50.mb(style='margin-bottom:0px')
+    div(layout='row' layout-align="start center")
+        img.mdc-display-inline-block.mr(src="https://s3-us-west-2.amazonaws.com/remax1stclass/company-logo.png" style="width:35px;height:auto")
+        span.tc-blue-50.mb.fs-15(style='margin-bottom:0px' )
             | Re/Max 1st Class
     md-divider(style='border-top-color:#82B1FF !important' class='mb')
     div(layout='column')
@@ -9,15 +9,14 @@ md-bottom-sheet.bgc-blue-600(class='pt md-hue-2')
             div(layout='column' )
                 .fb-share-button.mb(data-href='', data-layout='button_count')
                 .g-plusone(gplus='', data-size='medium', data-annotation='bubble', data-href='', data-action='share')
-            div(layout='row' layout-align='start center')
-                a.btn.btn--m.btn--flat.tc-blue-100.mt.btn--blue(lx-ripple='' target="_blank" href="https://www.facebook.com")
-                    i.fa.fa-facebook.fa-lg
-                a.btn.btn--m.btn--flat.tc-blue-100.mt.btn--blue(lx-ripple='' target="_blank" href="https://www.plus.google.com")
-                    i.fa.fa-google-plus.fa-lg
-                a.btn.btn--m.btn--flat.tc-blue-100.mt.btn--blue(lx-ripple='' target="_blank" href="https://www.youtube.com" )
-                    i.fa.fa-youtube.fa-lg
-                a.btn.btn--m.btn--flat.tc-blue-100.mt.btn--blue(lx-ripple='' target="_blank" href="https://www.linkedin.com")
-                    i.fa.fa-linkedin.fa-lg
+            div
+                sv-social-media-list
+        md-divider(style='border-top-color:#82B1FF !important')
+        md-list(layout='row' style="margin: 0px" layout-align="space-between center")
+            a.btn.btn--xs.btn--flat.btn--white.sv-nav-link-responsive.fs-11(lx-ripple='' ui-sref='app.terms' class="main-nav-link" style="margin:0px 4px" )
+                span Terms Of Use
+            a.btn.btn--xs.btn--flat.btn--white.sv-nav-link-responsive.fs-11(lx-ripple='' ui-sref='app.privacy' class="main-nav-link" style="margin:0px 4px" )
+                span Privacy Policy
         md-divider(style='border-top-color:#82B1FF !important' class='mb')
         div.tc-blue-A100(layout='row' layout-align='center center')
             span.fs-caption

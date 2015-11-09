@@ -13,15 +13,8 @@ md-toolbar(class='pt' style="background-color:#1976D2;position:relative;bottom:0
             div(layout='column' )
                 .fb-share-button.mb(data-href='', data-layout='button_count')
                 .g-plusone(gplus='', data-size='medium', data-annotation='bubble', data-href='', data-action='share')
-            div(layout='row' layout-align='start center')
-                a.btn.btn--m.btn--flat.tc-blue-100.mt.btn--blue(lx-ripple='' target="_blank" href="https://www.facebook.com")
-                    i.fa.fa-facebook.fa-lg
-                a.btn.btn--m.btn--flat.tc-blue-100.mt.btn--blue(lx-ripple='' target="_blank" href="https://www.plus.google.com")
-                    i.fa.fa-google-plus.fa-lg
-                a.btn.btn--m.btn--flat.tc-blue-100.mt.btn--blue(lx-ripple='' target="_blank" href="https://www.youtube.com" )
-                    i.fa.fa-youtube.fa-lg
-                a.btn.btn--m.btn--flat.tc-blue-100.mt.btn--blue(lx-ripple='' target="_blank" href="https://www.linkedin.com")
-                    i.fa.fa-linkedin.fa-lg
+            div
+                sv-social-media-list
         md-divider.ml.mr(style='border-top-color:#82B1FF !important' class='mb')
         div.tc-blue-100.pb(layout='row' layout-align='center center')
             span.fs-caption

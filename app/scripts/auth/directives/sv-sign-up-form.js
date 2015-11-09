@@ -46,7 +46,7 @@
                         };
                     }
 
-                    $scope.createSvetUser = function () {
+                    $scope.createLocalUser = function () {
                         if ($scope.signUpForm.$invalid) {
                             $scope.signUpForm.userName.$touched = true;
                             $scope.signUpForm.email.$touched = true;
@@ -54,10 +54,10 @@
                             return;
                         }
                         $scope.user.userName = $scope.user.userName.replace(/\s+/g, '-').toLowerCase();
-                        ProfileServ.createSvetUser($scope.user.email, $scope.user.password, $scope.user.userName).then(function () {
-                                AuthenticationServ.svetLogin($scope.user.email, $scope.user.password).then(function (profile) {
-                                    $state.go('app.user.account-settings', {uid: profile.userName});
-                                });
+                        ProfileServ.createLocalUser($scope.user.email, $scope.user.password, $scope.user.userName).then(function () {
+                                //AuthenticationServ.svetLogin($scope.user.email, $scope.user.password).then(function (profile) {
+                                //    $state.go('app.user.account-settings', {uid: profile.userName});
+                                //});
                             }
                         ).catch(function (error) {
                                 toastr.error(error.message);

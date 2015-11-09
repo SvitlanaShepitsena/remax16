@@ -49,7 +49,7 @@
                 cleanProfile: function () {
                     ProfileLiveServ.unbind();
                 },
-                createSvetUser: function (email, password, userName) {
+                createLocalUser: function (email, password, userName) {
                     var that = this;
                     var authObj = $firebaseAuth(ref);
                     return $q(function (resolve, reject) {
@@ -57,11 +57,22 @@
                             email: email,
                             password: password
                         }).then(function (authData) {
+                            authData.isConfirmed = false;
                             authData.userName = userName;
                             authData.email = email;
-                            saveProfileToDb(authData, true).then(function () {
-                                resolve(authData);
-                            })
+                            authObj.$resetPassword({
+                                email: email,
+                            }).then(function() {
+
+                                saveProfileToDb(authData, true).then(function () {
+                                    resolve(authData);
+                                })
+                                console.log("Password reset email sent successfully!");
+                            }).catch(function(error) {
+                                console.error("Error: ", error);
+                            });
+
+
                         }).catch(function (error) {
                             reject(error);
                         })

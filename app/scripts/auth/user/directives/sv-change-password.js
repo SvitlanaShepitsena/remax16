@@ -13,6 +13,10 @@
                     //fillForm();
 
                     $scope.changePassword = function () {
+                        if (!$scope.password || !$scope.newPassword) {
+                            toastr.error("Please, fill current and new password fields");
+                            return;
+                        }
                         $scope.authObj.$changePassword({
                             email: userAuth.profile.email,
                             oldPassword: $scope.password.val,
@@ -33,6 +37,7 @@
                     function resetForm() {
                         $scope.password = {val: ''}
                         $scope.newPassword = {val: ''}
+                        $scope.passwordForm.$pristine = true;
 
                     };
                 }

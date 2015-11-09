@@ -7,6 +7,7 @@ div(layout-gt-sm='row' layout-sm='column')
                 span.fs-title.ml.tc-blue-500(ng-if='user && user.isStaff()') Broker Account
                 span.fs-title.ml.tc-blue-500(ng-if='user && user.isManager()') Manager Account
                 span.fs-title.ml.tc-blue-500(ng-if='user && user.isCustomer()') Buyer/Seller Account
+            div.ml.mr.mt
                 sv-request-business-account-btn(ng-if='user && user.isCustomer()')
             div(layout='column')
                 div(flex='')

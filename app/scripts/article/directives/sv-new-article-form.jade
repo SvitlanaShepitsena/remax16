@@ -27,7 +27,7 @@ div
             div(layout='column' layout-align='top')
                 md-input-container.md-input-container-article-sarticle(flex='')
                     label Blog summary
-                    input(ng-model='article.summary'  sv-url-decode type="text" md-maxlength='150' name='summary' required )
+                    input(ng-model='article.summary'  sv-url-decode type="text" md-maxlength='250' name='summary' required )
                 span(ng-if='!article.summary' class='notice-red') {{summary-notice| translate}}
             div(layout-gt-sm='row' layout-sm='column' layout-align='center')
                 div(layout='row' flex)
@@ -46,14 +46,14 @@ div
                 div
                     span.tc-grey-700.fs-caption.display-block {{'image-format'|translate}} {{'image-max-size'|translate}} {{'image-min-dimensions'|translate}}.
             div(layout='column')
-                md-input-container.md-input-container-article(flex='')
+                md-input-container.md-input-container-article(flex="")
                     sv-svet-pad(body='article.body' sv-html-cleaner)
             div(layout='row')
-                md-input-container.md-input-container-article(flex)
+                md-input-container.md-input-container-article(flex="")
                     label {{'tags'|translate}}
                     input(ng-model='article.tags' sv-url-decode name='tags' type="text" md-maxlength="100")
             div(layout='row')
-                md-input-container.md-input-container-article(flex)
+                md-input-container.md-input-container-article(flex="")
                     label {{'photo-source'|translate}}
                     input(ng-model='article.imgsource' sv-url-decode name='imgsource' type="text" md-maxlength="200")
         .bgc-grey-200.p(layout='row' layout-align="space-around center")

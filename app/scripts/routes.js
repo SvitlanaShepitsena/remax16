@@ -37,7 +37,7 @@
                     }
                 })
                 .state("app.login", {
-                    url: "/login",
+                    url: "/login/:email?/:temp?",
                     controller: "LoginCtrl as login",
                     templateUrl: "scripts/auth/views/loginCtrl.html",
                     resolve: {

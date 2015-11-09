@@ -31,5 +31,16 @@ module.exports = {
             }
         );
         return deferred.promise;
+    },
+    updateItem: function (url,updateObj) {
+
+        var deferred = q.defer();
+        var ref = new Firebase(url);
+
+        ref.set(updateObj, function () {
+            console.log('success');
+            deferred.resolve(true);
+        });
+        return deferred.promise;
     }
 }

@@ -4,7 +4,7 @@ var titleArray = new Array(5);
 titleArray['kohl2015'] = "SVET Annual Family Event at KOHL CHILDREN’S MUSEUM";
 
 module.exports = {
-    url: 'https://svet.firebaseio.com/',
+    url: 'https://svet-test.firebaseio.com/',
     companyWebsite: 'http://remax1stclass.com/',
     defaultThumb: 'https://s3-us-west-2.amazonaws.com/svet.com/articles/picture-thumb.png',
     titles: titleArray,

@@ -1,7 +1,7 @@
 (function () {
     'use strict';
     angular.module('auth')
-        .directive('svLoginForm', function (toastr, $state, userAuth, AuthenticationServ) {
+        .directive('svLoginForm', function (toastr, $state, userAuth, AuthenticationServ, $stateParams) {
             return {
                 replace: true,
                 templateUrl: 'scripts/auth/directives/sv-login-form.html',
@@ -16,8 +16,17 @@
                         email: '',
                         password: ''
                     }
-                    $scope.singIn = function () {
-                        AuthenticationServ.svetLogin($scope.user.email, $scope.user.password).then(function (user) {
+                    var email = $stateParams.email;
+                    var temp = $stateParams.temp;
+
+                    if (email.length && temp.length) {
+
+                        $scope.singIn(email, password)
+
+                    }
+
+                    $scope.singIn = function (email, password) {
+                        AuthenticationServ.svetLogin(email, password).then(function (user) {
                             if (userAuth.profile.isManager()) {
                                 $state.go('app.manager.dashboard', {uid: userAuth.key});
                             }

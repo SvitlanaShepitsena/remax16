@@ -83,7 +83,7 @@
                         userNamesArray.$loaded().then(function () {
                             for (var i = 0; i < userNamesArray.length; i++) {
                                 var user = userNamesArray[i];
-                                if (!user.profile.userName) {
+                                if (!user.profile || !user.profile.userName) {
                                     continue;
                                 }
                                 if (user.profile.userName.toLowerCase() === userName.toLowerCase()) {

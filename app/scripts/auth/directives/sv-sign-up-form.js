@@ -57,7 +57,7 @@
                         ProfileServ.createLocalUser($scope.user.email, $scope.user.password, $scope.user.userName).then(function () {
                                 //AuthenticationServ.svetLogin($scope.user.email, $scope.user.password).then(function (profile) {
                                 $state.go('app.login');
-                                toastr.info('Please, confirm you email and then you will be able to log in', {timeOut: 5000});
+                                toastr.warning('Please, confirm you email and then you will be able to log in', {timeOut: 5000});
                                 //});
                             }
                         ).catch(function (error) {

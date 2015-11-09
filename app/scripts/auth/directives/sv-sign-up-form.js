@@ -54,7 +54,7 @@
                             return;
                         }
                         $scope.user.userName = $scope.user.userName.replace(/\s+/g, '-').toLowerCase();
-                        ProfileServ.createLocalUser($scope.user.email, $scope.user.password, $scope.user.userName,true).then(function () {
+                        ProfileServ.createLocalUser($scope.user.email, $scope.user.password, $scope.user.userName,true,$scope.user.subscriptions).then(function () {
                                 //AuthenticationServ.svetLogin($scope.user.email, $scope.user.password).then(function (profile) {
                                 $state.go('app.login');
                                 toastr.warning('Please, confirm you email and then you will be able to log in', {timeOut: 5000});

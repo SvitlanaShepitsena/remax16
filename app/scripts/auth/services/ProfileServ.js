@@ -1,7 +1,7 @@
 (function () {
     'use strict';
     angular.module('auth')
-        .factory('ProfileServ', function ($q, $firebaseObject, $firebaseArray, $firebaseAuth, url, users, ProfileLiveServ, UserUniqueServ) {
+        .factory('ProfileServ', function ($q, $firebaseObject, FbGenServ, $firebaseArray, $firebaseAuth, url, users, ProfileLiveServ, UserUniqueServ) {
             /*users - Firebase users url from constants.js*/
             var ref = new Firebase(users);
             /*get array of users with AngularFire service $firebaseArray*/
@@ -49,7 +49,7 @@
                 cleanProfile: function () {
                     ProfileLiveServ.unbind();
                 },
-                createLocalUser: function (email, password, userName, isUnconfirmed) {
+                createLocalUser: function (email, password, userName, isUnconfirmed, subscriptions) {
                     var that = this;
                     var authObj = $firebaseAuth(ref);
                     return $q(function (resolve, reject) {
@@ -64,7 +64,13 @@
                             }).then(function () {
 
                                 saveProfileToDb(authData, true, isUnconfirmed).then(function () {
-                                    resolve(authData);
+                                    if (subscriptions) {
+                                        var subsObj = {email: email};
+                                        var subsUrl = url + 'subscriptions/' + authData.userName;
+                                        FbGenServ.saveObject(subsUrl, subsObj).then(function () {
+                                            resolve(authData);
+                                        })
+                                    }
                                 })
                                 console.log("Password reset email sent successfully!");
                             }).catch(function (error) {

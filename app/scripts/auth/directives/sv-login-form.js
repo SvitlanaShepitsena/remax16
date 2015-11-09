@@ -1,7 +1,7 @@
 (function () {
     'use strict';
     angular.module('auth')
-        .directive('svLoginForm', function (toastr, $state, userAuth, AuthenticationServ, $stateParams) {
+        .directive('svLoginForm', function (toastr, url, $state, userAuth, AuthenticationServ, $stateParams, FbGenServ) {
             return {
                 replace: true,
                 templateUrl: 'scripts/auth/directives/sv-login-form.html',
@@ -15,6 +15,17 @@
 
                     $scope.signIn = function (email, password) {
                         AuthenticationServ.svetLogin(email, password).then(function (user) {
+                            if ($scope.user.subscriptions) {
+
+                                var subsObj = {
+                                    email: email,
+                                    weekly: true
+                                };
+                                var subsUrl = url + 'subscriptions/' + user.userName;
+                                FbGenServ.saveObject(subsUrl, subsObj).then(function () {
+
+                                })
+                            }
                             if (userAuth.profile.isManager()) {
                                 $state.go('app.manager.dashboard', {uid: userAuth.key});
                             }

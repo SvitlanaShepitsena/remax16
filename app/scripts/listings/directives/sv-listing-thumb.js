@@ -24,23 +24,9 @@
                     $scope.googleMap = googleMap;
                     $scope.fullAddress = maps + concatenate($scope.home.address);
 
-                    $scope.bookmarked = $scope.bookmarks ? $scope.bookmarks.indexOf($scope.home.$id) > -1 : false;
 
 
-                    $scope.addToBookmarks = function (home) {
-                        BookmarkServ.add(home).then(function () {
 
-                            $scope.bookmarked = true;
-                        });
-                    };
-
-                    $scope.removeFromBookmarks = function (home) {
-                        BookmarkServ.add(home).then(function () {
-
-                            $scope.bookmarked = true;
-                        });
-
-                    };
                 }
             };
         });

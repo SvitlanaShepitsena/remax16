@@ -11,21 +11,9 @@
                     registerAccount: '@',
                     newUser: '@'
                 },
-                link: function ($scope, el, attrs) {
-                    $scope.user = {
-                        email: '',
-                        password: ''
-                    }
-                    var email = $stateParams.email;
-                    var temp = $stateParams.temp;
+                controller: function ($scope) {
 
-                    if (email.length && temp.length) {
-
-                        $scope.singIn(email, password)
-
-                    }
-
-                    $scope.singIn = function (email, password) {
+                    $scope.signIn = function (email, password) {
                         AuthenticationServ.svetLogin(email, password).then(function (user) {
                             if (userAuth.profile.isManager()) {
                                 $state.go('app.manager.dashboard', {uid: userAuth.key});
@@ -44,6 +32,29 @@
                             toastr.error(error.message);
                         })
                     }
+                },
+                link: function ($scope, el, attrs) {
+
+                    var temp;
+                    var email;
+                    $scope.user = {
+                        email: '',
+                        password: ''
+                    }
+                    var credentials = $stateParams.credentials.split('/');
+                    if (credentials.length > 1) {
+                        email = credentials[0];
+                        temp = credentials[1];
+
+                    }
+
+
+                    if (email && temp) {
+
+                        $scope.signIn(email, temp)
+
+                    }
+
                 }
             };
         });

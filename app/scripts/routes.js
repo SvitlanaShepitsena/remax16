@@ -37,21 +37,10 @@
                     }
                 })
                 .state("app.login", {
-                    url: "/login/:email?/:temp?",
+                    url: "/login/*credentials?",
                     controller: "LoginCtrl as login",
                     templateUrl: "scripts/auth/views/loginCtrl.html",
-                    resolve: {
-                        currentUser: function (userAuth, $q) {
-                            return $q(function (resolve, reject) {
-                                var isLoggedIn = !!userAuth.profile;
-                                if (isLoggedIn) {
-                                    reject('You are already logged in');
-                                } else {
-                                    resolve();
-                                }
-                            })
-                        }
-                    }
+
                 })
                 .state("app.y", {
                     url: "/y",

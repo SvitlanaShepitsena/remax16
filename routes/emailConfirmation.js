@@ -23,7 +23,7 @@ module.exports = function emailConfirmation(express) {
                     console.log(objectToUpdateUrl);
                     firebaseServ.updateItem(objectToUpdateUrl, true).then(function () {
                         var rootUrl = (req.protocol || 'http') + '://' + req.get('host');
-                        var redirectPath = rootUrl + '/login/'+email+'/'+temp;
+                        var redirectPath = rootUrl + '/login/'+email+'/'+temp+'/';
                         console.log(redirectPath);
                         res.redirect(redirectPath);
                         //req.session.email = email;

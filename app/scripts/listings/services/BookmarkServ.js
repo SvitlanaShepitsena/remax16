@@ -23,7 +23,7 @@
 
                     });
                 },
-                remove: function (home,isBookmarkState) {
+                remove: function (home, isBookmarkState) {
                     return $q(function (resolve, reject) {
 
                         if (!userAuth.profile) {
@@ -47,11 +47,16 @@
                 getAuthUserBookmarks: function () {
 
                     return $q(function (resolve, reject) {
-                        var fbUrl = url + 'bookmarks/' + userAuth.profile.userName;
-                        var fbArr = $firebaseArray(new Firebase(fbUrl));
-                        fbArr.$loaded().then(function () {
-                            resolve(fbArr);
-                        })
+                        if (!userAuth.profile) {
+                            reject();
+                        } else {
+
+                            var fbUrl = url + 'bookmarks/' + userAuth.profile.userName;
+                            var fbArr = $firebaseArray(new Firebase(fbUrl));
+                            fbArr.$loaded().then(function () {
+                                resolve(fbArr);
+                            })
+                        }
                     })
                 }
             };

@@ -5,7 +5,7 @@ div
             sv-sort-listings(sort-by='sortBy' homes='homes')
     map.sv-search-map.mt(ng-if='mapView' ng-style='mapStyle' styles='{{mapStyler}}'  max-zoom="13" min-zoom="5" on-zoom_changed="zoomChanged()")
         marker(ng-repeat="pos in shPoses track by $index" position="{{pos.position.lat()}}, {{pos.position.lng()}}")
-    div(ng-if='!mapView')
+    .sv-main-content(ng-if='!mapView')
         div(ng-if='underBrokers')
             div(layout='row' layout-wrap layout-align="start start" )
                 div(flex-sm='100' flex-gt-sm='50' ng-repeat='home in homes')

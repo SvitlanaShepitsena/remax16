@@ -1031,7 +1031,7 @@ btn-default:hover,
 }
 @media screen and (min-width: 992px) {
   .sv-main-content {
-    min-height: 1200px;
+    min-height: 900px;
   }
 }
 /*Bugs with Safari*/
@@ -1139,7 +1139,7 @@ body {
   color: rgba(0,0,0,0.259);
   font-weight: 500;
 }
-text-decoration none !important,
+text-decoration none,
 display inline-block,
 .mdc-img-sepia {
   -webkit-filter: sepia(1);
@@ -1253,7 +1253,7 @@ md-sidenav.md-locked-open {
   min-width: 270px !important;
   max-width: 270px !important;
 }
-@media screen and (max-width: 992px) {
+@media screen and (max-width 992px) {
   .sv-width {
     width: 100px;
   }
@@ -1261,7 +1261,7 @@ md-sidenav.md-locked-open {
 .toolbar-svet {
   height: 80px !important;
 }
-@media screen and (min-width: 992px) {
+@media screen and (min-width 992px) {
   .toolbar-svet {
     height: 72px;
   }

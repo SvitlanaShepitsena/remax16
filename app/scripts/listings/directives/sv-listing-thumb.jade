@@ -36,7 +36,7 @@
             span.fs-body-1(style="text-align:right") {{home.bath}} baths
         div.m.mdc-text-right.tc-grey-600
             span.fs-body-1.mdc-text-right Year: {{home.year}}
-    div.bgc-grey-100(layout='row' ng-if='bookmarks')
+    div.bgc-grey-100(layout='row' )
         div(flex="" style="text-align:right" ng-show='!home.isRent')
             button.btn.btn--xs.btn--white.btn--raised.tc-blue-600.m(lx-ripple='' ui-sref='app.remax-listings.one-listing-sale({mls:home.mls})' style="font-size:10px" )
                 i.fa.fa-info.fa-fw &nbsp

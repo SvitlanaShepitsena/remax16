@@ -1,12 +1,13 @@
 div(flex-container='column' flow-init)
-    div(layout='row' layout-align='space-between center' )
-        div
-            sv-profile-title(header-title='New Article' ng-if='artType==="article"' )
-            sv-profile-title(header-title='New article' ng-if='artType==="blog"')
+    div(class='mt ml')
+        sv-link-back
+    div
+        sv-profile-title.ml(header-title='New Article' ng-if='artType==="article"' )
+        sv-profile-title.ml(header-title='New article' ng-if='artType==="blog"')
         //div.m
         //    button.btn.btn--xs.btn--teal.btn--raised.bgc-teal-300(lx-ripple='' ng-click='generateFromRandomNews()') Random News Text
     .card(class='m')
         sv-new-article-form
-    div(class='mb+')
+    div(class='mb+ ml')
         sv-link-back(l-title="back-to-my-articles" url="app.user.news.articles" ng-show='artType==="article"')
         sv-link-back(l-title="back-to-my-blogs" url="app.user.news.blogs" ng-show='artType==="blog"')

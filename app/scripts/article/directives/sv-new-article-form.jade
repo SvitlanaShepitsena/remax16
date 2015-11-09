@@ -1,17 +1,16 @@
 div
     form(name='articleForm' ng-submit="saveArticle(false,articleForm)" flow-init novalidate sv-form-val)
         .bgc-grey-200.p(layout='row' layout-align="space-around center" )
-            button.btn.btn--m.btn--teal.btn--flat.tc-teal-300(lx-ripple='' type='submit' id='saveBtn' ng-disabled="articleForm.$pristine")
+            button.btn.btn--m.btn--teal.btn--flat.tc-teal-300(lx-ripple='' type='submit' id='saveBtnT' ng-disabled="articleForm.$pristine")
                 i.fa.fa-save.fa-fw &nbsp
                 | {{'save-changes'|translate}}
             sv-lumx-button(btn-size="m" btn-color="red" text-color="red-300" btn-type="flat" btn-title="cancel" icon-type="fa"
             icon-name="fa-close" btn-url="app.home"
             method-click='cancelArticle(true)')
-        div(class='pl+ pr+ pb++ pt' layout-align='start' layout='column')
-            div(layout-align='start' layout='row')
-                sv-article-status(ng-if='article.$id' article="article" key='article.$id')
-            hr
-        div(class='pl+ pr+ pb++ pt')
+        //div(class='pl+ pr+ pb++ pt' layout-align='start' layout='column')
+        //    sv-article-status(ng-if='article.$id' article="article" key='article.$id')
+        //hr
+        div(class='pl+ pr+ pb++ pt+')
             div(layout='row', layout-sm='column' layout-align-gt-sm='space-between center')
                 md-input-container.md-input-container-article(flex='50')
                     label {{'article-author'|translate}}
@@ -57,7 +56,7 @@ div
                     label {{'photo-source'|translate}}
                     input(ng-model='article.imgsource' sv-url-decode name='imgsource' type="text" md-maxlength="200")
         .bgc-grey-200.p(layout='row' layout-align="space-around center")
-            button.btn.btn--m.btn--teal.btn--flat.tc-teal-300(lx-ripple='' type='submit' id='saveBtn' ng-disabled="articleForm.$pristine")
+            button.btn.btn--m.btn--teal.btn--flat.tc-teal-300(lx-ripple='' type='submit' id='saveBtnB' ng-disabled="articleForm.$pristine")
                 i.fa.fa-save.fa-fw &nbsp
                 | {{'save-changes'|translate}}
             sv-lumx-button(btn-size="m" btn-color="red" text-color="red-300" btn-type="flat" btn-title="cancel" icon-type="fa"

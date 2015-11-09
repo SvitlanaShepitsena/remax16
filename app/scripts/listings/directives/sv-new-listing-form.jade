@@ -2,7 +2,7 @@ div
     form(name='listingForm' flow-init novalidate sv-form-val )
         div(layout='row' layout-align='space-between center')
             div
-                sv-profile-title(header-title='New Listing')
+                sv-profile-title.ml(header-title='New Listing')
             div
                 button.btn.btn--s.btn--blue.btn--raised.ml.mr(lx-ripple='' ng-disabled="listingForm.$pristine" ng-click='saveListing(listing)')
                     i.fa.fa-save.fa-fw &nbsp
@@ -17,8 +17,8 @@ div
                     sv-form-info
                     div(layout='row' layout-align="end center")
                         button.btn.btn--s.btn--blue.btn--raised(lx-ripple='' class='ml mr mb+')
-                            | Next &nbsp
-                            i.fa.i.fa.fa-angle-right.fa-fw
+                            span.mr Next
+                            i.fa.i.fa.fa-angle-right
             md-tab(md-on-select="switchTab(2)")
                 md-tab-label 2. Description
                 md-tab-body.pb

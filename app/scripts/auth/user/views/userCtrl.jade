@@ -1,12 +1,12 @@
 div
-    .card.mb.bgc-grey-200.pt(layout='row' layout-align='space-around' ng-show='isBroker')
+    .card.mb.bgc-grey-100.pt(layout='row' layout-align='space-around' ng-show='isBroker')
         a.btn.btn--l.btn--red.btn--flat.tc-grey-800.fw-500(lx-ripple="" ui-sref='app.user.listings' ui-sref-active="link-active-red" ) Listings
         a.btn.btn--l.btn--red.btn--flat.tc-grey-800.fw-500(lx-ripple="" ui-sref='app.user.blogs' ui-sref-active="link-active-red" ) Blog
         a.btn.btn--l.btn--red.btn--flat.tc-grey-800.fw-500(lx-ripple="" ui-sref='app.user.account-settings' ui-sref-active="link-active-red" ) Account Settings
         a.btn.btn--l.btn--red.btn--flat.tc-grey-800.fw-500(lx-ripple="" ui-sref='app.brokers.broker.profile({id:brokerId})' ui-sref-active="link-active-red" ) My Public Page
         sv-create-listing-btn.mr
         sv-create-article-btn.mr
-    .card.mb.bgc-grey-200.pt(layout='row' layout-align='space-around' ng-show='isCustomer')
+    .card.mb.bgc-grey-100(layout='row' layout-align='space-around' ng-show='isCustomer')
         a.btn.btn--l.btn--red.btn--flat.tc-grey-800.fw-500(lx-ripple="" ui-sref='app.user.user-bookmarks' ui-sref-active="link-active-red" )
             i.mdi.mdi-star
             span.ml(hide-sm="") Bookmarks

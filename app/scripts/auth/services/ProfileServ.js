@@ -49,7 +49,7 @@
                 cleanProfile: function () {
                     ProfileLiveServ.unbind();
                 },
-                createLocalUser: function (email, password, userName) {
+                createLocalUser: function (email, password, userName, isUnconfirmed) {
                     var that = this;
                     var authObj = $firebaseAuth(ref);
                     return $q(function (resolve, reject) {
@@ -57,14 +57,13 @@
                             email: email,
                             password: password
                         }).then(function (authData) {
-                            authData.isConfirmed = false;
                             authData.userName = userName;
                             authData.email = email;
                             authObj.$resetPassword({
                                 email: email,
                             }).then(function () {
 
-                                saveProfileToDb(authData, true).then(function () {
+                                saveProfileToDb(authData, true, isUnconfirmed).then(function () {
                                     resolve(authData);
                                 })
                                 console.log("Password reset email sent successfully!");
@@ -100,9 +99,9 @@
                 });
             }
 
-            function saveProfileToDb(authData, isAuthSvetUserCreated) {
+            function saveProfileToDb(authData, isAuthSvetUserCreated, isUnconfirmed) {
                 return $q(function (resolve, reject) {
-                    var user = userProcess(authData);
+                    var user = userProcess(authData, isUnconfirmed);
                     dbUsersArr.$add(user).then(function (ref) {
                         if (!isAuthSvetUserCreated) {
                             createLocalProfile(user.profile.email.toLowerCase()).then(function (localUid) {
@@ -110,6 +109,9 @@
                                 var user = $firebaseObject(ref);
                                 user.$loaded().then(function () {
                                     user.auth.svet.id = id;
+                                    if (isUnconfirmed) {
+                                        user.profile.isConfirmed = false;
+                                    }
                                     user.$save().then(function () {
                                         resolve(user.$id);
                                     })
@@ -136,7 +138,7 @@
                 user.profile.userName = userNameProcess(authData.google.displayName);
                 user.profile.avatar = authData.google.cachedUserProfile.picture;
                 user.auth = {
-                    isConfirmed: true,
+
                     google: authData.google,
                     svet: {email: user.profile.email}
                 };
@@ -147,7 +149,6 @@
                 user.profile.userName = userNameProcess(authData.facebook.displayName);
                 user.profile.avatar = authData.facebook.cachedUserProfile.picture.data.url;
                 user.auth = {
-                    isConfirmed: true,
                     facebook: authData.facebook,
                     svet: {email: user.profile.email}
                 };
@@ -161,7 +162,7 @@
                 user.auth = {svet: authData};
             }
 
-            function userProcess(authData) {
+            function userProcess(authData, isUnconfirmed) {
                 var user = {};
                 user.profile = {};
                 if (authData.provider === 'google') {
@@ -174,6 +175,9 @@
                     getSvet(user, authData);
                 }
                 user.profile.role = 'customer';
+                if (isUnconfirmed) {
+                    user.profile.unconfirmed = true;
+                }
                 return user;
             }
         });

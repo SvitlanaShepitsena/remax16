@@ -42,5 +42,16 @@ module.exports = {
             deferred.resolve(true);
         });
         return deferred.promise;
+    },
+    removeItem: function (url) {
+
+        var deferred = q.defer();
+        var ref = new Firebase(url);
+
+        ref.remove(function () {
+            console.log('success');
+            deferred.resolve(true);
+        });
+        return deferred.promise;
     }
 }

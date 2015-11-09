@@ -69,13 +69,16 @@
                             email: email,
                             password: password
                         }).then(function (authData) {
-                            if (!authData.isConfirmed) {
-                                authObj.$unauth();
-                                reject({message:'Please, confirm your email address'});
-
-                            }
                             ProfileServ.getProfile(authData).then(function (profile) {
-                                resolve(profile);
+
+                                if (profile.unconfirmed) {
+                                    authObj.$unauth();
+                                    reject({message: 'Please, confirm your email address'});
+
+                                } else {
+
+                                    resolve(profile);
+                                }
                             }).catch(function (error) {
                                 reject(error);
                             })

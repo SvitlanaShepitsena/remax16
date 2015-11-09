@@ -18,7 +18,7 @@
                     input(name="password" type='password', ng-model='user.password' required)
                 div(layout='row' layout-align-sm="space-between center")
                     div(class='m')
-                        button.btn.btn--s.btn--raised.btn--blue.bgc-blue-A200(lx-ripple ng-click='singIn()' id="svetLoginBtn")
+                        button.btn.btn--s.btn--raised.btn--blue.bgc-blue-A200(lx-ripple ng-click='signIn(user.email,user.password)' id="svetLoginBtn")
                             i.mdi.mdi-login &nbsp
                             | {{loginBtn|translate}}
                     div(class='m')

@@ -94,6 +94,23 @@
                         })
                     });
                 },
+                isUserEmailUnique: function (userEmail) {
+                    return $q(function (resolve, reject) {
+                        var userNamesArray = $firebaseArray(new Firebase(users));
+                        userNamesArray.$loaded().then(function () {
+                            for (var i = 0; i < userNamesArray.length; i++) {
+                                var user = userNamesArray[i];
+                                if (!user.profile || !user.profile.email) {
+                                    continue;
+                                }
+                                if (user.profile.email.toLowerCase() === userEmail.toLowerCase()) {
+                                    reject();
+                                }
+                            }
+                            resolve();
+                        })
+                    });
+                },
             };
         });
 })();

@@ -1,10 +1,10 @@
 (function () {
     'use strict';
     angular.module('auth')
-        .directive('svPdfSubscription', function (PdfSubscriptionsServ, userAuth) {
+        .directive('svEmailSubscription', function (PdfSubscriptionsServ, userAuth) {
             return {
                 replace: true,
-                templateUrl: 'scripts/auth/directives/sv-pdf-subscription.html',
+                templateUrl: 'scripts/auth/directives/sv-email-subscription.html',
                 scope: {},
                 link: function ($scope) {
                     $scope.user = userAuth.profile;

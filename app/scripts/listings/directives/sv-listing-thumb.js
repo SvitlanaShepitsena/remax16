@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('listings')
-        .directive('svListingThumb', function ($rootScope, $state, avatarBroker, maps, googleMap, userAuth, toastr, FbGenServ, url) {
+        .directive('svListingThumb', function ($rootScope, $state, avatarBroker, maps, googleMap, userAuth, toastr, FbGenServ, url, BookmarkServ) {
             function concatenate(address) {
                 var final = '';
                 for (var p in address) {
@@ -28,33 +28,18 @@
 
 
                     $scope.addToBookmarks = function (home) {
-                        if (!userAuth.profile) {
-                            toastr.warning('Please login to save home to bookmarks', {timeout: 10000});
-                            $state.go('app.login');
-                            return;
-                        }
-                        var savePath = url + 'bookmarks/' + userAuth.profile.userName + '/';
-                        var saveObj = {};
-                        saveObj[home] = true;
+                        BookmarkServ.add(home).then(function () {
 
-                        FbGenServ.saveObject(savePath, saveObj).then(function (ref) {
                             $scope.bookmarked = true;
                         });
                     };
 
                     $scope.removeFromBookmarks = function (home) {
-                        if (!userAuth) {
-                            toastr.warning('Please login to save home to bookmarks');
-                            return;
-                        }
-                        var pathRemove = url + 'bookmarks/' + userAuth.profile.userName + '/' + home;
-                        FbGenServ.removeObj(pathRemove).then(function (ref) {
-                            $scope.bookmarked = false;
-                            if ($state.current.name.indexOf('bookmarks') > -1) {
+                        BookmarkServ.add(home).then(function () {
 
-                                $rootScope.$broadcast('bookmark:deleted', home);
-                            }
+                            $scope.bookmarked = true;
                         });
+
                     };
                 }
             };

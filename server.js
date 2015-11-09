@@ -29,6 +29,7 @@ app.set('views', path.join(__dirname, 'views')); // specify the views directory
 
 /*local*/
 var uploadRouter = require('./routes/upload')(express);
+var emailConfirmationRouter = require('./routes/emailConfirmation')(express);
 var wwwRedirect = require('./routes/wwwRedirect');
 var homeRouter = require('./routes/home')(express);
 var articlesRouter = require('./routes/articles')(express);
@@ -40,6 +41,7 @@ var aboutUsRouter = require('./routes/about')(express);
 // --- Routes ---
 app.all(/.*/, wwwRedirect);
 app.use('/broker-thumb', uploadRouter);
+app.use('/email-confirmation', emailConfirmationRouter);
 app.use('/articles', articlesRouter);
 app.use('/testimonials', testimonialsRouter);
 app.use('/sections', sectionsRouter);

@@ -56,14 +56,15 @@
                         $scope.user.userName = $scope.user.userName.replace(/\s+/g, '-').toLowerCase();
                         ProfileServ.createLocalUser($scope.user.email, $scope.user.password, $scope.user.userName).then(function () {
                                 //AuthenticationServ.svetLogin($scope.user.email, $scope.user.password).then(function (profile) {
-                                //    $state.go('app.user.account-settings', {uid: profile.userName});
+                                $state.go('app.login');
+                                toastr.info('Please, confirm you email and then you will be able to log in', {timeOut: 5000});
                                 //});
                             }
                         ).catch(function (error) {
-                                toastr.error(error.message);
-                                $scope.signUpForm.email.$invalid = true;
-                                $scope.signUpForm.email.$touched = true;
-                            })
+                            toastr.error(error.message);
+                            $scope.signUpForm.email.$invalid = true;
+                            $scope.signUpForm.email.$touched = true;
+                        })
                     }
                 },
                 link: function ($scope, el, attrs) {

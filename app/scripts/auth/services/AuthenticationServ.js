@@ -39,6 +39,7 @@
                     return $q(function (resolve, reject) {
                         authObj.$authWithOAuthPopup(provider, {scope: 'email'}).then(function (authData) {
                             //console.log("User is Authenticated as:", authData);
+
                             ProfileServ.getProfile(authData).then(function (profile) {
                                 if (profile.role == 'broker') {
                                     GetAgentsInfoServ.getByEmail(profile.email).then(function (broker) {
@@ -68,6 +69,11 @@
                             email: email,
                             password: password
                         }).then(function (authData) {
+                            if (!authData.isConfirmed) {
+                                authObj.$unauth();
+                                reject({message:'Please, confirm your email address'});
+
+                            }
                             ProfileServ.getProfile(authData).then(function (profile) {
                                 resolve(profile);
                             }).catch(function (error) {

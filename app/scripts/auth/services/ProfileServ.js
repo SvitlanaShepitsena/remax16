@@ -62,13 +62,13 @@
                             authData.email = email;
                             authObj.$resetPassword({
                                 email: email,
-                            }).then(function() {
+                            }).then(function () {
 
                                 saveProfileToDb(authData, true).then(function () {
                                     resolve(authData);
                                 })
                                 console.log("Password reset email sent successfully!");
-                            }).catch(function(error) {
+                            }).catch(function (error) {
                                 console.error("Error: ", error);
                             });
 
@@ -136,6 +136,7 @@
                 user.profile.userName = userNameProcess(authData.google.displayName);
                 user.profile.avatar = authData.google.cachedUserProfile.picture;
                 user.auth = {
+                    isConfirmed: true,
                     google: authData.google,
                     svet: {email: user.profile.email}
                 };
@@ -146,6 +147,7 @@
                 user.profile.userName = userNameProcess(authData.facebook.displayName);
                 user.profile.avatar = authData.facebook.cachedUserProfile.picture.data.url;
                 user.auth = {
+                    isConfirmed: true,
                     facebook: authData.facebook,
                     svet: {email: user.profile.email}
                 };

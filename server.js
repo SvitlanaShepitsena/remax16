@@ -41,7 +41,7 @@ var aboutUsRouter = require('./routes/about')(express);
 // --- Routes ---
 app.all(/.*/, wwwRedirect);
 app.use('/broker-thumb', uploadRouter);
-app.use('/email-confirmation', emailConfirmationRouter);
+app.use('/email-confirmation-1stclass', emailConfirmationRouter);
 app.use('/articles', articlesRouter);
 app.use('/testimonials', testimonialsRouter);
 app.use('/sections', sectionsRouter);

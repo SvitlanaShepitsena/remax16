@@ -1,4 +1,5 @@
 div
+    sv-manager-profile-nav(ng-show='isManager')
     .card.mb.bgc-grey-100.pt(layout='row' layout-align='space-around' ng-show='isBroker')
         a.btn.btn--l.btn--red.btn--flat.tc-grey-800.fw-500(lx-ripple="" ui-sref='app.user.listings' ui-sref-active="link-active-red" )
             i.mdi.mdi-view-dashboard

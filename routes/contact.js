@@ -32,7 +32,7 @@ module.exports = function contactUs(express) {
     });
 
     /*Redirect user to AngularJs App*/
-    var appFolder = path.join(__dirname, require('./dirServ')());
+    var appFolder =require('./dirServ')();
     contactUsRouter.use(express.static(appFolder));
 
     contactUsRouter.get('/info', function (req, res) {

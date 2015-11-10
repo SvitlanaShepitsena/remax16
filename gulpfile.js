@@ -11,7 +11,6 @@ var $ = require('gulp-load-plugins')({lazy: true});
 var port = process.env.PORT || config.defaultPort;
 gulp.task('help', $.taskListing);
 gulp.task('default', ['help']);
-
 gulp.task('styles', ['clean-styles'], function () {
 	log('Compiling Stylus --> CSS');
 	return gulp
@@ -45,9 +44,7 @@ gulp.task("jade", function () {
 		.pipe(gulp.dest(config.scripts))
 });
 gulp.task('jade:watch', ['jade'], bs.reload);
-gulp.task('styles:watch', ['styles'], bs.reload);
 gulp.task('fonts', function () {
-	gulp.run('copy-weird-directories');
 	log('Copying fonts');
 	return gulp
 		.src(config.fonts)
@@ -57,11 +54,15 @@ gulp.task('fonts', function () {
 
 
 
-gulp.task('images',  function () {
+gulp.task('images', ['favicon'], function () {
 	log('Copying and compressing the images');
+	var pngFilter = $.filter(config.images+'/*.jpg', {restore: true});
 	return gulp
 		.src(config.images)
-		.pipe($.imagemin({optimizationLevel: 4}))
+		.pipe($.imagemin({optimizationLevel: 6}))
+		.pipe(pngFilter)
+		.pipe($.smushit())
+		.pipe(pngFilter.restore)
 		.pipe(gulp.dest(config.build + 'img'));
 });
 
@@ -72,6 +73,13 @@ gulp.task('copy-weird-directories',  function () {
 	return gulp
 		.src(config.client+s+"*.html")
 		.pipe(gulp.dest(config.build+s));
+});
+gulp.task('favicon',  function () {
+	log('copy favicon');
+
+	return gulp
+		.src(config.client+"favicon.ico")
+		.pipe(gulp.dest(config.build));
 });
 
 gulp.task('copy-weird-directories2',  function () {
@@ -150,6 +158,8 @@ gulp.task('build', ['buildFlow', 'fonts'], function () {
 	//del(config.temp);
 	log(msg);
 	notify(msg);
+	gulp.run('images');
+	gulp.run('copy-weird-directories');
 });
 gulp.task('injectCache', ['inject'], function () {
 	var templateCache = config.temp + config.templateCache.file;
@@ -182,6 +192,9 @@ gulp.task('optimize', ['inject'], function () {
 		.pipe(jsLibFilter.restore)
 		.pipe(jsAppFilter)
 		.pipe($.ngAnnotate())
+		.pipe($.babel({
+			presets: ['es2015']
+		}))
 		.pipe($.uglify())
 		.pipe($.rev())
 		.pipe(jsAppFilter.restore)
@@ -314,13 +327,16 @@ function startBrowserSync(isDev) {
 	}
 	log('Starting browser-sync on port ' + port);
 	if (isDev) {
-		gulp.watch([config.stylusAll], ['styles:watch'])
+		gulp.watch([config.stylusAll], ['styles'])
 			.on('change', function (event) {
 				changeEvent(event);
 				browserSync.reload();
 			});
-		gulp.watch([config.jade], ['jade:watch']);
-
+		gulp.watch([config.jade], ['jade:watch'])
+			.on('change', function (event) {
+				console.log('reload hererer');
+				browserSync.reload();
+			});
 		gulp.watch([config.js], bs.reload);
 	} else {
 		gulp.watch([config.stylus, config.js, config.html], ['optimize', browserSync.reload])
@@ -342,10 +358,9 @@ function startBrowserSync(isDev) {
 		ghostMode: false,
 		injectChanges: true,
 		logFileChanges: true,
-		logLevel: 'silent',
+		logLevel: 'debug',
 		notify: false,
-		reloadDebounce:3000,
-		reloadDelay: 2000 //1000
+		reloadDelay: 0 //1000
 	};
 	browserSync(options);
 }

@@ -33,7 +33,7 @@ module.exports = function testimonials(express) {
     });
 
     /*Redirect user to AngularJs App*/
-    var appFolder = path.join(__dirname, require('./dirServ')());
+    var appFolder =require('./dirServ')();
     testimonialsRouter.use(express.static(appFolder));
 
     testimonialsRouter.get('/', function (req, res) {

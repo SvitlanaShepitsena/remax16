@@ -72,7 +72,7 @@
         .directive('svListingsList', function (toastr, homesUrl, avatarBroker, userAuth, url, FbGenServ, mapStyler, icon, $rootScope, googleMap, QueryServ, $timeout, $stateParams, SearchSaleServ, GeoServ, $window, localStorageService, $filter, defaultImage, SortServ) {
             function centerMapToBounds(newValue, $scope) {
                 var bounds = new google.maps.LatLngBounds();
-                newValue.forEach((place) => {
+                newValue.forEach(function(place) {
                     if (place && place.position) {
                         bounds.extend(place.position);
                     }

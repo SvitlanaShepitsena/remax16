@@ -49,8 +49,8 @@ app.use('/contact', contactUsRouter);
 app.use('/about', aboutUsRouter);
 app.use('/', homeRouter);
 //// Transfer any unrecognized route to Angular
-var appFolder = path.join(__dirname, 'build');
-//var appFolder = require('./routes/dirServ')();
+//var appFolder = path.join(__dirname, 'build');
+var appFolder = require('./routes/dirServ')();
 
 app.use(express.static(appFolder));
 

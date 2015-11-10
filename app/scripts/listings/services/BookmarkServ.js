@@ -6,6 +6,7 @@
             return {
 
                 add: function (home) {
+                    var that = this;
                     return $q(function (resolve, reject) {
 
                         if (!userAuth.profile) {
@@ -18,7 +19,10 @@
                         saveObj[home] = true;
 
                         FbGenServ.saveObject(savePath, saveObj).then(function (ref) {
-                            resolve();
+                            that.addSubs().then(function () {
+
+                                resolve();
+                            })
                         });
 
                     });
@@ -58,7 +62,32 @@
                             })
                         }
                     })
-                }
+                },
+                addSubs: function () {
+
+                    return $q(function (resolve, reject) {
+                        if (!userAuth.profile) {
+                            resolve();
+                        } else {
+
+                            var fbUrl = url + 'subscriptions/' + userAuth.profile.userName;
+                            var fbObj = $firebaseObject(new Firebase(fbUrl));
+                            fbObj.$loaded().then(function (data) {
+                                if (data.bookmarks !== false) {
+                                    fbObj.bookmarks = true;
+                                    fbObj.$save().then(function () {
+                                        resolve();
+                                    })
+
+                                } else {
+                                    resolve();
+                                }
+
+                            })
+                        }
+                    })
+                },
+
             };
         });
 })();

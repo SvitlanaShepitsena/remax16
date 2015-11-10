@@ -12,7 +12,7 @@ lx-dropdown(position='right')
                     i.mdi.mdi-pen.mr
                     | My Reviews
             li(ng-if='user.isCustomer()')
-                a.dropdown-link(ui-sref="app.customers.one-customer({cid:cid})")
+                a.dropdown-link(ui-sref="app.customers.one-customer({cid:user.userName})")
                     i.mdi.mdi-account-circle.mr
                     | My Public Page
             li(ng-if='user.isStaff()')

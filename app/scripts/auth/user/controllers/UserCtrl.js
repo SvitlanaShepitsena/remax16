@@ -12,6 +12,9 @@
             /*customer*/
             var resCustomer = $scope.user.isCustomer();
             $scope.isCustomer = resCustomer;
+            /*manager*/
+            var resManager = $scope.user.isManager();
+            $scope.isManager = resManager;
         });
 })();
 

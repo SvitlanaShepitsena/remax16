@@ -46,7 +46,7 @@
                             userObj.requestCorporateSubmited.accepted = true;
                             userObj.requestCorporateSubmited.rejected = false;
                             userObj.requestCorporateSubmited.decisionDate = moment().format('x');
-                            userObj.role = 'customer';
+                            userObj.role = 'broker';
                             userObj.$save().then(function (success) {
                                 resolve(success);
                             })
@@ -64,7 +64,7 @@
                             userObj.requestCorporateSubmited.rejected = true;
                             userObj.requestCorporateSubmited.accepted = false;
                             userObj.requestCorporateSubmited.decisionDate = moment().format('x');
-                            userObj.role = 'reader';
+                            userObj.role = 'customer';
                             userObj.$save().then(function (success) {
                                 resolve(success);
                             })

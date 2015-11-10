@@ -41,7 +41,7 @@ module.exports = function articlesRouter(express) {
 			next();
 		}
 	});
-	var appFolder = path.join(__dirname, require('./dirServ')());
+	var appFolder =require('./dirServ')();
 	console.log(appFolder);
 	articlesRouter.use(express.static(appFolder));
 	articlesRouter.get('/:id/', function (req, res) {

@@ -12,7 +12,7 @@
                         return home.agent;
                     });
 
-                    agents.forEach((agent) => {
+                    agents.forEach(function (agent) {
                         agent.countSale = countSale[agent.$id];
                     });
                 }).catch(function (err) {

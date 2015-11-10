@@ -88,7 +88,7 @@
                     if (!bedrooms) {
                         return homes;
                     }
-                    var bedroomsArr = bedrooms.split('-').map((bed)=> {
+                    var bedroomsArr = bedrooms.split('-').map(function(bed) {
                         return parseInt(bed);
                     });
                     var maxBeds = _.max(bedroomsArr);

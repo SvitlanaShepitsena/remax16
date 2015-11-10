@@ -11,7 +11,6 @@
                 link: function ($scope, el, attrs) {
 
                     $scope.pageUrl = TrailingSlashServ.add($location.absUrl());
-	                console.log($scope.pageUrl);
                     $scope.profiles = $scope.profiles || "false";
                     $scope.btnAction = $scope.btnAction || "like";
 

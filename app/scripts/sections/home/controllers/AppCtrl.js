@@ -2,7 +2,7 @@
     'use strict';
     angular.module('sections.home')
         .controller('AppCtrl', function AppCtrl($sce, AgentServ, NotificationsServ, userAuth, svetNews, $timeout, $mdSidenav, $mdMedia,
-                                                NewsProcessServ, $state, $scope, $rootScope, toastr, routesRadioShow) {
+                                                 $state, $scope, $rootScope, toastr) {
             $rootScope.frameUrl = $sce.trustAsResourceUrl("http://localhost");
             $rootScope.user = userAuth.profile;
             $rootScope.news = svetNews.public;

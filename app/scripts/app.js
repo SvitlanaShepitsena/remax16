@@ -6,6 +6,7 @@
             'ngMap',
             'brokers',
             'LocalStorageModule',
+            'ngFileUpload',
             'pascalprecht.translate',
             'underscore.string',
             'auth',

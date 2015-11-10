@@ -78,6 +78,49 @@ md-select-menu md-content {
 .map-pointer-text-wrapper {
   display: inline-block;
 }
+.listing-bookmark-wrapper {
+  position: relative;
+  width: 150px;
+}
+.listing-bookmark.ng-hide-add,
+.listing-bookmark.ng-hide-remove {
+  -webkit-transition: 0s linear all;
+  transition: 0s linear all;
+}
+.listing-bookmark.ng-hide-add-active,
+.listing-bookmark.ng-hide-remove-active {
+  -webkit-transition: 1s linear all;
+  transition: 1s linear all;
+}
+.listing-bookmark {
+  width: 130px;
+  text-align: center !important;
+  position: absolute !important;
+  right: 0px !important;
+  top: 0px !important;
+}
+.listing-bookmark.ng-hide-add {
+  opacity: 1;
+  -ms-filter: none;
+  -webkit-filter: none;
+          filter: none;
+}
+.listing-bookmark.ng-hide-add-active {
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+}
+.listing-bookmark.ng-hide-remove {
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+}
+.listing-bookmark.ng-hide-remove-active {
+  opacity: 1;
+  -ms-filter: none;
+  -webkit-filter: none;
+          filter: none;
+}
 .home-search-header {
   font-weight: 500;
 }

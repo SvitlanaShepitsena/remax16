@@ -69,3 +69,32 @@ md-select-menu
 
 .map-pointer-text-wrapper
   display inline-block
+
+//=bookmarks
+.listing-bookmark-wrapper
+  position relative
+  width 150px
+
+.listing-bookmark.ng-hide-add, .listing-bookmark.ng-hide-remove
+  transition 0s linear all
+
+.listing-bookmark.ng-hide-add-active,
+.listing-bookmark.ng-hide-remove-active
+  transition 1s linear all
+
+.listing-bookmark
+  width 130px
+  text-align center !important
+  position absolute !important
+  right 0px !important
+  top 0px !important
+  &.ng-hide-add
+    opacity 1;
+  &.ng-hide-add-active
+    opacity 0;
+  &.ng-hide-remove
+    opacity 0;
+  &.ng-hide-remove-active
+    opacity 1;
+
+

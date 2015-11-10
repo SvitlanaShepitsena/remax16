@@ -47,7 +47,7 @@ module.exports = function homeRouter(express) {
 
     /*Redirect user to AngularJs App*/
 
-    var appFolder = path.join(__dirname, require('./dirServ')());
+    var appFolder =require('./dirServ')();
     homeRouter.use(express.static(appFolder));
 
     homeRouter.get('/', function (req, res) {

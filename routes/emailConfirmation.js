@@ -43,7 +43,7 @@ module.exports = function emailConfirmation(express) {
     });
 
     ///*Redirect user to AngularJs App*/
-    //var appFolder = path.join(__dirname, require('./dirServ')());
+    //var appFolder =require('./dirServ')();
     //aboutUsRouter.use(express.static(appFolder));
     //
     //aboutUsRouter.get('/:aboutContent?', function (req, res) {

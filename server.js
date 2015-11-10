@@ -50,8 +50,10 @@ app.use('/about', aboutUsRouter);
 app.use('/', homeRouter);
 //// Transfer any unrecognized route to Angular
 //var appFolder = path.join(__dirname, 'build');
-var appFolder = path.join(__dirname, 'app');
-app.use(express.static(appFolder, {redirect: true}));
+var appFolder = require('./routes/dirServ')();
+
+app.use(express.static(appFolder));
+
 app.get('/*', function (req, res) {
 	res.sendFile('index.html', {root: appFolder});
 });

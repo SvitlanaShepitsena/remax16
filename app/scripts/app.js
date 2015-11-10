@@ -6,7 +6,6 @@
             'ngMap',
             'brokers',
             'LocalStorageModule',
-            //'ngFileUpload',
             'pascalprecht.translate',
             'underscore.string',
             'auth',
@@ -31,7 +30,6 @@
             'sections.privacy',
             'sections.terms',
             'ngImgCrop',
-            //'sections.widgets',
             // 3rd party modules
             'ngCookies',
             'angular-capitalize-filter',

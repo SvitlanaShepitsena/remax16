@@ -6,6 +6,9 @@
                 getArrayLive: function (fbUrl) {
                     return $firebaseArray(new Firebase(fbUrl));
                 },
+                getObject: function (fbUrl) {
+                    return $firebaseObject(new Firebase(fbUrl));
+                },
                 getAssync: function (fbUrl, filter) {
                     return $q(function (resolve, reject) {
                         var arr = $firebaseArray(new Firebase(fbUrl));

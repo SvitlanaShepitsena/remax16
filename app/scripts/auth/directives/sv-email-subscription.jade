@@ -9,7 +9,7 @@
         p.m
             i.mdi.mdi-airballoon.tc-blue-600
             span.ml Find out about open houses, short sales, foreclosures!
-        div(ng-if='user && !requestSubmited')
+        div(ng-if='user')
             form( name='subscriptionsForm')
                 div(layout="row" layout-align='start center')
                     md-checkbox(ng-model="subscription.bookmarks" aria-label="Checkbox")
@@ -20,14 +20,7 @@
                 div(layout="row" layout-align='start center')
                     md-checkbox(ng-model="subscription.newsLetter" aria-label="Checkbox")
                     div Our monthly e-newsletter
-        div(layout-gt-sm='row' layout-sm="column" layout-align-gt-sm="start center")
-            div.ml Get notifications:
-            md-radio-group(layout='row' ng-model="emailNotifications")
-                md-radio-button() Daily
-                md-radio-button() Weekly
         div(class='ml mb+')
             button.btn.btn--s.btn--blue.btn--raised(lx-ripple='')
                 i.fa.fa-save.fa-fw
                 span.ml Save Subscription Settings
-    div(ng-if='user && requestSubmited')
-        md-progress-circular.md-accent(md-mode='indeterminate')

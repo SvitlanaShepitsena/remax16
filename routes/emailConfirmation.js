@@ -19,9 +19,9 @@ module.exports = function emailConfirmation(express) {
             _.toArray(data).forEach(function (user, id) {
                 var key = keys[id];
                 if (user.profile.email == email) {
-                    var objectToUpdateUrl = registeredUsers + key + '/' + 'auth/svet/isConfirmed';
+                    var objectToUpdateUrl = registeredUsers + key + '/' + 'profile/unconfirmed';
                     console.log(objectToUpdateUrl);
-                    firebaseServ.updateItem(objectToUpdateUrl, true).then(function () {
+                    firebaseServ.removeItem(objectToUpdateUrl).then(function () {
                         var rootUrl = (req.protocol || 'http') + '://' + req.get('host');
                         var redirectPath = rootUrl + '/login/'+email+'/'+temp+'/';
                         console.log(redirectPath);

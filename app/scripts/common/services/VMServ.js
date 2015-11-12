@@ -8,7 +8,6 @@
                 set: function (brokerChanged) {
                     if (vm) {
                         vmPrev = _.clone(vm, true);
-
                     }
                     vm = _.clone(brokerChanged, true);
                 },
@@ -17,8 +16,6 @@
                 },
                 getPrevious: function () {
                     vm = vmPrev;
-
-
                     return vmPrev;
                 }
             };

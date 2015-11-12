@@ -1,6 +1,12 @@
 form(layout="column" id="reviewForm" name="reviewForm" novalidate sv-form-val)
     div(class="ml+ mr+")
-        input-stars(max='5', icon-base='fa fa-fw', icon-empty='fa-star-o', icon-hover='hover', icon-full='fa-star', ng-model='evaluation.rating' required)
+        input-stars.tc-orange-500(max='5',
+        list-class="shiny-list",
+        icon-full='fa-star',
+        icon-base='fa fa-fw',
+        icon-empty='fa-star-o',
+        icon-hover='hover',
+        ng-model='evaluation.rating' required)
     div(class="ml+ mr+")
         lx-text-field
             textarea(ng-model='evaluation.comment' aria-label="text" type="text" cols="200")

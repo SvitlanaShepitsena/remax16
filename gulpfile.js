@@ -196,7 +196,7 @@ gulp.task('optimize', ['inject'], function () {
 		.pipe($.csso())
 		.pipe(cssFilter.restore)
 		.pipe(jsLibFilter)
-		.pipe($.uglify({mangle: false}))
+		.pipe($.uglify({mangle: true}))
 		.pipe(jsLibFilter.restore)
 		.pipe(jsAppFilter)
 		.pipe($.ngAnnotate())

@@ -11,6 +11,8 @@
             'pascalprecht.translate',
             'ui.router',
             'firebase',
+            'ngFileUpload',
+            'lumx',
             'textAngular',
             'brokers',
             'angular-input-stars',
@@ -35,11 +37,9 @@
             'sections.terms',
             'ngImgCrop',
             // 3rd party modules
-            'lumx',
             'angular-flexslider',
             'ezfb',
             'ngMap',
-            'ngFileUpload',
             'LocalStorageModule',
         ])
         .config(function (localStorageServiceProvider) {

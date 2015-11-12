@@ -1,7 +1,7 @@
 (function () {
     'use strict';
     angular.module('article')
-        .directive('svNewArticleForm', function (AwsImagesSwitcherServ, $sce,  $rootScope, SvHtmlValidatorServ, $state, toastr, SectionsServ, NewsGeneratorServ, ArticlesServ, SvobodaSaveToDbServ, userAuth, FormattedDateServ, TagsServ) {
+        .directive('svNewArticleForm', function ( $sce,  $rootScope, SvHtmlValidatorServ, $state, toastr, ArticlesServ,  userAuth, FormattedDateServ, TagsServ) {
             return {
                 replace: true,
                 templateUrl: 'scripts/article/directives/sv-new-article-form.html',
@@ -19,7 +19,6 @@
                         $rootScope.title = newValue[0];
                         $rootScope.summary = newValue[1];
                     });
-                    $scope.sections = SectionsServ.all();
                     $scope.user = userAuth.profile;
                     $scope.saveArticle = function (isPublic, form) {
                         if (form.$valid) {

@@ -1,0 +1,18 @@
+div
+    div(layout='row' layout-wrap="" layout-align="start start" )
+        div(flex-sm='100' flex-gt-sm='50' flex-gt-md='50' ng-repeat='n in blogs|orderBy:"-timestamp"' )
+            .card.m.pb
+                a.tc-grey-800.sv-link-visited(ui-sref='app.blog({id:n.fbkey})' style='text-decoration:none')
+                    sv-img-background.sv-img-thumb(sv-image="n.img" img-width="180" img-height="120" style="margin:0px auto")
+                    div.m
+                        h3 {{n.title}}
+                    a(ui-sref='app.brokers.broker.profile({id:n.brokerId})').article-thumb-link
+                        div(layout='row' layout-align="start center")
+                            div.m
+                                sv-img-background.sv-img-thumb( sv-image="n.brokerPic" style='width:30px;height:30px;margin:0px auto')
+                            .fs-caption.tc-grey-500(ng-bind-html='safeParsing((n.author|authorNameFr))')
+                a.td-none(ui-sref='app.blog({id:n.fbkey})' style="text-decoration:none")
+                    div.ml.mr.mb
+                        p.tc-grey-800(ng-bind-html='safeParsing(n.summary)')
+                        div(layout='row' layout-align='end start' class='pr')
+                            a.btn.btn--xs.btn--grey.btn--flat Read More >>

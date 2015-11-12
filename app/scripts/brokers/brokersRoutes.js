@@ -46,6 +46,11 @@
                 })
 
 
+				.state("app.broker-active-listings", {
+					url: "/broker-active-listings", 
+					controller:"BrokerActiveListingsCtrl",
+					templateUrl: "scripts/brokers/views/broker-active-listingsCtrl.html"
+				})
 //#state'
 
         });

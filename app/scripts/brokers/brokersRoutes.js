@@ -40,6 +40,10 @@
                     url: "/reviews",
                     template: "<sv-reviews-public-info></sv-reviews-public-info>"
                 })
+                .state("app.brokers.broker.endorsements", {
+                    url: "/endorsements",
+                    template: "<sv-endorsements-public-info></sv-endorsements-public-info>"
+                })
 
 
 //#state'

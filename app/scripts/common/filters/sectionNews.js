@@ -5,9 +5,9 @@
             return function (list, section,withouSection) {
                 if (!list || !section) return list;
 
-                if (section === 'svet-recommends') {
+                if (section === 'endorsements') {
                     var finalList = _.filter(list, function (item) {
-                        return item.svetRecommends;
+                        return item.endorsements;
                     });
                 } else {
                     var finalList = _.filter(list, function (item) {

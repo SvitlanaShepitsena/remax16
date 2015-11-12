@@ -2,20 +2,17 @@
     angular.module('app', [
             // modules
             'ui.router',
-            'ui.mask',
-            'ngMap',
             'brokers',
-            'LocalStorageModule',
             'angular-input-stars',
-            'ngFileUpload',
             'pascalprecht.translate',
-            'underscore.string',
             'auth',
             'search',
+            'ngCookies',
             'listings',
             'ad',
+            'ngAnimate',
             'ngMaterial',
-            'textAngular',
+            'ngSanitize',
             'blogs',
             'auth.user',
             'auth.manager',
@@ -33,17 +30,17 @@
             'sections.terms',
             'ngImgCrop',
             // 3rd party modules
-            'ngCookies',
             'angular-capitalize-filter',
-            'ngAnimate',
-            'flow',
-            'ngSanitize',
             'lumx',
+            'textAngular',
+            'firebase',
             'ngMessages',
             'angular-flexslider',
             'toastr',
             'ezfb',
-            'firebase'
+            'ngMap',
+            'ngFileUpload',
+            'LocalStorageModule',
         ])
         .config(function (localStorageServiceProvider) {
             localStorageServiceProvider

@@ -1,6 +1,6 @@
 (function () {
     'use strict'
-    angular.module('common', ['ui.router', 'flow'])
+    angular.module('common', ['ui.router'])
         .config(function ($stateProvider, $urlRouterProvider) {
             $stateProvider
                 .state("app.section", {

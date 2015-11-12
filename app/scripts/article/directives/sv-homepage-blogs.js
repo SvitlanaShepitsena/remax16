@@ -1,11 +1,11 @@
 (function () {
     'use strict';
 
-    angular.module('blogs')
+    angular.module('article')
         .directive('svHomepageBlogs', function (BlogsServ, $sce) {
             return {
                 replace: true,
-                templateUrl: 'scripts/blogs/directives/sv-homepage-blogs.html',
+                templateUrl: 'scripts/article/directives/sv-homepage-blogs.html',
                 scope: {},
                 link: function ($scope, el, attrs) {
                     BlogsServ.getRandomBlogs().then(function (blogs) {

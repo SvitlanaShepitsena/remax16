@@ -32,14 +32,14 @@
     <!-- build:css vendors.css -->
 
     <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
-    <link rel="stylesheet" href="bower_components/angular-toastr/dist/angular-toastr.css" />
-    <link rel="stylesheet" href="bower_components/mdi/css/materialdesignicons.css" />
-    <link rel="stylesheet" href="bower_components/mdi/css/materialdesignicons.min.css" />
-    <link rel="stylesheet" href="bower_components/lumx/dist/lumx.css" />
-    <link rel="stylesheet" href="bower_components/flexslider/flexslider.css" />
-    <link rel="stylesheet" href="bower_components/ng-img-crop/compile/minified/ng-img-crop.css" />
-    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css"/>
+    <link rel="stylesheet" href="bower_components/angular-toastr/dist/angular-toastr.css"/>
+    <link rel="stylesheet" href="bower_components/mdi/css/materialdesignicons.css"/>
+    <link rel="stylesheet" href="bower_components/mdi/css/materialdesignicons.min.css"/>
+    <link rel="stylesheet" href="bower_components/lumx/dist/lumx.css"/>
+    <link rel="stylesheet" href="bower_components/flexslider/flexslider.css"/>
+    <link rel="stylesheet" href="bower_components/ng-img-crop/compile/minified/ng-img-crop.css"/>
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css"/>
     <!-- endbower -->
     <link rel="stylesheet" href="./bower_components/textAngular/src/textAngular.css" type="text/css"/>
     <link rel="stylesheet" href="./bower_components/lumx/dist/lumx.css">
@@ -237,6 +237,7 @@
 <script src="bower_components/moment/moment.js"></script>
 <script src="bower_components/lumx/dist/lumx.js"></script>
 <script src="bower_components/ng-file-upload/ng-file-upload.js"></script>
+<script src="bower_components/underscore.string/dist/underscore.string.js"></script>
 <script src="bower_components/ngmap/build/scripts/ng-map.js"></script>
 <script src="bower_components/angular-easyfb/build/angular-easyfb.js"></script>
 <script src="bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
@@ -342,10 +343,7 @@
 
 <!-- blogs -->
 <script src="scripts/blogs/blogsRoutes.js"></script>
-<script src="scripts/blogs/directives/sv-homepage-blogs.js"></script>
-<script src="scripts/blogs/directives/sv-blogs-list.js"></script>
 <script src="scripts/blogs/blogs-translation.js"></script>
-<script src="scripts/blogs/services/BlogsServ.js"></script>
 
 <!-- common -->
 <script src="scripts/common/commonRoutes.js"></script>
@@ -522,6 +520,8 @@
 <script src="scripts/article/directives/sv-image-upload.js"></script>
 <script src="scripts/article/directives/sv-new-article-form.js"></script>
 <script src="scripts/article/directives/sv-one-article.js"></script>
+<script src="scripts/article/directives/sv-homepage-blogs.js"></script>
+<script src="scripts/article/directives/sv-blogs-list.js"></script>
 <script src="scripts/article/filters/articleBlogFr.js"></script>
 <script src="scripts/article/filters/authorFr.js"></script>
 <script src="scripts/article/filters/Length.js"></script>
@@ -535,6 +535,7 @@
 <script src="scripts/article/services/NewsTimeSelectorServ.js"></script>
 <script src="scripts/article/services/ArticlesServ.js"></script>
 <script src="scripts/article/services/BlogServ.js"></script>
+<script src="scripts/article/services/BlogsServ.js"></script>
 
 <!-- sections.privacy -->
 <script src="scripts/sections/privacy/privacyRoutes.js"></script>
@@ -584,7 +585,6 @@
 <script src="scripts/sections/home/controllers/HomeCtrl.js"></script>
 <script src="scripts/sections/home/controllers/AppCtrl.js"></script>
 <script src="scripts/sections/home/directives/sv-main-sections-nav.js"></script>
-
 
 
 <!-- endbuild -->

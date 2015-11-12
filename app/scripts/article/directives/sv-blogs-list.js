@@ -1,10 +1,10 @@
 (function () {
     'use strict';
-    angular.module('blogs')
+    angular.module('article')
         .directive('svBlogsList', function (FbGenServ, $sce, url, userAuth, $stateParams) {
             return {
                 replace: true,
-                templateUrl: 'scripts/blogs/directives/sv-blogs-list.html',
+                templateUrl: 'scripts/article/directives/sv-blogs-list.html',
                 scope: {},
                 link: function ($scope, el, attrs) {
                     var brokerId = $stateParams.id ? $stateParams.id : userAuth.profile.$id;

@@ -1,6 +1,6 @@
 (function () {
     'use strict';
-    angular.module('blogs')
+    angular.module('article')
         .factory('BlogsServ', function ($q, url, users, $firebaseObject, $firebaseArray, blogsConst) {
 
             var ref = new Firebase(url + 'blogs');

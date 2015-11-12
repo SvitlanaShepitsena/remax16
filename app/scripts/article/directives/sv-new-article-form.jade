@@ -35,9 +35,9 @@ div
                     md-input-container.md-input-container-article
                         sv-image-upload(sv-max-size='3' sv-min-width='180' sv-min-height='150' )
                 div(layout='row' layout-align='end center' flex)
-                    div(layout='row' layout-align='start center' ng-if='user.isEditor() && !article.isBlog')
-                        md-checkbox(ng-model="article.svetRecommends" aria-label="Checkbox")
-                        span.mdc-display-inline-block.fs-caption(style='font-weight:600') {{'svet-recommends'|translate}}
+                    div(layout='row' layout-align='start center')
+                        md-checkbox(ng-model="article.endorsements" aria-label="Checkbox")
+                        span.mdc-display-inline-block.fs-caption(style='font-weight:600') Endorsement
             div(layout='column' class='mb')
                 span.mdc-display-inline-block.fs-caption.tc-red-300
                     | To upload an image from your PC, put a cursor in the article description field, where you want your image to be placed,

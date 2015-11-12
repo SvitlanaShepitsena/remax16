@@ -17,7 +17,7 @@ div
         .card.mb
             div(layout='row' layout-align="space-between center")
                 div.ml.mr
-                    i.fa.fa-star.tc-amber-500.fs-subhead(ng-repeat='s in range(rev.rating)' style="margin:2px")
+                    i.fa.fa-star.tc-amber-700.fs-subhead(ng-repeat='s in range(rev.rating)' style="margin:2px")
                 div.ml.mr(ng-if='rev.customer===userName')
                     button.btn.btn--s.btn--green.btn--raised.ml.mr(lx-ripple='' ng-show='!editState' ng-click='setEditState(rev)')
                         i.fa.fa-edit.fa-fw

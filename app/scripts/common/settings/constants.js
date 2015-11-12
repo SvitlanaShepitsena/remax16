@@ -39,7 +39,7 @@
         .constant('userAuth', {})
         .constant('lastEditorPost', {})
         .constant('svetNews', {})
-        .constant('svetBlogsConst', {})
+        .constant('blogsConst', {})
         .constant('svetEventsConst', {})
         .constant('svetPost', {})
         .constant('classified', {})

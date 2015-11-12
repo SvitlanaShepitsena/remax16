@@ -9,8 +9,16 @@ var nib = require('nib');
 var _ = require('lodash');
 var $ = require('gulp-load-plugins')({lazy: true});
 var port = process.env.PORT || config.defaultPort;
+var stat = require('./gulp/svstat');
 gulp.task('help', $.taskListing);
 gulp.task('default', ['help']);
+
+stat.run(gulp,$,_);
+
+
+
+
+
 gulp.task('styles', ['clean-styles'], function () {
 	log('Compiling Stylus --> CSS');
 	return gulp

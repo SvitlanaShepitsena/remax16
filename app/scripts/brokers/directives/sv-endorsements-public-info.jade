@@ -1,1 +1,8 @@
-div sv-endorsements-public-info Template
+div(layout="column")
+    div(ng-repeat='e in endorsements')
+        .card.mb.m
+            h3.p {{e.title}}
+            p.m {{e.author}}
+            .m.tc-grey-800(ng-bind-html='safeParsing(e.summary)')
+            .m
+                button.btn.btn--xs.btn--blue.btn--raised(lx-ripple="" ng-click="showEndorsementsModal(e)") Read More >>

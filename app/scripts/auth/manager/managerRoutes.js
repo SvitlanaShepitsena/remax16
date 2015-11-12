@@ -1,6 +1,6 @@
 (function () {
     'use strict'
-    angular.module('auth.manager', ['ui.router', 'flow'])
+    angular.module('auth.manager', ['ui.router'])
         .config(function ($stateProvider, $urlRouterProvider) {
             $stateProvider
             // =Manager Profile

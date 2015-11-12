@@ -7,7 +7,7 @@ angular.module('angular-input-stars', [])
             restrict: 'EA',
             replace: true,
             template: '<ul ng-class="listClass">' +
-            '<li ng-touch="paintStars($index)" ng-mouseenter="paintStars($index, true)" ng-mouseleave="unpaintStars($index, false)" ng-repeat="item in items track by $index">' +
+            '<li ng-touch="paintStars($index)" style="display:inline-block" ng-mouseenter="paintStars($index, true)" ng-mouseleave="unpaintStars($index, false)" ng-repeat="item in items track by $index">' +
             '<i  ng-class="getClass($index)" ng-click="setValue($index, $event)"></i>' +
             '</li>' +
             '</ul>',
@@ -29,7 +29,7 @@ angular.module('angular-input-stars', [])
             var fullIcon = attrs.iconFull || 'fa-star';
             var iconBase = attrs.iconBase || 'fa fa-fw';
             scope.listClass = attrs.listClass || 'angular-input-stars';
-            scope.readonly  = ! (attrs.readonly === undefined);
+            scope.readonly = !(attrs.readonly === undefined);
 
             ngModelCtrl.$render = function () {
 
@@ -62,7 +62,7 @@ angular.module('angular-input-stars', [])
                     var $star = angular.element(items[index]);
 
                     if ($index >= index) {
-                        
+
                         $star.removeClass(emptyIcon);
                         $star.addClass(fullIcon);
                         $star.addClass('active');

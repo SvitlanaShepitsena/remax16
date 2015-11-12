@@ -16,7 +16,7 @@
                     $scope.saveRating = function (review) {
 
                         var userName = userAuth.profile.userName;
-                        review.customer = userName;
+                        review.customer = getUserName(userAuth);
                         review.avatar = userAuth.profile.avatar;
                         review.email = userAuth.profile.email;
                         review.timestamp = moment().format('x');
@@ -29,6 +29,17 @@
 
 
                     };
+                    var getUserName = function (userAuth) {
+                        if (userAuth.google) {
+                            return userAuth.google.displayName;
+                        }
+                        if (userAuth.facebook) {
+                            return userAuth.facebook.displayName;
+                        }
+                        return _.startCase(userAuth.profile.userName);
+
+                    };
+
 
 
                 }

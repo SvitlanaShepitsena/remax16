@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('article')
-        .directive('svHtmlCleaner', function (str) {
+        .directive('svHtmlCleaner', function () {
             return {
                 link: function ($scope, el, attrs) {
                     $scope.$watch('article.body', function (newValue, oldValue) {

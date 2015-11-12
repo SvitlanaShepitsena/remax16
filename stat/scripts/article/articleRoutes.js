@@ -20,16 +20,6 @@
                     },
                     templateUrl: "scripts/article/views/create-articleCtrl.html"
                 })
-                .state("app.endorsements", {
-                    url: "/endorsements",
-                    controller: "EndorsementsCtrl as Endorsements",
-                    templateUrl: "scripts/article/views/endorsements.html"
-                })
-            //.state("app.one-blog", {
-            //    url: "/svet-blog/:author/:postId",
-            //    controller: "OneBlogCtrl",
-            //    templateUrl: "scripts/article/views/one-blogCtrl.html"
-            //})
 //#state'
         });
 })();

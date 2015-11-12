@@ -1,20 +1,25 @@
 (function () {
     angular.module('app', [
             // modules
-            'ui.router',
-            'ui.mask',
-            'ngMap',
-            'brokers',
-            'LocalStorageModule',
-            'angular-input-stars',
-            'ngFileUpload',
+            'ngAnimate',
+            'angular-capitalize-filter',
+            'ngCookies',
+            'ngMaterial',
+            'ngMessages',
+            'ngSanitize',
+            'toastr',
             'pascalprecht.translate',
+            'ui.router',
+            'firebase',
+            'ngFileUpload',
+            'lumx',
+            'textAngular',
+            'brokers',
+            'angular-input-stars',
             'auth',
             'search',
             'listings',
             'ad',
-            'ngMaterial',
-            'textAngular',
             'blogs',
             'auth.user',
             'auth.manager',
@@ -32,16 +37,10 @@
             'sections.terms',
             'ngImgCrop',
             // 3rd party modules
-            'ngCookies',
-            'angular-capitalize-filter',
-            'ngAnimate',
-            'ngSanitize',
-            'lumx',
-            'ngMessages',
             'angular-flexslider',
-            'toastr',
             'ezfb',
-            'firebase'
+            'ngMap',
+            'LocalStorageModule',
         ])
         .config(function (localStorageServiceProvider) {
             localStorageServiceProvider
@@ -108,6 +107,6 @@
             };
         })
         .config(['$compileProvider', function ($compileProvider) {
-            $compileProvider.debugInfoEnabled(false);
+            //$compileProvider.debugInfoEnabled(false);
         }]);
 })();

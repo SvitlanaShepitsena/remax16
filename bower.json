@@ -25,8 +25,6 @@
     "mdi": "~1.2.64",
     "moment": "~2.10.2",
     "ng-file-upload": "~9.1.1",
-    "ui.bootstrap": "~0.13.0",
-    "underscore.string": "~3.1.1",
     "ngmap": "~1.13.8",
     "angular-easyfb": "1.4.1",
     "angular-local-storage": "~0.2.3",

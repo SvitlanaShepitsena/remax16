@@ -1,6 +1,6 @@
 (function () {
     'use strict'
-    angular.module('auth.user', ['ui.router', 'flow'])
+    angular.module('auth.user', ['ui.router'])
         .config(function ($stateProvider, $urlRouterProvider) {
             $stateProvider
             /*=user profile*/

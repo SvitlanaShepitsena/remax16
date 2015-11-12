@@ -30,7 +30,8 @@
                 })
                 .state("app.brokers.broker.listings", {
                     url: "/listings",
-                    template: "<sv-listings-list></sv-listings-list>"
+                    controller:"BrokerActiveListingsCtrl",
+                    templateUrl: "scripts/brokers/views/broker-active-listingsCtrl.html"
                 })
                 .state("app.brokers.broker.blogs", {
                     url: "/blog",
@@ -46,11 +47,6 @@
                 })
 
 
-				.state("app.broker-active-listings", {
-					url: "/broker-active-listings", 
-					controller:"BrokerActiveListingsCtrl",
-					templateUrl: "scripts/brokers/views/broker-active-listingsCtrl.html"
-				})
 //#state'
 
         });

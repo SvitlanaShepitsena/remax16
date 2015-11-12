@@ -1,7 +1,8 @@
 (function () {
     'use strict';
     angular.module('auth.user')
-        .directive('svBrokerDashboardTabs', function (FbGenServ, toastr, homesUrl, $state, $location, $stateParams, $timeout, $q, SearchSaleServ, userAuth, GetAgentsInfoServ, avatarBroker) {
+        .directive('svBrokerDashboardTabs', function (FbGenServ, toastr, homesUrl, $state, $location, $stateParams, $timeout, $q,
+                                                      SearchSaleServ, userAuth, GetAgentsInfoServ, avatarBroker) {
             return {
                 replace: true,
                 templateUrl: 'scripts/auth/user/directives/sv-broker-dashboard-tabs.html',
@@ -58,6 +59,9 @@
                         case 'reviews':
                             $scope.selectedIndex = 3;
                             break;
+                        case 'endorsements':
+                            $scope.selectedIndex = 4;
+                            break;
                         default:
                             $scope.selectedIndex = 0;
                     }
@@ -77,6 +81,9 @@
                                 break;
                             case 3:
                                 $state.go("^.reviews");
+                                break;
+                            case 4:
+                                $state.go("^.endorsements");
                                 break;
                             default:
                                 $state.go("^.profile");

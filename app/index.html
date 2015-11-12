@@ -15,20 +15,9 @@
     <meta name="viewport" id="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
 
-    <meta property="fb:app_id" content="1405000443143632"/>
-
     <meta name="apple-mobile-web-app-capable" content="yes"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
-    <style> [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
-        display: none !important;
-    }
-
-    </style>
-
-    <!--<link rel="stylesheet" href="//cdn.materialdesignicons.com/1.1.70/css/materialdesignicons.min.css">-->
-    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">-->
-
-
+    <style> [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak { display: none !important; } </style>
     <!-- build:css vendors.css -->
 
     <!-- bower:css -->
@@ -42,8 +31,6 @@
     <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
     <!-- endbower -->
     <link rel="stylesheet" href="./bower_components/textAngular/src/textAngular.css" type="text/css"/>
-    <link rel="stylesheet" href="./bower_components/lumx/dist/lumx.css">
-    <link rel="stylesheet" href="./bower_components/angular-toastr/dist/angular-toastr.min.css"/>
     <!-- endbuild -->
 
     <!-- inject:css -->
@@ -56,35 +43,8 @@
 
 <body ng-app="app" layout="column" flow-prevent-drop ng-cloak="" style='overflow-y: hidden'>
 
-<!--<div id="fb-root"></div>-->
-<!--<script>(function (d, s, id) {-->
-<!--var js, fjs = d.getElementsByTagName(s)[0];-->
-<!--if (d.getElementById(id)) return;-->
-<!--js = d.createElement(s);-->
-<!--js.id = id;-->
-<!--js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4&appId=422346614642986";-->
-<!--fjs.parentNode.insertBefore(js, fjs);-->
-<!--}(document, 'script', 'facebook-jssdk'));</script>-->
 
 <md-content layout="column" layout-fill class='sv-paper-main-background'>
-    <!--<md-toolbar class="sv-toolbar md-hue-2 tc-white-1 pl" layout="row" layout-align="space-between center"-->
-    <!--style="height:30px;min-height: 30px;padding-bottom:8px">-->
-    <!--&lt;!&ndash;<div layout="row" layout-align="end end">&ndash;&gt;-->
-    <!--&lt;!&ndash;<div layout="row" layout-align="end end" hide-md hide-sm>&ndash;&gt;-->
-    <!--&lt;!&ndash;<div class="fb-share-button" data-href="" data-layout="button_count"></div>&ndash;&gt;-->
-    <!--&lt;!&ndash;<div class="m"></div>&ndash;&gt;-->
-    <!--&lt;!&ndash;<div gplus="" class="g-plusone" data-size="medium" data-annotation="bubble"&ndash;&gt;-->
-    <!--&lt;!&ndash;data-href=''&ndash;&gt;-->
-    <!--&lt;!&ndash;data-action='share'>&ndash;&gt;-->
-    <!--&lt;!&ndash;</div>&ndash;&gt;-->
-    <!--&lt;!&ndash;</div>&ndash;&gt;-->
-    <!--&lt;!&ndash;</div>&ndash;&gt;-->
-    <!--<div>-->
-    <!--<sv-social-top-nav hide-md hide-sm></sv-social-top-nav>-->
-    <!--</div>-->
-    <!--<div flex=""></div>-->
-    <!--<sv-auth-btn class="mt mr+"></sv-auth-btn>-->
-    <!--</md-toolbar>-->
     <md-content layout="row" layout-fill flex style="margin:0px">
         <!--layout fill in this case stretches main content horizontally not to get gap on the left-->
         <md-content layout="column" layout-fill style="margin:0px">
@@ -95,30 +55,12 @@
                         hide-gt-sm sv-left-click-handler="" aria-label="Show User List">
                     <md-icon md-svg-icon="sv-menu"></md-icon>
                 </button>
-                <!--==mobilelogo-->
-                <!--<div>-->
-                <!--<div hide-gt-md="">-->
-                <!--<a ui-sref="app.home" style="display:block">-->
-                <!--<img src="img/logo/company-logo-35.png" class=" mt mb logo-img-cell"-->
-                <!--alt="Re/Max 1st Class">-->
-                <!--</a>--
-                <!--</div>-->
-                <!--</div>-->
-                <!--<span flex ng-if="main.showShifter"></span>-->
-                <!--<sv-header-subscription-btn hide-sm></sv-header-subscription-btn>-->
-                <!--<div flex></div>-->
                 <div flex=""></div>
                 <sv-main-sections-nav></sv-main-sections-nav>
                 <!--<g:hangout render="createhangout"></g:hangout>-->
                 <sv-auth-btn class='ml'></sv-auth-btn>
                 <sv-notifications-list style='max-height:30px'></sv-notifications-list>
                 <div show-gt-lg class="ml"></div>
-                <!--<button class='btn btn&#45;&#45;xl btn&#45;&#45;icon'-->
-                <!--style="width:36px" lx-ripple=""-->
-                <!--sv-right-click-handler="" hide-gt-lg-->
-                <!--aria-label="Show Panel">-->
-                <!--<md-icon md-svg-icon="img/svg/dots-vertical.svg"></md-icon>-->
-                <!--</button>-->
             </md-toolbar>
             <!--flex in this case stretches right sidenav vertically-->
             <md-content layout="row" flex class='sv-paper-main-background'>
@@ -176,33 +118,14 @@
                         <div class='fs-title'>Homes by Cities</div>
                         <sv-city-tabs home="home"></sv-city-tabs>
                         <div class='mt+'></div>
-
-                        <div class='text-center'>
-                            <!--<div class="fb-page" data-href="https://www.facebook.com/svetmedia"-->
-                            <!--data-small-header="true"-->
-                            <!--data-width="260"-->
-                            <!--data-adapt-container-width="true"-->
-                            <!--data-hide-cover="false"-->
-                            <!--data-show-facepile="true"-->
-                            <!--data-show-posts="false">-->
-                            <!--<div class="fb-xfbml-parse-ignore">-->
-                            <!--<blockquote cite="https://www.facebook.com/svetmedia"><a-->
-                            <!--href="https://www.facebook.com/svetmedia">Svet Russian Media</a>-->
-                            <!--</blockquote>-->
-                            <!--</div>-->
-                            <!--</div>-->
                         </div>
                     </md-content>
-                    <!--<div layout="row" layout-align="bottom center">-->
-                    <!--Google-->
-                    <!--</div>-->
                 </md-sidenav>
             </md-content>
             <!--=home.logo-->
             <a ui-sref="app.home" style="display:block;margin-right:16px;margin-left:8px">
                 <md-toolbar class='pt pb  md-whiteframe-2dp logo bgc-grey-100'
                             ng-class="{'logo-home':homeStyle}">
-                    <!--<img src="img/logo/company-logo.png" class="logo-img" alt="Re/Max 1st Class">-->
                 </md-toolbar>
             </a>
         </md-content>

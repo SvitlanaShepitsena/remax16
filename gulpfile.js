@@ -196,10 +196,7 @@ gulp.task('optimize', ['inject'], function () {
 		.pipe($.csso())
 		.pipe(cssFilter.restore)
 		.pipe(jsLibFilter)
-		.pipe($.babel({
-			presets: ['es2015']
-		}))
-		.pipe($.uglify({mangle: true}))
+		.pipe($.uglify({mangle: false}))
 		.pipe(jsLibFilter.restore)
 		.pipe(jsAppFilter)
 		.pipe($.ngAnnotate())

@@ -171,7 +171,7 @@
                         $scope.avatarBroker = avatarBroker;
                         $rootScope.hmCnt = homes;
                         if (!homes || homes.length === 0) {
-                            //$scope.$broadcast('homes:loaded', {numb:0});
+                            $rootScope.$broadcast('hide:listing:list');
                             $timeout(function () {
                                 if ($scope.map) {
                                     $scope.map.setCenter(new google.maps.LatLng(42.008871225891134, -87.93649894999999));

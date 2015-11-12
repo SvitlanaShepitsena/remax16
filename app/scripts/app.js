@@ -43,8 +43,7 @@
             'angular-flexslider',
             'toastr',
             'ezfb',
-            'firebase',
-            'mwl.calendar'
+            'firebase'
         ])
         .config(function (localStorageServiceProvider) {
             localStorageServiceProvider

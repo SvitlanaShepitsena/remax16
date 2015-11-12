@@ -20,7 +20,6 @@
             'search',
             'listings',
             'ad',
-            'blogs',
             'auth.user',
             'auth.manager',
             'customers',

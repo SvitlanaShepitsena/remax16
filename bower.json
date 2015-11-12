@@ -19,7 +19,6 @@
     "angular-ui-router": "~0.2.15",
     "angular-underscore-string": "~1.0.0",
     "angularfire": "~1.1.1",
-    "bootstrap": "v4.0.0-alpha",
     "firebase": "~2.2.3",
     "lodash": "~3.9.0",
     "lumx": "0.3.24",

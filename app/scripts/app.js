@@ -6,6 +6,7 @@
             'ngMap',
             'brokers',
             'LocalStorageModule',
+            'angular-input-stars',
             'ngFileUpload',
             'pascalprecht.translate',
             'underscore.string',

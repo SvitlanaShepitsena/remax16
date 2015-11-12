@@ -1,7 +1,7 @@
 (function () {
     'use strict';
     angular.module('article')
-        .directive('svNewArticleForm', function (AwsImagesSwitcherServ, $sce,  $rootScope, SvHtmlValidatorServ, $state, toastr, SectionsServ, NewsGeneratorServ, ArticlesServ, SvobodaSaveToDbServ, userAuth, FormattedDateServ, TagsServ) {
+        .directive('svNewArticleForm', function (AwsImagesSwitcherServ, $sce,  $rootScope, SvHtmlValidatorServ, $state, toastr, SectionsServ, ArticlesServ,  userAuth, FormattedDateServ, TagsServ) {
             return {
                 replace: true,
                 templateUrl: 'scripts/article/directives/sv-new-article-form.html',

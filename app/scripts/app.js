@@ -2,6 +2,7 @@
     angular.module('app', [
             // modules
             'ui.router',
+            'textAngular',
             'brokers',
             'angular-input-stars',
             'pascalprecht.translate',
@@ -32,7 +33,6 @@
             // 3rd party modules
             'angular-capitalize-filter',
             'lumx',
-            'textAngular',
             'firebase',
             'ngMessages',
             'angular-flexslider',

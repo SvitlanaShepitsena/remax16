@@ -29,7 +29,7 @@ gulp.task('styles', ['clean-styles'], function () {
 		.pipe(gulp.dest(config.temp))
 		.pipe(bs.stream());
 });
-gulp.task('git.a', ['fonts'], function () {
+gulp.task('git.a', ['fonts','images'], function () {
 	log('adding to git repo');
 	return gulp
 		.src(config.build)
@@ -166,7 +166,7 @@ gulp.task('build', ['buildFlow', 'fonts'], function () {
 	//del(config.temp);
 	log(msg);
 	notify(msg);
-	gulp.run('images');
+	//gulp.run('images');
 	gulp.run('copy-weird-directories');
 });
 gulp.task('injectCache', ['inject'], function () {

@@ -33,7 +33,7 @@ lx-dropdown(position='right')
                     | Account Settings
             li.dropdown-divider(ng-if='user.isStaff()')
             li(ng-if='user.isStaff()')
-                a.dropdown-link.tc-red-300(ui-sref='app.user.create-listing' )
+                a.dropdown-link.tc-red-300(ui-sref='app.user.create-listing({uid:user.userName})' )
                     i.mdi.mdi-plus.mr
                     | Add Listing
             li.dropdown-divider(ng-if='user.isStaff()')

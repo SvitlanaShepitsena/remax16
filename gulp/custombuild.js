@@ -12,12 +12,13 @@ exports.run = function (gulp,$,_) {
         'angular-material/modules/js/core/default-theme.js',
         'angular-material/modules/js/backdrop/backdrop.js',
         'angular-material/modules/js/toast/toast.js',
-        'angular-material/modules/js/sticky/sticky.js',
+        'angular-material/modules/js/sticky/sticky.js'
     ];
     var boilerplate = [
         '(function(){' +
         '    angular.module("ngMaterial", ["ng", "ngAnimate", "ngAria", "material.core", "material.core.theming.palette", "material.core.theming", "material.components.toast"]);' +
-        '    })();'
+        '    })();'];
+
     return gulp.src(modules, {cwd: DIR_JS_LIBS})
         .pipe(concat({path: 'custom.js', cwd: ''}))
         .pipe(insert.prepend(boilerplate))

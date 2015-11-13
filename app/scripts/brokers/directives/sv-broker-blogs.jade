@@ -3,4 +3,5 @@ div
         sv-zero-length-notice(list='blogs'  filter-value='0' item='blogs' owner-field='brokerId')
         div(layout='row' layout-wrap)
             div(flex-sm='100' flex-gt-sm='50' flex-gt-md='50' ng-repeat='blog in blogs')
+                pre {{blog}}
                 sv-author-article-link.m(article='blog' index='$index+1')

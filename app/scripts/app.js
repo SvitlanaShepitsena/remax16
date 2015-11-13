@@ -1,7 +1,6 @@
 (function () {
     angular.module('app', [
             // modules
-		'scripts.common',
             'ngAnimate',
             'angular-capitalize-filter',
             'ngCookies',

@@ -18,10 +18,6 @@ md-bottom-sheet.bgc-blue-600(class='pt md-hue-2')
                 | &nbsp remax1stclass@gmail.com
     md-divider(style='border-top-color:#82B1FF !important' class='mb')
     div(layout='row' style="margin: 0px" layout-align="space-between center")
-        sv-nav-link(style="margin:0px 4px" url='app.brokers', stitle='agents')
-        sv-nav-link(style="margin:0px 4px" url='app.customers', stitle='customers' ng-if="user.isManager()")
-        sv-nav-link(style="margin:0px 4px" url='app.about.about-tab-content', stitle='about us')
-        sv-nav-link(style="margin:0px 4px" url='app.contact', stitle='contact us')
         a.btn.btn--xs.btn--flat.btn--white.sv-nav-link-responsive.fs-11(lx-ripple='' ui-sref='app.about.about-tab-content' class="main-nav-link" style="margin:0px 4px" )
             span About
         a.btn.btn--xs.btn--flat.btn--white.sv-nav-link-responsive.fs-11(lx-ripple='' ui-sref='app.brokers' class="main-nav-link" style="margin:0px 4px" )

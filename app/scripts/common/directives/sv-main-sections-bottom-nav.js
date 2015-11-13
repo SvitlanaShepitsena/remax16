@@ -6,9 +6,7 @@
             return {
                 replace: true,
                 templateUrl: 'scripts/common/directives/sv-main-sections-bottom-nav.html',
-                scope: {
-
-                },
+                scope: {},
                 link: function ($scope, el, attrs) {
 
                 }

@@ -1,7 +1,7 @@
 (function () {
     'use strict';
     angular.module('auth')
-        .directive('svLoginForm', function (toastr, url, $state, userAuth, AuthenticationServ, $stateParams, FbGenServ) {
+        .directive('svLoginForm', function (toastr, url, $state, userAuth, AuthenticationServ, $stateParams, FbGenServ, companyName) {
             return {
                 replace: true,
                 templateUrl: 'scripts/auth/directives/sv-login-form.html',
@@ -12,6 +12,7 @@
                     newUser: '@'
                 },
                 controller: function ($scope) {
+                    $scope.companyName = companyName;
 
                     $scope.signIn = function (email, password) {
                         AuthenticationServ.svetLogin(email, password).then(function (user) {

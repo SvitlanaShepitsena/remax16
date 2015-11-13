@@ -18,7 +18,7 @@
                     input(name="password" type='password', ng-model='user.password' required)
                 md-input-container(layout='row' layout-align='start center' )
                     md-checkbox(ng-model='user.subscriptions' aria-label='terms')
-                    span.dispaly-block.fs-body-2(style='border-bottom: #393939 1px dotted; line-height:14px; cursor:pointer') I would like to receive weekly updates from remax
+                    span.dispaly-block.fs-body-2(style='border-bottom: #393939 1px dotted; line-height:14px; cursor:pointer') I would like to receive weekly updates from {{companyName}}
                 div(layout='row' layout-align-sm="space-between center")
                     div(class='m')
                         button.btn.btn--s.btn--raised.btn--blue.bgc-blue-A200(lx-ripple ng-click='signIn(user.email,user.password)' id="svetLoginBtn")

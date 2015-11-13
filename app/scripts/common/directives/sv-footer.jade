@@ -3,7 +3,7 @@ md-toolbar(class='pt' style="background-color:#1976D2;position:relative;bottom:0
         div.m
             img.mdc-display-inline-block.mr(ng-src="/img/logo/company-logo-35.png")
             span.fs-subhead.tc-blue-50.mb(style='margin-bottom:0px')
-                | Re/Max 1st Class
+                | {{companyName}}
         md-list(layout='row' style="margin: 0px")
             sv-nav-link(hide-sm="" style="margin:0px 4px" url='app.terms', stitle='Terms Of Use')
             sv-nav-link(hide-sm="" style="margin:0px 4px" url='app.privacy', stitle='Privacy Policy')
@@ -19,4 +19,4 @@ md-toolbar(class='pt' style="background-color:#1976D2;position:relative;bottom:0
         div.tc-blue-100.pb(layout='row' layout-align='center center')
             span.fs-caption
                 i.fa.fa-copyright.fa-fw
-                | Re/Max 1st Class. All rights reserved.
+                | {{companyName}}. All rights reserved.

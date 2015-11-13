@@ -1,7 +1,7 @@
 (function () {
     'use strict';
     angular.module('auth')
-        .directive('svSignUpForm', function (ProfileServ, $state, toastr, AuthenticationServ, $mdDialog) {
+        .directive('svSignUpForm', function (ProfileServ, $state, toastr, AuthenticationServ, $mdDialog , companyName) {
             return {
                 replace: true,
                 templateUrl: 'scripts/auth/directives/sv-sign-up-form.html',
@@ -15,6 +15,7 @@
                     login: '@'
                 },
                 controller: function ($scope) {
+                    $scope.companyName = companyName;
                     $scope.user = {
                         userName: '',
                         email: '',
@@ -68,6 +69,7 @@
                     }
                 },
                 link: function ($scope, el, attrs) {
+                    $scope.companyName = companyName;
                 }
             };
         });

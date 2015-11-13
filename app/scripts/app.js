@@ -1,6 +1,7 @@
 (function () {
     angular.module('app', [
             // modules
+		'scripts.common',
             'ngAnimate',
             'angular-capitalize-filter',
             'ngCookies',
@@ -31,7 +32,6 @@
             'sections.about',
             'sections.home',
             'sections.contact',
-            'sections.testimonials',
             'sections.privacy',
             'sections.terms',
             'ngImgCrop',

@@ -1,7 +1,7 @@
 (function () {
     'use strict';
     angular.module('common')
-        .directive('svSvetLabel', function ($state) {
+        .directive('svAppLabel', function ($state) {
             return {
                 templateUrl: 'scripts/common/directives/sv-app-label.html',
                 scope: {

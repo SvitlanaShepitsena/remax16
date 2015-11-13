@@ -32,16 +32,13 @@
             land: "img/icons/landmark-green.png"
         })
 
-
         .constant('distanceToNearest', 20000)
         .constant('defaultImage', '../img/common/image-empty.png')
 
         .constant('userAuth', {})
         .constant('lastEditorPost', {})
-        .constant('svetNews', {})
+        .constant('appNews', {})
         .constant('blogsConst', {})
-        .constant('svetEventsConst', {})
-        .constant('svetPost', {})
         .constant('classified', {})
         .constant('feedback', {})
         .constant('viewModalConst', {})

@@ -1,9 +1,9 @@
 div
-    div(ng-if='user.profile.requestCorporateSubmited').svet-corporate
+    div(ng-if='user.profile.requestCorporateSubmited').app-corporate
         button.btn.btn--s.btn--raised.btn--white.tc-red-600.fw-500(lx-ripple ng-click='cancelRequest()')
             i.fa.fa-close.fa-fw
             span.ml Cancel Broker Account Request
-    div(ng-if='!user.profile.requestCorporateSubmited').svet-corporate
+    div(ng-if='!user.profile.requestCorporateSubmited').app-corporate
         button.btn.btn--s.btn--raised.btn--white.tc-blue-600.fw-500(lx-ripple ng-click='submitRequest()' )
             i.fa.fa-send.fa-fw
             span.ml Request Broker Account

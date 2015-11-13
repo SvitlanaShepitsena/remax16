@@ -15,10 +15,10 @@
             }]);
         })
         .value('svTextAngular', {selected: false})
-        .directive('svSvetPad', function (url, svTextAngular) {
+        .directive('svTextPad', function (url, svTextAngular) {
             return {
                 replace: true,
-                templateUrl: 'scripts/article/directives/sv-svet-pad.html',
+                templateUrl: 'scripts/article/directives/sv-text-pad.html',
                 scope: {
                     body: '='
                 },
@@ -29,9 +29,9 @@
                         'width': '280px',
                         'max-width': '280px',
                     });
-                    var svetPad = el.find('#svetPad')[0].classList;
+                    var textPad = el.find('#textPad')[0].classList;
                     $scope.$watchCollection(function () {
-                        return svetPad;
+                        return textPad;
                     }, function (newValue, oldValue) {
                         if (newValue && newValue !== oldValue) {
                             svTextAngular.selected = _.contains(newValue, 'focussed');

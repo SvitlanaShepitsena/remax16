@@ -63,7 +63,7 @@
                     });
                 },
                 /*Firebase authentication with email/password combination, creating a profile*/
-                svetLogin: function (email, password) {
+                appLogin: function (email, password) {
                     return $q(function (resolve, reject) {
                         authObj.$authWithPassword({
                             email: email,

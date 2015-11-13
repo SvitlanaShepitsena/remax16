@@ -1,14 +1,14 @@
 (function () {
     'use strict';
     angular.module('sections.home')
-        .controller('AppCtrl', function AppCtrl($sce, AgentServ, NotificationsServ, userAuth, svetNews, $timeout, $mdSidenav, $mdMedia,
+        .controller('AppCtrl', function AppCtrl($sce, AgentServ, NotificationsServ, userAuth, appNews, $timeout, $mdSidenav, $mdMedia,
                                                  $state, $scope, $rootScope, toastr) {
             $rootScope.frameUrl = $sce.trustAsResourceUrl("http://localhost");
             $rootScope.user = userAuth.profile;
-            $rootScope.news = svetNews.public;
+            $rootScope.news = appNews.public;
 
             $rootScope.$on('homeNewsChanged', function () {
-                $rootScope.news = svetNews.public;
+                $rootScope.news = appNews.public;
             });
             var currentRoute = $state.current;
             if (currentRoute.url === '/') {

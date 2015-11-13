@@ -31,7 +31,6 @@
             'sections.about',
             'sections.home',
             'sections.contact',
-            'sections.testimonials',
             'sections.privacy',
             'sections.terms',
             'ngImgCrop',

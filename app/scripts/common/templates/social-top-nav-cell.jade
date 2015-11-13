@@ -1,24 +1,48 @@
 md-bottom-sheet.bgc-blue-600(class='pt md-hue-2')
-    div(layout='row' layout-align="start center")
-        img.mdc-display-inline-block.mr(src="https://s3-us-west-2.amazonaws.com/remax1stclass/company-logo.png" style="width:35px;height:auto")
-        span.tc-blue-50.mb.fs-15(style='margin-bottom:0px' )
-            | Re/Max 1st Class
+    div(layout='row' layout-align="space-between center")
+        div
+            img.mdc-display-inline-block.mr(src="https://s3-us-west-2.amazonaws.com/remax1stclass/company-logo.png" style="width:100px;height:auto")
+        div.tc-white-1.fs-body-1(style="text-align:right")
+            span.mb.fs-title(style='margin-bottom:0px' )
+                | Re/Max 1st Class
+            span.display-block 4023 W Church St.
+            span.display-block Chicago IL 60076
+            span.display-block
+                i.mdi.mdi-phone
+                | &nbsp (847) 674-9797
+            span.display-block
+                i.mdi.mdi-deskphone
+                | &nbsp (847) 674-0411
+            span.display-block
+                i.mdi.mdi-email
+                | &nbsp remax1stclass@gmail.com
+    md-divider(style='border-top-color:#82B1FF !important' class='mb')
+    div(layout='row' style="margin: 0px" layout-align="space-between center")
+        sv-nav-link(style="margin:0px 4px" url='app.brokers', stitle='agents')
+        sv-nav-link(style="margin:0px 4px" url='app.customers', stitle='customers' ng-if="user.isManager()")
+        sv-nav-link(style="margin:0px 4px" url='app.about.about-tab-content', stitle='about us')
+        sv-nav-link(style="margin:0px 4px" url='app.contact', stitle='contact us')
+        a.btn.btn--xs.btn--flat.btn--white.sv-nav-link-responsive.fs-11(lx-ripple='' ui-sref='app.about.about-tab-content' class="main-nav-link" style="margin:0px 4px" )
+            span About
+        a.btn.btn--xs.btn--flat.btn--white.sv-nav-link-responsive.fs-11(lx-ripple='' ui-sref='app.brokers' class="main-nav-link" style="margin:0px 4px" )
+            span Brokers
+        a.btn.btn--xs.btn--flat.btn--white.sv-nav-link-responsive.fs-11(lx-ripple='' ui-sref='app.contact' class="main-nav-link" style="margin:0px 4px" )
+            span Contact
     md-divider(style='border-top-color:#82B1FF !important' class='mb')
     div(layout='column')
-        div.mb(layout='row' layout-align='space-between start')
+        div.mb(layout='row' layout-align='space-between center')
             div(layout='column' )
                 .fb-share-button.mb(data-href='', data-layout='button_count')
                 .g-plusone(gplus='', data-size='medium', data-annotation='bubble', data-href='', data-action='share')
-            div
-                sv-social-media-list
+            sv-social-media-list
         md-divider(style='border-top-color:#82B1FF !important')
-        md-list(layout='row' style="margin: 0px" layout-align="space-between center")
+        md-list(layout='row' style="margin: 0px" layout-align="center center")
             a.btn.btn--xs.btn--flat.btn--white.sv-nav-link-responsive.fs-11(lx-ripple='' ui-sref='app.terms' class="main-nav-link" style="margin:0px 4px" )
-                span Terms Of Use
+                span.tc-blue-200 Terms Of Use
             a.btn.btn--xs.btn--flat.btn--white.sv-nav-link-responsive.fs-11(lx-ripple='' ui-sref='app.privacy' class="main-nav-link" style="margin:0px 4px" )
-                span Privacy Policy
+                span.tc-blue-200 Privacy Policy
         md-divider(style='border-top-color:#82B1FF !important' class='mb')
-        div.tc-blue-A100(layout='row' layout-align='center center')
+        div.tc-blue-200(layout='row' layout-align='center center')
             span.fs-caption
                 i.fa.fa-copyright.fa-fw
                 | Re/Max 1st Class. All rights reserved.

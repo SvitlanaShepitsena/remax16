@@ -2,7 +2,7 @@
  * Angular Material Design
  * https://github.com/angular/material
  * @license MIT
- * v1.0.0-rc3-master-fe84405
+ * v0.11.4
  */
 (function( window, angular, undefined ){
 "use strict";
@@ -127,11 +127,11 @@ function MdProgressCircularDirective($mdTheming, $mdUtil, $log) {
          case MODE_DETERMINATE:
          case MODE_INDETERMINATE:
            spinnerWrapper.removeClass('ng-hide');
-           if (lastMode) spinnerWrapper.removeClass(lastMode);
+           spinnerWrapper.removeClass( lastMode );
            spinnerWrapper.addClass( lastMode = "md-mode-" + mode );
            break;
          default:
-           if (lastMode) spinnerWrapper.removeClass( lastMode );
+           spinnerWrapper.removeClass( lastMode );
            spinnerWrapper.addClass('ng-hide');
            lastMode = undefined;
            break;

@@ -2,7 +2,7 @@
  * Angular Material Design
  * https://github.com/angular/material
  * @license MIT
- * v1.0.0-rc3-master-fe84405
+ * v0.11.4
  */
 goog.provide('ng.material.components.input');
 goog.require('ng.material.core');
@@ -65,7 +65,6 @@ function mdInputContainerDirective($mdTheming, $parse) {
 
   function postLink(scope, element, attr) {
     $mdTheming(element);
-    if (element.find('md-icon').length) element.addClass('md-has-icon');
   }
 
   function ContainerCtrl($scope, $element, $attrs) {
@@ -332,9 +331,8 @@ function inputTextareaDirective($mdUtil, $window, $mdAria) {
             node.style.minHeight = null;
           }
 
-          var rows = Math.min(min_rows, Math.round(node.scrollHeight / lineHeight));
+          var rows = Math.max(min_rows, Math.round(node.scrollHeight / lineHeight));
           node.setAttribute("rows", rows);
-          node.style.height = lineHeight * rows + "px";
         }
 
         // reset everything back to normal

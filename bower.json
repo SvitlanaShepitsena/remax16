@@ -11,7 +11,7 @@
     "angular-aria": "1.5.0-build.4318+sha.8226ff8",
     "angular-capitalize-filter": "2.1.0",
     "angular-cookies": "1.5.0-build.4318+sha.8226ff8",
-    "angular-material": "~0.11.0",
+    "angular-material": "0.11.2",
     "angular-messages": "1.5.0-build.4318+sha.8226ff8",
     "angular-sanitize": "1.5.0-build.4318+sha.8226ff8",
     "angular-toastr": "1.4.1",

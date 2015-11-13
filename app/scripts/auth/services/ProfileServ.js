@@ -160,6 +160,7 @@
                 };
             }
 
+
             function getSvet(user, authData) {
                 user.profile.email = authData.email;
                 user.profile.userName = authData.userName

@@ -1,10 +1,9 @@
 (function () {
     'use strict'
-    var fbDomain = 'svet-test';
+    var fbDomain = 'remax1stclass';
 
     angular.module('common')
         .constant('routesRadioShow', ['app', 'app.home'])
-        .constant('domain', fbDomain === 'svet' ? 'production' : 'test')
         .constant('url', 'https://' + fbDomain + '.firebaseio.com/')
         .constant('homesUrl', 'https://' + fbDomain + '.firebaseio.com/homes/')
         .constant('agentsUrl', 'https://' + fbDomain + '.firebaseio.com/homes/agents/')

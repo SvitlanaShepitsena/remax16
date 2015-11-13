@@ -24,6 +24,7 @@
 
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/angular-material/angular-material.custom.css" />
+    <link rel="stylesheet" href="bower_components/mdi/css/materialdesignicons.css" />
     <link rel="stylesheet" href="bower_components/angular-toastr/dist/angular-toastr.css" />
     <link rel="stylesheet" href="bower_components/mdi/css/materialdesignicons.css" />
     <link rel="stylesheet" href="bower_components/lumx/dist/lumx.css" />
@@ -69,28 +70,6 @@
                             md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
                     <md-content layout-padding flex class='sv-paper-main-background'>
                         <div class="mr ml">
-                            <sv-nav-btn url="app.about.about-tab-content"
-                                        icon-type="fa"
-                                        icon="info-circle"
-                                        custom-style="font-weight:500;width:100%;min-width:100%"
-                                        title="about us"
-                                        bgc="red-700"
-                                        color="white"
-                                        txt-color="white"
-                                        btn-size="l"
-                                        class="mb">
-                            </sv-nav-btn>
-                            <sv-nav-btn url="app.contact"
-                                        icon-type="fa"
-                                        icon="map-marker"
-                                        custom-style="font-weight:500;width:100%;min-width:100%"
-                                        title="Contact us"
-                                        color="white"
-                                        bgc="blue-A200"
-                                        btn-size="l"
-                                        txt-color="white"
-                                        class="mb md-hue-1">
-                            </sv-nav-btn>
                             <div class='mb+++'></div>
                             <sv-contact-address class="mb"></sv-contact-address>
                         </div>
@@ -255,6 +234,7 @@
 
 <!-- common -->
 <script src="scripts/common/commonRoutes.js"></script>
+<script src="scripts/common/directives/sv-main-sections-bottom-nav.js"></script>
 <script src="scripts/common/directives/sv-footer.js"></script>
 <script src="scripts/common/services/VMServ.js"></script>
 <script src="scripts/common/services/ImgBase64Serv.js"></script>
@@ -278,6 +258,7 @@
 <script src="scripts/common/directives/sv-zero-length-notice.js"></script>
 <script src="scripts/common/directives/sv-confirm-deletion.js"></script>
 <script src="scripts/common/directives/sv-confirm-ban.js"></script>
+<script src="scripts/common/directives/sv-social-media-list.js"></script>
 <script src="scripts/common/directives/sv-form-val.js"></script>
 <script src="scripts/common/directives/sv-app-label.js"></script>
 <script src="scripts/common/directives/sv-star-rating.js"></script>

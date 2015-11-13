@@ -32,7 +32,6 @@
             land: "img/icons/landmark-green.png"
         })
 
-
         .constant('distanceToNearest', 20000)
         .constant('defaultImage', '../img/common/image-empty.png')
 

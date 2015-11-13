@@ -15,7 +15,7 @@
                     $scope.companyName = companyName;
 
                     $scope.signIn = function (email, password) {
-                        AuthenticationServ.svetLogin(email, password).then(function (user) {
+                        AuthenticationServ.appLogin(email, password).then(function (user) {
                             if ($scope.user.subscriptions) {
 
                                 var subsObj = {

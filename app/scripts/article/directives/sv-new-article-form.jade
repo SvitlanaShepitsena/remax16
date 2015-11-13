@@ -3,7 +3,7 @@ div
         .bgc-grey-200.p(layout='row' layout-align="space-around center" )
             button.btn.btn--m.btn--teal.btn--flat.tc-teal-300(lx-ripple='' type='submit' id='saveBtnT' ng-disabled="articleForm.$pristine")
                 i.fa.fa-save.fa-fw &nbsp
-                | {{'save-changes'|translate}}
+                | Save Changes
             sv-lumx-button(btn-size="m" btn-color="red" text-color="red-300" btn-type="flat" btn-title="cancel" icon-type="fa"
             icon-name="fa-close" btn-url="app.home"
             method-click='cancelArticle(true)')
@@ -13,7 +13,7 @@ div
         div(class='pl+ pr+ pb++ pt+')
             div(layout='row', layout-sm='column' layout-align-gt-sm='space-between center')
                 md-input-container.md-input-container-article(flex='50')
-                    label {{'article-author'|translate}}
+                    label Article Author
                     input(ng-model='article.author' sv-url-decode sv-author-humanize name='author' required='')
                 .mt(show-sm)
                 md-input-container.md-input-container-article(flex='45')
@@ -27,7 +27,7 @@ div
                 md-input-container.md-input-container-article-sarticle(flex='')
                     label Blog summary
                     input(ng-model='article.summary'  sv-url-decode type="text" md-maxlength='250' name='summary' required )
-                span(ng-if='!article.summary' class='notice-red') {{summary-notice| translate}}
+                span(ng-if='!article.summary' class='notice-red') You need to add article summary.
             div(layout-gt-sm='row' layout-sm='column' layout-align='center')
                 div(layout='row' flex)
                     md-input-container.md-input-container-article
@@ -43,22 +43,22 @@ div
                     | To upload an image from your PC, put a cursor in the article description field, where you want your image to be placed,
                     | then click on "Chose and Image" button.
                 div
-                    span.tc-grey-700.fs-caption.display-block {{'image-format'|translate}} {{'image-max-size'|translate}} {{'image-min-dimensions'|translate}}.
+                    span.tc-grey-700.fs-caption.display-block {{'image-format'}} {{'image-max-size'}} {{'image-min-dimensions'}}.
             div(layout='column')
                 md-input-container.md-input-container-article(flex="")
                     sv-svet-pad(body='article.body' sv-html-cleaner)
             div(layout='row')
                 md-input-container.md-input-container-article(flex="")
-                    label {{'tags'|translate}}
+                    label Tags
                     input(ng-model='article.tags' sv-url-decode name='tags' type="text" md-maxlength="100")
             div(layout='row')
                 md-input-container.md-input-container-article(flex="")
-                    label {{'photo-source'|translate}}
+                    label Photo Source
                     input(ng-model='article.imgsource' sv-url-decode name='imgsource' type="text" md-maxlength="200")
         .bgc-grey-200.p(layout='row' layout-align="space-around center")
             button.btn.btn--m.btn--teal.btn--flat.tc-teal-300(lx-ripple='' type='submit' id='saveBtnB' ng-disabled="articleForm.$pristine")
                 i.fa.fa-save.fa-fw &nbsp
-                | {{'save-changes'|translate}}
+                | Save Changes
             sv-lumx-button(btn-size="m" btn-color="red" text-color="red-300" btn-type="flat" btn-title="cancel" icon-type="fa"
             icon-name="fa-close" btn-url="app.home"
             method-click='cancelArticle(true)')

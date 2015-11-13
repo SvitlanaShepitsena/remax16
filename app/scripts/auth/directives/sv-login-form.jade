@@ -11,10 +11,10 @@
                 span.ml Log in to your account:
             form.mt(name="loginForm"  novalidate sv-form-val)
                 md-input-container(class='')
-                    label {{'email'|translate}}
+                    label Email
                     input(name="email" type='text', ng-model='user.email' required)
                 md-input-container(class='')
-                    label {{'password'|translate}}
+                    label Password
                     input(name="password" type='password', ng-model='user.password' required)
                 md-input-container(layout='row' layout-align='start center' )
                     md-checkbox(ng-model='user.subscriptions' aria-label='terms')
@@ -23,7 +23,7 @@
                     div(class='m')
                         button.btn.btn--s.btn--raised.btn--blue.bgc-blue-A200(lx-ripple ng-click='signIn(user.email,user.password)' id="svetLoginBtn")
                             i.mdi.mdi-login &nbsp
-                            | {{loginBtn|translate}}
+                            | Log In
                     div(class='m')
                         sv-forgot-pass
         div(flex="" class='pl+')

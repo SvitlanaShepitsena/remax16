@@ -8,23 +8,23 @@
         div.p(flex-gt-sm='' )
             div(ng-if="u.profile.requestCorporateSubmited.accepted || u.profile.requestCorporateSubmited.rejected")
                 span.fs-caption.mdc-display-inline-block.mr(ng-if='u.profile.requestCorporateSubmited.decisionDate') {{u.profile.requestCorporateSubmited.decisionDate|date}}
-                span.fs-caption.tc-teal-800(ng-if="u.profile.requestCorporateSubmited.accepted") {{'accepted'|translate}}
-                span.fs-caption.tc-red-800(ng-if="u.profile.requestCorporateSubmited.rejected") {{'rejected'|translate}}
+                span.fs-caption.tc-teal-800(ng-if="u.profile.requestCorporateSubmited.accepted") {{'accepted'|capitalize}}
+                span.fs-caption.tc-red-800(ng-if="u.profile.requestCorporateSubmited.rejected") {{'rejected'|capitalize}}
         div.p(flex-gt-sm='')
             button.btn.btn--xs.btn--teal.bgc-teal-300.btn--raised.mr( style='font-size:9px'
             ng-if="!u.profile.requestCorporateSubmited.accepted" lx-ripple='' ng-click='accept(u)')
                 i.mdi.mdi-check.mr
-                | {{'accept'|translate}}
+                | {{'accept'|capitalize}}
             button.btn.btn--xs.btn--teal.bgc-teal-300.btn--raised.mr(disabled style='font-size:9px'
             ng-if="u.profile.requestCorporateSubmited.accepted" lx-ripple='' ng-click='accept(u)')
                 i.mdi.mdi-check.mr
-                | {{'accept'|translate}}
+                | {{'accept'|capitalize}}
             button.btn.btn--xs.btn--red.btn--raised.bgc-red-300( style='font-size:9px'
             ng-if="u.profile.requestCorporateSubmited.accepted || !u.profile.requestCorporateSubmited.accepted && !u.profile.requestCorporateSubmited.rejected " lx-ripple='' ng-click='reject(u)' )
                 i.mdi.mdi-minus-circle.mr
-                | {{'reject'|translate}}
+                | {{'reject'|capitalize}}
             button.btn.btn--xs.btn--red.btn--raised.bgc-red-300(disabled style='font-size:9px'
             ng-if="u.profile.requestCorporateSubmited.rejected " lx-ripple='' ng-click='reject(u)' )
                 i.mdi.mdi-minus-circle.mr
-                | {{'reject'|translate}}
+                | {{'reject'|capitalize}}
 

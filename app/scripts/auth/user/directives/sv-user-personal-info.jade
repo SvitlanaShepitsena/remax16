@@ -1,7 +1,7 @@
 form(name='personalInfoForm' ng-submit='saveUserName(userName, personalInfoForm.$valid)' sv-form-val novalidate)
     div(layout-gt-sm='row' layout-sm='column' layout-align-gt-sm='space-between center' class='p+')
         md-input-container(flex="")
-            label {{'uname'|translate}}:
+            label User name:
             input(type="text" name='userName' ng-model='userName.value' sv-unique-username required)
         button.btn.btn--s.btn--blue.btn--raised(lx-ripple='' type="submit" ng-disabled='user.userName===userName.value')
             i.mdi.mdi-content-save

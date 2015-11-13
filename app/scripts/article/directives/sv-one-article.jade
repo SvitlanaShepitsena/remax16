@@ -17,10 +17,10 @@
             div.tc-grey-600
                 span.mdc-display-inline-block.mb.fs-caption.tc-grey-500 {{article.timestamp|date}}
             div.tc-grey-600
-                span.fs-body-1 {{'author'|translate}}: &nbsp
+                span.fs-body-1 Author: &nbsp
                 span.fs-body-2 {{news.author|authorNameFr}}
             div.tc-grey-600.mb
-                span.fs-body-1 {{'date'|translate}}: &nbsp
+                span.fs-body-1 Date: &nbsp
                 span.fs-caption {{news.timestamp|date}}
             div(layout='row')
                 .mr
@@ -32,11 +32,11 @@
             div(class='mb+ ')
                 .article-body(ng-bind-html='news.body')
             div.tc-grey-600(ng-if="news.imgsource")
-                span.fs-body-1 {{'image-source'|translate}}: &nbsp
+                span.fs-body-1 Image source: &nbsp
                 a.tc-blue-grey-400(target="_blank" href="{{news.imgsource}}").fs-body-2 {{news.imgsource}}
         sv-one-article-menu(news='news')
     .bgc-grey-200(class='p+')
-        span.toolbar__label.fs-title.tc-grey-700 {{'comments'|translate}}
+        span.toolbar__label.fs-title.tc-grey-700 Comments
     div
         sv-add-comment(article-key='news.$id')
         ul.list-unstyled

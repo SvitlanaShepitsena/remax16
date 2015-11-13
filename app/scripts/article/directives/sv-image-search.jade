@@ -3,14 +3,14 @@ div
         .card.p(class='ml mr mb')
             lx-search-filter.mb(model='q.data' name="q"  placeholder='Search')
         div.text-center(class='ml mr mb')
-            button.btn.btn--m.btn--black.bgc-grey-600.btn--raised(lx-ripple='' ng-click='runGoogleSearch(q.data)') {{'search'|translate}}
+            button.btn.btn--m.btn--black.bgc-grey-600.btn--raised(lx-ripple='' ng-click='runGoogleSearch(q.data)') Search
     div.p
-        span.fs-title.display-block {{'results'|translate}}:
+        span.fs-title.display-block Results
         md-divider(class='mb+ mt')
         div(layout-gt-sm='row' layout-sm='column' layout-wrap layout-align-gt-sm='space-between' layout-align-sm='center')
             div(ng-repeat='i in images' flex="30" class='mb')
                 sv-image-include(url='i.url' ng-click='insertImage({imgUrl:i})')
                 a.btn.btn--m.btn--white.tc-grey-800.btn--raised.mb(lx-ripple='' ng-href='{{i.url}}' target='_blank')
                     i.fa.fa-file-image-o.fa-fw &nbsp
-                    | {{'image-source-website'|translate}}
+                    | Image source website
 

@@ -2,10 +2,10 @@
     'use strict';
 
     angular.module('sections.contact')
-        .directive('svContactUs', function (companyName, companyStreetAddress, companyCity, companyState, companyZip, companyPhone, companyFax, companyEmail) {
+        .directive('svContactAddress', function (companyName, companyStreetAddress, companyCity, companyState, companyZip, companyPhone, companyFax, companyEmail) {
             return {
                 replace: true,
-                templateUrl: 'scripts/sections/contact/directives/sv-contact-us.html',
+                templateUrl: 'scripts/sections/contact/directives/sv-contact-address.html',
                 scope: {},
                 link: function ($scope, el, attrs) {
                     $scope.companyName = companyName;

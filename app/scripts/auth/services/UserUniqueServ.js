@@ -7,12 +7,12 @@
             function findForGoogle(user, dbUsers) {
                 for (var i = 0; i < dbUsers.length; i++) {
                     var dbUser = dbUsers[i];
-                    if (dbUser.auth.google) {
+                    if (dbUser.auth && dbUser.auth.google) {
                         if (dbUser.auth.google.id === user.google.id) {
                             return dbUser;
                         }
                     }
-                    if (dbUser.auth.svet) {
+                    if (dbUser.auth && dbUser.auth.svet) {
                         if (dbUser.auth.svet.email.toLowerCase() === user.google.email.toLowerCase()) {
                             var dbUserObj = $firebaseObject(ref.child(dbUser.$id));
                             dbUserObj.$loaded().then(function () {

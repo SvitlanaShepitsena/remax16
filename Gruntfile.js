@@ -656,7 +656,7 @@ module.exports = function (grunt) {
 
         function includeStyleCreateImgFolder() {
             var styleAddition = "@import '../scripts/" + moduleDirectirized + "/styles/" + moduleName + "'";
-            var newMainStyl = addStyleImages("@import 'nib'", styleAddition);
+            var newMainStyl = addStyleImages("", styleAddition);
             if (!_.isUndefined(newMainStyl)) {
                 grunt.file.write(MAINSTYL, newMainStyl);
 

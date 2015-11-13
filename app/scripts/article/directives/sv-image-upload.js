@@ -5,7 +5,7 @@
             return {
                 templateUrl: 'scripts/article/directives/sv-image-upload.html',
                 link: function ($scope, el, attrs) {
-                    var svetPad = el.find('#svetPad');
+                    var textPad = el.find('#textPad');
                     $scope.$watch(function () {
                         return svTextAngular.selected;
                     }, function (newValue, oldValue) {

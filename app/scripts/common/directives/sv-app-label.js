@@ -3,7 +3,7 @@
     angular.module('common')
         .directive('svSvetLabel', function ($state) {
             return {
-                templateUrl: 'scripts/common/directives/sv-svet-label.html',
+                templateUrl: 'scripts/common/directives/sv-app-label.html',
                 scope: {
                     routeName: '@',
                     iconType: '@',

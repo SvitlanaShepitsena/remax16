@@ -17,16 +17,18 @@
 
     <meta name="apple-mobile-web-app-capable" content="yes"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
-    <style> [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak { display: none !important; } </style>
+    <style> [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+        display: none !important;
+    } </style>
     <!-- build:css vendors.css -->
 
     <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
-    <link rel="stylesheet" href="bower_components/angular-toastr/dist/angular-toastr.css" />
-    <link rel="stylesheet" href="bower_components/lumx/dist/lumx.css" />
-    <link rel="stylesheet" href="bower_components/flexslider/flexslider.css" />
-    <link rel="stylesheet" href="bower_components/ng-img-crop/compile/minified/ng-img-crop.css" />
-    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css"/>
+    <link rel="stylesheet" href="bower_components/angular-toastr/dist/angular-toastr.css"/>
+    <link rel="stylesheet" href="bower_components/lumx/dist/lumx.css"/>
+    <link rel="stylesheet" href="bower_components/flexslider/flexslider.css"/>
+    <link rel="stylesheet" href="bower_components/ng-img-crop/compile/minified/ng-img-crop.css"/>
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css"/>
     <!-- endbower -->
     <link rel="stylesheet" href="./bower_components/textAngular/src/textAngular.css" type="text/css"/>
     <!-- endbuild -->
@@ -55,10 +57,9 @@
                 </button>
                 <div flex=""></div>
                 <sv-main-sections-nav></sv-main-sections-nav>
+                <sv-social-top-nav-cell class='ml' hide-gt-md=""></sv-social-top-nav-cell>
                 <!--<g:hangout render="createhangout"></g:hangout>-->
-                <sv-social-top-nav-cell class='ml' hide-gt-md></sv-social-top-nav-cell>
                 <sv-auth-btn class='ml'></sv-auth-btn>
-                <sv-notifications-list style='max-height:30px'></sv-notifications-list>
                 <div show-gt-lg class="ml"></div>
             </md-toolbar>
             <!--flex in this case stretches right sidenav vertically-->
@@ -461,7 +462,6 @@
 <script src="scripts/sections/about/controllers/AboutCtrl.js"></script>
 <script src="scripts/sections/about/controllers/AboutTabContentCtrl.js"></script>
 <script src="scripts/sections/about/controllers/GoogleAnalyticsCtrl.js"></script>
-<script src="scripts/sections/about/directives/sv-about-company.js"></script>
 <script src="scripts/sections/about/directives/sv-top-ru-speaking.js"></script>
 
 <!-- sections.testimonials -->
@@ -484,6 +484,7 @@
 <script src="scripts/sections/header/headerRoutes.js"></script>
 <script src="scripts/sections/header/directives/sv-lang-switch.js"></script>
 <script src="scripts/sections/header/directives/sv-social-top-nav.js"></script>
+<script src="scripts/sections/header/directives/sv-social-top-nav-cell.js"></script>
 
 <!-- sections.home -->
 <script src="scripts/sections/home/controllers/HomeCtrl.js"></script>

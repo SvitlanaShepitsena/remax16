@@ -40,8 +40,6 @@
         .constant('lastEditorPost', {})
         .constant('appNews', {})
         .constant('blogsConst', {})
-        .constant('svetEventsConst', {})
-        .constant('svetPost', {})
         .constant('classified', {})
         .constant('feedback', {})
         .constant('viewModalConst', {})

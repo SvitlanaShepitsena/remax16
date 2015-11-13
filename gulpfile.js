@@ -10,10 +10,14 @@ var _ = require('lodash');
 var $ = require('gulp-load-plugins')({lazy: true});
 var port = process.env.PORT || config.defaultPort;
 var stat = require('./gulp/svstat');
+var material = require('./gulp/custombuild');
+
 gulp.task('help', $.taskListing);
 gulp.task('default', ['help']);
 
 stat.run(gulp,$,_);
+material.run(gulp,$,_);
+
 
 
 

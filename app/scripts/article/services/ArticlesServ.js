@@ -1,14 +1,14 @@
 (function () {
     'use strict';
     angular.module('article')
-        .factory('ArticlesServ', function (NewsTimeSelectorServ, svetNews, $q, url, users, $firebaseObject, $firebaseArray, userAuth) {
+        .factory('ArticlesServ', function (NewsTimeSelectorServ, appNews, $q, url, users, $firebaseObject, $firebaseArray, userAuth) {
             var ref = new Firebase(url + 'blogs');
             var articlesArr = $firebaseArray(ref);
 
             function setPublicNewsLive(articles) {
                 var freshArticles = NewsTimeSelectorServ.select(articles);
                 var publicNews = _.where(freshArticles, {isPublic: true, isBlog: false});
-                svetNews.public = _.sortBy(publicNews, 'newsOrder');
+                appNews.public = _.sortBy(publicNews, 'newsOrder');
             }
 
             function setImgProp(article) {

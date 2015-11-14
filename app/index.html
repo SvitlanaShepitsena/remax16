@@ -23,13 +23,13 @@
     <!-- build:css vendors.css -->
 
     <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/angular-material/angular-material.custom.css" />
-    <link rel="stylesheet" href="bower_components/mdi/css/materialdesignicons.css" />
-    <link rel="stylesheet" href="bower_components/angular-toastr/dist/angular-toastr.css" />
-    <link rel="stylesheet" href="bower_components/lumx/dist/lumx.css" />
-    <link rel="stylesheet" href="bower_components/flexslider/flexslider.css" />
-    <link rel="stylesheet" href="bower_components/ng-img-crop/compile/minified/ng-img-crop.css" />
-    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.custom.css"/>
+    <link rel="stylesheet" href="bower_components/mdi/css/materialdesignicons.css"/>
+    <link rel="stylesheet" href="bower_components/angular-toastr/dist/angular-toastr.css"/>
+    <link rel="stylesheet" href="bower_components/lumx/dist/lumx.css"/>
+    <link rel="stylesheet" href="bower_components/flexslider/flexslider.css"/>
+    <link rel="stylesheet" href="bower_components/ng-img-crop/compile/minified/ng-img-crop.css"/>
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css"/>
     <!-- endbower -->
     <link rel="stylesheet" href="./bower_components/textAngular/src/textAngular.css" type="text/css"/>
     <!-- endbuild -->
@@ -67,11 +67,18 @@
             <md-content layout="row" flex class='sv-paper-main-background'>
                 <md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2" hide-gt-sm=""
                             md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
-                    <md-content layout-padding flex class='sv-paper-main-background'>
-                        <div class="mr ml">
-                            <div class='mb+++'></div>
-                            <sv-contact-address class="mb"></sv-contact-address>
-                        </div>
+                    <md-toolbar class="bgc-blue-600 text-center" layout='row' sv-nav-bar-media layout-align='space-between center'>
+                        <div class='ml tc-white-1'>Find Your Dream Home</div>
+                        <button class='btn btn--m btn--icon btn--white mr' sv-left-click-handler="" hide-gt-md=""
+                                aria-label="close left" class="txt-white sv-md-button">
+                            <i class="mdi mdi-close"></i>
+                        </button>
+                    </md-toolbar>
+                    <md-content flex class='sv-paper-main-background'>
+                        <sv-sidenav-search></sv-sidenav-search>
+                        <div class='mb+++'></div>
+
+                        <sv-contact-address class="mb ml mr"></sv-contact-address>
                     </md-content>
                 </md-sidenav>
                 <!--=VIEWS CONTENT-->
@@ -184,7 +191,7 @@
 <!-- search -->
 
 <script src="scripts/search/searchRoutes.js"></script>
-<script src="scripts/search/directives/sv-sidenav-search.js"></script>
+<script src="scripts/search/controllers/SearchResultsCtrl.js"></script>
 <script src="scripts/search/services/BoundariesServ.js"></script>
 <script src="scripts/search/services/NearestListingsServ.js"></script>
 <script src="scripts/search/directives/sv-auto-complete.js"></script>
@@ -202,7 +209,7 @@
 <script src="scripts/search/services/SearchFilterServ.js"></script>
 <script src="scripts/search/services/SearchSaleServ.js"></script>
 <script src="scripts/search/directives/sv-listing-search-form.js"></script>
-<script src="scripts/search/controllers/SearchResultsCtrl.js"></script>
+<script src="scripts/search/directives/sv-sidenav-search.js"></script>
 
 <!-- ad -->
 <script src="scripts/ad/adRoutes.js"></script>

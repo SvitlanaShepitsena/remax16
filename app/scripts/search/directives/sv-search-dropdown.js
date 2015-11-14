@@ -3,7 +3,7 @@
     angular.module('search')
         .directive('svSearchDropdown', function (QueryServ, $rootScope, homesUrl,
                                                  AgentServ, $location, UrlSeoConvertorServ,
-                                                 FbGenServ, SearchSaleServ, defaultImage, avatarBroker, $state, $mdSidenav) {
+                                                 FbGenServ, SearchSaleServ, defaultImage, $mdMedia, avatarBroker, $state, $mdSidenav) {
             function convertAutoCompletes(autos) {
                 var cities = _.map(autos, function (auto) {
                     var city = auto.$id.trim();
@@ -20,6 +20,10 @@
                 templateUrl: 'scripts/search/directives/sv-search-dropdown.html',
                 scope: {},
                 link: function ($scope, el, attrs) {
+
+
+
+
                     $rootScope.$watch('hmCnt', function (newValue, oldValue) {
                         if (newValue) {
                             $rootScope.cnt = {n: newValue};

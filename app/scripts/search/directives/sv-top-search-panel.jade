@@ -1,6 +1,6 @@
 div(layout='row' layout-align="space-between center" )
-    //div.pt(ng-if='!isBroker && !isBookMarkState' )
-    //    sv-search-dropdown
+    div.pt(ng-if='!isBroker && !isBookMarkState'  hide-sm="")
+        sv-search-dropdown
     sv-profile-title.ml(header-title='My Bookmarks' ng-if='isBookMarkState')
     sv-search-stat
     div.pr(layout='row' layout-align='space-between')

@@ -1,75 +1,76 @@
-form(layout="row" name="searchForm" id="searchForm"  novalidate ng-show='!isBookMarkState')
-    lx-dropdown(position='left' over-toggle="true"  )
-        .card.sv-search-input(layout="row" layout-align="space-between center")
-            button.btn.btn--m.btn--flat.btn--blue.sv-search-button(lx-ripple sv-lx-dropdown)
-                sv-search-input-content
-                i.fa.i.fa.fa-angle-double-down.ml.tc-red-600(style="float:right;margin-top:12px")
-        lx-dropdown-menu.sv-dropdown.bgc-grey-50
-            div(class='pb+ mb')
-                div
-                    .fs-subhead(class='mt+ ml') Location:
-                    div(class="ml mr mt" )
-                        md-autocomplete(class="mb"
-                        md-selected-item="selectedItem"
-                        md-autofocus='true'
-                        ng-keydown='typed()'
-                        sv-auto-complete=''
-                        md-min-length='1'
-                        md-autoselect='true'
-                        md-search-text-change="searchTextChange(query.address)"
-                        md-search-text="query.address"
-                        md-selected-item-change="selectedItemChange(item)"
-                        md-items="item in querySearch(query.address)"
-                        md-item-text="item.display"
-                        placeholder="Street, City or Zip")
-                            md-item-template()
-                                i.fa.fa-map-marker.tc-grey-500.fa-fw.mr
-                                span(md-highlight-text="query.address" md-highlight-flags="^i") {{item.display}}
-                    div(layout='row' layout-align="center center")
-                        .ml(flex="40")
-                            md-input-container(style="margin-top:0px")
-                                label Max Price
-                                input(ng-model='query.maxPrice' name='maxPrice')
-                        div(flex="60")
-                            md-radio-group(ng-model='query.saleRent' class="md-primary")
-                                md-radio-button(style="display:inline-block" value="sale")
-                                    | For Sale
-                                md-radio-button(style="display:inline-block" value="rent" )
-                                    | For Rent
-                div(layout-gt-sm='row' layout-sm="column" )
+div
+    form(layout="row" name="searchForm" id="searchForm"  novalidate ng-show='!isBookMarkState && !sm')
+        lx-dropdown(position='left' over-toggle="true" )
+            .card.sv-search-input(layout="row" layout-align="space-between center")
+                button.btn.btn--m.btn--flat.btn--blue.sv-search-button(lx-ripple sv-lx-dropdown)
+                    sv-search-input-content
+                    i.fa.i.fa.fa-angle-double-down.ml.tc-red-600(style="float:right;margin-top:12px")
+            lx-dropdown-menu.sv-dropdown.bgc-grey-50
+                div(class='pb+ mb')
                     div
-                        .fs-subhead.ml.mr Property Type:
-                        md-radio-group(ng-model='query.type' class="md-primary")
-                            md-radio-button(ng-value='t.$value.toLowerCase()', ng-repeat='t in types')
-                                | {{t.$value}}
-                    div(layout='column')
-                        .fs-subhead.ml.mr Bedrooms:
-                        div.ml
-                            md-checkbox.md-warn.md-align-top-left(ng-checked='exists(0,query.bedrooms)' ng-click='toggle(0,query.bedrooms)')
-                                | Studio
-                                br
-                            md-checkbox.md-warn.md-align-top-left(ng-checked='exists(1,query.bedrooms)' ng-click='toggle(1,query.bedrooms)')
-                                | 1 Bedroom
-                                br
-                            md-checkbox.md-warn.md-align-top-left(ng-checked='exists(2,query.bedrooms)' ng-click='toggle(2,query.bedrooms)')
-                                | 2 Bedrooms
-                                br
-                            md-checkbox.md-warn.md-align-top-left(ng-checked='exists(3,query.bedrooms)' ng-click='toggle(3,query.bedrooms)')
-                                | 3 Bedrooms
-                                br
-                            md-checkbox.md-warn.md-align-top-left(ng-checked='exists(4,query.bedrooms)' ng-click='toggle(4,query.bedrooms)')
-                                | 4 & more
-                                br
-                md-divider.m(ng-show='query.saleRent=="rent"')
-                div(ng-show='query.saleRent=="rent"' layout="row")
-                    .fs-subhead.ml.mr Pets:
-                    md-checkbox.md-warn.md-align-top-left(ng-model='query.cats', aria-label='Checkbox 2', ng-true-value="'yup'", ng-false-value="'nope'")
-                        | Cats
+                        .fs-subhead(class='mt+ ml') Location:
+                        div(class="ml mr mt" )
+                            md-autocomplete(class="mb"
+                            md-selected-item="selectedItem"
+                            md-autofocus='true'
+                            ng-keydown='typed()'
+                            sv-auto-complete=''
+                            md-min-length='1'
+                            md-autoselect='true'
+                            md-search-text-change="searchTextChange(query.address)"
+                            md-search-text="query.address"
+                            md-selected-item-change="selectedItemChange(item)"
+                            md-items="item in querySearch(query.address)"
+                            md-item-text="item.display"
+                            placeholder="Street, City or Zip")
+                                md-item-template()
+                                    i.fa.fa-map-marker.tc-grey-500.fa-fw.mr
+                                    span(md-highlight-text="query.address" md-highlight-flags="^i") {{item.display}}
+                        div(layout='row' layout-align="center center")
+                            .ml(flex="40")
+                                md-input-container(style="margin-top:0px")
+                                    label Max Price
+                                    input(ng-model='query.maxPrice' name='maxPrice')
+                            div(flex="60")
+                                md-radio-group(ng-model='query.saleRent' class="md-primary")
+                                    md-radio-button(style="display:inline-block" value="sale")
+                                        | For Sale
+                                    md-radio-button(style="display:inline-block" value="rent" )
+                                        | For Rent
+                    div(layout-gt-sm='row' layout-sm="column" )
+                        div
+                            .fs-subhead.ml.mr Property Type:
+                            md-radio-group(ng-model='query.type' class="md-primary")
+                                md-radio-button(ng-value='t.$value.toLowerCase()', ng-repeat='t in types')
+                                    | {{t.$value}}
+                        div(layout='column')
+                            .fs-subhead.ml.mr Bedrooms:
+                            div.ml
+                                md-checkbox.md-warn.md-align-top-left(ng-checked='exists(0,query.bedrooms)' ng-click='toggle(0,query.bedrooms)')
+                                    | Studio
+                                    br
+                                md-checkbox.md-warn.md-align-top-left(ng-checked='exists(1,query.bedrooms)' ng-click='toggle(1,query.bedrooms)')
+                                    | 1 Bedroom
+                                    br
+                                md-checkbox.md-warn.md-align-top-left(ng-checked='exists(2,query.bedrooms)' ng-click='toggle(2,query.bedrooms)')
+                                    | 2 Bedrooms
+                                    br
+                                md-checkbox.md-warn.md-align-top-left(ng-checked='exists(3,query.bedrooms)' ng-click='toggle(3,query.bedrooms)')
+                                    | 3 Bedrooms
+                                    br
+                                md-checkbox.md-warn.md-align-top-left(ng-checked='exists(4,query.bedrooms)' ng-click='toggle(4,query.bedrooms)')
+                                    | 4 & more
+                                    br
+                    md-divider.m(ng-show='query.saleRent=="rent"')
+                    div(ng-show='query.saleRent=="rent"' layout="row")
+                        .fs-subhead.ml.mr Pets:
+                        md-checkbox.md-warn.md-align-top-left(ng-model='query.cats', aria-label='Checkbox 2', ng-true-value="'yup'", ng-false-value="'nope'")
+                            | Cats
+                            br
+                        md-checkbox.md-warn.md-align-top-left(ng-model='query.dogs', aria-label='Checkbox 3', ng-true-value="'yup'", ng-false-value="'nope'")
+                            | Dogs
                         br
-                    md-checkbox.md-warn.md-align-top-left(ng-model='query.dogs', aria-label='Checkbox 3', ng-true-value="'yup'", ng-false-value="'nope'")
-                        | Dogs
-                    br
-    button.btn.btn--m.btn--red.btn--raised.bgc-red-700.mb(lx-ripple='' ng-click='runSearch(query)')
-        i.fa.fa-search.fa-fw &nbsp
-        span(hide-sm="") Search
+        button.btn.btn--m.btn--red.btn--raised.bgc-red-700.mb(lx-ripple='' ng-click='runSearch(query)')
+            i.fa.fa-search.fa-fw &nbsp
+            span(hide-sm="") Search
 

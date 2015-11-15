@@ -17,7 +17,6 @@ module.exports = function homeRouter(express) {
             /*create a view-model for fb crawler*/
 
             var rootUrl = (req.protocol || 'http') + '://' + req.get('host');
-            console.log(rootUrl);
             var vm = {
                 rootUrl: rootUrl,
                 title: constants.homePageTitle,
@@ -29,14 +28,14 @@ module.exports = function homeRouter(express) {
                 }
             };
 
-            var postsUrl = 'https://svet.firebaseio.com/articles';
-            console.log('test');
-            firebaseServ.getAll(postsUrl).then(function (news) {
-                console.log(news);
-                vm.homeNews = homepageRenderServ.process(news);
+            var blogsUrl = constants.url+'blogs';
+            firebaseServ.getAll(blogsUrl).then(function (blogs) {
+                console.log(blogs);
+                vm.blogs = homepageRenderServ.process(blogs);
                 res.render('home', {vm: vm});
 
             }, function (Error) {
+                console.log(Error);
 
             });
         } else {

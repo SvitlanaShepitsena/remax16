@@ -1,14 +1,22 @@
 extends layout
+include mixins/article/home-page-news-thumb
+include mixins/article/article-section-thumb
+
 block content
     div(class='row')
-        div.col-xs-offset-3.col-xs-6
+        div.col-xs-offset-4.col-xs-4
             h2 Find your dream home
             br
             hr
     div.row
-        .col-xs-6
-            a(href='/remax-listings/search/homes-for-sale').btn.btn-primary Sale
-        .col-xs-6
+        .col-xs-1.col-xs-offset-5
+            a(href='/remax-listings/search/homes-for-sale').btn.btn-primary.btn-large Sale
+        .col-xs-1
             a(href='/remax-listings/search/homes-for-rent').btn.btn-danger Rent
+    div
+       ul.list-inline
+          each blog in vm.blogs
+              +article-section-thumb(blog)
+
 
 

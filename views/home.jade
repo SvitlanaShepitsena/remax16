@@ -1,13 +1,14 @@
 extends layout
 block content
-    div(class='row mb pt+ sv-margin-reset')
-        div.col-xs-8.sv-padding-reset
-            h2 Main Content
+    div(class='row')
+        div.col-xs-offset-3.col-xs-6
+            h2 Find your dream home
             br
             hr
-            p(class="mt+") At vero eos et accusamus et iusto odio dignissimos ducimk
-        div.col-xs-4.sv-padding-reset
-            div(class='column sv-margin-reset')
-                div.col-xs-12.mb.sv-padding-reset
-                    p Content At vero eos et accusamus et iusto odio dignissimos ducimus
-                div.col-xs-12.mb.sv-padding-reset
+    div.row
+        .col-xs-6
+            a(href='/remax-listings/search/homes-for-sale').btn.btn-primary Sale
+        .col-xs-6
+            a(href='/remax-listings/search/homes-for-rent').btn.btn-danger Rent
+
+

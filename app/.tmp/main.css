@@ -7,6 +7,8 @@
 .flexslider {
   background-color: #eee;
   border: 0px;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
   border-radius: 0px;
 }
 @media screen and (max-width: 780px) {
@@ -84,13 +86,11 @@ md-select-menu md-content {
 }
 .listing-bookmark.ng-hide-add,
 .listing-bookmark.ng-hide-remove {
-  -webkit-transition: 0s linear all;
-          transition: 0s linear all;
+  transition: 0s linear all;
 }
 .listing-bookmark.ng-hide-add-active,
 .listing-bookmark.ng-hide-remove-active {
-  -webkit-transition: 1s linear all;
-          transition: 1s linear all;
+  transition: 1s linear all;
 }
 .listing-bookmark {
   width: 130px;
@@ -533,8 +533,7 @@ md-icon {
   background-image: url("../img/gallery/arrows/prev.png");
   left: 10px;
   opacity: 0.7;
-  -webkit-transition: all 0.2s linear 0s;
-          transition: all 0.2s linear 0s;
+  transition: all 0.2s linear 0s;
 }
 .arrow.prev:hover {
   opacity: 1;
@@ -543,8 +542,7 @@ md-icon {
   background-image: url("../img/gallery/arrows/next.png");
   opacity: 0.7;
   right: 10px;
-  -webkit-transition: all 0.2s linear 0s;
-          transition: all 0.2s linear 0s;
+  transition: all 0.2s linear 0s;
 }
 .arrow.next:hover {
   opacity: 1;
@@ -587,10 +585,12 @@ md-icon {
   margin: 0px auto !important;
   position: relative;
   -webkit-perspective: 1000px;
+  -moz-perspective: 1000px;
   -ms-perspective: 1000px;
   -o-perspective: 1000px;
   perspective: 1000px;
   -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
   -ms-transform-style: preserve-3d;
   -o-transform-style: preserve-3d;
   transform-style: preserve-3d;
@@ -603,10 +603,18 @@ md-icon {
 .slide.ng-hide-add {
   opacity: 1;
   -webkit-transition: 1s linear all;
+  -moz-transition: 1s linear all;
+  -o-transition: 1s linear all;
   transition: 1s linear all;
   -webkit-transform: rotateX(50deg) rotateY(30deg);
+  -moz-transform: rotateX(50deg) rotateY(30deg);
+  -ms-transform: rotateX(50deg) rotateY(30deg);
+  -o-transform: rotateX(50deg) rotateY(30deg);
   transform: rotateX(50deg) rotateY(30deg);
   -webkit-transform-origin: right top 0;
+  -moz-transform-origin: right top 0;
+  -ms-transform-origin: right top 0;
+  -o-transform-origin: right top 0;
   transform-origin: right top 0;
 }
 .slide.ng-hide-add.ng-hide-add-active {
@@ -614,6 +622,8 @@ md-icon {
 }
 .slide.ng-hide-remove {
   -webkit-transition: 1s linear all;
+  -moz-transition: 1s linear all;
+  -o-transition: 1s linear all;
   transition: 1s linear all;
   display: block !important;
   opacity: 0;
@@ -656,8 +666,7 @@ md-icon {
   }
 }
 .logo-home {
-  -webkit-transition: all 0.5;
-          transition: all 0.5;
+  transition: all 0.5;
 }
 @media screen and (min-width: 650px) {
   .logo-home {
@@ -884,8 +893,7 @@ iframe {
   display: block;
   -webkit-transform-style: preserve-3d;
   -o-transform: preserve-3d;
-  -webkit-transform-style: preserve-3d;
-          transform-style: preserve-3d;
+  transform-style: preserve-3d;
   -webkit-font-smoothing: antialiased;
   -webkit-tap-highlight-color: transparent;
   -webkit-perspective: 0;
@@ -1068,7 +1076,7 @@ body {
   color: rgba(0,0,0,0.259);
   font-weight: 500;
 }
-text-decoration none,
+text-decoration none !important,
 display inline-block,
 .mdc-img-sepia {
   -webkit-filter: sepia(1);
@@ -1202,7 +1210,7 @@ md-sidenav.md-locked-open {
     max-width: 310px !important;
   }
 }
-@media screen and (max-width 992px) {
+@media screen and (max-width: 992px) {
   .sv-width {
     width: 100px;
   }
@@ -1210,7 +1218,7 @@ md-sidenav.md-locked-open {
 .toolbar-svet {
   height: 80px !important;
 }
-@media screen and (min-width 992px) {
+@media screen and (min-width: 992px) {
   .toolbar-svet {
     height: 72px;
   }
@@ -1453,8 +1461,7 @@ md-sidenav.md-locked-open {
   background: #ff8a80;
 }
 .gridListdemoBasicUsage md-grid-tile {
-  -webkit-transition: all 400ms ease-out 50ms;
-          transition: all 400ms ease-out 50ms;
+  transition: all 400ms ease-out 50ms;
 }
 /*modal*/
 @media screen and (min-width: 600px) {

@@ -12,22 +12,8 @@ html(style="height:100%")
             meta(property='og:image' content='#{vm.og.image}')
         if vm !== undefined && vm.og !== undefined && vm.og.description !== undefined
             meta(property='og:description' content='#{vm.og.description}')
-        link(rel='stylesheet' href='/vendors.css')
+        link(rel='stylesheet' href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css')
         link(rel='stylesheet' href='/main.css')
-    body(style="font-family:'Roboto', sans-serif")
-        div(class='column sv-paper-main-background')
-            .bgc-svet-700
-                include header/header-social
-            .card.sv-paper-toolbar-background
-                include header/header
-            div(style='width:1000px;margin:0px auto;height:100%;min-height:1200px' )
-                div(class='row' style="margin:0px")
-                    .col-xs-10
-                        .row
-                            .col-xs-3(style="padding:0px")
-                                .pt.pb
-                                    include menu/left-nav
-                            .col-xs-9
-                                block content
-                    .col-xs-2(style="padding:0px")
-                        include menu/right-nav
+    body(style="font-family:'Roboto', sans-serif" ).container
+        include header/header
+

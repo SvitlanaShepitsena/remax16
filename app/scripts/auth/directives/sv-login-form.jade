@@ -1,15 +1,11 @@
-.card(class='mb')
-    .bgc-grey-200(layout-gt-sm='row' layout-sm="column" layout-align-gt-sm='space-between center' class='pt+ pb+ pl pr')
-        .fs-title.mb.tc-grey-700
-            i.mdi.mdi-account &nbsp
-            | Log In
-        sv-form-social-buttons
-    div(class='pl pr' layout-gt-sm="row" layout-sm="column" )
-        div(flex="" flex-order-sm="2")
-            .fs-title.mt.tc-blue-600
-                i.fa.fa-key.fa-fw
-                span.ml Log in to your account:
-            form.mt(name="loginForm"  novalidate sv-form-val)
+div(class='mb')
+    div(class='' layout-gt-sm="row" layout-sm="column" )
+        .card(flex="" class='m' flex-order-sm="2")
+            .bgc-grey-200(layout-gt-sm='row' layout-sm="column" layout-align-gt-sm='space-between center' class='pt+ pb+ pl pr')
+                .fs-title.tc-blue-700
+                    i.fa.fa-lock.fa-fw.tc-red-600
+                    span.ml Log In to your Account:
+            form.m.p(name="loginForm"  novalidate sv-form-val)
                 md-input-container(class='')
                     label Email
                     input(name="email" type='text', ng-model='user.email' required)
@@ -20,14 +16,20 @@
                     md-checkbox(ng-model='user.subscriptions' aria-label='terms')
                     span.dispaly-block.fs-body-2(style='border-bottom: #393939 1px dotted; line-height:14px; cursor:pointer') I would like to receive weekly updates from {{companyName}}
                 div(layout='row' layout-align-sm="space-between center")
-                    div(class='m')
-                        button.btn.btn--s.btn--raised.btn--blue.bgc-blue-A200(lx-ripple ng-click='signIn(user.email,user.password)' id="appLoginBtn")
-                            i.mdi.mdi-login &nbsp
-                            | Log In
-                    div(class='m')
-                        sv-forgot-pass
-        div(flex="" class='pl+')
-            sv-fb-google-rules
+                    button.btn.btn--m.btn--raised.btn--blue.bgc-blue-600(lx-ripple ng-click='signIn(user.email,user.password)' id="appLoginBtn")
+                        i.mdi.mdi-login &nbsp
+                        | Log In
+                    sv-forgot-pass.m
+        .card(flex="" class='m')
+            .bgc-grey-200(layout-gt-sm='row' layout-sm="column" layout-align-gt-sm='space-between center' class='pt+ pb+ pl pr')
+                .fs-title.tc-blue-700
+                    i.fa.fa-user.tc-red-600 &nbsp
+                    span Log In
+                    span.ml with Social Media
+                    div.mb(hide-gt-sm="")
+                sv-form-social-buttons
+            .m.p
+                sv-fb-google-rules
     div.text-center.mt.bgc-grey-100.pb.pt(layout="row" layout-align="center center")
         span.fs-subhead.tc-grey-700 Don't have an account?
         a.btn.btn--s.btn--white.btn--raised.tc-red-600.m(lx-ripple='' ui-sref='app.sign-up') Please Sign Up

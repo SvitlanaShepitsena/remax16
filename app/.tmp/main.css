@@ -633,6 +633,7 @@ md-icon {
   opacity: 1;
 }
 .main-nav-toolbar {
+  background-color: #1e88e5 !important;
   padding: 0px;
   border-radius: 0px;
   height: 68px;
@@ -659,7 +660,7 @@ md-icon {
 }
 @media screen and (max-width: 599px) {
   .logo {
-    left: 40px;
+    left: 44px;
     width: 54px;
     height: 54px;
     background-size: 40px 40px;
@@ -668,7 +669,7 @@ md-icon {
 .logo-home {
   transition: all 0.5;
 }
-@media screen and (min-width: 650px) {
+@media screen and (max-width: 650px) {
   .logo-home {
     left: 8px !important;
     top: 8px !important;
@@ -763,7 +764,7 @@ md-icon {
   border-radius: 0px !important;
 }
 .nav-link-active {
-  background-color: #1976d2 !important;
+  background-color: #2196f3 !important;
 }
 .link-active-blue {
   color: #1976d2 !important;

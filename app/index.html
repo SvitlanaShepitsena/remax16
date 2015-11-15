@@ -51,11 +51,15 @@
         <!--layout fill in this case stretches main content horizontally not to get gap on the left-->
         <md-content layout="column" layout-fill style="margin:0px">
             <!--Top Toolbar-->
-            <md-toolbar class='main-nav-toolbar' layout="row" class="bgc-blue-700 card" sv-nav-bar-media
+            <md-toolbar class='main-nav-toolbar' layout="row" class=" card" sv-nav-bar-media
                         layout-align="space-between center">
-                <button class='btn btn--xl btn--icon' style="width:36px"
-                        hide-gt-sm sv-left-click-handler="" aria-label="Show User List">
-                    <md-icon md-svg-icon="sv-menu"></md-icon>
+                <!--<button class='btn btn&#45;&#45;xl btn&#45;&#45;icon' style="width:36px"-->
+                <!--hide-gt-sm >-->
+                <!--<md-icon md-svg-icon="sv-menu"></md-icon>-->
+                <!--</button>-->
+                <button class='ml btn btn--m btn--icon btn--white ' hide-gt-sm="" lx-ripple="" sv-left-click-handler=""
+                        aria-label="Show User List">
+                    <i class='fa fa-search mr'></i>
                 </button>
                 <div flex=""></div>
                 <sv-main-sections-nav></sv-main-sections-nav>

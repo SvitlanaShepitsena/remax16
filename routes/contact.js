@@ -18,9 +18,12 @@ module.exports = function contactUs(express) {
             var vm = {
                 rootUrl: rootUrl,
                 title: constants.contactPageTitle,
+                image: 'https://s3-us-west-2.amazonaws.com/remax1stclass/company-logo.png',
                 og: {
                     title: constants.contactPageTitle,
+                    image: 'https://s3-us-west-2.amazonaws.com/remax1stclass/company-logo.png',
                     description: constants.contactPageDescription,
+                    url: rootUrl
                 }
             };
 
@@ -32,7 +35,7 @@ module.exports = function contactUs(express) {
     });
 
     /*Redirect user to AngularJs App*/
-    var appFolder =require('./dirServ')();
+    var appFolder = require('./dirServ')();
     contactUsRouter.use(express.static(appFolder));
 
     contactUsRouter.get('/info', function (req, res) {

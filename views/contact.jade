@@ -1,7 +1,16 @@
 extends layout
 
 block content
-    .row
-        div(class='p+ col-xs-8 col-xs-offset-2')
-            include ../app/scripts/sections/contact/directives/sv-contact-address
+    .row(style="margin-top:8px")
+        div(class='p+ col-sm-8  col-xs-12 ')
+            .sv-iframe-responsive-wrap.pt
+                iframe.sv-iframe-responsive(src="https://www.google.com/maps/d/embed?mid=zdTHzl0THQeM.kIf77Vwre964" width="640" height="680")
+        div(class='p+ col-sm-4 col-xs-12')
+            h2 Re/Max 1st Class
+            ul.list-unstyled
+                li 4023 W Church St. Chicago IL 60076
+                li Tel: (847) 674-9797
+                li Fax: (847) 674-0411
+                li remax1stclass@gmail.com
+            include ../app/scripts/sections/contact/directives/sv-contact-us-form
 

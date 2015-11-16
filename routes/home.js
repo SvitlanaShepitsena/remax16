@@ -28,7 +28,7 @@ module.exports = function homeRouter(express) {
                 }
             };
 
-            var blogsUrl = constants.url+'blogs';
+            var blogsUrl = constants.url + 'blogs';
             firebaseServ.getAll(blogsUrl).then(function (blogs) {
                 console.log(blogs);
                 vm.blogs = homepageRenderServ.process(blogs);
@@ -46,7 +46,7 @@ module.exports = function homeRouter(express) {
 
     /*Redirect user to AngularJs App*/
 
-    var appFolder =require('./dirServ')();
+    var appFolder = require('./dirServ')();
     console.log(appFolder);
     homeRouter.use(express.static(appFolder));
 

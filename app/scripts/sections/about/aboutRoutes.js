@@ -6,14 +6,9 @@
             $stateProvider
 
                 .state("app.about", {
-                    abstract: true,
-                    url: "/about",
+                    url: "/about-remax-1st-class",
                     controller: "AboutCtrl",
                     templateUrl: "scripts/sections/about/views/aboutCtrl.html"
-                })
-                .state("app.about.about-tab-content", {
-                    url: "/remax-1st-class",
-                    templateUrl: "scripts/sections/about/views/about-tab-contentCtrl.html"
                 })
                 .state("app.about.google-analytics", {
                     url: "/google-analytics",

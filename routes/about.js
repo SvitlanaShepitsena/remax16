@@ -6,9 +6,13 @@ module.exports = function aboutUs(express) {
 
     var aboutUsRouter = express.Router();
 
-    aboutUsRouter.get('/', function (req, res, next) {
+    aboutUsRouter.get('/:aboutContent', function (req, res, next) {
 
         var userAgent = req.get('user-agent');
+
+        var aboutContent = req.params.aboutContent;
+
+        var fullUrl = (req.protocol || 'http') + '://' + req.get('host') + req.originalUrl;
 
         if (userAgentServ.amIBot(userAgent)) {
 
@@ -20,8 +24,8 @@ module.exports = function aboutUs(express) {
                 og: {
                     title: constants.aboutPageTitle,
                     description: constants.aboutPageDescription,
-                    image: 'https://s3-us-west-2.amazonaws.com/svet.com/home/about-us/aboutus_2-bw.jpg',
-                    url: rootUrl
+                    image: 'https://s3-us-west-2.amazonaws.com/remax1stclass/company-logo.png',
+                    url: fullUrl
                 }
             };
             res.render('about', {vm: vm});
@@ -31,7 +35,7 @@ module.exports = function aboutUs(express) {
     });
 
     /*Redirect user to AngularJs App*/
-    var appFolder =require('./dirServ')();
+    var appFolder = require('./dirServ')();
     aboutUsRouter.use(express.static(appFolder));
 
     aboutUsRouter.get('/:aboutContent?', function (req, res) {

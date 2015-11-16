@@ -13,9 +13,11 @@ html(style="height:100%")
         if vm !== undefined && vm.og !== undefined && vm.og.description !== undefined
             meta(property='og:description' content='#{vm.og.description}')
         link(rel='stylesheet' href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css')
-        link(rel='stylesheet' href='/main.css')
     body(style="font-family:'Roboto', sans-serif" ).container
         include header/header
         div
             block content
+
+        include footer/footer
+
 

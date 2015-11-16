@@ -6,14 +6,9 @@ module.exports = function aboutUs(express) {
 
     var aboutUsRouter = express.Router();
 
-    aboutUsRouter.get('/:aboutContent', function (req, res, next) {
+    aboutUsRouter.get('/', function (req, res, next) {
 
         var userAgent = req.get('user-agent');
-
-        var aboutContent = req.params.aboutContent;
-
-        var fullUrl = (req.protocol || 'http') + '://' + req.get('host') + req.originalUrl;
-
         if (userAgentServ.amIBot(userAgent)) {
 
             var rootUrl = (req.protocol || 'http') + '://' + req.get('host');
@@ -25,7 +20,7 @@ module.exports = function aboutUs(express) {
                     title: constants.aboutPageTitle,
                     description: constants.aboutPageDescription,
                     image: 'https://s3-us-west-2.amazonaws.com/remax1stclass/company-logo.png',
-                    url: fullUrl
+                    url: rootUrl
                 }
             };
             res.render('about', {vm: vm});
@@ -38,7 +33,7 @@ module.exports = function aboutUs(express) {
     var appFolder = require('./dirServ')();
     aboutUsRouter.use(express.static(appFolder));
 
-    aboutUsRouter.get('/:aboutContent?', function (req, res) {
+    aboutUsRouter.get('/info', function (req, res) {
         res.sendFile('index.html', {root: appFolder});
     });
     return aboutUsRouter;

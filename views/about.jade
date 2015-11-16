@@ -1,11 +1,10 @@
 extends layout
-include mixins/about-company/about-company-tab-content
-
 
 block content
     div(class='p+')
-        h1 About Us
+        h1 Why Re/Max 1st Class Realty is worth to work with:
         br
         hr
     div(class='mb+')
-        +about-company-tab-content
+        include ../app/scripts/sections/about/directives/sv-about-company
+

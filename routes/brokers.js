@@ -21,7 +21,7 @@ module.exports = function brokers(express) {
                 defAvatar: constants.defaultBrokerIcon,
                 companyPhone: constants.companyPhone,
                 companyFax: constants.companyFax,
-                defaultBrokerTitle: constants.defaultBrokerTitle,
+                dTitle: constants.defaultBrokerTitle,
                 og: {
                     title: constants.brokersPageTitle,
                     description: constants.brokersPageDescription,

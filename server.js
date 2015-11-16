@@ -35,8 +35,7 @@ var homeRouter = require('./routes/home')(express);
 var articlesRouter = require('./routes/articles')(express);
 var sectionsRouter = require('./routes/sections')(express);
 var brokerRouter = require('./routes/broker')(express);
-var brokersRouter = require('./routes/broker' +
-    's')(express);
+var brokersRouter = require('./routes/brokers')(express);
 var contactUsRouter = require('./routes/contact')(express);
 var aboutUsRouter = require('./routes/about')(express);
 

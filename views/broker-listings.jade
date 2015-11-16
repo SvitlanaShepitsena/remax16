@@ -1,0 +1,10 @@
+extends layout
+include mixins/brokers/one-broker-listings
+
+
+block content
+    div(class='p+')
+        if vm.broker !== undefined
+            +one-broker-listings(vm.broker,vm.defAvatar, vm.companyPhone, vm.companyFax, vm.dTitle)
+
+

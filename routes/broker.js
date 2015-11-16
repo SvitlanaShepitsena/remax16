@@ -8,9 +8,10 @@ module.exports = function brokers(express) {
 
     var brokerRouter = express.Router();
 
-    brokerRouter.get('/:brokerId/profile', function (req, res, next) {
+    brokerRouter.get('/:brokerId/:param', function (req, res, next) {
         var brokerId = req.params.brokerId;
-        console.log('we are in broker');
+        var param = req.params.param;
+        console.log(brokerId);
 
         var userAgent = req.get('user-agent');
         if (userAgentServ.amIBot(userAgent)) {
@@ -23,6 +24,7 @@ module.exports = function brokers(express) {
                 defAvatar: constants.defaultBrokerIcon,
                 companyPhone: constants.companyPhone,
                 companyFax: constants.companyFax,
+                dTitle: constants.defaultBrokerTitle,
                 og: {
                     title: constants.brokersPageTitle,
                     description: constants.brokersPageDescription,
@@ -37,17 +39,30 @@ module.exports = function brokers(express) {
             firebaseServ.getAll(brokerUrl).then(function (broker) {
                 var brokerHomes = [];
                 firebaseServ.getAll(homesSaleUrl).then(function (homes) {
-
-                    for (var i = 0; i < homes.length; i++) {
-                        var home = homes[i];
-                        if (home.brokerId === brokerId) {
+                    //console.log(homes);
+                    for (var mls in homes) {
+                        var home = homes[mls];
+                        console.log(home);
+                        if (home.agent == brokerId) {
                             brokerHomes.push(home)
                         }
                     }
                     broker.listings = brokerHomes;
                     vm.broker = broker;
+                    console.log(brokerHomes);
+                    switch (param) {
+                        case 'profile':
+                            res.render('broker-profile', {vm: vm});
+                            break;
+                        case 'listings':
+                            res.render('broker-listings', {vm: vm});
+                            break;
 
-                    res.render('broker', {vm: vm});
+                        default:
+                            res.render('broker-profile', {vm: vm});
+                    }
+                    if (param == 'profile') {
+                    }
 
                 }, function (Error) {
                     console.log(Error);

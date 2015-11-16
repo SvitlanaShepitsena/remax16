@@ -34,7 +34,9 @@ var wwwRedirect = require('./routes/wwwRedirect');
 var homeRouter = require('./routes/home')(express);
 var articlesRouter = require('./routes/articles')(express);
 var sectionsRouter = require('./routes/sections')(express);
-var testimonialsRouter = require('./routes/testimonials')(express);
+var brokerRouter = require('./routes/broker')(express);
+var brokersRouter = require('./routes/broker' +
+    's')(express);
 var contactUsRouter = require('./routes/contact')(express);
 var aboutUsRouter = require('./routes/about')(express);
 
@@ -43,10 +45,11 @@ app.use('/email-confirmation-1stclass', emailConfirmationRouter);
 app.all(/.*/, wwwRedirect);
 app.use('/broker-thumb', uploadRouter);
 app.use('/articles', articlesRouter);
-app.use('/testimonials', testimonialsRouter);
 app.use('/sections', sectionsRouter);
 app.use('/contact', contactUsRouter);
 app.use('/about', aboutUsRouter);
+app.use('/brokers', brokerRouter);
+app.use('/brokers', brokersRouter);
 app.use('/', homeRouter);
 //// Transfer any unrecognized route to Angular
 //var appFolder = path.join(__dirname, 'build');
@@ -55,7 +58,7 @@ var appFolder = require('./routes/dirServ')();
 app.use(express.static(appFolder));
 
 app.get('/*', function (req, res) {
-	res.sendFile('index.html', {root: appFolder});
+    res.sendFile('index.html', {root: appFolder});
 });
 process.env.NODE_ENV = 'dev';
 
@@ -63,6 +66,6 @@ process.env.NODE_ENV = 'dev';
 var port = 80;
 var port = process.platform === 'win32' ? 5000 : 80;
 app.listen(port, function () {
-	console.log('listen on port ' + port);
+    console.log('listen on port ' + port);
 });
 module.exports = app;

@@ -7,7 +7,7 @@ module.exports = function (startDir) {
     if (!(user === 'ec2-user' || user === 'root')) {
         return appRoot + '/build';
         //return appRoot + '/app';
-} else {
+    } else {
         return appRoot + '/build';
     }
 };

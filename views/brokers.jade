@@ -1,0 +1,14 @@
+extends layout
+include mixins/brokers/one-broker
+
+
+block content
+    div(class='p+')
+        h2 Brokers
+        if vm.brokers !== undefined
+            .row
+                each broker in vm.brokers
+                    .col-md-4.col-sm-6.col-xs-12
+                        +one-broker(broker,vm.defAvatar, vm.companyPhone)
+
+

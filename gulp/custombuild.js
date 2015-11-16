@@ -324,7 +324,7 @@ select, button, textarea, input {
         return gulp.src(modules, {cwd: 'app/bower_components/'})
             .pipe($.concat({path: 'angular-material.custom.css', cwd: ''}))
             .pipe($.insert.prepend(boilerplate))
-            .pipe(gulp.dest(angularMatPath),{overwrite:true});
+            .pipe(gulp.dest(angularMatPath), {overwrite: true});
     });
 
 

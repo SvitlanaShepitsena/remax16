@@ -1,0 +1,12 @@
+mixin one-broker(broker,avatar,phone)
+    a(href='brokers/#{broker.id}/profile')
+        .row.thumbnail(style="margin:4px")
+            div(class='col-sm-4')
+                img.thumbnail(src="#{broker.pic || avatar}" style="width:80px;height:auto")
+            div(class='col-sm-8')
+                h3 !{broker.fName} !{broker.lName}
+                h4 Active Listings: !{broker.countSale}
+                h4 Phone: !{phone}
+                button.btn.btn-primary
+                    span.ml.tc-blue-600 View Profile
+

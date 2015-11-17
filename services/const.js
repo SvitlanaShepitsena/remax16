@@ -4,8 +4,8 @@ var titleArray = new Array(5);
 titleArray['kohl2015'] = "SVET Annual Family Event at KOHL CHILDREN’S MUSEUM";
 
 module.exports = {
-    url: 'https://remax1stclass.com/',
-    companyWebsite: 'http://remax1stclass.com/',
+    url: 'https://remax1stclass.firebaseio.com/',
+    companyWebsite: 'http://www.remax1stclass.com/',
     companyStreetAddress: '4023 W. Church St.',
     companyCity: 'Chicago',
     defaultBrokerTitle: 'Real Estate Agent',

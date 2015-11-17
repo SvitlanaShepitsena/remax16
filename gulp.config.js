@@ -21,7 +21,7 @@ module.exports = function () {
         scripts:scripts,
         client: clientApp,
         css: temp + 'main.css',
-        fonts: ['./app/bower_components/font-awesome/fonts/**/*.*','./app/bower_components/mdi/fonts/**/*.*'],
+        fonts: ['./app/bower_components/font-awesome/fonts/**/*.*','./app/bower_components/mdi/fonts/**/*.*','./app/bower_components/flexslider/fonts/**/*.*',],
         html: clientApp + '**/*.html',
         htmltemplates: clientApp + 'scripts/**/*.html',
         images: clientApp + 'img/**/*.*',

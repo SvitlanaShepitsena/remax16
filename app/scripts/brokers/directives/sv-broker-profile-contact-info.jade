@@ -1,5 +1,5 @@
 .card(layout='column')
-    div(layout-gt-sm='row' layout-sm="column" layout-align-sm="center center")
+    div(layout-gt-sm='row' layout-sm="column" layout-align-sm="center center" layout='wrap')
         div(layout-gt-sm="row" layout-sm="column" layout-align-sm="center center" flex-gt-sm="60")
             .bgc-grey-300
                 .p.btn-wrapper
@@ -77,6 +77,7 @@
                         i.mdi.mdi-deskphone &nbsp
                         span Fax: &nbsp
                     span.tc-grey-800 {{companyFax}}
+    sv-default-phone
     div(layout-gt-sm='row' layout-sm="column")
         md-divider.mt.mb
         h3.m.tc-grey-700.fw-500(ng-if='broker.moto' style="font-style:italic") {{broker.moto}}

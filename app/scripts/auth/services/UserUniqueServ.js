@@ -29,12 +29,12 @@
             function findForFacebook(user, dbUsers) {
                 for (var i = 0; i < dbUsers.length; i++) {
                     var dbUser = dbUsers[i];
-                    if (dbUser.auth.facebook) {
+                    if (dbUser.auth && dbUser.auth.facebook) {
                         if (dbUser.auth.facebook.id === user.facebook.id) {
                             return dbUser;
                         }
                     }
-                    if (dbUser.auth.svet) {
+                    if (dbUser.auth && dbUser.auth.svet) {
                         if (dbUser.auth.svet.email.toLowerCase() === user.facebook.email.toLowerCase()) {
                             var dbUserObj = $firebaseObject(ref.child(dbUser.$id));
                             dbUserObj.$loaded().then(function () {

@@ -1,8 +1,5 @@
 'use strict'
 
-var titleArray = new Array(5);
-titleArray['kohl2015'] = "SVET Annual Family Event at KOHL CHILDREN’S MUSEUM";
-
 module.exports = {
     url: 'https://remax1stclass.com/',
     companyWebsite: 'http://remax1stclass.com/',
@@ -18,7 +15,6 @@ module.exports = {
     defaultBrokerIcon: 'https://s3-us-west-2.amazonaws.com/remax1stclass/brokers/icons/broker.png',
     defaultThumb: 'https://s3-us-west-2.amazonaws.com/remax1stclass/logos/remax-transparent-logo-thumb.png',
     defaultTransparentThumb: 'https://s3-us-west-2.amazonaws.com/remax1stclass/logos/remax-logo-thumb.png',
-    titles: titleArray,
     /*home.js*/
     homePageTitle: 'Homes For Sale, Apartments For Rent Remax Skokie, Niles, Evanston, Morton Grove',
     homePageDescription: 'Re/max 1st Class Realty is a Real Estate Company located in Skokie, IL. We offer a comprehensive service in real estate. We can help to buy, sell or manage residential property, assist in finding the best mortgage conditions as well as find professional attorneys to get all paper prepared. We have successful experience in short sales and always have a great investment opportunities. Our main price range is from 35k till 500k, though we also have experience and listings in luxury market.',

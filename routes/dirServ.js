@@ -11,5 +11,3 @@ module.exports = function (startDir) {
         return appRoot + '/build';
     }
 };
-
-

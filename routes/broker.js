@@ -37,14 +37,12 @@ module.exports = function brokers(express) {
             var brokerUrl = constants.url + 'homes/agents/' + brokerId;
             var homesSaleUrl = constants.url + 'homes/sale';
             firebaseServ.getAll(brokerUrl).then(function (broker) {
-                console.log(broker);
                 broker.id = brokerId;
                 var brokerHomes = [];
                 firebaseServ.getAll(homesSaleUrl).then(function (homes) {
                     //console.log(homes);
                     for (var mls in homes) {
                         var home = homes[mls];
-                        console.log(home);
                         if (home.agent == brokerId) {
                             brokerHomes.push(home)
                         }
@@ -60,7 +58,14 @@ module.exports = function brokers(express) {
                             res.render('broker-listings', {vm: vm});
                             break;
                         case 'blogs':
+                            firebaseServ.getAllFilter(constants.url+'blog', function (array) {
+                                return _.where(array,{brokerId:brokerId});
+
+                            }).then(function (brokerBlogs) {
+                                console.log(brokerBlogs);
+                                vm.broker.blogs=brokerBlogs
                             res.render('broker-blogs', {vm: vm});
+                            });
                             break;
                         case 'reviews':
                             res.render('broker-reviews', {vm: vm});

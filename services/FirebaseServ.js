@@ -17,6 +17,21 @@ module.exports = {
         );
         return deferred.promise;
     },
+    getAllFilter: function (url, filter) {
+
+        var deferred = q.defer();
+        var ref = new Firebase(url)
+
+        ref.on("value", function (snapshot) {
+                var data = snapshot.val();
+                deferred.resolve(filter(data));
+            },
+            function (Error) {
+                deferred.reject(Error);
+            }
+        );
+        return deferred.promise;
+    },
     getItem: function (url) {
 
         var deferred = q.defer();

@@ -1,0 +1,11 @@
+extends layout
+
+block content
+    div(class='p+')
+        h1 Remax Blog
+        br
+        hr
+    div(class='mb+')
+        if (vm.blog !== undefined)
+            div= vm.blog.title
+

@@ -8,6 +8,7 @@ block content
         if vm.broker !== undefined
             +broker-contact-info(vm.broker,vm.defAvatar, vm.companyPhone, vm.companyFax, vm.dTitle)
             include brokers/broker-profile-nav
-            +one-broker-blogs(vm.broker,vm.defAvatar)
+            each blog in vm.broker.blogs
+                +one-broker-blogs(blog)
 
 

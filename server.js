@@ -48,7 +48,7 @@ app.use('/broker-thumb', uploadRouter);
 app.use('/articles', articlesRouter);
 app.use('/sections', sectionsRouter);
 app.use('/contact', contactUsRouter);
-app.use('/terms', termsRouter);
+app.use('/terms-of-use', termsRouter);
 app.use('/search', searchRouter);
 app.use('/about', aboutUsRouter);
 app.use('/brokers', brokerRouter);

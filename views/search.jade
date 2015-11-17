@@ -6,4 +6,6 @@ block content
         h1 Listings Search
         br
         hr
+        if (vm.homes != undefined)
+            +listings-list(vm.homes,vm.homeAvatar)
 

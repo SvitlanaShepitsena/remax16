@@ -12,23 +12,22 @@
                     if (!userAuth.profile || !brokerId === userAuth.profile.brokerId) {
                         return;
                     }
-                    $scope.phones = [{name: 'Office', value: '(847) 674-9797'}];
+                    var phones = [{name: 'Office', value: '(847) 674-9797'}];
                     FbGenServ.getObject(url + 'homes/agents/' + userAuth.profile.brokerId).$loaded().then(function (broker) {
                         $scope.broker = broker;
 
                         _.forOwn(broker, function (val, prop) {
-                            console.log(prop);
-                            //if (prop.indexOf('phone') > -1) {
-                            //    var phName = _.snakeCase(prop).split('_')[0];
-                            //    $scope.phones.push({
-                            //        name: _.capitalize(phName),
-                            //        value: val
-                            //    });
-                            //    console.log(phone);
-                            //}
+                            if (prop.indexOf('phone') > -1) {
+                                var phName = _.snakeCase(prop).split('_')[0];
+                                phones.push({
+                                    name: _.capitalize(phName),
+                                    value: val
+                                });
+                            }
 
                         })
-                        console.log($scope.phones);
+                        console.log(phones);
+                        $scope.phones = phones;
 
                     });
 

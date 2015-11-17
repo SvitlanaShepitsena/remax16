@@ -24,11 +24,12 @@ module.exports = function homeRouter(express) {
                     title: constants.homePageTitle,
                     description: constants.homePageDescription,
                     image: rootUrl + '/img/logo/company-logo-fb.jpg',
-                    url: constants.url
+                    url: constants.companyWebsite
                 }
             };
+            console.log(vm);
 
-            var blogsUrl = constants.url + 'blogs';
+            var blogsUrl = url + 'blogs';
             firebaseServ.getAll(blogsUrl).then(function (blogs) {
                 console.log(blogs);
                 vm.blogs = homepageRenderServ.process(blogs);

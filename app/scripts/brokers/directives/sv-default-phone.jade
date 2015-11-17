@@ -1,7 +1,6 @@
-div(ng-if='phones')
+div
     h3 Best Contact phone
-    pre {{phones}}
-    md-radio-group(ng-model='broker.bestPhone')
+    md-radio-group(ng-model='bestPhone')
         md-radio-button(ng-repeat='p in phones' ng-value='p.name')
             | {{p.value}}
 

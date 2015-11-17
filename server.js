@@ -37,6 +37,7 @@ var sectionsRouter = require('./routes/sections')(express);
 var brokerRouter = require('./routes/broker')(express);
 var brokersRouter = require('./routes/brokers')(express);
 var contactUsRouter = require('./routes/contact')(express);
+var searchUsRouter = require('./routes/search')(express);
 var aboutUsRouter = require('./routes/about')(express);
 
 // --- Routes ---
@@ -46,6 +47,7 @@ app.use('/broker-thumb', uploadRouter);
 app.use('/articles', articlesRouter);
 app.use('/sections', sectionsRouter);
 app.use('/contact', contactUsRouter);
+app.use('/search', searchRouter);
 app.use('/about', aboutUsRouter);
 app.use('/brokers', brokerRouter);
 app.use('/brokers', brokersRouter);

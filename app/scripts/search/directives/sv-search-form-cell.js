@@ -61,9 +61,9 @@
                     $scope.runSearch = function (query) {
                         var path = UrlSeoConvertorServ.parse(query);
                         if (path.length) {
-                            $state.go('app.remax-listings.search', {params: path});
+                            $state.go('app.search', {params: path});
                         } else {
-                            $state.go('app.remax-listings.search', {params: 'all-homes-for-sale'});
+                            $state.go('app.search', {params: 'all-homes-for-sale'});
                         }
                     };
 

@@ -10,18 +10,18 @@
                     templateUrl: "scripts/listings/views/listingsCtrl.html"
                 })
 
-                .state("app.remax-listings.search", {
+                .state("app.search", {
                     url: "/search/*params",
                     controller: "SearchResultsCtrl",
                     templateUrl: "scripts/search/views/search-resultsCtrl.html"
                 })
 
-                .state("app.remax-listings.one-listing-sale", {
+                .state("app.one-listing-sale", {
                     url: "/sale/:mls",
                     controller: "OneRemaxListingCtrl",
                     templateUrl: "scripts/listings/views/one-remax-listingCtrl.html"
                 })
-                .state("app.remax-listings.one-listing-rent", {
+                .state("app.one-listing-rent", {
                     url: "/rent/:mls",
                     controller: "OneRemaxListingCtrl",
                     templateUrl: "scripts/listings/views/one-remax-listingCtrl.html"

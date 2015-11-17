@@ -17,9 +17,10 @@
                             ProfileServ.getProfile(authData).then(function (profile) {
                                 if (profile.role == 'broker') {
                                     GetAgentsInfoServ.getByEmail(profile.email).then(function (broker) {
-                                        profile.brokerId = broker.$id;
-                                        profile.brokerPic = broker.pic;
-
+                                        if (broker) {
+                                            profile.brokerId = broker.$id;
+                                            profile.brokerPic = broker.pic;
+                                        }
                                         resolve(profile);
                                     });
                                 } else {

@@ -5,11 +5,9 @@ module.exports = function (startDir) {
     console.log(user);
     //if (true) {
     if (!(user === 'ec2-user' || user === 'root')) {
-        return appRoot + '/build';
-        //return appRoot + '/app';
+        //return appRoot + '/build';
+        return appRoot + '/app';
     } else {
         return appRoot + '/build';
     }
 };
-
-

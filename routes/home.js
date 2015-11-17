@@ -23,7 +23,7 @@ module.exports = function homeRouter(express) {
                 og: {
                     title: constants.homePageTitle,
                     description: constants.homePageDescription,
-                    image: rootUrl + '/img/logo/company-logo-fb.jpg',
+                    image: rootUrl + '/img/logo/company-logo.jpg',
                     url: constants.companyWebsite
                 }
             };

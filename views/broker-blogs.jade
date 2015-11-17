@@ -1,6 +1,6 @@
 extends layout
 include mixins/brokers/broker-contact-info
-include mixins/brokers/one-broker-listings
+include mixins/brokers/one-broker-blogs
 
 
 block content
@@ -8,6 +8,6 @@ block content
         if vm.broker !== undefined
             +broker-contact-info(vm.broker,vm.defAvatar, vm.companyPhone, vm.companyFax, vm.dTitle)
             include brokers/broker-profile-nav
-            +one-broker-listings(vm.broker,vm.defAvatar, vm.companyPhone, vm.companyFax, vm.dTitle)
+            +one-broker-blogs(vm.broker,vm.defAvatar)
 
 

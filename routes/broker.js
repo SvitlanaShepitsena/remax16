@@ -37,6 +37,8 @@ module.exports = function brokers(express) {
             var brokerUrl = constants.url + 'homes/agents/' + brokerId;
             var homesSaleUrl = constants.url + 'homes/sale';
             firebaseServ.getAll(brokerUrl).then(function (broker) {
+                console.log(broker);
+                broker.id = brokerId;
                 var brokerHomes = [];
                 firebaseServ.getAll(homesSaleUrl).then(function (homes) {
                     //console.log(homes);
@@ -49,13 +51,22 @@ module.exports = function brokers(express) {
                     }
                     broker.listings = brokerHomes;
                     vm.broker = broker;
-                    console.log(brokerHomes);
+                    //console.log(brokerHomes);
                     switch (param) {
                         case 'profile':
                             res.render('broker-profile', {vm: vm});
                             break;
                         case 'listings':
                             res.render('broker-listings', {vm: vm});
+                            break;
+                        case 'blogs':
+                            res.render('broker-blogs', {vm: vm});
+                            break;
+                        case 'reviews':
+                            res.render('broker-reviews', {vm: vm});
+                            break;
+                        case 'endorsements':
+                            res.render('broker-endorsements', {vm: vm});
                             break;
 
                         default:

@@ -1,21 +1,7 @@
 mixin one-broker-listings(broker,avatar,phone,fax,dTitle)
-    .row
-        .col-sm-4
-            .row
-                div(class='col-sm-5')
-                    img.thumbnail(src="#{broker.pic || avatar}" style="width:120px;height:auto;margin-top:8px")
-                div(class='col-sm-7')
-                    h2 !{broker.fName} !{broker.lName}
-                    h4 Title: !{broker.title || dTitle}
-                    p Active Listings: !{broker.listings.length}
-                    p Languages: !{broker.languages}
-        .col-sm-6
-            h3 Contact Info:
-            p Direct: !{phone}
-            p Cell: !{phone}
-            p Office: !{phone}
-            p Fax: !{fax}
-    .row.thumbnail(style="margin:4px")
+    .row.thumbnail
+        h3 Active Listings
+        hr
         if (broker.listings)
             ul
                 each home in broker.listings

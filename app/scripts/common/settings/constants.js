@@ -9,7 +9,6 @@
         .constant('agentsUrl', 'https://' + fbDomain + '.firebaseio.com/homes/agents/')
         .constant('maps', 'http://maps.google.com/?q=')
         .constant('users', 'https://' + fbDomain + '.firebaseio.com/user-management/users/')
-        .constant('corporate', 'https://' + fbDomain + '.firebaseio.com/events/corporate/')
         .constant('ads', 'https://' + fbDomain + '.firebaseio.com/ads/')
         .constant('companyName', 'Re/Max 1st Class')
         .constant('companyWebsite', 'http://remax1stclass.com/')

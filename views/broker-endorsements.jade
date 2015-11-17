@@ -8,6 +8,8 @@ block content
         if vm.broker !== undefined
             +broker-contact-info(vm.broker,vm.defAvatar, vm.companyPhone, vm.companyFax, vm.dTitle)
             include brokers/broker-profile-nav
-            +one-broker-endorsements(vm.broker)
+            h3 Endorsements
+            each endor in vm.broker.endors
+                +one-broker-endorsements(endor)
 
 

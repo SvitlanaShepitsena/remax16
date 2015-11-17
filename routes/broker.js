@@ -58,20 +58,33 @@ module.exports = function brokers(express) {
                             res.render('broker-listings', {vm: vm});
                             break;
                         case 'blogs':
-                            firebaseServ.getAllFilter(constants.url+'blog', function (array) {
-                                return _.where(array,{brokerId:brokerId});
+                            firebaseServ.getAllFilter(constants.url + 'blogs', function (array) {
+                                return _.filter(array, function (blog) {
+                                    return blog.brokerId === brokerId && (!blog.endorsements);
+                                });
 
                             }).then(function (brokerBlogs) {
                                 console.log(brokerBlogs);
-                                vm.broker.blogs=brokerBlogs
-                            res.render('broker-blogs', {vm: vm});
+                                vm.broker.blogs = brokerBlogs
+                                res.render('broker-blogs', {vm: vm});
                             });
                             break;
                         case 'reviews':
-                            res.render('broker-reviews', {vm: vm});
+                            firebaseServ.getAll(constants.url + 'homes/agents/'+brokerId+'/reviews').then(function (reviews) {
+                                vm.broker.reviews = reviews
+                                res.render('broker-reviews', {vm: vm});
+                            });
                             break;
                         case 'endorsements':
-                            res.render('broker-endorsements', {vm: vm});
+                            firebaseServ.getAllFilter(constants.url + 'blogs', function (array) {
+                                return _.filter(array, function (blog) {
+                                    return blog.brokerId === brokerId && blog.endorsements;
+                                });
+
+                            }).then(function (endors) {
+                                vm.broker.endors = endors
+                                res.render('broker-endorsements', {vm: vm});
+                            });
                             break;
 
                         default:

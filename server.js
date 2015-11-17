@@ -46,21 +46,21 @@ var oneListingRentRouter = require('./routes/oneListingRent')(express);
 var aboutUsRouter = require('./routes/about')(express);
 
 // --- Routes ---
-//app.use('/email-confirmation-1stclass', emailConfirmationRouter);
-//app.all(/.*/, wwwRedirect);
-//app.use('/broker-thumb', uploadRouter);
-//app.use('/articles', articlesRouter);
-//app.use('/sections', sectionsRouter);
-//app.use('/contact', contactUsRouter);
-//app.use('/terms-of-use', termsRouter);
-//app.use('/privacy-policy', privacyRouter);
-//app.use('/search', searchRouter);
-////app.use('/blogs', oneBlogRouter);
-//app.use('/homes-for-sale', oneListingSaleRouter);
-//app.use('/homes-for-rent', oneListingRentRouter);
-//app.use('/about', aboutUsRouter);
-//app.use('/brokers', brokerRouter);
-//app.use('/brokers', brokersRouter);
+app.use('/email-confirmation-1stclass', emailConfirmationRouter);
+app.all(/.*/, wwwRedirect);
+app.use('/broker-thumb', uploadRouter);
+app.use('/articles', articlesRouter);
+app.use('/sections', sectionsRouter);
+app.use('/contact', contactUsRouter);
+app.use('/terms-of-use', termsRouter);
+app.use('/privacy-policy', privacyRouter);
+app.use('/search', searchRouter);
+app.use('/blogs', oneBlogRouter);
+app.use('/homes-for-sale', oneListingSaleRouter);
+app.use('/homes-for-rent', oneListingRentRouter);
+app.use('/about', aboutUsRouter);
+app.use('/brokers', brokerRouter);
+app.use('/brokers', brokersRouter);
 app.use('/', homeRouter);
 //// Transfer any unrecognized route to Angular
 //var appFolder = path.join(__dirname, 'build');

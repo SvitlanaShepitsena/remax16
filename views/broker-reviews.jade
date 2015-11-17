@@ -8,6 +8,8 @@ block content
         if vm.broker !== undefined
             +broker-contact-info(vm.broker,vm.defAvatar, vm.companyPhone, vm.companyFax, vm.dTitle)
             include brokers/broker-profile-nav
-            +one-broker-reviews(vm.broker)
+            h3 Reviews
+            each review in vm.broker.reviews
+                +one-broker-reviews(review)
 
 

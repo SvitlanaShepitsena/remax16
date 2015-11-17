@@ -12,12 +12,12 @@
                 })
 
                 .state("app.one-listing-sale", {
-                    url: "/sale/:mls",
+                    url: "/homes-for-sale/:mls",
                     controller: "OneRemaxListingCtrl",
                     templateUrl: "scripts/listings/views/one-remax-listingCtrl.html"
                 })
                 .state("app.one-listing-rent", {
-                    url: "/rent/:mls",
+                    url: "/homes-for-rent/:mls",
                     controller: "OneRemaxListingCtrl",
                     templateUrl: "scripts/listings/views/one-remax-listingCtrl.html"
                 })

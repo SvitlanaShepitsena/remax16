@@ -4,11 +4,6 @@
         .config(function ($stateProvider, $urlRouterProvider) {
             $stateProvider
             //#state'
-                .state("app.remax-listings", {
-                    abstract: true,
-                    url: "/remax-listings",
-                    templateUrl: "scripts/listings/views/listingsCtrl.html"
-                })
 
                 .state("app.search", {
                     url: "/search/*params",

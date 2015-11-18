@@ -9,7 +9,11 @@
                 link: function ($scope, el, attrs) {
                     var brokerId = $stateParams.id ? $stateParams.id : userAuth.profile.$id;
                     FbGenServ.getAssync(url + 'blogs', function (blogs) {
-                        return _.where(blogs, {brokerId: brokerId});
+                        return _.filter(blogs,
+                            function (blog) {
+                                return !blog.endorsements && blog.brokerId == brokerId;
+                            });
+
                     }).then(function (brokerBlogs) {
                         $scope.loaded = true;
                         $scope.blogs = brokerBlogs;

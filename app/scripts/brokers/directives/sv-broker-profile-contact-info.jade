@@ -77,7 +77,7 @@
                         i.mdi.mdi-deskphone &nbsp
                         span Fax: &nbsp
                     span.tc-grey-800 {{companyFax}}
-    sv-default-phone
+            sv-default-phone(ng-if='hasEditAccess')
     div(layout-gt-sm='row' layout-sm="column")
         md-divider.mt.mb
         h3.m.tc-grey-700.fw-500(ng-if='broker.moto' style="font-style:italic") {{broker.moto}}

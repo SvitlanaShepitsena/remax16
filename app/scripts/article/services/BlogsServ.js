@@ -6,7 +6,6 @@
             var ref = new Firebase(url + 'blogs');
             var blogsArr = $firebaseArray(ref);
 
-
             function setPublicBlogsLive(blogs) {
                 var publicNews = _.where(blogs, {isPublic: true, isBlog: true});
                 blogsConst.public = _.sortBy(publicNews, '-timestamp');
@@ -25,9 +24,14 @@
                     });
                 },
                 getRandomBlogs: function () {
+                    var ref = new Firebase(url + 'blogs');
+                    var blogsArr = $firebaseArray(ref);
                     return $q(function (resolve, reject) {
                         blogsArr.$loaded(function () {
-
+                            blogsArr = _.filter(blogsArr, function (blog) {
+                                    return !blog.endorsements;
+                                }
+                            );
                             resolve(_.take(_.shuffle(blogsArr), 4));
                         })
                     });

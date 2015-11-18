@@ -19,15 +19,17 @@ module.exports = function brokers(express) {
             var homesSaleUrl = constants.url + 'homes/sale';
             firebaseServ.getAll(brokerUrl).then(function (broker) {
                 broker.id = brokerId;
-                broker.fullTitle = broker.fName + ' ' + broker.lName + '- Real Estate Agent in Skokie IL';
+                broker.fullTitle = broker.fName + ' ' + broker.lName + '- Real Estate Agent in Skokie IL - Re/Max 1st Class';
+                broker.fullDescription = 'Let us guide you. See how much better than a dream home the right home can be.​';
                 var brokerHomes = [];
                 var vm = {
                     title: broker.fullTitle,
+                    description: broker.fullDescription,
                     image: broker.pic || constants.defaultThumb,
                     url: fullUrl,
-
                     og: {
                         title: broker.fullTitle,
+                        description: broker.fullDescription,
                         image: broker.pic || constants.defaultThumb,
                         url: fullUrl
                     }

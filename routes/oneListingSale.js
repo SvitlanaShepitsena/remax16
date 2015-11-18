@@ -2,6 +2,7 @@ var path = require('path');
 var _ = require('lodash');
 var constants = require('../services/const');
 var firebaseServ = require('../services/FirebaseServ');
+var Money = require('../services/Money');
 var userAgentServ = require('../services/UserAgentServ');
 var defaultThumb = require('../services/const').defaultThumb;
 
@@ -27,7 +28,7 @@ module.exports = function oneListingSale(express) {
                     og: {
                         url: fullUrl,
                         title: home.fullAddress,
-                        description: home.fullDescription,
+                        description: Money.format(home.price) +' '+ home.fullDescription,
                         image: home.img
                     }
                 };

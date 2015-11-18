@@ -23,7 +23,7 @@ module.exports = function oneListingSale(express) {
 
                 home.img = home.images ? home.images[0] : defaultThumb;
                 home.fullTitle =   'Re/Max 1st Class ☆ '+ home.type + ' FOR SALE! ☆ ' + home.fullPrice + ' ☆ ' + home.fullAddress;
-                home.fullDescription = '☑ ⌚ ✔ Check out and schedule a showing! ***** ' + home.description;
+                home.fullDescription = '✔ Check out and ☏ schedule a showing! ***** ' + home.description;
                 var vm = {
                     url: fullUrl,
                     title: home.fullTitle,

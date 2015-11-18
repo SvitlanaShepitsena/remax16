@@ -306,6 +306,9 @@ function serve(isDev) {
         //ignore:['./app/scripts/**/*.js']
         watch: ['./routes']
     };
+    if (!isDev) {
+        return;
+    }
     return $.nodemon(nodeOptions)
         .on('restart', function (ev) {
             log('*** nodemon restarted');

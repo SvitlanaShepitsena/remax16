@@ -47,7 +47,7 @@ var aboutUsRouter = require('./routes/about')(express);
 
 // --- Routes ---
 app.use('/email-confirmation-1stclass', emailConfirmationRouter);
-app.all(/.*/, wwwRedirect);
+//app.all(/.*/, wwwRedirect);
 app.use('/broker-thumb', uploadRouter);
 app.use('/articles', articlesRouter);
 app.use('/sections', sectionsRouter);
@@ -61,7 +61,7 @@ app.use('/homes-for-rent', oneListingRentRouter);
 app.use('/about', aboutUsRouter);
 app.use('/brokers', brokerRouter);
 app.use('/brokers', brokersRouter);
-app.use('/s', homeRouter);
+app.use('/', homeRouter);
 //// Transfer any unrecognized route to Angular
 //var appFolder = path.join(__dirname, 'build');
 var appFolder = require('./routes/dirServ')();

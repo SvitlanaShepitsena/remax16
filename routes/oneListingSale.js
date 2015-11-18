@@ -13,9 +13,9 @@ module.exports = function oneListingSale(express) {
         var userAgent = req.get('user-agent');
         var rootUrl = (req.protocol || 'http') + '://' + req.get('host');
         var fullUrl = rootUrl + req.originalUrl;
+        var homeUrl = constants.url + 'homes/sale/' + mls;
 
         if (userAgentServ.amIBot(userAgent)) {
-            var homeUrl = constants.url + 'homes/sale/' + mls;
             firebaseServ.getItem(homeUrl).then(function (home) {
                 /*og listing properties*/
                 home.fullPrice = Money.format(home.price);

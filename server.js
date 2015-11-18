@@ -61,7 +61,7 @@ app.use('/homes-for-rent', oneListingRentRouter);
 app.use('/about', aboutUsRouter);
 app.use('/brokers', brokerRouter);
 app.use('/brokers', brokersRouter);
-app.use('/', homeRouter);
+app.use('/s', homeRouter);
 //// Transfer any unrecognized route to Angular
 //var appFolder = path.join(__dirname, 'build');
 var appFolder = require('./routes/dirServ')();

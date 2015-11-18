@@ -997,6 +997,9 @@ body {
 .bgc-svet-700 {
   background-color: #5c5654 !important;
 }
+.mb-4 {
+  margin-bottom: 4px;
+}
 .fw-500 {
   font-weight: 500;
 }
@@ -1077,7 +1080,7 @@ body {
   color: rgba(0,0,0,0.259);
   font-weight: 500;
 }
-text-decoration none !important,
+text-decoration none,
 display inline-block,
 .mdc-img-sepia {
   -webkit-filter: sepia(1);
@@ -1211,7 +1214,7 @@ md-sidenav.md-locked-open {
     max-width: 310px !important;
   }
 }
-@media screen and (max-width: 992px) {
+@media screen and (max-width 992px) {
   .sv-width {
     width: 100px;
   }
@@ -1219,7 +1222,7 @@ md-sidenav.md-locked-open {
 .toolbar-svet {
   height: 80px !important;
 }
-@media screen and (min-width: 992px) {
+@media screen and (min-width 992px) {
   .toolbar-svet {
     height: 72px;
   }

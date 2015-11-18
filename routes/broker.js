@@ -35,7 +35,6 @@ module.exports = function brokers(express) {
                     }
                 };
                 firebaseServ.getAll(homesSaleUrl).then(function (homes) {
-                    //console.log(homes);
                     for (var mls in homes) {
                         var home = homes[mls];
                         if (home.agent == broker.id) {

@@ -27,12 +27,9 @@ module.exports = function brokers(express) {
                 var brokerHomes = [];
 
                 vm = {
-
-                    title: constants.brokersPageTitle,
-                    defAvatar: constants.defaultBrokerIcon,
-                    companyPhone: constants.companyPhone,
-                    companyFax: constants.companyFax,
-                    dTitle: constants.defaultBrokerTitle,
+                    title: broker.fName + ' ' + broker.lName + '\r\n Real Estate Agent',
+                    image: broker.pic || constants.defaultThumb,
+                    url: fullUrl + req.originalUrl,
 
                     og: {
                         title: broker.fName + ' ' + broker.lName + '\r\n Real Estate Agent',
@@ -56,7 +53,7 @@ module.exports = function brokers(express) {
                             res.render('broker-profile', {vm: vm});
                             break;
                         case 'listings':
-                          vm.og.description+='\r\n Active Listings';
+                            vm.og.description += '\r\n Active Listings';
                             res.render('broker-listings', {vm: vm});
                             break;
                         case 'blogs':

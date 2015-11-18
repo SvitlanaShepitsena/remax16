@@ -23,7 +23,7 @@ module.exports = function oneListingSale(express) {
 
                 home.img = home.images ? home.images[0] : defaultThumb;
                 home.fullTitle = home.type + ' FOR SALE! ' + 'Price: ' + home.fullPrice + ' Address: ' + home.fullAddress;
-                home.fullDescription = '***** Check out and schedule a showing! ***** ' + '\r\n' + home.description;
+                home.fullDescription = '***** Check out and schedule a showing! ***** ' + home.description;
                 var vm = {
                     url: fullUrl,
                     title: home.fullTitle,

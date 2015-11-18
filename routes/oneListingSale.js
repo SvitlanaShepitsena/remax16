@@ -18,17 +18,20 @@ module.exports = function oneListingSale(express) {
             var homeUrl = constants.url + 'homes/sale/' + mls;
             firebaseServ.getItem(homeUrl).then(function (home) {
                 /*og listing properties*/
+                home.fullPrice = Money.format(home.price);
+                home.fullAddress = home.address.street + ', ' + home.address.city + ', ' + home.address.state + ' ' + home.address.zip;
+
                 home.img = home.images ? home.images[0] : defaultThumb;
-                home.fullAddress = home.address.street + ', ' + home.address.city + ', ' + home.address.state + home.address.zip;
-                home.fullDescription = 'Check out and schedule a showing for a ' + home.type + ': Price: $' + home.price + ', ' + home.beds + ' beds, ' + home.bath + ' baths, in' + home.address.city + ', ' + home.address.zip;
+                home.fullTitle = '(Price: ' + home.fullPrice + ')' + home.fullAddress;
+                home.fullDescription = 'For Sale' + home.type + '. Check out and schedule a showing! '  + home.description;
                 var vm = {
                     url: fullUrl,
-                    title: home.fullAddress,
+                    title: home.fullTitle,
                     image: home.img,
                     og: {
                         url: fullUrl,
-                        title: home.fullAddress,
-                        description: Money.format(home.price) +' '+ home.fullDescription,
+                        title: home.fullTitle,
+                        description: home.fullDescription,
                         image: home.img
                     }
                 };

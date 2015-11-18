@@ -36,12 +36,12 @@
             span.fs-body-1(style="text-align:right") {{home.bath}} baths
         div.m.mdc-text-right.tc-grey-600
             span.fs-body-1.mdc-text-right Year: {{home.year}}
-    div.bgc-grey-100(layout='row')
+    div.bgc-grey-100(layout='row' layout-align="center")
         div
-            button.btn.btn--xs.btn--white.btn--raised.tc-blue-600.m(ng-show='!home.isRent' lx-ripple='' ui-sref='app.one-listing-sale({mls:home.mls})' style="font-size:10px" )
+            a.btn.btn--xs.btn--white.btn--raised.tc-blue-600.m(ng-show='!home.isRent' lx-ripple='' ui-sref='app.one-listing-sale({mls:home.mls})' style="font-size:10px" )
                 i.fa.fa-info.fa-fw &nbsp
                 | More Info
-            button.btn.btn--xs.btn--white.btn--raised.tc-grey-700.m.bgc-grey-200(ng-show='home.isRent' lx-ripple='' ui-sref='app.one-listing-rent({mls:home.mls})' style="font-size:10px" )
+            a.btn.btn--xs.btn--white.btn--raised.tc-grey-700.m.bgc-grey-200(ng-show='home.isRent' lx-ripple='' ui-sref='app.one-listing-rent({mls:home.mls})' style="font-size:10px" )
                 i.fa.fa-info.fa-fw &nbsp
                 | More Info
         div

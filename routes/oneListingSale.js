@@ -22,8 +22,8 @@ module.exports = function oneListingSale(express) {
                 home.fullAddress = home.address.street + ', ' + home.address.city + ', ' + home.address.state + ' ' + home.address.zip;
 
                 home.img = home.images ? home.images[0] : defaultThumb;
-                home.fullTitle = home.type + ' FOR SALE! ' + '*****' +'Price: ' + home.fullPrice + '***** Address: ' + home.fullAddress;
-                home.fullDescription = '★ Check out and schedule a showing! ★ ' + '\r\n' + home.description;
+                home.fullTitle = home.type + ' FOR SALE! ' + 'Price: ' + home.fullPrice + ' Address: ' + home.fullAddress;
+                home.fullDescription = '***** Check out and schedule a showing! ***** ' + '\r\n' + home.description;
                 var vm = {
                     url: fullUrl,
                     title: home.fullTitle,

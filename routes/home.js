@@ -11,20 +11,22 @@ module.exports = function homeRouter(express) {
 
     homeRouter.get('/', function (req, res, next) {
         var userAgent = req.get('user-agent');
+        var rootUrl = (req.protocol || 'http') + '://' + req.get('host');
         console.log(userAgent);
 
         if (userAgentServ.amIBot(userAgent)) {
             /*create a view-model for fb crawler*/
 
-            var rootUrl = (req.protocol || 'http') + '://' + req.get('host');
             var vm = {
-                rootUrl: rootUrl,
+                url: rootUrl,
                 title: constants.homePageTitle,
+                description: constants.homePageDescription,
+                image: rootUrl + '/img/logo/logo.jpg',
                 og: {
                     title: constants.homePageTitle,
                     description: constants.homePageDescription,
                     image: rootUrl + '/img/logo/logo.jpg',
-                    url: constants.companyWebsite
+                    url: rootUrl,
                 }
             };
             console.log(vm);

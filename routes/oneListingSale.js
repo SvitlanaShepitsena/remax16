@@ -49,7 +49,7 @@ module.exports = function oneListingSale(express) {
     var appFolder = require('./dirServ')();
     oneListingSaleRouter.use(express.static(appFolder));
 
-    oneListingSaleRouter.get('/:mls/', function (req, res) {
+    oneListingSaleRouter.get('/', function (req, res) {
         res.sendFile('index.html', {root: appFolder});
     });
     return oneListingSaleRouter;

@@ -8,6 +8,8 @@
                 link: function ($scope, el, attrs, ctrl) {
                     if (localStorageService.get('mapView') === 'map') {
                         ctrl.open();
+                    } else {
+                        //ctrl.close();
                     }
                     $scope.$on('mapGrid:changed', function (event, isMap) {
                         if (isMap) {
@@ -21,7 +23,7 @@
                         return $mdMedia('sm');
                     }, function (sm) {
                         if (!sm) {
-                            ctrl.open();
+                            //ctrl.open();
                         } else {
                             ctrl.close()
                         }

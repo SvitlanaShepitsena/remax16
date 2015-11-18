@@ -43,7 +43,6 @@ module.exports = function brokers(express) {
                     }
                     broker.listings = brokerHomes;
                     vm.broker = broker;
-                    //console.log(brokerHomes);
                     switch (param) {
                         case 'profile':
                             res.render('broker-profile', {vm: vm});
@@ -84,34 +83,26 @@ module.exports = function brokers(express) {
                         default:
                             res.render('broker-profile', {vm: vm});
                     }
-
-
                 }, function (Error) {
                     console.log(Error);
 
                 });
-
-
             }, function (Error) {
                 console.log(Error);
-
             });
             /*create a view-model for fb crawler*/
-
-
         } else {
             next();
-
         }
     });
 
     ///*Redirect user to AngularJs App*/
-    //var appFolder = require('./dirServ')();
-    //brokersRouter.use(express.static(appFolder));
-    //
-    //brokersRouter.get('/', function (req, res) {
-    //    res.sendFile('index.html', {root: appFolder});
-    //});
+    var appFolder = require('./dirServ')();
+    brokerRouter.use(express.static(appFolder));
+
+    brokerRouter.get('/', function (req, res) {
+        res.sendFile('index.html', {root: appFolder});
+    });
     return brokerRouter;
 
 };

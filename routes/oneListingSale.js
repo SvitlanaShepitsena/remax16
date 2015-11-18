@@ -19,14 +19,15 @@ module.exports = function oneListingSale(express) {
                 /*og listing properties*/
                 home.img = home.images ? home.images[0] : defaultThumb;
                 home.fullAddress = home.address.street + ', ' + home.address.city + ', ' + home.address.state + ', ' + home.address.zip;
-                home.description = home.type + ': Price: ' + home.price + home.beds + 'beds,' + home.bath + 'baths, in' + home.address.city;
+                home.fullDescription = 'Check out and schedule a showing for a ' + home.type + ': Price: $' + home.price + ', ' + home.beds + ' beds,' + home.bath + ' baths, in' + home.address.city + ', ' + home.address.zip;
                 var vm = {
                     url: fullUrl,
                     title: home.fullAddress,
+                    image: home.img,
                     og: {
                         url: fullUrl,
                         title: home.fullAddress,
-                        description: 'Check out and schedule a showing for a ' + home.description,
+                        description: home.fullDescription,
                         image: home.img
                     }
                 };

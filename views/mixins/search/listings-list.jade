@@ -3,7 +3,7 @@ mixin listings-list(homes,homeAvatar)
         if (homes)
             .row
                 each home in homes
-                    a(href="/homes-for-#{home.isRent?'rent':'sale'}/#{home.mls}" )
+                    a(href="/homes-for-#{home.isRent ? 'rent' : 'sale'}/#{home.mls}" )
                         .col-md-4
                             .thumbnail(style="margin:4px")
                                 .row

@@ -15,30 +15,31 @@ module.exports = function brokers(express) {
 
         var userAgent = req.get('user-agent');
         if (userAgentServ.amIBot(userAgent)) {
-
             var rootUrl = (req.protocol || 'http') + '://' + req.get('host');
-            var vm = {
-                rootUrl: rootUrl,
-                title: constants.brokersPageTitle,
-                image: constants.defaultThumb,
-                defAvatar: constants.defaultBrokerIcon,
-                companyPhone: constants.companyPhone,
-                companyFax: constants.companyFax,
-                dTitle: constants.defaultBrokerTitle,
-                og: {
-                    title: constants.brokersPageTitle,
-                    description: constants.brokersPageDescription,
-                    image: constants.defaultThumb,
-                    url: rootUrl
-                }
-            };
 
 
             var brokerUrl = constants.url + 'homes/agents/' + brokerId;
             var homesSaleUrl = constants.url + 'homes/sale';
+
             firebaseServ.getAll(brokerUrl).then(function (broker) {
+                var vm;
                 broker.id = brokerId;
                 var brokerHomes = [];
+
+                vm = {
+
+                    title: constants.brokersPageTitle,
+                    defAvatar: constants.defaultBrokerIcon,
+                    companyPhone: constants.companyPhone,
+                    companyFax: constants.companyFax,
+                    dTitle: constants.defaultBrokerTitle,
+
+                    og: {
+                        title: broker.fName + ' ' + broker.lName + '\r\n Real Estate Agent',
+                        image: broker.pic || constants.defaultThumb,
+                        url: fullUrl + req.originalUrl
+                    }
+                };
                 firebaseServ.getAll(homesSaleUrl).then(function (homes) {
                     //console.log(homes);
                     for (var mls in homes) {
@@ -55,6 +56,7 @@ module.exports = function brokers(express) {
                             res.render('broker-profile', {vm: vm});
                             break;
                         case 'listings':
+                          vm.og.description+='\r\n Active Listings';
                             res.render('broker-listings', {vm: vm});
                             break;
                         case 'blogs':
@@ -70,7 +72,7 @@ module.exports = function brokers(express) {
                             });
                             break;
                         case 'reviews':
-                            firebaseServ.getAll(constants.url + 'homes/agents/'+brokerId+'/reviews').then(function (reviews) {
+                            firebaseServ.getAll(constants.url + 'homes/agents/' + brokerId + '/reviews').then(function (reviews) {
                                 vm.broker.reviews = reviews
                                 res.render('broker-reviews', {vm: vm});
                             });

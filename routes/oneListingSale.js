@@ -19,10 +19,10 @@ module.exports = function oneListingSale(express) {
             firebaseServ.getItem(homeUrl).then(function (home) {
                 /*og listing properties*/
                 home.fullPrice = Money.format(home.price);
-                home.fullAddress = home.address.city + ', ' + home.address.state + ' ' + home.address.zip;
+                home.fullAddress = home.address.street + ', ' + home.address.city + ', ' + home.address.state + ' ' + home.address.zip;
 
                 home.img = home.images ? home.images[0] : defaultThumb;
-                home.fullTitle =   'Re/Max 1st Class ☆ '+ home.type + ' FOR SALE! ☆ ' + 'Price: ' + home.fullPrice + ' ☆ ' + home.fullAddress;
+                home.fullTitle =   'Re/Max 1st Class ☆ '+ home.type + ' FOR SALE! ☆ ' + home.fullPrice + ' ☆ ' + home.fullAddress;
                 home.fullDescription = '***** Check out and schedule a showing! ***** ' + home.description;
                 var vm = {
                     url: fullUrl,

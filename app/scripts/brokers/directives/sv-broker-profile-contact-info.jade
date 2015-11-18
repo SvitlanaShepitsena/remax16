@@ -1,6 +1,6 @@
 .card(layout='column')
     div(layout-gt-sm='row' layout-sm="column" layout-align-sm="center center" layout='wrap')
-        div(layout-gt-sm="row" layout-sm="column" layout-align-sm="center center" flex-gt-sm="60")
+        div(layout-gt-sm="row" layout-sm="column" layout-align-sm="center center" flex-gt-sm="80")
             .bgc-grey-300
                 .p.btn-wrapper
                     button.btn.btn--xs.btn--black.btn--raised.btn-pos.bgc-grey-300.tc-grey-600(lx-ripple='' ng-if='hasEditAccess' ng-click="showBrokerUploadImgModal(broker)" )
@@ -30,17 +30,6 @@
                             span.ml Active Listings:
                         span.tc-blue-600.ml {{brokerHomesCount}} &nbsp
                 div.fw-500.mb.fs-subhead(layout-gt-sm='row' layout-sm="column" ng-if='broker.truliaReview || broker.zillowReview')
-                    //.tc-amber-600.mr.ml(layout='row' layout-align-sm="center")
-                    //    span
-                    //        i.fa.fa-star.fa-fw
-                    //    span
-                    //        i.fa.fa-star.fa-fw
-                    //    span
-                    //        i.fa.fa-star.fa-fw
-                    //    span
-                    //        i.fa.fa-star.fa-fw
-                    //    span
-                    //        i.fa.fa-star.fa-fw
                     p.ml.mr.tc-blue-600.fw-500
                         i.mdi.mdi-account-star.mr
                         | Ratings and Reviews:
@@ -51,34 +40,15 @@
                     span.ml.mb(ng-if='broker.truliaReview')
                         a.btn.btn--s.btn--white.btn--raised(target='_blank' lx-ripple='' href='{{broker.truliaReview}}' style="text-decoration:none")
                             img.m(src="https://s3-us-west-2.amazonaws.com/remax1stclass/brokers/logos/trulia-logo.png" style="width:45px;height:auto")
-        .tc-grey-600(layout='column' layout-align-sm="center center" class='ml mr' flex="")
-            .fs-headline.tc-grey-800 Contact Info:
-            span(ng-if='broker.phoneDirect')
-                p.fs-subhead(style="margin-bottom:4px")
-                    span
-                        i.mdi.mdi-cellphone &nbsp
-                        span Direct: &nbsp
-                    span.tc-grey-800 {{broker.phoneDirect|tel}}
-            span.fs-subhead(ng-if='broker.phoneCell')
-                p.fs-subhead(style="margin-bottom:4px")
-                    span
-                        i.mdi.mdi-cellphone-iphone &nbsp
-                        span Cell: &nbsp
-                    span.tc-grey-800 {{broker.phoneCell|tel}}
-            span.fs-subhead
-                p.fs-subhead(style="margin-bottom:4px")
-                    span
-                        i.mdi.mdi-phone &nbsp
-                        span Office: &nbsp
-                    span.tc-grey-800 {{companyPhone}}
-            span.fs-subhead
-                p.fs-subhead(style="margin-bottom:4px")
-                    span
-                        i.mdi.mdi-deskphone &nbsp
-                        span Fax: &nbsp
-                    span.tc-grey-800 {{companyFax}}
-            md-divider.mt.mb
-            sv-default-phone(ng-if='hasEditAccess')
+            div
+                sv-default-phone(broker='broker')
+                span.fs-subhead
+                    p.fs-subhead(style="margin-bottom:4px")
+                        span
+                            i.mdi.mdi-deskphone &nbsp
+                            span Fax: &nbsp
+                        span.tc-grey-800 {{companyFax}}
+                md-divider.mt.mb
     div(layout-gt-sm='row' layout-sm="column")
         md-divider.mt.mb
         h3.m.tc-grey-700.fw-500(ng-if='broker.moto' style="font-style:italic") {{broker.moto}}

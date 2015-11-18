@@ -1,6 +1,9 @@
-div
-    span.fs-title.tc-blue-700 Primary Phone
-    md-radio-group(ng-model='bestPhone')
-        md-radio-button.fs-subhead.tc-grey-800(ng-repeat='p in phones' ng-value='p.name')
-            | {{p.value}}
+.tc-grey-600(layout='column' layout-align-sm="center center" class='ml mr' flex="")
+    .fs-headline.tc-grey-800 Contact Info:
+    span(ng-repeat='phone in phones')
+        p.fs-subhead(style="margin-bottom:4px")
+            span
+                i.mdi.mdi-cellphone &nbsp
+                span {{phone.name}}: &nbsp
+            span.tc-grey-800 {{phone.value|tel}}
 

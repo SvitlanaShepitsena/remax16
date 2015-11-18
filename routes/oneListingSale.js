@@ -18,25 +18,20 @@ module.exports = function oneListingSale(express) {
             firebaseServ.getItem(homeUrl).then(function (home) {
                 /*og listing properties*/
                 home.img = home.images ? home.images[0] : defaultThumb;
-                home.address = home.street + ', ' + home.city + ', ' + home.state + ', ' + home.zip;
+                home.fullAddress = home.address.street + ', ' + home.address.city + ', ' + home.address.state + ', ' + home.address.zip;
                 home.description = home.type + ': Price: ' + home.price + home.beds + 'beds,' + home.bath + 'baths, in' + home.address.city;
                 var vm = {
                     url: fullUrl,
-                    title: home.address,
+                    title: home.fullAddress,
                     og: {
                         url: fullUrl,
-                        title: home.address,
+                        title: home.fullAddress,
                         description: 'Check out and schedule a showing for a ' + home.description,
                         image: home.img
                     }
                 };
                 vm.home = home;
-                vm.og = {
-                    url: fullUrl,
-                    title: home.address,
-                    description: 'Check out and schedule a showing for a ' + home.description,
-                    image: home.img
-                }
+
                 res.render('one-listing', {vm: vm});
 
             }, function (Error) {

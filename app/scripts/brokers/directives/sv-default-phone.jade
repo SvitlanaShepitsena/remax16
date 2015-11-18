@@ -2,8 +2,12 @@
     .fs-headline.tc-grey-800 Contact Info:
     span(ng-repeat='phone in phones')
         p.fs-subhead.mb-4
-            span
-                i.mdi.mdi-cellphone &nbsp
-                span {{phone.name}}: &nbsp
-            span.tc-grey-800 {{phone.value|tel}}
+            div(layout='row')
+                span
+                    i.mdi.mdi-cellphone &nbsp
+                    span {{phone.name}}: &nbsp
+                span.tc-grey-800 {{phone.value|tel}}
+                div
+                    button(ng-if='editRight' ng-show='broker.defaultTel?phone.name!=broker.defaultTel:phone.name=="Office"' ng-click='makeDefault(phone)') Make Default
+                    span(ng-hide='broker.defaultTel?phone.name!=broker.defaultTel:phone.name!=="Office"') Default
 

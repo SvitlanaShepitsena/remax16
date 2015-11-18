@@ -7,13 +7,12 @@
                 replace: true,
                 templateUrl: 'scripts/brokers/directives/sv-default-phone.html',
                 scope: {
-                    broker: '='
+                    broker: '=',
+                    editRight:'='
                 },
                 link: function ($scope, el, attrs) {
                     var brokerId = $stateParams.id;
-                    if (!userAuth.profile || !brokerId === userAuth.profile.brokerId) {
-                        return;
-                    }
+
                     var phones = [{name: 'Office', value: '(847) 674-9797'}];
 
                     _.forOwn($scope.broker, function (val, prop) {
@@ -27,8 +26,11 @@
 
                     });
                     $scope.phones = phones;
-                    console.log(phones);
 
+                    $scope.makeDefault = function (phone) {
+                        var brokerUrl = url + 'homes/agents/' + $scope.broker.$id;
+                        FbGenServ.saveObject(brokerUrl, {defaultTel: phone.name});
+                    };
 
 
                 }

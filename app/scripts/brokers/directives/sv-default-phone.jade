@@ -1,6 +1,6 @@
 div
-    h3 Primary Phone
+    span.fs-title.tc-blue-700 Primary Phone
     md-radio-group(ng-model='bestPhone')
-        md-radio-button(ng-repeat='p in phones' ng-value='p.name')
+        md-radio-button.fs-subhead.tc-grey-800(ng-repeat='p in phones' ng-value='p.name')
             | {{p.value}}
 

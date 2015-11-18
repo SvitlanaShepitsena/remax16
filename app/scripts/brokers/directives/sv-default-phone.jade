@@ -1,13 +1,14 @@
-.tc-grey-600(layout='column' layout-align-sm="center center" flex="")
+div
     .fs-headline.tc-grey-800 Contact Info:
-    span(ng-repeat='phone in phones')
-        p.fs-subhead.mb-4
-            div(layout='row')
+    div(ng-repeat='phone in phones' layout="column")
+        div.fs-subhead.mb-4(layout='row')
+            div(flex='')
                 span
-                    i.mdi.mdi-cellphone &nbsp
+                    i.mdi.mdi-cellphone.tc-grey-700 &nbsp
                     span {{phone.name}}: &nbsp
                 span.tc-grey-800 {{phone.value|tel}}
-                div
-                    button(ng-if='editRight' ng-show='broker.defaultTel?phone.name!=broker.defaultTel:phone.name=="Office"' ng-click='makeDefault(phone)') Make Default
-                    span(ng-hide='broker.defaultTel?phone.name!=broker.defaultTel:phone.name!=="Office"') Default
+            div.ml(flex="")
+                .listing-bookmark-wrapper
+                    button.btn.btn--xs.btn--blue.btn--raised.listing-bookmark.mt-4(lx-ripple='' ng-if='editRight' ng-show='broker.defaultTel?phone.name!=broker.defaultTel:phone.name=="Office"' ng-click='makeDefault(phone)') Make Default
+                    button.bgc-blue-50.btn.btn--xs.btn--red.btn--flat.listing-bookmark.mt-4(ng-hide='broker.defaultTel?phone.name!=broker.defaultTel:phone.name!=="Office"') Default Phone
 

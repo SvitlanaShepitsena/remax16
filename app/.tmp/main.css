@@ -111,6 +111,37 @@ md-select-menu md-content {
 .listing-bookmark.ng-hide-remove-active {
   opacity: 1;
 }
+.default-phone-wrapper {
+  position: relative;
+  width: 130px;
+}
+.default-phone.ng-hide-add,
+.default-phone.ng-hide-remove {
+  transition: 0s linear all;
+}
+.default-phone.ng-hide-add-active,
+.default-phone.ng-hide-remove-active {
+  transition: 1s linear all;
+}
+.default-phone {
+  width: 110px;
+  text-align: center !important;
+  position: absolute !important;
+  right: 0px !important;
+  top: 0px !important;
+}
+.default-phone.ng-hide-add {
+  opacity: 1;
+}
+.default-phone.ng-hide-add-active {
+  opacity: 0;
+}
+.default-phone.ng-hide-remove {
+  opacity: 0;
+}
+.default-phone.ng-hide-remove-active {
+  opacity: 1;
+}
 .home-search-header {
   font-weight: 500;
 }
@@ -999,6 +1030,9 @@ body {
 }
 .mb-4 {
   margin-bottom: 4px;
+}
+.mt-4 {
+  margin-top: 4px;
 }
 .fw-500 {
   font-weight: 500;

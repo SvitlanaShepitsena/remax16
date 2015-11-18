@@ -1,53 +1,52 @@
 .card(layout='column')
-    div(layout-gt-sm='row' layout-sm="column" layout-align-sm="center center" layout='wrap')
-        div(layout-gt-sm="row" layout-sm="column" layout-align-sm="center center" flex-gt-sm="80")
-            .bgc-grey-300
-                .p.btn-wrapper
-                    button.btn.btn--xs.btn--black.btn--raised.btn-pos.bgc-grey-300.tc-grey-600(lx-ripple='' ng-if='hasEditAccess' ng-click="showBrokerUploadImgModal(broker)" )
-                        i.fa.fa-pencil.fa-fw.mr
-                        | Change Image
-                    sv-img-background.sv-img-thumb(sv-image="broker.pic" img-width="170" img-height="220" )
-            div(layout='column' layout-align-sm="center center")
-                h1.tc-grey-800.ml.lr {{broker.fName}} {{broker.lName}}
-                span.fs-title.ml.mr {{broker.title || defaultBrokerTitle}}
-                span.fs-subhead.ml(ng-if='broker.title2') {{broker.title2}}
-                span(class='ml mr')
-                    p.mb-4.fw-500
-                        span.mr(ng-if='broker.languages')
-                            i.fa.fa-globe
-                            span.ml Languages:
-                        span.tc-blue-600 {{broker.languages}}
-                div(layout-sm='row' layout-gt-sm="column")
-                    p.mb-4.fw-500.mr.ml(ng-show='broker.recentsales')
-                        span
-                            i.mdi.mdi-checkbox-marked-circle-outline
-                            span.ml Recent Sales:
-                        a(target='_blank' lx-ripple='' href='{{broker.recentsales}}' style="text-decoration:none")
-                            span.tc-blue-600.ml Zillow Sales &nbsp
-                    p.mb-4.fw-500.mr.ml
-                        span
-                            i.fa.fa-bell-o
-                            span.ml Active Listings:
-                        span.tc-blue-600.ml {{brokerHomesCount}} &nbsp
-                div.fw-500.mb.fs-subhead(layout-gt-sm='row' layout-sm="column" ng-if='broker.truliaReview || broker.zillowReview')
-                    p.mb-4.ml.mr.tc-blue-600.fw-500
-                        i.mdi.mdi-account-star.mr
-                        | Ratings and Reviews:
-                div(layout='row' layout-align="start center" ng-if='broker.truliaReview || broker.zillowReview')
-                    span.ml.mb(ng-if='broker.zillowReview')
-                        a.btn.btn--s.btn--white.btn--raised(target='_blank' lx-ripple='' href='{{broker.zillowReview}}' style="text-decoration:none")
-                            img.m(src="https://s3-us-west-2.amazonaws.com/remax1stclass/brokers/logos/zillow-logo.png" style="width:70px;height:auto")
-                    span.ml.mb(ng-if='broker.truliaReview')
-                        a.btn.btn--s.btn--white.btn--raised(target='_blank' lx-ripple='' href='{{broker.truliaReview}}' style="text-decoration:none")
-                            img.m(src="https://s3-us-west-2.amazonaws.com/remax1stclass/brokers/logos/trulia-logo.png" style="width:45px;height:auto")
-            div
-                sv-default-phone(broker='broker' edit-right='hasEditAccess'  class='ml mr' )
-                div(class='ml mr' )
-                    p.fs-subhead(style="margin-bottom:4px")
-                        span.tc-grey-600
-                            i.mdi.mdi-deskphone &nbsp
-                            span Fax: &nbsp
-                        span.tc-grey-800 {{companyFax}}
+    div(layout-gt-sm="row" layout-sm="column" layout-align-sm="center center" )
+        .bgc-grey-300
+            .p.btn-wrapper
+                button.btn.btn--xs.btn--black.btn--raised.btn-pos.bgc-grey-300.tc-grey-600(lx-ripple='' ng-if='hasEditAccess' ng-click="showBrokerUploadImgModal(broker)" )
+                    i.fa.fa-pencil.fa-fw.mr
+                    | Change Image
+                sv-img-background.sv-img-thumb(sv-image="broker.pic" img-width="170" img-height="220" )
+        div(layout='column' layout-align-sm="center center")
+            h1.tc-grey-800.ml.lr {{broker.fName}} {{broker.lName}}
+            span.fs-title.ml.mr {{broker.title || defaultBrokerTitle}}
+            span.fs-subhead.ml(ng-if='broker.title2') {{broker.title2}}
+            span(class='ml mr')
+                p.mb-4.fw-500
+                    span.mr(ng-if='broker.languages')
+                        i.fa.fa-globe
+                        span.ml Languages:
+                    span.tc-blue-600 {{broker.languages}}
+            div(layout-sm='row' layout-gt-sm="column")
+                p.mb-4.fw-500.mr.ml(ng-show='broker.recentsales')
+                    span
+                        i.mdi.mdi-checkbox-marked-circle-outline
+                        span.ml Recent Sales:
+                    a(target='_blank' lx-ripple='' href='{{broker.recentsales}}' style="text-decoration:none")
+                        span.tc-blue-600.ml Zillow Sales &nbsp
+                p.mb-4.fw-500.mr.ml
+                    span
+                        i.fa.fa-bell-o
+                        span.ml Active Listings:
+                    span.tc-blue-600.ml {{brokerHomesCount}} &nbsp
+            div.fw-500.mb.fs-subhead(layout-gt-sm='row' layout-sm="column" ng-if='broker.truliaReview || broker.zillowReview')
+                p.mb-4.ml.mr.tc-blue-600.fw-500
+                    i.mdi.mdi-account-star.mr
+                    | Ratings and Reviews:
+            div(layout='row' layout-align="start center" ng-if='broker.truliaReview || broker.zillowReview')
+                span.ml.mb(ng-if='broker.zillowReview')
+                    a.btn.btn--s.btn--white.btn--raised(target='_blank' lx-ripple='' href='{{broker.zillowReview}}' style="text-decoration:none")
+                        img.m(src="https://s3-us-west-2.amazonaws.com/remax1stclass/brokers/logos/zillow-logo.png" style="width:70px;height:auto")
+                span.ml.mb(ng-if='broker.truliaReview')
+                    a.btn.btn--s.btn--white.btn--raised(target='_blank' lx-ripple='' href='{{broker.truliaReview}}' style="text-decoration:none")
+                        img.m(src="https://s3-us-west-2.amazonaws.com/remax1stclass/brokers/logos/trulia-logo.png" style="width:45px;height:auto")
+        div(flex="")
+            sv-default-phone(broker='broker' edit-right='hasEditAccess'  class='ml mr' )
+            div(class='ml mr' )
+                p.fs-subhead(style="margin-bottom:4px")
+                    span.tc-grey-600
+                        i.mdi.mdi-deskphone &nbsp
+                        span Fax: &nbsp
+                    span.tc-grey-800 {{companyFax}}
     div(layout-gt-sm='row' layout-sm="column")
         md-divider.mt.mb
         h3.m.tc-grey-700.fw-500(ng-if='broker.moto' style="font-style:italic") {{broker.moto}}

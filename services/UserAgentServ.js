@@ -1,3 +1,5 @@
+var botDetect = require('botDetect');
+
 var bots = [
     'facebook',
     'google',
@@ -15,12 +17,13 @@ module.exports = {
 	    if (!userAgent) {
 		    return false;
 	    }
-        for (var i = 0; i < bots.length; i++) {
-            var bot = bots[i].toLowerCase();
-            if (userAgent.toLowerCase().indexOf(bot) > -1) {
-                return true;
-            }
-        }
-        return false;
+        //for (var i = 0; i < bots.length; i++) {
+        //    var bot = bots[i].toLowerCase();
+        //    if (userAgent.toLowerCase().indexOf(bot) > -1) {
+        //        return true;
+        //    }
+        //}
+        //return false;
+        return botDetect(userAgent);
     }
 }

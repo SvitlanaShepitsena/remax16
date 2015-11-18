@@ -12,25 +12,25 @@
                 span.fs-title.ml.mr {{broker.title || defaultBrokerTitle}}
                 span.fs-subhead.ml(ng-if='broker.title2') {{broker.title2}}
                 span(class='ml mr')
-                    p.fw-500
+                    p.mb-4.fw-500
                         span.mr(ng-if='broker.languages')
                             i.fa.fa-globe
                             span.ml Languages:
                         span.tc-blue-600 {{broker.languages}}
                 div(layout-sm='row' layout-gt-sm="column")
-                    p.fw-500.mr.ml(ng-show='broker.recentsales')
+                    p.mb-4.fw-500.mr.ml(ng-show='broker.recentsales')
                         span
                             i.mdi.mdi-checkbox-marked-circle-outline
                             span.ml Recent Sales:
                         a(target='_blank' lx-ripple='' href='{{broker.recentsales}}' style="text-decoration:none")
                             span.tc-blue-600.ml Zillow Sales &nbsp
-                    p.fw-500.mr.ml
+                    p.mb-4.fw-500.mr.ml
                         span
                             i.fa.fa-bell-o
                             span.ml Active Listings:
                         span.tc-blue-600.ml {{brokerHomesCount}} &nbsp
                 div.fw-500.mb.fs-subhead(layout-gt-sm='row' layout-sm="column" ng-if='broker.truliaReview || broker.zillowReview')
-                    p.ml.mr.tc-blue-600.fw-500
+                    p.mb-4.ml.mr.tc-blue-600.fw-500
                         i.mdi.mdi-account-star.mr
                         | Ratings and Reviews:
                 div(layout='row' layout-align="start center" ng-if='broker.truliaReview || broker.zillowReview')

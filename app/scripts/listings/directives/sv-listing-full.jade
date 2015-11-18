@@ -1,13 +1,9 @@
 .card
     sv-bookmark(home='home' )
-    div.bgc-blue-100(layout='row' layout-align="space-between center" style="height:40px")
-        //div
-        //    button.btn.btn--s.btn--white.btn--fab.tc-grey-600.m(lx-ripple='')
-        //        i.fa.fa-facebook &nbsp
-        //    button.btn.btn--s.btn--white.btn--fab.tc-grey-600.m(lx-ripple='')
-        //        i.fa.fa-google-plus &nbsp
-        //    button.btn.btn--s.btn--white.btn--fab.tc-grey-600.m(lx-ripple='')
-        //        i.fa.fa-linkedin &nbsp
+    div.bgc-blue-100(layout='row' layout-align="end center" style="height:40px")
+        div.ml.mr
+            sv-fb-like
+            sv-fb-share
     div(layout-gt-sm='row' layout-sm="column")
         div(flex-gt-sm='60' flex-sm="100" flex-order-sm="1")
             .card.card-flex-slider.bgc-grey-50.m

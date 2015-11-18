@@ -3,8 +3,8 @@ var _ = require('lodash');
 var constants = require('../services/const');
 var firebaseServ = require('../services/FirebaseServ');
 var userAgentServ = require('../services/UserAgentServ');
-
 var defaultThumb = require('../services/const').defaultThumb;
+
 module.exports = function oneListingSale(express) {
     var oneListingSaleRouter = express.Router();
     oneListingSaleRouter.get('/:mls', function (req, res, next) {
@@ -32,12 +32,9 @@ module.exports = function oneListingSale(express) {
                     }
                 };
                 vm.home = home;
-
                 res.render('one-listing', {vm: vm});
-
             }, function (Error) {
                 console.log(Error.message);
-
             });
         } else {
             next();

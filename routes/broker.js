@@ -2,42 +2,34 @@ var path = require('path');
 var _ = require('lodash');
 var constants = require('../services/const');
 var firebaseServ = require('../services/FirebaseServ');
-
 var userAgentServ = require('../services/UserAgentServ');
+
 module.exports = function brokers(express) {
-
     var brokerRouter = express.Router();
-
     brokerRouter.get('/:brokerId/:param', function (req, res, next) {
         var brokerId = req.params.brokerId;
         var param = req.params.param;
-        console.log(brokerId);
-
         var userAgent = req.get('user-agent');
+        var rootUrl = (req.protocol || 'http') + '://' + req.get('host');
+        var fullUrl = rootUrl + req.originalUrl;
+
         if (userAgentServ.amIBot(userAgent)) {
-            var rootUrl = (req.protocol || 'http') + '://' + req.get('host');
-
-
+            /*requests to Firebase*/
             var brokerUrl = constants.url + 'homes/agents/' + brokerId;
             var homesSaleUrl = constants.url + 'homes/sale';
-
             firebaseServ.getAll(brokerUrl).then(function (broker) {
-                var vm;
                 broker.id = brokerId;
+                broker.fullTitle = broker.fName + ' ' + broker.lName + '- Real Estate Agent in Skokie IL';
                 var brokerHomes = [];
-
-                vm = {
-
-                    title: constants.brokersPageTitle,
-                    defAvatar: constants.defaultBrokerIcon,
-                    companyPhone: constants.companyPhone,
-                    companyFax: constants.companyFax,
-                    dTitle: constants.defaultBrokerTitle,
+                var vm = {
+                    title: broker.fullTitle,
+                    image: broker.pic || constants.defaultThumb,
+                    url: fullUrl,
 
                     og: {
-                        title: broker.fName + ' ' + broker.lName + '\r\n Real Estate Agent',
+                        title: broker.fullTitle,
                         image: broker.pic || constants.defaultThumb,
-                        url: rootUrl + req.originalUrl
+                        url: fullUrl
                     }
                 };
                 firebaseServ.getAll(homesSaleUrl).then(function (homes) {
@@ -56,7 +48,6 @@ module.exports = function brokers(express) {
                             res.render('broker-profile', {vm: vm});
                             break;
                         case 'listings':
-                            vm.og.description += '\r\n Active Listings';
                             res.render('broker-listings', {vm: vm});
                             break;
                         case 'blogs':

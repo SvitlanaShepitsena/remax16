@@ -19,21 +19,22 @@ module.exports = function brokers(express) {
             var homesSaleUrl = constants.url + 'homes/sale';
             firebaseServ.getAll(brokerUrl).then(function (broker) {
                 broker.id = brokerId;
-                broker.fullTitle = broker.fName + ' ' + broker.lName + '- Real Estate Agent in Skokie IL';
+                broker.fullTitle = broker.fName + ' ' + broker.lName + '- Real Estate Agent in Skokie IL - Re/Max 1st Class';
+                broker.fullDescription = 'Let us guide you. See how much better than a dream home the right home can be.​';
                 var brokerHomes = [];
                 var vm = {
                     title: broker.fullTitle,
+                    description: broker.fullDescription,
                     image: broker.pic || constants.defaultThumb,
                     url: fullUrl,
-
                     og: {
                         title: broker.fullTitle,
+                        description: broker.fullDescription,
                         image: broker.pic || constants.defaultThumb,
                         url: fullUrl
                     }
                 };
                 firebaseServ.getAll(homesSaleUrl).then(function (homes) {
-                    //console.log(homes);
                     for (var mls in homes) {
                         var home = homes[mls];
                         if (home.agent == broker.id) {
@@ -42,7 +43,6 @@ module.exports = function brokers(express) {
                     }
                     broker.listings = brokerHomes;
                     vm.broker = broker;
-                    //console.log(brokerHomes);
                     switch (param) {
                         case 'profile':
                             res.render('broker-profile', {vm: vm});
@@ -83,34 +83,26 @@ module.exports = function brokers(express) {
                         default:
                             res.render('broker-profile', {vm: vm});
                     }
-
-
                 }, function (Error) {
                     console.log(Error);
 
                 });
-
-
             }, function (Error) {
                 console.log(Error);
-
             });
             /*create a view-model for fb crawler*/
-
-
         } else {
             next();
-
         }
     });
 
     ///*Redirect user to AngularJs App*/
-    //var appFolder = require('./dirServ')();
-    //brokersRouter.use(express.static(appFolder));
-    //
-    //brokersRouter.get('/', function (req, res) {
-    //    res.sendFile('index.html', {root: appFolder});
-    //});
+    var appFolder = require('./dirServ')();
+    brokerRouter.use(express.static(appFolder));
+
+    brokerRouter.get('/', function (req, res) {
+        res.sendFile('index.html', {root: appFolder});
+    });
     return brokerRouter;
 
 };

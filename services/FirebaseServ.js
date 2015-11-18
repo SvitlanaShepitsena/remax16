@@ -37,7 +37,7 @@ module.exports = {
         var deferred = q.defer();
         var ref = new Firebase(url)
 
-        ref.on("value", function (snapshot) {
+        ref.once("value", function (snapshot) {
                 var data = snapshot.val();
                 deferred.resolve(data);
             },

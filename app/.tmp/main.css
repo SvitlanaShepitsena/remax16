@@ -778,6 +778,11 @@ md-icon {
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
   margin-bottom: 16px;
 }
+.search-card {
+  margin-top: 50px;
+  border-radius: 3px;
+  height: 100% !important;
+}
 .home-backdrop {
   width: 100%;
   height: 800px;

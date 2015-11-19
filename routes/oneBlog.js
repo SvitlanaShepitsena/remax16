@@ -18,7 +18,7 @@ module.exports = function oneBlog(express) {
             firebaseServ.getItem(blogUrl).then(function (blog) {
                 blog.imgThumb = blog.img || defaultThumb;
                 blog.fullTitle = blog.title;
-                blog.fullDescription = blog.body;
+                blog.fullDescription = blog.summary;
                 /*create a view-model for fb crawler*/
                 var vm = {
                     url: fullUrl,

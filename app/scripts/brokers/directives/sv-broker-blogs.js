@@ -14,7 +14,7 @@
                         var fb = url + 'blogs/' + key;
                         FbGenServ.removeObj(fb).then(function () {
                             toastr.success('Blog  deleted');
-                            $scope.blogs.splice(i-1,1);
+                            $scope.blogs.splice(i - 1, 1);
                         });
 
                     };

@@ -1,44 +1,42 @@
 var path = require('path');
 var constants = require('../services/const');
-
 var firebaseServ = require('../services/FirebaseServ');
-
 var userAgentServ = require('../services/UserAgentServ');
-module.exports = function oneListingSale(express) {
+var defaultThumb = require('../services/const').defaultThumb;
 
+module.exports = function oneBlog(express) {
     var oneBlogRouter = express.Router();
 
     oneBlogRouter.get('/:id', function (req, res, next) {
         var id = req.params.id;
-
         var userAgent = req.get('user-agent');
+        var rootUrl = (req.protocol || 'http') + '://' + req.get('host');
+        var fullUrl = rootUrl + req.originalUrl;
+        var blogUrl = constants.url + 'blogs/' + id;
+
         if (userAgentServ.amIBot(userAgent)) {
-
-            var rootUrl = (req.protocol || 'http') + '://' + req.get('host');
-            /*create a view-model for fb crawler*/
-            var vm = {
-                rootUrl: rootUrl,
-                title: constants.oneListingSaleTitle,
-                og: {
-                    title: constants.oneListingSaleTitle,
-                    description: constants.oneListingSaleDescription,
-                    image: 'https://s3-us-west-2.amazonaws.com/remax1stclass/company-logo.png',
-                    url: rootUrl
-                }
-            };
-
-
-            var blogUrl = constants.url + 'blogs/'+id;
             firebaseServ.getItem(blogUrl).then(function (blog) {
+                blog.imgThumb = blog.img || defaultThumb;
+                blog.fullTitle = blog.title;
+                blog.fullDescription = blog.body;
+                /*create a view-model for fb crawler*/
+                var vm = {
+                    url: fullUrl,
+                    title: blog.fullTitle,
+                    image: blog.imgThumb,
+                    og: {
+                        url: fullUrl,
+                        title: blog.fullTitle,
+                        description: blog.fullDescription,
+                        image: blog.imgThumb
+                    }
+                };
                 vm.blog = blog;
                 res.render('one-blog', {vm: vm});
 
             }, function (Error) {
                 console.log(Error);
-
             });
-
-
         } else {
             next();
         }

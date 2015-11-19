@@ -2,8 +2,8 @@ var path = require('path');
 var _ = require('lodash');
 var constants = require('../services/const');
 var firebaseServ = require('../services/FirebaseServ');
-var Money = require('../services/Money');
 var userAgentServ = require('../services/UserAgentServ');
+var Money = require('../services/Money');
 var defaultThumb = require('../services/const').defaultThumb;
 
 module.exports = function oneListingSale(express) {

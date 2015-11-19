@@ -53,6 +53,10 @@
                 i.fa.fa-pencil.fa-fw
                 span.ml(hide-sm="") Edit Contact Info
         div
+            a.btn.btn--s.btn--blue.bgc-amber-800.btn--fab.mr(ng-if='broker.stackoverflow' lx-ripple='' href="{{broker.linkedin}}" target='_blank')
+                i.fa.i.fa.fa-stack-overflow.fa-fw
+            a.btn.btn--s.btn--blue.bgc-grey-700.btn--fab.mr(ng-if='broker.github' lx-ripple='' href="{{broker.linkedin}}" target='_blank')
+                i.fa.fa-github.fa-fw
             a.btn.btn--s.btn--red.bgc-red-700.btn--fab.mr(lx-ripple='' ng-if='broker.youtube' href="{{broker.youtube}}" target='_blank')
                 i.fa.fa-youtube.fa-fw
             a.btn.btn--s.btn--blue.btn--fab.bgc-blue-400.mr(ng-if='broker.twitter' lx-ripple='' href="{{broker.twitter}}" target='_blank')

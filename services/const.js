@@ -16,7 +16,7 @@ module.exports = {
     defaultThumb: 'https://s3-us-west-2.amazonaws.com/remax1stclass/logos/remax-transparent-logo-thumb.png',
     defaultTransparentThumb: 'https://s3-us-west-2.amazonaws.com/remax1stclass/logos/remax-logo-thumb.png',
     /*home.js*/
-    homePageTitle: 'Homes For Sale, Apartments For Rent Remax Skokie, Niles, Evanston, Morton Grove',
+    homePageTitle: 'Re/Max 1st Class Real Estate Professionals. Let us guide you. See how much better than a dream home the right home can be.​',
     homePageDescription: 'Re/max 1st Class Realty is a Real Estate Company located in Skokie, IL. We offer a comprehensive service in real estate. We can help to buy, sell or manage residential property, assist in finding the best mortgage conditions as well as find professional attorneys to get all paper prepared. We have successful experience in short sales and always have a great investment opportunities. Our main price range is from 35k till 500k, though we also have experience and listings in luxury market.',
     /*search.js*/
     searchPageTitle: 'Find Your Dream Home',

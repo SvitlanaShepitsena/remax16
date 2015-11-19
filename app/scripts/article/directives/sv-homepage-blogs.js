@@ -9,7 +9,9 @@
                 scope: {},
                 link: function ($scope, el, attrs) {
                     BlogsServ.getRandomBlogs().then(function (blogs) {
-                        $scope.blogs = blogs;
+                        $scope.blogs = _.filter(blogs, function (blog) {
+                          return blog.isPublic;
+                        });
 
                     });
 

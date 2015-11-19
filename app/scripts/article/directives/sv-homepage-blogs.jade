@@ -1,6 +1,6 @@
 div(layout='row' layout-wrap="")
     div(flex-sm='100' flex-gt-sm='50' flex-gt-md='33' flex-gt-lg="25" ng-repeat='blog in blogs|orderBy:"-timestamp"' )
-        .card.m.pb
+        .card.ml.mr.mb.pb
             a.td-none.tc-grey-800(ui-sref='app.blog({id:blog.fbkey})')
                 sv-img-background.sv-img-thumb(sv-image="blog.img" img-width="180" img-height="120" style="margin:0px auto")
                 div.m

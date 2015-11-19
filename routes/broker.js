@@ -92,17 +92,17 @@ module.exports = function brokers(express) {
             });
             /*create a view-model for fb crawler*/
         } else {
-            next();
+            //next();
         }
     });
 
-    ///*Redirect user to AngularJs App*/
-    var appFolder = require('./dirServ')();
-    brokerRouter.use(express.static(appFolder));
-
-    brokerRouter.get('/', function (req, res) {
-        res.sendFile('index.html', {root: appFolder});
-    });
+    /////*Redirect user to AngularJs App*/
+    //var appFolder = require('./dirServ')();
+    //brokerRouter.use(express.static(appFolder));
+    //
+    //brokerRouter.get('/', function (req, res) {
+    //    res.sendFile('index.html', {root: appFolder});
+    //});
     return brokerRouter;
 
 };

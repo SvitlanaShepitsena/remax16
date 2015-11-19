@@ -7,11 +7,15 @@
                 require: '^lxDropdown',
                 link: function ($scope, el, attrs, ctrl) {
                     if (localStorageService.get('mapView') === 'map') {
-                        ctrl.open();
+                        //ctrl.open();
                     } else {
                         //ctrl.close();
                     }
                     $scope.$on('mapGrid:changed', function (event, isMap) {
+                        if ($scope.sm) {
+                            return;
+                        }
+
                         if (isMap) {
                             ctrl.open();
                         } else {
@@ -22,6 +26,8 @@
                     $scope.$watch(function () {
                         return $mdMedia('sm');
                     }, function (sm) {
+                        $scope.sm = sm;
+
                         if (!sm) {
                             //ctrl.open();
                         } else {

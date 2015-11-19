@@ -73,13 +73,6 @@ module.exports = function brokers(express) {
         }
     });
 
-    /*Redirect user to AngularJs App*/
-    var appFolder = require('./dirServ')();
-    brokersRouter.use(express.static(appFolder));
-
-    brokersRouter.get('/', function (req, res) {
-        res.sendFile('index.html', {root: appFolder});
-    });
     return brokersRouter;
 
 };

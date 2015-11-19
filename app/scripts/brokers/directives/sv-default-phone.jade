@@ -8,7 +8,7 @@ div
                     span {{phone.name}}: &nbsp
                 span.tc-grey-800 {{phone.value|tel}}
             div.ml(flex="")
-                .listing-bookmark-wrapper
-                    button.btn.btn--xs.btn--blue.btn--raised.listing-bookmark.mt-4(lx-ripple='' ng-if='editRight' ng-show='broker.defaultTel?phone.name!=broker.defaultTel:phone.name=="Office"' ng-click='makeDefault(phone)') Make Default
-                    button.bgc-blue-50.btn.btn--xs.btn--red.btn--flat.listing-bookmark.mt-4(ng-hide='broker.defaultTel?phone.name!=broker.defaultTel:phone.name!=="Office"') Default Phone
+                .default-phone-wrapper
+                    button.btn.btn--xs.btn--blue.btn--raised.default-phone.mt-4(lx-ripple='' ng-if='editRight' ng-show='broker.defaultTel?phone.name!=broker.defaultTel:phone.name=="Office"' ng-click='makeDefault(phone)') Make Default
+                    button.bgc-blue-50.btn.btn--xs.btn--red.btn--flat.default-phone.mt-4(ng-hide='broker.defaultTel?phone.name!=broker.defaultTel:phone.name!=="Office"') Default Phone
 

@@ -2,11 +2,11 @@ var path = require('path');
 var constants = require('../services/const');
 
 var userAgentServ = require('../services/UserAgentServ');
-module.exports = function aboutUs(express) {
+module.exports = function about(express) {
 
-    var aboutUsRouter = express.Router();
+    var aboutRouter = express.Router();
 
-    aboutUsRouter.get('/', function (req, res, next) {
+    aboutRouter.get('/', function (req, res, next) {
 
         var userAgent = req.get('user-agent');
         if (userAgentServ.amIBot(userAgent)) {
@@ -31,11 +31,11 @@ module.exports = function aboutUs(express) {
 
     /*Redirect user to AngularJs App*/
     var appFolder = require('./dirServ')();
-    aboutUsRouter.use(express.static(appFolder));
+    aboutRouter.use(express.static(appFolder));
 
-    aboutUsRouter.get('/info', function (req, res) {
+    aboutRouter.get('/info', function (req, res) {
         res.sendFile('index.html', {root: appFolder});
     });
-    return aboutUsRouter;
+    return aboutRouter;
 
 };

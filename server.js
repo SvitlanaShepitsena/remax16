@@ -43,7 +43,7 @@ var searchRouter = require('./routes/search')(express);
 var oneBlogRouter = require('./routes/oneBlog')(express);
 var oneListingSaleRouter = require('./routes/oneListingSale')(express);
 var oneListingRentRouter = require('./routes/oneListingRent')(express);
-var aboutUsRouter = require('./routes/about')(express);
+var aboutRouter = require('./routes/about')(express);
 
 // --- Routes ---
 app.use('/email-confirmation-1stclass', emailConfirmationRouter);
@@ -58,7 +58,7 @@ app.use('/search', searchRouter);
 app.use('/blogs', oneBlogRouter);
 app.use('/homes-for-sale', oneListingSaleRouter);
 app.use('/homes-for-rent', oneListingRentRouter);
-app.use('/about', aboutUsRouter);
+app.use('/about-remax-1st-class', aboutRouter);
 app.use('/brokers', brokerRouter);
 app.use('/brokers', brokersRouter);
 app.use('/', homeRouter);

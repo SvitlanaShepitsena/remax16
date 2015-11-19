@@ -193,7 +193,7 @@
                             });
                             marker.id = home.$id;
                             var url = home.images ? home.images[0] : defaultImage;
-                            var href = "/remax-listings/" + (home.isRent ? 'rent/' : 'sale/') + home.mls + '/';
+                            var href = (home.isRent ? 'homes-for-rent/' : 'homes-for-sale/') + home.mls + '/';
 
 
                             var amIOwner = userAuth.profile && userAuth.profile.brokerId === home.agent;

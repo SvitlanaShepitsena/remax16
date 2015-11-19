@@ -1,4 +1,6 @@
 mixin one-broker-blogs(blog)
     .row.thumbnail
-        h3 !{blog.title}
+        img(src="#{blog.img}" style="width:200px;float:left;margin:4px")
+        h4 !{blog.title}
+        p !{blog.summary}
 

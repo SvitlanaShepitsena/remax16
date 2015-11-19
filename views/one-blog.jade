@@ -1,11 +1,8 @@
 extends layout
 
 block content
-    div(class='p+')
-        h1 Remax Blog
-        br
+    if (vm.blog !== undefined)
+        h1 !{vm.blog.title}
         hr
-    div(class='mb+')
-        if (vm.blog !== undefined)
-            div= vm.blog.title
+        div !{vm.blog.body}
 

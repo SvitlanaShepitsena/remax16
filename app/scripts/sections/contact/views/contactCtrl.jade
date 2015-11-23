@@ -2,12 +2,18 @@
     div(layout-gt-sm='row' layout-sm="column")
         div(flex='' flex-order-sm="2" layout="column" layout-align="center center")
             .card
-                .bgc-grey-100.p(flex="" layout-align="space-between center" layout="row")
-                    span.fs-headline.m
+                .bgc-grey-100.p(flex="" layout-align-gt-sm="space-between center" layout-gt-sm="row" layout-sm="column" )
+                    .fs-headline.m(flex="")
                         span.tc-red-700
                             i.fa.i.fa.fa-map-marker.fa-fw
                         span.tc-blue-700 {{companyName}}
-                    span.tc-grey-800.fs-18  {{companyStreet}} {{companyCity}}, {{companyState}}, {{companyZip}}
+                    .tc-grey-700.fs-subhead(layout="column" flex="")
+                        div(layout-gt-sm='row' layout-sm="column" flex="")
+                            div {{companyStreet}}, &nbsp
+                            div {{companyCity}} {{companyState}}, {{companyZip}}
+                        div(layout-gt-sm='row' layout-sm="column" flex="")
+                            div Phone: {{companyPhone}} &nbsp
+                            div Fax: {{companyFax}}
                 .sv-iframe-responsive-wrap.pt
                     iframe.sv-iframe-responsive(src="https://www.google.com/maps/d/embed?mid=zdTHzl0THQeM.kIf77Vwre964" width="640" height="680")
         div(flex-gt-sm='40' flex-sm="100")

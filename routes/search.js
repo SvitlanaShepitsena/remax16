@@ -18,13 +18,14 @@ module.exports = function search(express) {
             var rootUrl = (req.protocol || 'http') + '://' + req.get('host');
             /*create a view-model for fb crawler*/
             var vm = {
-                rootUrl: rootUrl,
-                homeAvatar: constants.defaultTransparentThumb,
-                title: constants.searchPageTitle,
+                url: rootUrl,
+                title: constants.homePageTitle,
+                description: constants.homePageDescription,
+                image: constants.companyLogoFb,
                 og: {
-                    title: constants.searchPageTitle,
-                    description: constants.searchPageDescription,
-                    image: 'https://s3-us-west-2.amazonaws.com/remax1stclass/company-logo.png',
+                    title: constants.homePageTitle,
+                    description: constants.homePageDescription,
+                    image: constants.companyLogoFb,
                     url: rootUrl
                 }
             };

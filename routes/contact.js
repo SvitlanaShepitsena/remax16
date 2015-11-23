@@ -7,22 +7,19 @@ module.exports = function contactUs(express) {
     var contactUsRouter = express.Router();
 
     contactUsRouter.get('/', function (req, res, next) {
-
+        var rootUrl = (req.protocol || 'http') + '://' + req.get('host');
         var userAgent = req.get('user-agent');
 
         if (userAgentServ.amIBot(userAgent)) {
-
-            var rootUrl = (req.protocol || 'http') + '://' + req.get('host');
-
-            /*create a view-model for fb crawler*/
             var vm = {
-                rootUrl: rootUrl,
-                title: constants.contactPageTitle,
-                image: 'https://s3-us-west-2.amazonaws.com/remax1stclass/company-logo.png',
+                url: rootUrl,
+                title: constants.homePageTitle,
+                description: constants.homePageDescription,
+                image: constants.companyLogoFb,
                 og: {
-                    title: constants.contactPageTitle,
-                    image: 'https://s3-us-west-2.amazonaws.com/remax1stclass/company-logo.png',
-                    description: constants.contactPageDescription,
+                    title: constants.homePageTitle,
+                    description: constants.homePageDescription,
+                    image: constants.companyLogoFb,
                     url: rootUrl
                 }
             };

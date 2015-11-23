@@ -7,20 +7,21 @@ module.exports = function about(express) {
     var aboutRouter = express.Router();
 
     aboutRouter.get('/', function (req, res, next) {
-
+        var rootUrl = (req.protocol || 'http') + '://' + req.get('host');
         var userAgent = req.get('user-agent');
-        if (userAgentServ.amIBot(userAgent)) {
 
-            var rootUrl = (req.protocol || 'http') + '://' + req.get('host');
+        if (userAgentServ.amIBot(userAgent)) {
             /*create a view-model for fb crawler*/
             var vm = {
-                rootUrl: rootUrl,
-                title: constants.aboutPageTitle,
+                url: rootUrl,
+                title: constants.homePageTitle,
+                description: constants.homePageDescription,
+                image: constants.companyLogoFb,
                 og: {
-                    title: constants.aboutPageTitle,
-                    description: constants.aboutPageDescription,
-                    image: 'https://s3-us-west-2.amazonaws.com/remax1stclass/company-logo.png',
-                    url: rootUrl
+                    title: constants.homePageTitle,
+                    description: constants.homePageDescription,
+                    image: constants.companyLogoFb,
+                    url: rootUrl,
                 }
             };
             res.render('about', {vm: vm});

@@ -11,6 +11,7 @@ module.exports = {
     companyPhone: '(847) 674-9797',
     companyFax: '(847) 674-0411',
     companyEmail: 'remax1stclass@gmail.com',
+    companyLogoFb: 'https://s3-us-west-2.amazonaws.com/remax1stclass/logos/logo.jpg',
 
     defaultBrokerIcon: 'https://s3-us-west-2.amazonaws.com/remax1stclass/brokers/icons/broker.png',
     defaultThumb: 'https://s3-us-west-2.amazonaws.com/remax1stclass/logos/remax-transparent-logo-thumb.png',

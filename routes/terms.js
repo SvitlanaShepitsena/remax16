@@ -7,19 +7,19 @@ module.exports = function terms(express) {
     var termsRouter = express.Router();
 
     termsRouter.get('/', function (req, res, next) {
-
         var userAgent = req.get('user-agent');
-        if (userAgentServ.amIBot(userAgent)) {
+        var rootUrl = (req.protocol || 'http') + '://' + req.get('host');
 
-            var rootUrl = (req.protocol || 'http') + '://' + req.get('host');
-            /*create a view-model for fb crawler*/
+        if (userAgentServ.amIBot(userAgent)) {
             var vm = {
-                rootUrl: rootUrl,
-                title: constants.termsPageTitle,
+                url: rootUrl,
+                title: constants.homePageTitle,
+                description: constants.homePageDescription,
+                image: constants.companyLogoFb,
                 og: {
-                    title: constants.termsPageTitle,
-                    description: constants.termsPageDescription,
-                    image: 'https://s3-us-west-2.amazonaws.com/remax1stclass/company-logo.png',
+                    title: constants.homePageTitle,
+                    description: constants.homePageDescription,
+                    image: constants.companyLogoFb,
                     url: rootUrl
                 }
             };

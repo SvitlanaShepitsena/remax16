@@ -12,7 +12,6 @@ module.exports = function homeRouter(express) {
     homeRouter.get('/', function (req, res, next) {
         var userAgent = req.get('user-agent');
         var rootUrl = (req.protocol || 'http') + '://' + req.get('host');
-        console.log(userAgent);
 
         if (userAgentServ.amIBot(userAgent)) {
             /*create a view-model for fb crawler*/
@@ -21,16 +20,14 @@ module.exports = function homeRouter(express) {
                 url: rootUrl,
                 title: constants.homePageTitle,
                 description: constants.homePageDescription,
-                image: rootUrl + '/img/logo/logo.jpg',
+                image: constants.companyLogoFb,
                 og: {
                     title: constants.homePageTitle,
                     description: constants.homePageDescription,
-                    image: rootUrl + '/img/logo/logo.jpg',
-                    url: rootUrl,
+                    image: constants.companyLogoFb,
+                    url: rootUrl
                 }
             };
-            console.log(vm);
-
             var blogsUrl = url + 'blogs';
             firebaseServ.getAll(blogsUrl).then(function (blogs) {
                 console.log(blogs);

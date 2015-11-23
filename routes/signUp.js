@@ -2,11 +2,11 @@ var path = require('path');
 var constants = require('../services/const');
 
 var userAgentServ = require('../services/UserAgentServ');
-module.exports = function about(express) {
+module.exports = function signUp(express) {
 
-    var aboutRouter = express.Router();
+    var signUpRouter = express.Router();
 
-    aboutRouter.get('/', function (req, res, next) {
+    signUpRouter.get('/', function (req, res, next) {
         var rootUrl = (req.protocol || 'http') + '://' + req.get('host');
         var userAgent = req.get('user-agent');
 
@@ -24,7 +24,7 @@ module.exports = function about(express) {
                     url: rootUrl,
                 }
             };
-            res.render('about', {vm: vm});
+            res.render('sign-up', {vm: vm});
         } else {
             next();
         }
@@ -32,11 +32,11 @@ module.exports = function about(express) {
 
     /*Redirect user to AngularJs App*/
     var appFolder = require('./dirServ')();
-    aboutRouter.use(express.static(appFolder));
+    signUpRouter.use(express.static(appFolder));
 
-    aboutRouter.get('/info', function (req, res) {
+    signUpRouter.get('/info', function (req, res) {
         res.sendFile('index.html', {root: appFolder});
     });
-    return aboutRouter;
+    return signUpRouter;
 
 };

@@ -1,10 +1,21 @@
 extends layout
 
 block content
-    div(class='p+')
-        h1 Why Re/Max 1st Class Realty is worth to work with:
-        br
-        hr
-    div(class='mb+')
-        include ../app/scripts/sections/about/directives/sv-about-company
+    .row
+        div(class='col-sm-6')
+            h1 Log In to your Account
+            br
+            hr
+            span Do not have an account? &nbsp
+            a.btn.btn-primary.btn-sm(href="/sign-up") Please Sign Up
+            br
+        div(class='p+  mb++ col-sm-6')
+            h2 Log In with Social Media
+            p Facebook or Google Plus will ask you for:
+            p 1. Access to your basic account information
+            p We only use your name and email address to create your account. We won’t use your list of friends unless you ask us to.
+            p 2. Email
+            p We will only send emails if you specifically sign up on our site.
+            p We will never post anything to your wall or timeline unless you share it yourself.
+
 

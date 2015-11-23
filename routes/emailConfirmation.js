@@ -7,10 +7,8 @@ module.exports = function emailConfirmation(express) {
     var emailConfirmationRoute = express.Router();
 
     emailConfirmationRoute.get('/:email/:temp', function (req, res, next) {
-
         var email = req.params['email'];
         var temp = req.params['temp'];
-
 
         var registeredUsers = constants.url + 'user-management/users/';
         firebaseServ.getAll(registeredUsers).then(function (data) {
@@ -23,7 +21,7 @@ module.exports = function emailConfirmation(express) {
                     console.log(objectToUpdateUrl);
                     firebaseServ.removeItem(objectToUpdateUrl).then(function () {
                         var rootUrl = (req.protocol || 'http') + '://' + req.get('host');
-                        var redirectPath = rootUrl + '/login/'+email+'/'+temp+'/';
+                        var redirectPath = rootUrl + '/login/' + email + '/' + temp + '/';
                         console.log(redirectPath);
                         res.redirect(redirectPath);
                         //req.session.email = email;

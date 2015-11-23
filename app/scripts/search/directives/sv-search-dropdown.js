@@ -22,8 +22,6 @@
                 link: function ($scope, el, attrs) {
 
 
-
-
                     $rootScope.$watch('hmCnt', function (newValue, oldValue) {
                         if (newValue) {
                             $rootScope.cnt = {n: newValue};

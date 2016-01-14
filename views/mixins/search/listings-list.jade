@@ -1,0 +1,43 @@
+mixin listings-list(homes,homeAvatar)
+    .row
+        if (homes)
+            .row
+                each home in homes
+                    a(href="/homes-for-#{home.isRent ? 'rent' : 'sale'}/#{home.mls}" )
+                        .col-md-4
+                            .thumbnail(style="margin:4px")
+                                .row
+                                    .col-sm-6
+                                        p
+                                            span $
+                                            span !{home.price }
+                                    .col-sm-6
+                                        p= home.type
+                                        p MLS#: &nbsp
+                                            span= home.mls
+                                hr
+                                .row
+                                    .col-sm-12
+                                        span !{home.address.street} &nbsp
+                                        span !{home.address.city} &nbsp
+                                        span !{home.address.state} &nbsp
+                                        span !{home.address.zip}
+                                hr
+                                div
+                                    img.thumbnail(src="#{home.images ? home.images[0] : homeAvatar}" style="width:auto; max-height:200px;display:block;margin:0px auto")
+                                br
+                                .row
+                                    .col-sm-12
+                                        p
+                                            span Beds: !{home.beds} &nbsp | &nbsp
+                                            span Baths: !{home.bath} &nbsp | &nbsp
+                                            span Year: !{home.year} &nbsp
+                                .row
+                                    .col-sm-6
+                                        h4 !{companyPhone}
+                                    .col-sm-6.text-rigth
+                                        h4
+                                            span !{home.agent.split('_')[0]} &nbsp
+                                            span !{home.agent.split('_')[1]} &nbsp
+
+

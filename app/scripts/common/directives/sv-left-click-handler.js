@@ -16,7 +16,7 @@
                         event.stopPropagation();
                         $scope.$apply(function () {
                             $scope.toggleLeft();
-                    });
+                        });
                     });
                 }
             };

@@ -6,9 +6,9 @@ div
         div(flex-item='')
             button.btn.btn--s.btn--grey.btn--raised.bgc-grey-300.tc-grey-800( lx-tooltip="Tooltip" type="button" class='mr+' lx-ripple=''  id='secondaryButton' onclick="document.getElementById('primaryButton').click()")
                 i.mdi.mdi-file-image &nbsp
-                | {{'choose-image'|translate}}
+                | Choose Image
             div(ng-if='ad.img')
                 img(ng-src='{{ad.img}}')
                 button.btn.btn--m.btn--white.btn--raised.tc-red-300(type='button' lx-ripple ng-click='$flow.files.length=0;ad.img=null' )
                     i.mdi.mdi-close &nbsp
-                    | {{'remove-image'|translate}}
+                    | Remove Image

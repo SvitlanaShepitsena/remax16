@@ -1,0 +1,10 @@
+md-dialog()
+    md-dialog-content.mdc-no-padding
+        md-toolbar.bgc-blue-A200.mb(layout='row' layout-align="space-between center" class='pl+ pr+')
+            .fs-headline.tc-blue-50
+                i.mdi.mdi-pencil
+                span.ml Customer Review
+            button.btn.btn--m.btn--white.btn--icon(lx-ripple='' ng-click="cancel()")
+                i.fa.fa-close.fa-fw
+        div(layout='column' flex="" class='mb+' )
+            sv-review-form(evaluation='reviewModal' remove-edit-state='hide()')

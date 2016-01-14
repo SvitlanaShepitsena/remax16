@@ -1,0 +1,22 @@
+.card.mb
+    div.bgc-grey-100.fs-title(class='p+')
+        i.fa.fa-envelope.fa-fw.tc-red-600
+        span.tc-blue-600.ml My Subscriptions
+    div
+        p.m
+            i.mdi.mdi-airballoon.tc-blue-600
+            span.ml Get notifications about new and updated listings that meet your criteria.
+        p.m
+            i.mdi.mdi-airballoon.tc-blue-600
+            span.ml Find out about open houses, short sales, foreclosures!
+        div(ng-if='user')
+            form( name='subscriptionsForm')
+                div(layout="row" layout-align='start center')
+                    md-checkbox(ng-model="subscription.bookmarks" aria-label="Checkbox")
+                    div Updates to my bookmarked listings
+                div(layout="row" layout-align='start center')
+                    md-checkbox(ng-model="subscription.openHouse" aria-label="Checkbox")
+                    div Open houses events
+                div(layout="row" layout-align='start center')
+                    md-checkbox(ng-model="subscription.newsLetter" aria-label="Checkbox")
+                    div Our weekly e-newsletter

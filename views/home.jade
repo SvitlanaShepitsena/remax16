@@ -1,13 +1,22 @@
 extends layout
+include mixins/article/home-page-news-thumb
+include mixins/article/article-section-thumb
+
 block content
-    div(class='row mb pt+ sv-margin-reset')
-        div.col-xs-8.sv-padding-reset
-            h2 Main Content
-            br
-            hr
-            p(class="mt+") At vero eos et accusamus et iusto odio dignissimos ducimk
-        div.col-xs-4.sv-padding-reset
-            div(class='column sv-margin-reset')
-                div.col-xs-12.mb.sv-padding-reset
-                    p Content At vero eos et accusamus et iusto odio dignissimos ducimus
-                div.col-xs-12.mb.sv-padding-reset
+    div.text-center
+        h2 Find your dream home
+    hr
+    div.text-center
+        ul.list-inline
+            li
+                a(href='/search/homes-for-sale').btn.btn-primary.btn-large Sale
+            li
+                a(href='/search/homes-for-rent').btn.btn-danger Rent
+    hr
+    div
+       ul.list-inline
+          each blog in vm.blogs
+              +article-section-thumb(blog)
+
+
+

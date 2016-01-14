@@ -1,0 +1,15 @@
+extends layout
+include mixins/brokers/one-broker-reviews
+include mixins/brokers/broker-contact-info
+
+
+block content
+    div(class='p+')
+        if vm.broker !== undefined
+            +broker-contact-info(vm.broker,vm.defAvatar, vm.companyPhone, vm.companyFax, vm.dTitle)
+            include brokers/broker-profile-nav
+            h3 Reviews
+            each review in vm.broker.reviews
+                +one-broker-reviews(review)
+
+

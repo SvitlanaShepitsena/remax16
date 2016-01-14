@@ -30,7 +30,8 @@
                 })
                 .state("app.brokers.broker.listings", {
                     url: "/listings",
-                    template: "<sv-listings-list></sv-listings-list>"
+                    controller:"BrokerActiveListingsCtrl",
+                    templateUrl: "scripts/brokers/views/broker-active-listingsCtrl.html"
                 })
                 .state("app.brokers.broker.blogs", {
                     url: "/blog",
@@ -38,7 +39,11 @@
                 })
                 .state("app.brokers.broker.reviews", {
                     url: "/reviews",
-                    template: "<div>You have no reviews yet</div>"
+                    template: "<sv-reviews-public-info></sv-reviews-public-info>"
+                })
+                .state("app.brokers.broker.endorsements", {
+                    url: "/endorsements",
+                    template: "<sv-endorsements-public-info></sv-endorsements-public-info>"
                 })
 
 

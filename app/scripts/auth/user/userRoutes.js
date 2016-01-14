@@ -1,6 +1,6 @@
 (function () {
     'use strict'
-    angular.module('auth.user', ['ui.router', 'flow'])
+    angular.module('auth.user', ['ui.router'])
         .config(function ($stateProvider, $urlRouterProvider) {
             $stateProvider
             /*=user profile*/
@@ -43,15 +43,25 @@
                     controller: "UserSocialCtrl as userSocial",
                     templateUrl: "scripts/auth/user/views/userSocialCtrl.html"
                 })
-                .state("app.user.homepage-rank", {
-                    url: "/homepage-rank",
-                    controller: "HomepageRankCtrl",
-                    templateUrl: "scripts/article/views/homepage-rankCtrl.html"
-                })
                 .state("app.user.account-settings", {
                     url: "/account-settings",
                     controller: "AccountSettingsCtrl",
                     templateUrl: "scripts/auth/user/views/account-settingsCtrl.html"
+                })
+                .state("app.user.user-bookmarks", {
+                    url: "/user-bookmarks",
+                    controller: "UserBookmarksCtrl",
+                    templateUrl: "scripts/auth/views/user-bookmarksCtrl.html"
+                })
+                .state("app.user.user-subscriptions", {
+                    url: "/user-subscriptions",
+                    controller: "UserSubscriptionsCtrl",
+                    templateUrl: "scripts/auth/views/user-subscriptionsCtrl.html"
+                })
+                .state("app.user.user-reviews", {
+                    url: "/user-reviews",
+                    controller: "UserReviewsCtrl",
+                    templateUrl: "scripts/auth/views/user-reviewsCtrl.html"
                 })
 //#state'
         });

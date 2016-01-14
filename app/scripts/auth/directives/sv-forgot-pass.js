@@ -1,12 +1,13 @@
 (function () {
     'use strict';
     angular.module('auth')
-        .directive('svForgotPass', function ($mdDialog, toastr, AuthenticationServ) {
+        .directive('svForgotPass', function ($mdDialog, toastr, AuthenticationServ, companyName) {
             return {
                 replace: true,
                 templateUrl: 'scripts/auth/directives/sv-forgot-pass.html',
                 scope: {},
                 link: function ($scope, el, attrs) {
+                    $scope.companyName = companyName;
                     $scope.showPasswordModal = function () {
                         $mdDialog.show(
                             {

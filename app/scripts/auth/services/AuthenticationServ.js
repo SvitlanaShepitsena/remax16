@@ -17,9 +17,10 @@
                             ProfileServ.getProfile(authData).then(function (profile) {
                                 if (profile.role == 'broker') {
                                     GetAgentsInfoServ.getByEmail(profile.email).then(function (broker) {
-                                        profile.brokerId = broker.$id;
-                                        profile.brokerPic = broker.pic;
-
+                                        if (broker) {
+                                            profile.brokerId = broker.$id;
+                                            profile.brokerPic = broker.pic;
+                                        }
                                         resolve(profile);
                                     });
                                 } else {
@@ -39,12 +40,16 @@
                     return $q(function (resolve, reject) {
                         authObj.$authWithOAuthPopup(provider, {scope: 'email'}).then(function (authData) {
                             //console.log("User is Authenticated as:", authData);
+
                             ProfileServ.getProfile(authData).then(function (profile) {
                                 if (profile.role == 'broker') {
                                     GetAgentsInfoServ.getByEmail(profile.email).then(function (broker) {
-                                        profile.brokerId = broker.$id;
-                                        profile.brokerPic = broker.pic;
+                                        if (broker) {
 
+                                            profile.brokerId = broker.$id;
+                                            profile.brokerPic = broker.pic;
+
+                                        }
                                         resolve(profile);
                                     });
                                 } else {
@@ -59,14 +64,22 @@
                     });
                 },
                 /*Firebase authentication with email/password combination, creating a profile*/
-                svetLogin: function (email, password) {
+                appLogin: function (email, password) {
                     return $q(function (resolve, reject) {
                         authObj.$authWithPassword({
                             email: email,
                             password: password
                         }).then(function (authData) {
                             ProfileServ.getProfile(authData).then(function (profile) {
-                                resolve(profile);
+
+                                if (profile.unconfirmed) {
+                                    authObj.$unauth();
+                                    reject({message: 'Please, confirm your email address'});
+
+                                } else {
+
+                                    resolve(profile);
+                                }
                             }).catch(function (error) {
                                 reject(error);
                             })

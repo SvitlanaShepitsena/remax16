@@ -1,0 +1,1 @@
+<div layout="column"><div ng-repeat="e in endorsements"><div class="card mb m"><h3 class="p">{{e.title}}</h3><p class="m">{{e.author}}</p><div ng-bind-html="safeParsing(e.summary)" class="m tc-grey-800"></div><div class="m"><button lx-ripple="" ng-click="showEndorsementsModal(e)" class="btn btn--xs btn--blue btn--raised">Read More >></button></div></div></div></div>

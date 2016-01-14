@@ -1,7 +1,7 @@
 (function () {
     'use strict';
     angular.module('auth')
-        .directive('svSignUpForm', function (ProfileServ, $state, toastr, AuthenticationServ, $mdDialog) {
+        .directive('svSignUpForm', function (ProfileServ, $state, toastr, AuthenticationServ, $mdDialog , companyName) {
             return {
                 replace: true,
                 templateUrl: 'scripts/auth/directives/sv-sign-up-form.html',
@@ -15,6 +15,7 @@
                     login: '@'
                 },
                 controller: function ($scope) {
+                    $scope.companyName = companyName;
                     $scope.user = {
                         userName: '',
                         email: '',
@@ -46,7 +47,7 @@
                         };
                     }
 
-                    $scope.createSvetUser = function () {
+                    $scope.createLocalUser = function () {
                         if ($scope.signUpForm.$invalid) {
                             $scope.signUpForm.userName.$touched = true;
                             $scope.signUpForm.email.$touched = true;
@@ -54,19 +55,21 @@
                             return;
                         }
                         $scope.user.userName = $scope.user.userName.replace(/\s+/g, '-').toLowerCase();
-                        ProfileServ.createSvetUser($scope.user.email, $scope.user.password, $scope.user.userName).then(function () {
-                                AuthenticationServ.svetLogin($scope.user.email, $scope.user.password).then(function (profile) {
-                                    $state.go('app.user.dashboard', {uid: profile.userName});
-                                });
+                        ProfileServ.createLocalUser($scope.user.email, $scope.user.password, $scope.user.userName,true,$scope.user.subscriptions).then(function () {
+                                //AuthenticationServ.appLogin($scope.user.email, $scope.user.password).then(function (profile) {
+                                $state.go('app.login');
+                                toastr.warning('Please, confirm you email and then you will be able to log in', {timeOut: 5000});
+                                //});
                             }
                         ).catch(function (error) {
-                                toastr.error(error.message);
-                                $scope.signUpForm.email.$invalid = true;
-                                $scope.signUpForm.email.$touched = true;
-                            })
+                            toastr.error(error.message);
+                            $scope.signUpForm.email.$invalid = true;
+                            $scope.signUpForm.email.$touched = true;
+                        })
                     }
                 },
                 link: function ($scope, el, attrs) {
+                    $scope.companyName = companyName;
                 }
             };
         });

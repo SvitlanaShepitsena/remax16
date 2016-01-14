@@ -3,13 +3,13 @@ div(flow-init='')
         sv-profile-subhead(subhead-title="my-ad-campaign")
     form(name='adForm' novalidate ng-submit='addBusinessAd(ad,$flow.files[0],adForm.$valid)' sv-form-val)
         md-input-container.pl.pr
-            label {{'campaign-name'|translate}}
+            label Campaign name
             input(type='text' ng-model='ad.name' name='name' required )
         md-input-container.pl.pr
-            label {{'www'|translate}}
+            label www
             input(type='url' ng-model='ad.www' name='www' )
         md-input-container.pl.pr
-            label {{'anchor'|translate}}
+            label Anchor
             input(type='text' ng-model='ad.anchor' name='anchor' required )
         md-input-container.pl.pr(ng-if='user.isManager()')
             div(flex-item='')
@@ -22,10 +22,10 @@ div(flow-init='')
         div.bgc-grey-100(class='pl+ pr+ pt+ pb' layout="row")
             button.btn.btn--s.btn--raised.btn--white.tc-teal-300.m( type='submit' lx-ripple value="Save" ng-if='id' )
                 i.fa.fa-save.mr
-                | {{'save changes'|translate}}
+                | Save Changes
             button.btn.btn--s.btn--raised.btn--grey.m( type='submit' lx-ripple value="Save" ng-if='!id')
                 i.mdi.mdi-send.mr
-                | {{'post'|translate}}
+                | Post
             button.btn.btn--s.btn--raised.btn--white.m(type='button' lx-ripple ng-click='cancelAddition()' ui-sref="^")
                 i.mdi.mdi-close.mr
-                | {{'cancel'|translate}}
+                | Cancel

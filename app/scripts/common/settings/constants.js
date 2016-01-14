@@ -1,15 +1,14 @@
 (function () {
     'use strict'
-    var fbDomain = 'svet-test';
+    var fbDomain = 'remax1stclass';
 
     angular.module('common')
         .constant('routesRadioShow', ['app', 'app.home'])
-        .constant('domain', fbDomain === 'svet' ? 'production' : 'test')
         .constant('url', 'https://' + fbDomain + '.firebaseio.com/')
         .constant('homesUrl', 'https://' + fbDomain + '.firebaseio.com/homes/')
+        .constant('agentsUrl', 'https://' + fbDomain + '.firebaseio.com/homes/agents/')
         .constant('maps', 'http://maps.google.com/?q=')
         .constant('users', 'https://' + fbDomain + '.firebaseio.com/user-management/users/')
-        .constant('corporate', 'https://' + fbDomain + '.firebaseio.com/events/corporate/')
         .constant('ads', 'https://' + fbDomain + '.firebaseio.com/ads/')
         .constant('companyName', 'Re/Max 1st Class')
         .constant('companyWebsite', 'http://remax1stclass.com/')
@@ -31,16 +30,13 @@
             land: "img/icons/landmark-green.png"
         })
 
-
         .constant('distanceToNearest', 20000)
         .constant('defaultImage', '../img/common/image-empty.png')
 
         .constant('userAuth', {})
         .constant('lastEditorPost', {})
-        .constant('svetNews', {})
-        .constant('svetBlogsConst', {})
-        .constant('svetEventsConst', {})
-        .constant('svetPost', {})
+        .constant('appNews', {})
+        .constant('blogsConst', {})
         .constant('classified', {})
         .constant('feedback', {})
         .constant('viewModalConst', {})

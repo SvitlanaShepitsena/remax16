@@ -1,0 +1,29 @@
+md-toolbar(class='pt' style="background-color:#1976D2;position:relative;bottom:0px")
+    div(layout='row' layout-align="space-between center")
+        div.m
+            img.mdc-display-inline-block.mr(ng-src="/img/logo/company-logo-35.png")
+            span.fs-subhead.tc-blue-50.mb(style='margin-bottom:0px')
+                | {{companyName}}
+        md-list(layout='row' style="margin: 0px")
+            sv-nav-link(hide-sm="" style="margin:0px 4px" url='app.terms', stitle='Terms Of Use')
+            sv-nav-link(hide-sm="" style="margin:0px 4px" url='app.privacy', stitle='Privacy Policy')
+    md-divider(style='border-top-color:#82B1FF !important' class='mb ml mr')
+    div(layout='column')
+        div.mb.ml.mr(layout='row' layout-align='space-between center')
+            div(layout='column' flex="")
+                .fb-share-button(data-href="http://www.remax1stclass.com/" data-layout="button_count")
+                .g-plusone(gplus='', data-size='medium', data-annotation='bubble', data-href='', data-action='share')
+            .tc-blue-100(layout="column" flex="")
+                div(layout-gt-sm='row' layout-sm="column" layout-align="center center")
+                    div {{companyStreetAddress}}, &nbsp
+                    div {{companyCity}} {{companyState}}, {{companyZip}}
+                div(layout-gt-sm='row' layout-sm="column" layout-align="center center")
+                    div Phone: {{companyPhone}} &nbsp
+                    div Fax: {{companyFax}}
+            div(flex='' layout="row" layout-align="end end")
+                sv-social-media-list
+        md-divider.ml.mr(style='border-top-color:#82B1FF !important' class='mb')
+        div.tc-blue-100.pb(layout='row' layout-align='center center')
+            .fs-caption
+                i.fa.fa-copyright.fa-fw
+                | {{companyName}}. All rights reserved.

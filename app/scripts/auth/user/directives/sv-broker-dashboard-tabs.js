@@ -1,7 +1,8 @@
 (function () {
     'use strict';
     angular.module('auth.user')
-        .directive('svBrokerDashboardTabs', function ($state, $location, $stateParams, $timeout, $q, SearchSaleServ, userAuth, GetAgentsInfoServ, avatarBroker) {
+        .directive('svBrokerDashboardTabs', function (FbGenServ, toastr, homesUrl, $state, $location, $stateParams, $timeout, $q,
+                                                      SearchSaleServ, userAuth, GetAgentsInfoServ, avatarBroker) {
             return {
                 replace: true,
                 templateUrl: 'scripts/auth/user/directives/sv-broker-dashboard-tabs.html',
@@ -26,16 +27,45 @@
                             $scope.editState = true;
                         }, 10)
                     };
-                    $scope.saveProfile = function () {
-                        $timeout(function () {
-                            $scope.editState = false;
-                        }, 10)
+
+                    $scope.$on('broker:changed', function (evt, editedBroker) {
+                        $scope.saveBrokerProfile(editedBroker);
+                    });
+
+                    $scope.saveBrokerProfile = function (editedBroker) {
+                        $scope.editState = false;
+                        FbGenServ.saveObject(homesUrl + 'agents/' + userAuth.profile.brokerId, editedBroker).then(function (ref) {
+                            toastr.success('Changes have been saved');
+
+                            $scope.broker = editedBroker;
+                        });
                     };
                     $scope.avatarBroker = avatarBroker;
                     GetAgentsInfoServ.getByKey($scope.brokerId).then(function (broker) {
                         $scope.broker = broker;
                     });
-                    $scope.selectedIndex = 0;
+
+                    var stName = _.last($state.current.name.split('.'));
+                    switch (stName) {
+                        case 'profile':
+                            $scope.selectedIndex = 0;
+                            break;
+                        case 'listings':
+                            $scope.selectedIndex = 1;
+                            break;
+                        case 'blogs':
+                            $scope.selectedIndex = 2;
+                            break;
+                        case 'reviews':
+                            $scope.selectedIndex = 3;
+                            break;
+                        case 'endorsements':
+                            $scope.selectedIndex = 4;
+                            break;
+                        default:
+                            $scope.selectedIndex = 0;
+                    }
+
                     $scope.key = userAuth.key;
                     $scope.user = userAuth.profile;
                     $scope.$watch('selectedIndex', function (current, old) {
@@ -51,6 +81,9 @@
                                 break;
                             case 3:
                                 $state.go("^.reviews");
+                                break;
+                            case 4:
+                                $state.go("^.endorsements");
                                 break;
                             default:
                                 $state.go("^.profile");

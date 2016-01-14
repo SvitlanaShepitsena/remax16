@@ -15,10 +15,6 @@ lx-dropdown(position='right')
                 a.dropdown-link(ui-sref='app.manager.ad({uid:user.userName})')
                     i.fa.fa-bullhorn &nbsp
                     span Advertisement
-            li
-                a.dropdown-link(ui-sref="app.user.account-settings({uid:user.userName})")
-                    i.mdi.mdi-settings.mr
-                    | Account Settings
             li.dropdown-divider
             li
                 a.dropdown-link(ng-click='logout()')

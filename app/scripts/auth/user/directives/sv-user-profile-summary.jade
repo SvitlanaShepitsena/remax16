@@ -1,15 +1,18 @@
 div(layout-gt-sm='row' layout-sm='column')
-    div(flex-gt-sm='60')
+    div(flex='')
         .card(class='mb' class='ml mr')
-            div.bgc-grey-100(class='pl+ pr+ pt pb' layout='column' )
-                span.fs-subhead.mb.mr(ng-if='user') {{'account-status'|translate}}:
-                    span.fs-title.ml(ng-if='user && user.isStaff()') Broker Account
-                    span.fs-title.ml(ng-if='user && user.isManager()') Manager Account
-                    span.fs-title.ml(ng-if='user && user.isCustomer()') Buyer/Seller Account
+            div.bgc-grey-100.fs-title(class='p+')
+                i.fa.fa-user.fa-fw.tc-grey-700
+                span.ml.tc-grey-700(ng-if='user') Account Status:
+                span.ml.tc-blue-600(ng-if='user && user.isStaff()') Broker Account
+                span.ml.tc-blue-600(ng-if='user && user.isManager()') Manager Account
+                span.ml.tc-blue-600(ng-if='user && user.isCustomer()') Buyer/Seller Account
+            div.ml.mr.mt
                 sv-request-business-account-btn(ng-if='user && user.isCustomer()')
-            div.mt.mb
-                sv-user-personal-info
-            div.mt.mb
-                sv-change-password
-    div(flex-gt-sm='40')
-        //sv-pdf-subscription(class='ml mr')
+            div(layout='column')
+                div(flex='')
+                    sv-user-personal-info.mt.mb
+                div(flex='')
+                    sv-change-password.mt.mb
+    div(flex='')
+        sv-email-subscription(class='ml mr')

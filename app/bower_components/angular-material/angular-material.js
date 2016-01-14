@@ -8,7 +8,56 @@
 	"use strict";
 	(function () {
 		"use strict";
-		angular.module('ngMaterial', ["ng", "ngAnimate", "ngAria", "material.core", "material.core.gestures", "material.core.layout", "material.core.theming.palette", "material.core.theming", "material.core.animate", "material.components.autocomplete", "material.components.backdrop", "material.components.bottomSheet", "material.components.button", "material.components.card", "material.components.chips", "material.components.checkbox", "material.components.content", "material.components.datepicker", "material.components.dialog", "material.components.divider", "material.components.fabActions", "material.components.fabShared", "material.components.fabSpeedDial", "material.components.fabToolbar", "material.components.gridList", "material.components.fabTrigger", "material.components.icon", "material.components.list", "material.components.input", "material.components.menu", "material.components.menuBar", "material.components.progressCircular", "material.components.progressLinear", "material.components.radioButton", "material.components.select", "material.components.sidenav", "material.components.slider", "material.components.subheader", "material.components.swipe", "material.components.switch", "material.components.tabs", "material.components.sticky", "material.components.toast", "material.components.toolbar", "material.components.tooltip", "material.components.virtualRepeat", "material.components.whiteframe"]);
+angular.module('ngMaterial',
+[
+	"ng",
+"ngAnimate",
+"ngAria",
+"material.core",
+"material.core.gestures",
+"material.core.layout",
+"material.core.theming.palette",
+"material.core.theming",
+"material.core.animate",
+"material.components.autocomplete",
+"material.components.backdrop",
+"material.components.bottomSheet",
+"material.components.button",
+"material.components.card",
+"material.components.chips",
+"material.components.checkbox",
+"material.components.content",
+"material.components.datepicker",
+"material.components.dialog",
+"material.components.divider",
+"material.components.fabActions",
+"material.components.fabShared",
+"material.components.fabSpeedDial",
+"material.components.fabToolbar",
+"material.components.gridList",
+"material.components.fabTrigger",
+"material.components.icon",
+"material.components.list",
+"material.components.input",
+"material.components.menu",
+"material.components.menuBar",
+"material.components.progressCircular",
+"material.components.progressLinear",
+"material.components.radioButton",
+"material.components.select",
+"material.components.sidenav",
+"material.components.slider",
+"material.components.subheader",
+"material.components.swipe",
+"material.components.switch",
+"material.components.tabs",
+"material.components.sticky",
+"material.components.toast",
+"material.components.toolbar",
+"material.components.tooltip",
+"material.components.virtualRepeat",
+"material.components.whiteframe"
+]);
 	})();
 	(function () {
 		"use strict";

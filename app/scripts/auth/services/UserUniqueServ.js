@@ -7,12 +7,12 @@
             function findForGoogle(user, dbUsers) {
                 for (var i = 0; i < dbUsers.length; i++) {
                     var dbUser = dbUsers[i];
-                    if (dbUser.auth.google) {
+                    if (dbUser.auth && dbUser.auth.google) {
                         if (dbUser.auth.google.id === user.google.id) {
                             return dbUser;
                         }
                     }
-                    if (dbUser.auth.svet) {
+                    if (dbUser.auth && dbUser.auth.svet) {
                         if (dbUser.auth.svet.email.toLowerCase() === user.google.email.toLowerCase()) {
                             var dbUserObj = $firebaseObject(ref.child(dbUser.$id));
                             dbUserObj.$loaded().then(function () {
@@ -29,12 +29,12 @@
             function findForFacebook(user, dbUsers) {
                 for (var i = 0; i < dbUsers.length; i++) {
                     var dbUser = dbUsers[i];
-                    if (dbUser.auth.facebook) {
+                    if (dbUser.auth && dbUser.auth.facebook) {
                         if (dbUser.auth.facebook.id === user.facebook.id) {
                             return dbUser;
                         }
                     }
-                    if (dbUser.auth.svet) {
+                    if (dbUser.auth && dbUser.auth.svet) {
                         if (dbUser.auth.svet.email.toLowerCase() === user.facebook.email.toLowerCase()) {
                             var dbUserObj = $firebaseObject(ref.child(dbUser.$id));
                             dbUserObj.$loaded().then(function () {
@@ -83,10 +83,27 @@
                         userNamesArray.$loaded().then(function () {
                             for (var i = 0; i < userNamesArray.length; i++) {
                                 var user = userNamesArray[i];
-                                if (!user.profile.userName) {
+                                if (!user.profile || !user.profile.userName) {
                                     continue;
                                 }
                                 if (user.profile.userName.toLowerCase() === userName.toLowerCase()) {
+                                    reject();
+                                }
+                            }
+                            resolve();
+                        })
+                    });
+                },
+                isUserEmailUnique: function (userEmail) {
+                    return $q(function (resolve, reject) {
+                        var userNamesArray = $firebaseArray(new Firebase(users));
+                        userNamesArray.$loaded().then(function () {
+                            for (var i = 0; i < userNamesArray.length; i++) {
+                                var user = userNamesArray[i];
+                                if (!user.profile || !user.profile.email) {
+                                    continue;
+                                }
+                                if (user.profile.email.toLowerCase() === userEmail.toLowerCase()) {
                                     reject();
                                 }
                             }

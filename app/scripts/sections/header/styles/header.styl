@@ -1,66 +1,57 @@
-@import 'nib'
+
+.main-nav-toolbar
+  background-color #1E88E5 !important
+  padding 0px
+  border-radius 0px
+  height 68px
+  @media screen and (max-width: 599px) {
+    min-height 54px !important
+  }
+
+md-icon {
+  fill whitesmoke
+}
 
 .logo
   display block
   background: url("https://s3-us-west-2.amazonaws.com/remax1stclass/brokers/logos/company-logo.png") 0 0 no-repeat;
   position absolute
+  background-position center
+  background-color white
+  top 0px
+  left 0px
   width 76px
   height 76px
-  background-size 60px 60px
-  background-position center
-  left 0px
-  top 0px
-  background-color white
-  @media screen and (max-width: 350px) {
-    width 50px
-    height 50px
+  background-size 58px 58px
+  @media screen and (max-width: 599px) {
+    left 44px
+    width 54px
+    height 54px
     background-size 40px 40px
-  }
-  @media screen and (min-width: 350px) {
-    width 48px
-    height 48px
-    background-size 40px 40px
-  }
-  @media screen and (min-width: 500px) {
-    width 60px
-    height 60px
-    background-size 54px 54px
-  }
-  @media screen and (min-width: 800px) {
-    width 76px
-    height 76px
-    background-size 68px 68px
   }
 
 .logo-home
   transition all .5
-  @media screen and (max-width: 350px) {
-    left 4px !important
-    top 4px !important
-    width 50px !important
-    height 50px !important
-    background-size 40px 40px !important
-  }
-  @media screen and (min-width: 350px) {
-    left 8px !important
-    top 8px !important
-    width 48px !important
-    height 48px !important
-    background-size 40px 40px !important
-  }
-  @media screen and (min-width: 500px) {
+  @media screen and (max-width: 650px) {
     left 8px !important
     top 8px !important
     width 60px !important
     height 60px !important
     background-size 54px 54px !important
   }
-  @media screen and (min-width: 800px) {
-    left 16px !important
+  @media screen and (min-width: 651px) {
+    left 8px !important
     top 8px !important
-    width 96px !important
-    height 96px !important
-    background-size 80px 80px !important
+    width 70px !important
+    height 70px !important
+    background-size 58px 58px !important
+  }
+  @media screen and (min-width: 900px) {
+    left 8px !important
+    top 8px !important
+    width 76px !important
+    height 76px !important
+    background-size 58px 58px !important
   }
 
 .logo-link

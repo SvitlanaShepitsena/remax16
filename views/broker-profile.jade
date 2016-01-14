@@ -1,0 +1,13 @@
+extends layout
+include mixins/brokers/one-broker-about
+include mixins/brokers/broker-contact-info
+
+
+block content
+    div(class='p+')
+        if vm.broker !== undefined
+            +broker-contact-info(vm.broker,vm.defAvatar, vm.companyPhone, vm.companyFax, vm.dTitle)
+            include brokers/broker-profile-nav
+            +one-broker-about(vm.broker,vm.defAvatar, vm.companyPhone, vm.companyFax, vm.dTitle)
+
+

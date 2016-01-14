@@ -36,22 +36,11 @@
                         }
                     }
                 })
-                .state("app.svet-login", {
-                    url: "/svet-login",
-                    controller: "SvetLoginCtrl as login",
-                    templateUrl: "scripts/auth/views/svet-loginCtrl.html",
-                    resolve: {
-                        currentUser: function (userAuth, $q) {
-                            return $q(function (resolve, reject) {
-                                var isLoggedIn = !!userAuth.profile;
-                                if (isLoggedIn) {
-                                    reject('You are already logged in');
-                                } else {
-                                    resolve();
-                                }
-                            })
-                        }
-                    }
+                .state("app.login", {
+                    url: "/login/*credentials?",
+                    controller: "LoginCtrl as login",
+                    templateUrl: "scripts/auth/views/loginCtrl.html",
+
                 })
                 .state("app.y", {
                     url: "/y",

@@ -4,25 +4,20 @@
         .config(function ($stateProvider, $urlRouterProvider) {
             $stateProvider
             //#state'
-                .state("app.remax-listings", {
-                    abstract: true,
-                    url: "/remax-listings",
-                    templateUrl: "scripts/listings/views/listingsCtrl.html"
-                })
 
-                .state("app.remax-listings.search", {
+                .state("app.search", {
                     url: "/search/*params",
                     controller: "SearchResultsCtrl",
                     templateUrl: "scripts/search/views/search-resultsCtrl.html"
                 })
 
-                .state("app.remax-listings.one-listing-sale", {
-                    url: "/sale/:mls",
+                .state("app.one-listing-sale", {
+                    url: "/homes-for-sale/:mls",
                     controller: "OneRemaxListingCtrl",
                     templateUrl: "scripts/listings/views/one-remax-listingCtrl.html"
                 })
-                .state("app.remax-listings.one-listing-rent", {
-                    url: "/rent/:mls",
+                .state("app.one-listing-rent", {
+                    url: "/homes-for-rent/:mls",
                     controller: "OneRemaxListingCtrl",
                     templateUrl: "scripts/listings/views/one-remax-listingCtrl.html"
                 })

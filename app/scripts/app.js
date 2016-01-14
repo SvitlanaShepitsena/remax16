@@ -1,21 +1,25 @@
 (function () {
     angular.module('app', [
             // modules
-            'brokers',
-            'ui.router',
-            'ui.mask',
-            'ngMap',
-            'LocalStorageModule',
-            'ngFileUpload',
+            'ngAnimate',
+            'angular-capitalize-filter',
+            'ngCookies',
+            'ngMaterial',
+            'ngMessages',
+            'ngSanitize',
+            'toastr',
             'pascalprecht.translate',
-            'underscore.string',
+            'ui.router',
+            'firebase',
+            'ngFileUpload',
+            'lumx',
+            'textAngular',
+            'brokers',
+            'angular-input-stars',
             'auth',
             'search',
             'listings',
             'ad',
-            'ngMaterial',
-            'textAngular',
-            'blogs',
             'auth.user',
             'auth.manager',
             'customers',
@@ -25,29 +29,16 @@
             'common',
             'sections.header',
             'sections.about',
-            'sections.archive',
             'sections.home',
             'sections.contact',
-            'sections.testimonials',
+            'sections.privacy',
+            'sections.terms',
             'ngImgCrop',
-            'sections.widgets',
             // 3rd party modules
-            'ngCookies',
-            'angular-capitalize-filter',
-            'ngAnimate',
-            'flow',
-            'ngSanitize',
-            'lumx',
-            'ngMessages',
-            'ngTouch',
             'angular-flexslider',
-            'angular-carousel',
-            'toastr',
-            //'angulike',
             'ezfb',
-            'djds4rce.angular-socialshare',
-            'firebase',
-            'mwl.calendar'
+            'ngMap',
+            'LocalStorageModule',
         ])
         .config(function (localStorageServiceProvider) {
             localStorageServiceProvider
@@ -55,20 +46,12 @@
         })
         .config(function (ezfbProvider) {
             ezfbProvider.setInitParams({
-                appId: '422346614642986',
-                version: 'v2.4'
+                appId: '781844735261747',
+                version: 'v2.3'
             });
         })
         .config(function ($mdThemingProvider, $mdIconProvider, $compileProvider) {
             $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|mms):/);
-            $mdIconProvider
-                .defaultIconSet("./assets/svg/avatars.svg", 128)
-                .icon("menu", "./assets/svg/menu.svg", 24)
-                .icon("share", "./assets/svg/share.svg", 24)
-                .icon("google_plus", "./assets/svg/google_plus.svg", 512)
-                .icon("hangouts", "./assets/svg/hangouts.svg", 512)
-                .icon("twitter", "./assets/svg/twitter.svg", 512)
-                .icon("phone", "./assets/svg/phone.svg", 512);
             $mdThemingProvider.theme('default')
                 .primaryPalette('blue')
                 .accentPalette('red');
@@ -102,20 +85,17 @@
                 .html5Mode(true)
                 .hashPrefix('!');
         })
-        //.run(($rootScope) => {
-        //	$rootScope.$on("$stateChangeError", console.log.bind(console));
-        //})
-        //.factory('$exceptionHandler', function ($injector) {
-        //    return function (exception, cause) {
-        //        var $rootScope = $injector.get('$rootScope');
-        //        var toastr = $injector.get('toastr');
-        //        exception.message = exception.stack;
-        //        ////Comment on Production
-        //        toastr.error('ERROR!' + exception.message);
-        //        $rootScope.$broadcast('error');
-        //        throw exception;
-        //    };
-        //})
+        .factory('$exceptionHandler', function ($injector) {
+            return function (exception, cause) {
+                var $rootScope = $injector.get('$rootScope');
+                var toastr = $injector.get('toastr');
+                exception.message = exception.stack;
+                ////Comment on Production
+                toastr.error('ERROR!' + exception.message);
+                $rootScope.$broadcast('error');
+                throw exception;
+            };
+        })
         .config(['$compileProvider', function ($compileProvider) {
             //$compileProvider.debugInfoEnabled(false);
         }]);

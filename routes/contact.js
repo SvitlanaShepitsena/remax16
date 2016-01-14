@@ -7,20 +7,20 @@ module.exports = function contactUs(express) {
     var contactUsRouter = express.Router();
 
     contactUsRouter.get('/', function (req, res, next) {
-
+        var rootUrl = (req.protocol || 'http') + '://' + req.get('host');
         var userAgent = req.get('user-agent');
 
         if (userAgentServ.amIBot(userAgent)) {
-
-            var rootUrl = (req.protocol || 'http') + '://' + req.get('host');
-
-            /*create a view-model for fb crawler*/
             var vm = {
-                rootUrl: rootUrl,
-                title: constants.contactPageTitle,
+                url: rootUrl,
+                title: constants.homePageTitle,
+                description: constants.homePageDescription,
+                image: constants.companyLogoFb,
                 og: {
-                    title: constants.contactPageTitle,
-                    description: constants.contactPageDescription,
+                    title: constants.homePageTitle,
+                    description: constants.homePageDescription,
+                    image: constants.companyLogoFb,
+                    url: rootUrl
                 }
             };
 
@@ -32,7 +32,7 @@ module.exports = function contactUs(express) {
     });
 
     /*Redirect user to AngularJs App*/
-    var appFolder = path.join(__dirname, require('./dirServ')());
+    var appFolder = require('./dirServ')();
     contactUsRouter.use(express.static(appFolder));
 
     contactUsRouter.get('/info', function (req, res) {

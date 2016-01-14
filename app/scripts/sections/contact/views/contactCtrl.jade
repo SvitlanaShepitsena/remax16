@@ -1,9 +1,20 @@
-div.mt(layout='column' flex='' layout-align='center center' class='ml mr')
-    div.text-center.pl.pr
-        sv-profile-title(header-title="Contact Us Form")
-    div.text-center.pl.pr
-    //div(layout='column' layout-align='center center' class='mb+ ml mr' hide-sm )
-    //    .sv-iframe-responsive-wrap
-    //        iframe.sv-iframe-responsive(src="https://www.google.com/maps/d/embed?mid=zdTHzl0THQeM.kJQxl2t2rCe0" width="640" height="680")
-    //div(layout='column' layout-align='center center' class='mb+ ml mr' hide-gt-sm)
-    //    sv-open-dialog-btn(link-name="Contact Us Map" modal-method="showContactMapModal()" btn-img-icon="img/common/google-map.png" img-width="24px")
+.sv-main-content(class='pt+')
+    div(layout-gt-sm='row' layout-sm="column")
+        div(flex='' flex-order-sm="2" layout="column" layout-align="center center")
+            .card
+                .bgc-grey-100.p(flex="" layout-align-gt-sm="space-between center" layout-gt-sm="row" layout-sm="column" )
+                    .fs-headline.m(flex="")
+                        span.tc-red-700
+                            i.fa.i.fa.fa-map-marker.fa-fw
+                        span.tc-blue-700 {{companyName}}
+                    .tc-grey-700.fs-subhead(layout="column" flex="")
+                        div(layout-gt-sm='row' layout-sm="column" flex="")
+                            div {{companyStreet}}, &nbsp
+                            div {{companyCity}} {{companyState}}, {{companyZip}}
+                        div(layout-gt-sm='row' layout-sm="column" flex="")
+                            div Phone: {{companyPhone}} &nbsp
+                            div Fax: {{companyFax}}
+                .sv-iframe-responsive-wrap.pt
+                    iframe.sv-iframe-responsive(src="https://www.google.com/maps/d/embed?mid=zdTHzl0THQeM.kIf77Vwre964" width="640" height="680")
+        div(flex-gt-sm='40' flex-sm="100")
+            sv-contact-us-form

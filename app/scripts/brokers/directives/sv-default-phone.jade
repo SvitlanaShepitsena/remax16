@@ -1,0 +1,27 @@
+md-content.card.p(flex="")
+    div(layout='column' layout-align-sm="center center")
+        .fs-headline Contact Info:
+        div.fs-subhead(ng-repeat='phone in phones' layout="column" layout-align-sm="center center")
+            span.tc-grey-700(ng-show='broker.defaultTel?phone.name!=broker.defaultTel:phone.name!=="Office"')
+                i.mdi.mdi-phone(ng-if='phone.name=="Office"') &nbsp
+                i.mdi.mdi-cellphone(ng-if='phone.name=="Cell"') &nbsp
+                i.mdi.mdi-cellphone-android(ng-if='phone.name=="Direct"') &nbsp
+                span {{phone.name}}: &nbsp
+                span.tc-grey-800 {{phone.value|tel}}
+                span.ml(ng-if='editRight' )
+                    button.btn.btn--fab.btn--white.btn--xs.tc-blue-600(lx-ripple=''  ng-click='makeDefault(phone)' ng-disabled='!(broker.defaultTel?phone.name!=broker.defaultTel:phone.name=="Office")')
+                        i.fa.fa-check.fa-fw
+            span.tc-blue-600(ng-hide='broker.defaultTel?phone.name!=broker.defaultTel:phone.name!=="Office"' ng-if='editRight' )
+                i.mdi.mdi-phone(ng-if='phone.name=="Office"') &nbsp
+                i.mdi.mdi-cellphone(ng-if='phone.name=="Cell"') &nbsp
+                i.mdi.mdi-cellphone-android(ng-if='phone.name=="Direct"') &nbsp
+                span {{phone.name}}: &nbsp
+                span {{phone.value|tel}}
+                span.ml
+                    button.btn.btn--fab.btn--white.btn--xs.tc-blue-600(lx-ripple=''  ng-click='makeDefault(phone)' ng-disabled='!(broker.defaultTel?phone.name!=broker.defaultTel:phone.name=="Office")')
+                        i.fa.fa-check.fa-fw
+        .fs-subhead(style="margin-bottom:4px")
+            span.tc-grey-600
+                i.mdi.mdi-deskphone &nbsp
+                span Fax: &nbsp
+            span.tc-grey-800 {{companyFax}}

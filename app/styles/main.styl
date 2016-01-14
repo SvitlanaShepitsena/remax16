@@ -1,10 +1,7 @@
-@import 'nib'
 @import '../scripts/customers/styles/customers'
 @import '../scripts/brokers/styles/brokers'
 @import '../scripts/listings/styles/listings'
 @import '../scripts/search/styles/search'
-@import '../scripts/sections/testimonials/styles/testimonials'
-@import '../scripts/sections/styles/sections'
 @import '../scripts/ad/promotion/styles/promotion'
 @import '../scripts/ad/styles/ad'
 @import '../scripts/article/styles/article'
@@ -12,17 +9,15 @@
 @import '../scripts/auth/notifications/styles/notifications'
 @import '../scripts/auth/styles/auth'
 @import '../scripts/auth/user/styles/user'
-@import '../scripts/blogs/styles/blogs'
 @import '../scripts/common/styles/common'
 @import '../scripts/common/styles/photogallery'
 @import '../scripts/sections/header/styles/header'
 @import '../scripts/sections/about/styles/about'
-@import '../scripts/sections/archive/styles/archive'
 @import '../scripts/sections/contact/styles/contact'
 @import '../scripts/sections/home/styles/home'
-@import '../scripts/sections/widgets/styles/widgets'
+@import '../scripts/sections/privacy/styles/privacy'
+@import '../scripts/sections/terms/styles/terms'
 @import 'colors'
-@import 'animation/css-transitions'
 @import 'md'
 
 /**********************
@@ -146,7 +141,7 @@ btn-default:hover, .btn-default:focus {
   max-width 1400px
   margin 0px auto
   @media screen and (min-width: 992px) {
-    min-height 1200px
+    min-height 900px
   }
 
 /*Bugs with Safari*/
@@ -165,8 +160,17 @@ html, body
 .bgc-svet-700
   background-color #5C5654 !important
 
+.mb-4
+  margin-bottom 4px
+
+.mt-4
+  margin-top 4px
+
 .fw-500
   font-weight 500
+
+.fw-400
+  font-weight 400
 
 .mdc-no-margin
   margin 0px
@@ -344,18 +348,44 @@ md-tab-content
 .fs-10
   font-size 10px
 
+.fs-11
+  font-size 11px
+
+.fs-12
+  font-size 12px
+
+.fs-13
+  font-size 13px
+
+.fs-15
+  font-size 15px
+
+.fs-18
+  font-size 18px
+
 .text-center
   text-align center !important
 
+.text-right
+  text-align right !important
+
 md-sidenav
-  min-width 270px !important
-  max-width 270px !important
+  min-width 350px !important
+  max-width 350px !important
+  @media screen and (max-width: 350px)
+    width 310px !important
+    min-width 310px !important
+    max-width 310px !important
 
 md-sidenav
   &.md-locked-open
-    width 270px !important
-    min-width 270px !important
-    max-width 270px !important
+    width 350px !important
+    min-width 350px !important
+    max-width 350px !important
+    @media screen and (max-width: 350px)
+      width 310px !important
+      min-width 310px !important
+      max-width 310px !important
 
 .sv-width {
   @media screen and (max-width 992px) {

@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('listings')
-        .directive('svListingFull', function (avatarBroker, maps, googleMap, $mdDialog) {
+        .directive('svListingFull', function (avatarBroker,  maps, googleMap, $mdDialog, defaultImage) {
             function concatenate(address) {
                 var final = '';
                 for (var p in address) {
@@ -18,7 +18,7 @@
                     home: '='
                 },
                 link: function ($scope, el, attrs) {
-
+                    $scope.defaultImage = defaultImage;
                     $scope.showListingGalleryModal = function () {
                         $mdDialog.show(
                             {

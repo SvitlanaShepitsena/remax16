@@ -11,19 +11,31 @@ lx-dropdown(position='right')
                 a.dropdown-link(ui-sref="app.user.blogs({uid:user.userName})"  )
                     i.mdi.mdi-view-list.mr
                     span Blog
-            li(ng-if='user.isStaff()')
-                a.dropdown-link(ui-sref="app.brokers.broker.profile({id:brokerId})")
-                    i.mdi.mdi-view-dashboard.mr
-                    | My Public Page
+            li
+                a.dropdown-link(ui-sref="app.user.user-bookmarks({uid:user.userName})")
+                    i.mdi.mdi-star.mr
+                    | Bookmarks
+            li(ng-if='user.isCustomer()')
+                a.dropdown-link(ui-sref="app.user.user-reviews({uid:user.userName})")
+                    i.mdi.mdi-pen.mr
+                    | My Reviews
             li
                 a.dropdown-link(ui-sref="app.user.account-settings({uid:user.userName})")
                     i.mdi.mdi-settings.mr
                     | Account Settings
+            li(ng-if='user.isCustomer()')
+                a.dropdown-link(ui-sref="app.customers.one-customer({cid:user.userName})")
+                    i.mdi.mdi-account-circle.mr
+                    | My Public Page
+            li(ng-if='user.isStaff()')
+                a.dropdown-link(ui-sref="app.brokers.broker.profile({id:brokerId})")
+                    i.mdi.mdi-view-dashboard.mr
+                    | My Public Page
             li.dropdown-divider(ng-if='user.isStaff()')
             li(ng-if='user.isStaff()')
-                a.dropdown-link.tc-red-300(ui-sref='app.user.create-listing' )
+                a.dropdown-link.tc-red-300(ui-sref='app.user.create-listing({uid:user.userName})' )
                     i.mdi.mdi-plus.mr
-                    | Create Listing
+                    | Add Listing
             li.dropdown-divider(ng-if='user.isStaff()')
             li(ng-if='user.isStaff()')
                 a.dropdown-link.tc-red-300(ui-sref='app.user.create-article({artType:"blog",uid:user.userName,artId:null})' ui-sref-opts="{reload: true}")

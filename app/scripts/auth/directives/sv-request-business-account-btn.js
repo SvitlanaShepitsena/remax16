@@ -11,12 +11,12 @@
 
                     $scope.cancelRequest = function () {
                         RequestServ.cancelRequest(userAuth.key).then(function () {
-                            toastr.warning('Your request for Svet Russian Media Group  corporate account has been canceled');
+                            toastr.warning('Your request for Re/Max 1st Class Broker account has been canceled');
                         });
                     };
                     $scope.submitRequest = function () {
                         RequestServ.submitRequest(userAuth.key).then(function () {
-                            toastr.info('Your request for Re/Max 1st Class business account  submitted');
+                            toastr.info('Your request for Re/Max 1st Class Broker  business account  submitted');
                         })
                     };
                 }

@@ -11,32 +11,31 @@ module.exports = function homeRouter(express) {
 
     homeRouter.get('/', function (req, res, next) {
         var userAgent = req.get('user-agent');
-        console.log(userAgent);
+        var rootUrl = (req.protocol || 'http') + '://' + req.get('host');
 
         if (userAgentServ.amIBot(userAgent)) {
             /*create a view-model for fb crawler*/
 
-            var rootUrl = (req.protocol || 'http') + '://' + req.get('host');
-            console.log(rootUrl);
             var vm = {
-                rootUrl: rootUrl,
+                url: rootUrl,
                 title: constants.homePageTitle,
+                description: constants.homePageDescription,
+                image: constants.companyLogoFb,
                 og: {
                     title: constants.homePageTitle,
                     description: constants.homePageDescription,
-                    image: rootUrl + '/img/logo/company-logo-fb.jpg',
-                    url: constants.url
+                    image: constants.companyLogoFb,
+                    url: rootUrl
                 }
             };
-
-            var postsUrl = 'https://svet.firebaseio.com/articles';
-            console.log('test');
-            firebaseServ.getAll(postsUrl).then(function (news) {
-                console.log(news);
-                vm.homeNews = homepageRenderServ.process(news);
+            var blogsUrl = url + 'blogs';
+            firebaseServ.getAll(blogsUrl).then(function (blogs) {
+                console.log(blogs);
+                vm.blogs = homepageRenderServ.process(blogs);
                 res.render('home', {vm: vm});
 
             }, function (Error) {
+                console.log(Error);
 
             });
         } else {
@@ -47,7 +46,8 @@ module.exports = function homeRouter(express) {
 
     /*Redirect user to AngularJs App*/
 
-    var appFolder = path.join(__dirname, require('./dirServ')());
+    var appFolder = require('./dirServ')();
+    console.log(appFolder);
     homeRouter.use(express.static(appFolder));
 
     homeRouter.get('/', function (req, res) {

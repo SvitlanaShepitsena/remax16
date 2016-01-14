@@ -20,16 +20,6 @@
                     },
                     templateUrl: "scripts/article/views/create-articleCtrl.html"
                 })
-                .state("app.svet-recommends", {
-                    url: "/svet-recommends",
-                    controller: "SvetRecommendsCtrl as svetRecommends",
-                    templateUrl: "scripts/article/views/svet-recommendsCtrl.html"
-                })
-            //.state("app.one-blog", {
-            //    url: "/svet-blog/:author/:postId",
-            //    controller: "OneBlogCtrl",
-            //    templateUrl: "scripts/article/views/one-blogCtrl.html"
-            //})
 //#state'
         });
 })();

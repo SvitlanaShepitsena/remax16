@@ -1,20 +1,19 @@
 div
     form(name='articleForm' ng-submit="saveArticle(false,articleForm)" flow-init novalidate sv-form-val)
         .bgc-grey-200.p(layout='row' layout-align="space-around center" )
-            button.btn.btn--m.btn--teal.btn--flat.tc-teal-300(lx-ripple='' type='submit' id='saveBtn' ng-disabled="articleForm.$pristine")
+            button.btn.btn--m.btn--teal.btn--flat.tc-teal-300(lx-ripple='' type='submit' id='saveBtnT' ng-disabled="articleForm.$pristine")
                 i.fa.fa-save.fa-fw &nbsp
-                | {{'save-changes'|translate}}
+                | Save Changes
             sv-lumx-button(btn-size="m" btn-color="red" text-color="red-300" btn-type="flat" btn-title="cancel" icon-type="fa"
             icon-name="fa-close" btn-url="app.home"
             method-click='cancelArticle(true)')
         div(class='pl+ pr+ pb++ pt' layout-align='start' layout='column')
-            div(layout-align='start' layout='row')
-                sv-article-status(ng-if='article.$id' article="article" key='article.$id')
-            hr
-        div(class='pl+ pr+ pb++ pt')
+            sv-article-status(ng-if='article.$id' article="article" key='article.$id')
+        hr
+        div(class='pl+ pr+ pb++ pt+')
             div(layout='row', layout-sm='column' layout-align-gt-sm='space-between center')
                 md-input-container.md-input-container-article(flex='50')
-                    label {{'article-author'|translate}}
+                    label Article Author
                     input(ng-model='article.author' sv-url-decode sv-author-humanize name='author' required='')
                 .mt(show-sm)
                 md-input-container.md-input-container-article(flex='45')
@@ -27,8 +26,8 @@ div
             div(layout='column' layout-align='top')
                 md-input-container.md-input-container-article-sarticle(flex='')
                     label Blog summary
-                    input(ng-model='article.summary'  sv-url-decode type="text" md-maxlength='150' name='summary' required )
-                span(ng-if='!article.summary' class='notice-red') {{summary-notice| translate}}
+                    input(ng-model='article.summary'  sv-url-decode type="text" md-maxlength='250' name='summary' required )
+                span(ng-if='!article.summary' class='notice-red') You need to add article summary.
             div(layout-gt-sm='row' layout-sm='column' layout-align='center')
                 div(layout='row' flex)
                     md-input-container.md-input-container-article
@@ -36,30 +35,30 @@ div
                     md-input-container.md-input-container-article
                         sv-image-upload(sv-max-size='3' sv-min-width='180' sv-min-height='150' )
                 div(layout='row' layout-align='end center' flex)
-                    div(layout='row' layout-align='start center' ng-if='user.isEditor() && !article.isBlog')
-                        md-checkbox(ng-model="article.svetRecommends" aria-label="Checkbox")
-                        span.mdc-display-inline-block.fs-caption(style='font-weight:600') {{'svet-recommends'|translate}}
+                    div(layout='row' layout-align='start center')
+                        md-checkbox(ng-model="article.endorsements" aria-label="Checkbox")
+                        span.mdc-display-inline-block.fs-caption(style='font-weight:600') Endorsement
             div(layout='column' class='mb')
                 span.mdc-display-inline-block.fs-caption.tc-red-300
                     | To upload an image from your PC, put a cursor in the article description field, where you want your image to be placed,
                     | then click on "Chose and Image" button.
                 div
-                    span.tc-grey-700.fs-caption.display-block {{'image-format'|translate}} {{'image-max-size'|translate}} {{'image-min-dimensions'|translate}}.
+                    span.tc-grey-700.fs-caption.display-block {{'image-format'}} {{'image-max-size'}} {{'image-min-dimensions'}}.
             div(layout='column')
-                md-input-container.md-input-container-article(flex='')
-                    sv-svet-pad(body='article.body' sv-html-cleaner)
+                md-input-container.md-input-container-article(flex="")
+                    sv-text-pad(body='article.body' sv-html-cleaner)
             div(layout='row')
-                md-input-container.md-input-container-article(flex)
-                    label {{'tags'|translate}}
+                md-input-container.md-input-container-article(flex="")
+                    label Tags
                     input(ng-model='article.tags' sv-url-decode name='tags' type="text" md-maxlength="100")
             div(layout='row')
-                md-input-container.md-input-container-article(flex)
-                    label {{'photo-source'|translate}}
+                md-input-container.md-input-container-article(flex="")
+                    label Photo Source
                     input(ng-model='article.imgsource' sv-url-decode name='imgsource' type="text" md-maxlength="200")
         .bgc-grey-200.p(layout='row' layout-align="space-around center")
-            button.btn.btn--m.btn--teal.btn--flat.tc-teal-300(lx-ripple='' type='submit' id='saveBtn' ng-disabled="articleForm.$pristine")
+            button.btn.btn--m.btn--teal.btn--flat.tc-teal-300(lx-ripple='' type='submit' id='saveBtnB' ng-disabled="articleForm.$pristine")
                 i.fa.fa-save.fa-fw &nbsp
-                | {{'save-changes'|translate}}
+                | Save Changes
             sv-lumx-button(btn-size="m" btn-color="red" text-color="red-300" btn-type="flat" btn-title="cancel" icon-type="fa"
             icon-name="fa-close" btn-url="app.home"
             method-click='cancelArticle(true)')

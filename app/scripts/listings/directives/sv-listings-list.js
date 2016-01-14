@@ -69,10 +69,10 @@
     }
 
     angular.module('listings')
-        .directive('svListingsList', function (BoundariesServ, avatarBroker, mapStyler, icon, $rootScope, googleMap, QueryServ, $timeout, $stateParams, SearchSaleServ, GeoServ, $window, localStorageService, $filter, defaultImage, SortServ) {
+        .directive('svListingsList', function (toastr, homesUrl, avatarBroker, userAuth, url, FbGenServ, mapStyler, icon, $rootScope, googleMap, QueryServ, $timeout, $stateParams, SearchSaleServ, GeoServ, $window, localStorageService, $filter, defaultImage, SortServ) {
             function centerMapToBounds(newValue, $scope) {
                 var bounds = new google.maps.LatLngBounds();
-                newValue.forEach((place) => {
+                newValue.forEach(function(place) {
                     if (place && place.position) {
                         bounds.extend(place.position);
                     }
@@ -97,7 +97,9 @@
                         return $scope.homes;
                     }
                 },
-                scope: {},
+                scope: {
+                    bookmarks: '='
+                },
                 link: function ($scope, el, attrs) {
                     $scope.underBrokers = $rootScope.underBrokers;
                     $scope.isBroker = $stateParams.id;
@@ -145,11 +147,31 @@
                     $scope.$on('mapGrid:changed', function (event, isMap) {
                         $scope.mapView = isMap;
                     });
-                    SearchSaleServ.getHomes($stateParams, $scope.isBroker).then(function (homes) {
+                    SearchSaleServ.getHomes($stateParams, $scope.isBroker, $scope.bookmarks).then(function (homes) {
+
+                        if (userAuth.profile) {
+                            var bkmPath = url + 'bookmarks/' + userAuth.profile.userName;
+                            FbGenServ.getAssync(bkmPath).then(function (bookmarks) {
+                                $scope.bookmarks = _.pluck(bookmarks, '$id');
+                            })
+                        }
+                        $scope.$on('bookmark:deleted', function (evt, bkmId) {
+                            for (var n = 0; n < $scope.homes.length; n++) {
+                                var home = $scope.homes[n];
+                                if (home.$id === bkmId) {
+                                    $scope.homes.splice(n, 1);
+                                    break;
+
+                                }
+
+                            }
+                        });
+
+
                         $scope.avatarBroker = avatarBroker;
                         $rootScope.hmCnt = homes;
                         if (!homes || homes.length === 0) {
-                            //$scope.$broadcast('homes:loaded', {numb:0});
+                            $rootScope.$broadcast('hide:listing:list');
                             $timeout(function () {
                                 if ($scope.map) {
                                     $scope.map.setCenter(new google.maps.LatLng(42.008871225891134, -87.93649894999999));
@@ -171,7 +193,11 @@
                             });
                             marker.id = home.$id;
                             var url = home.images ? home.images[0] : defaultImage;
-                            var href = "/remax-listings/" + (home.isRent ? 'rent/' : 'sale/') + home.mls + '/';
+                            var href = (home.isRent ? 'homes-for-rent/' : 'homes-for-sale/') + home.mls + '/';
+
+
+                            var amIOwner = userAuth.profile && userAuth.profile.brokerId === home.agent;
+
                             $scope.infoWindowMap.set(marker.id, new google.maps.InfoWindow({
                                 content: `
                                 <div style="margin-bottom:4px">
@@ -186,9 +212,9 @@
                                         <a href="${href}" style="text-decoration:none" target="_blank">
                                             <div style="font-size:15px;font-weight:600;color:#1e88e5">${$filter("currency")(home.price, "$", 0)} </div>
                                             <div >
-                                                <span ng-if="home.isRent">For Rent</span>
-                                                <span ng-if="!home.isRent">For Sale</span>
-                                                <span ng-if="!home.isRent" style="font-size:12px;color:#393939"> ${home.type}</span>
+                                                <span>For ${home.isRent ? 'Rent' : 'Sale'}</span>
+
+                                                <span style="font-size:12px;color:#393939"> ${home.type}</span>
 
                                             </div>
                                             <div style="font-weight:500;color:#393939">${home.address.city},${home.address.zip}</div>
@@ -229,41 +255,108 @@
                                   </div>
                                 </div>
                                 </a>
-                                    <div id="pano" style='width:400px;height:200px'></div>
+
+                                  ${amIOwner ? '<div><button style="margin: 3px;" type="button" class="btn btn--s btn--blue btn--raised" id="savePov">Save View</button></div>' : ''}
+
+                                    ${pos.pano ? '<div id="pano" style="width:400px;height:200px"></div>' : ''}
 							 `
                             }));
-                            marker.addListener('click', function () {
+                            $scope.deaf = false;
+                            function isInfoWindowOpen(infoWindow) {
+                                var map = infoWindow.getMap();
+                                return (map !== null && typeof map !== "undefined");
+                            }
+
+                            marker.addListener('mouseover', function () {
+                                if ($scope.deaf || $scope.activeMarkerId == marker.id) {
+                                    return;
+                                }
+
+
+                                $scope.deaf = true;
+                                var infoWindow = $scope.infoWindowMap.get(marker.id);
                                 $scope.infoWindowMap.forEach(function (infoWin) {
-                                    infoWin.close();
+                                    if (infoWin != infoWindow) {
+                                        infoWin.close();
+                                    } else {
+
+                                        if (!isInfoWindowOpen(infoWin)) {
+
+                                            infoWin.open($scope.map, marker);
+                                            google.maps.event.addListener(infoWin, 'closeclick', function () {
+                                                $scope.activeMarkerId = 0;
+                                                // then, remove the infowindows name from the array
+                                            });
+                                            $scope.activeMarkerId = marker.id
+                                        }
+                                    }
                                 });
-                                $scope.infoWindowMap.get(marker.id).open($scope.map, marker);
-                                var panorama = new google.maps.StreetViewPanorama(
-                                    document.getElementById('pano'), {
-                                        position: latLng,
-                                        fullScreenControl:false,
-                                        addressControl:false
-                                    });
+                                $timeout(function () {
+                                    $scope.deaf = false;
+
+                                }, 800);
+
+                                if (pos.pano) {
+
+                                    var panorama = new google.maps.StreetViewPanorama(
+                                        document.getElementById('pano'), {
+                                            position: pos.pano,
+                                            fullScreenControl: false,
+                                            addressControl: false
+                                        });
 
 
                                     google.maps.event.addListenerOnce(panorama, 'status_changed', function () {
 
                                         var loc = panorama.getLocation();
                                         if (loc) {
-                                        var heading = google.maps.geometry.spherical.computeHeading(loc.latLng, latLng);
-                                        panorama.setPov({
-                                            heading: heading,
-                                            pitch: 0
-                                        });
+                                            var povObj={};
+                                            if (home.geo.pano.pov) {
+                                                povObj = home.geo.pano.pov;
+                                            } else {
+                                                var heading = google.maps.geometry.spherical.computeHeading(loc.latLng, latLng);
+                                                povObj.pitch = 0;
+                                                povObj.heading = heading;
 
-                                        } else{
+                                            }
+                                            panorama.setPov(povObj);
+
+                                        } else {
                                             panorama.setVisible(false);
                                         }
-
-
-
                                     });
 
+                                    if (amIOwner) {
 
+                                        $('#savePov').on('click', function () {
+                                            var lat = $scope.newPos.lat();
+                                            var lng = $scope.newPos.lng();
+                                            var pano = {lat, lng};
+                                            pano.pov = $scope.newPov;
+                                            var saleRent = home.isRent ? 'rent' : 'sale';
+                                            var panourl = homesUrl + saleRent + '/' + home.$id + '/geo/pano';
+                                            FbGenServ.removeObj(panourl).then(function () {
+                                                FbGenServ.saveObject(panourl, pano).then(function () {
+                                                    toastr.success('new view saved');
+                                                });
+                                            });
+                                            console.log(pano);
+                                        })
+                                        panorama.addListener('position_changed', function () {
+                                            $scope.newPos = panorama.getPosition();
+
+                                            var b = 2;
+                                        });
+
+                                        panorama.addListener('pov_changed', function () {
+                                            $scope.newPov = panorama.getPov();
+
+
+                                        });
+                                    }
+
+
+                                }
 
                             });
                             return marker;

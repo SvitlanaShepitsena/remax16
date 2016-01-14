@@ -1,18 +1,18 @@
 (function () {
     'use strict';
     angular.module('article')
-        .directive('svDeleteArticleBtn', function (toastr) {
+        .directive('svDeleteArticleBtn', function (toastr, FbGenServ, url) {
             return {
                 replace: true,
-                require: '^?svAuthorArticlesTabs',
+                require: '?^svBrokerBlogs',
                 templateUrl: 'scripts/article/directives/sv-delete-article-btn.html',
                 scope: {
-                    articleKey: '@'
+                    articleKey: '@',
+                    i:'@'
                 },
                 link: function ($scope, el, attrs, ctrl) {
                     $scope.removeArticle = function () {
-                        ctrl.removeOneArticle($scope.articleKey);
-                        //toastr.info('Delete runned');
+                        ctrl.removeBlog($scope.articleKey, $scope.i);
                     };
                 }
             };

@@ -1,10 +1,10 @@
 .card
-    a.display-block(ui-sref='app.customers.one-customer' style="text-decoration:none")
+    a.display-block(ui-sref='app.customers.one-customer({cid:customer.profile.userName})' style="text-decoration:none")
         div(layout='column')
             div.m
-                sv-img-background.sv-img-thumb(sv-image="customer.profile.avatar" img-width="120" img-height="120"  wrapper-class="img-round" style="margin:0px auto")
+                sv-img-background.sv-img-thumb(sv-image="customer.profile.avatar" img-width="70" img-height="70"  wrapper-class="img-round" style="margin:0px auto")
             div.text-center(flex="")
-                p.fs-title.tc-grey-900 {{customer.profile.userName | capitalize}}
+                p.fs-title.tc-blue-600 {{customer.profile.userName | capitalize}}
                 span(ng-if='customer.profile.city') {{customer.profile.city}}
                 span(ng-if='customer.profile.city && customer.profile.state') , &nbsp
                 span(ng-if='customer.profile.state') {{customer.profile.state}}

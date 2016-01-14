@@ -1,7 +1,7 @@
 (function () {
     'use strict';
     angular.module('sections.header')
-        .directive('svSocialTopNavCell', function ($mdBottomSheet) {
+        .directive('svSocialTopNavCell', function ($mdBottomSheet, $mdSidenav) {
             return {
                 replace: true,
                 templateUrl: 'scripts/sections/header/directives/sv-social-top-nav-cell.html',
@@ -20,6 +20,11 @@
                     $scope.listItemClick = function ($index) {
                         var clickedItem = $scope.items[$index];
                         $mdBottomSheet.hide(clickedItem);
+                    };
+                    $scope.closeSideBar = function ($index) {
+                        var clickedItem = $scope.items[$index];
+                        $mdSidenav('left').hide(clickedItem);
+                        $mdSidenav('right').hide(clickedItem);
                     };
                 }
             };

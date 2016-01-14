@@ -1,12 +1,12 @@
 div(layout='row' layout-align="space-between center" )
-    div.pt(ng-if='!isBroker')
+    div.pt(ng-if='!isBroker && !isBookMarkState'  hide-sm="")
         sv-search-dropdown
-    div
-        sv-search-stat
-    div.pt.pr(layout='row' layout-align='space-between')
-        button.btn.btn--m.btn--white.btn--raised.mr(lx-ripple='' ng-click='changeMapGridView(true)')
-            i.fa.fa-map-o.fa-fw
-            span.mdc-display-inline-block.ml(hide-sm) Map
-        button.btn.btn--m.btn--white.btn--raised(lx-ripple='' ng-click='changeMapGridView(false)')
-            i.fa.fa-th.fa-fw
-            span.mdc-display-inline-block.ml(hide-sm) Grid
+    sv-profile-title.ml(header-title='My Bookmarks' ng-if='isBookMarkState')
+    sv-search-stat
+    div.pr(layout='row' layout-align='space-between')
+        button.btn.btn--m.btn--white.btn--raised.bgc-grey-100.mr(lx-ripple='' ng-click='changeMapGridView(true)')
+            i.fa.fa-map-o.tc-red-700
+            span.mdc-display-inline-block.ml.tc-blue-700(hide-sm) Map
+        button.btn.btn--m.btn--white.btn--raised.bgc-grey-100(lx-ripple='' ng-click='changeMapGridView(false)')
+            i.fa.fa-th.tc-red-700
+            span.mdc-display-inline-block.ml.tc-blue-700(hide-sm) Grid

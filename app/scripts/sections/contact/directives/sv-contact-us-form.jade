@@ -1,0 +1,22 @@
+.card(class='mb pb++')
+    .bgc-grey-100(class='pl+ pr+ pt pb' layout-gt-sm='row' layout-sm="column" layout-align-gt-sm='space-between center' class='pt+ pb+ pl pr')
+        .fs-headline.tc-grey-900
+            i.mdi.mdi-message-text-outline.tc-red-700
+            span.ml.tc-blue-700 Contact Us
+    div(class='p+')
+        form.mt(name='Form' novalidate sv-form-val)
+            md-input-container
+                label Name
+                input(type='text' name='contactName'  ng-model='user.contactName'  ng-minlength="3" ng-maxlength="200" required="error" )
+            div(layout-gt-sm='row' layout-sm='column'  )
+                md-input-container(flex="")
+                    label Email
+                    input(type='email' name='contactEmail'  ng-model='user.contactEmail' required)
+                md-input-container(flex="")
+                    input(type='phone' name='contactPhone' aria-label="Phone" ng-model='user.contactPhone'  ng-minlength="6" ng-maxlength="200" ui-mask="(999) 999-9999")
+            md-input-container
+                label Message
+                textarea(type='text' name='userMessage'  ng-model='user.userMessage'  ng-minlength="3" ng-maxlength="1000" required="error" )
+            button.btn.btn--l.btn--raised.btn--red.bgc-grey-100.mt.fw-500(lx-ripple)
+                i.mdi.mdi-send.tc-red-700 &nbsp
+                span.ml.tc-blue-700 Send Message

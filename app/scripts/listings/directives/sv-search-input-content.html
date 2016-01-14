@@ -1,1 +1,1 @@
-<span class="tc-grey-700"><span ng-if="cnt" class="fw-500">{{cnt||0}} homes for {{isRent?'rent':'sale'}}</span><span ng-if="emptyNotice" class="fw-500">{{emptyNoticeInput}} for {{isRent?'rent':'sale'}}</span></span>
+<span class="tc-grey-700"><span ng-if="cnt" class="fw-500">{{cnt||0}} homes for {{isRent?'rent':'sale'}}</span><span ng-if="!cnt" class="fw-500"><span class="tc-blue-600">0</span><span class="ml">listings for {{isRent?'rent':'sale'}}</span></span></span>

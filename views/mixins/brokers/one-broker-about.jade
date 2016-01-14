@@ -1,0 +1,18 @@
+mixin one-broker-about(broker,avatar,phone,fax,dTitle)
+    .row.thumbnail(style="margin:4px")
+        if (broker.accreditation)
+            .row
+                .col-xs-6
+                    p
+                        strong Accreditation: &nbsp
+                        span !{broker.accreditation}
+                    p
+                        strong Years of experience: &nbsp
+                        span !{broker.yearsexperience}
+                    p
+                        strong Specialities: &nbsp
+                        span !{broker.specialities}
+                    p
+                        strong Areas Served: &nbsp
+                        span !{broker.areasserved}
+

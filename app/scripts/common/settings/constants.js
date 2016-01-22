@@ -13,7 +13,7 @@
         .constant('companyName', 'Re/Max 1st Class')
         .constant('companyWebsite', 'http://remax1stclass.com/')
         .constant('companyStreetAddress', '4023 W. Church St.')
-        .constant('companyCity', 'Chicago')
+        .constant('companyCity', 'Skokie')
         .constant('defaultBrokerTitle', 'Real Estate Agent')
         .constant('companyState', 'IL')
         .constant('companyZip', '60076')

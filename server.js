@@ -26,11 +26,10 @@ app.set('views', path.join(__dirname, 'views')); // specify the views directory
 //        }
 //    }
 //})
-
+var wwwRedirect = require('./routes/wwwRedirect')(express);
 /*local*/
 var uploadRouter = require('./routes/upload')(express);
 var emailConfirmationRouter = require('./routes/emailConfirmation')(express);
-var wwwRedirect = require('./routes/wwwRedirect');
 var homeRouter = require('./routes/home')(express);
 var brokerRouter = require('./routes/broker')(express);
 var brokersRouter = require('./routes/brokers')(express);
@@ -46,8 +45,8 @@ var loginRouter = require('./routes/login')(express);
 var signUpRouter = require('./routes/signUp')(express);
 
 // --- Routes ---
+app.use(/.*/, wwwRedirect);
 app.use('/email-confirmation-1stclass', emailConfirmationRouter);
-//app.all(/.*/, wwwRedirect);
 app.use('/broker-thumb', uploadRouter);
 app.use('/contact', contactUsRouter);
 app.use('/terms-of-use', termsRouter);
